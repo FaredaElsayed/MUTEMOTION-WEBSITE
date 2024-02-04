@@ -1,0 +1,179 @@
+.profile {
+  place-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  margin: 2.5rem 0px;
+  background-size: cover;
+  background-position: center;
+  padding: 2.5rem 0rem;
+  color: #442c8f;
+  letter-spacing: -0.022em;
+  text-transform: capitalize;
+  font-family: "Merriweather";
+  font-style: normal;
+}
+.profile main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem;
+}
+.profile main p {
+  font-style: italic;
+  font-weight: 300;
+  font-size: 2rem;
+  line-height: 2.5rem;
+}
+.rectangle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 442px;
+  height: 657px;
+  border: 1px solid #eeeeee;
+  border-radius: 150px 150px 150px 0px;
+  margin: 2rem;
+}
+
+.mainInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.img {
+  border-radius: 50%;
+  height: 132px;
+  width: 142px;
+  object-fit: cover;
+}
+.mainInfo h2 {
+  font-weight: 700;
+  font-size: 2.2rem;
+  line-height: 3rem;
+}
+
+.rectangle2 {
+  box-sizing: border-box;
+  width: 438px;
+  height: 280px;
+  border: 1px solid #652d90;
+  border-radius: 150px 150px 150px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.rectangle2 p,
+.p {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+.container p {
+  font-size: 2.2rem;
+}
+
+.rectangleComponent {
+  box-sizing: border-box;
+  width: 1110px;
+  height: fit-content;
+  padding: 4rem 0px;
+  border: 1px solid #652d90;
+  border-radius: 150px 150px 150px 0px;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.sideComp {
+  width: 30%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 2rem;
+  width: 50%;
+  font-family: "Merriweather";
+  font-style: normal;
+}
+.form form {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  gap: 1rem;
+}
+.form div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.form input {
+  border: 1px solid #eeeeee;
+  border-radius: 12px;
+  padding: 1rem;
+  width: 100%;
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  text-transform: capitalize;
+  color: #939393;
+}
+
+.form select,
+.form option {
+  border: 1px solid #eeeeee;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.7rem;
+  color: #939393;
+  width: fit-content;
+  padding: 1rem;
+  outline: transparent;
+}
+.form img,
+.form svg {
+  display: none;
+}
+select option:checked {
+  color: #333;
+}
+input:focus {
+  outline: transparent;
+}
+
+input:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-text-fill-color: #939393;
+  -webkit-background-clip: text;
+}
+
+.buttons {
+  flex-direction: row !important;
+  gap: 4rem !important;
+  justify-content: center;
+}
+
+.notification {
+  text-align: center;
+}

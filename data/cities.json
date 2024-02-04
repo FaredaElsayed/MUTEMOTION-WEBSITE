@@ -1,0 +1,52 @@
+{
+  "cities": [
+    {
+      "cityName": "Cairo",
+      "country": "Egypt",
+      "emoji": "🇪🇬",
+      "date": "2023-12-14T21:22:46.690Z",
+      "notes": "ggg",
+      "position": {
+        "lat": "30.143991297818374",
+        "lng": "31.510061580450056"
+      },
+      "id": 98443203
+    },
+    {
+      "cityName": "At Tall al Kabir",
+      "country": "Egypt",
+      "emoji": "🇪🇬",
+      "date": "2023-12-16T03:05:41.282Z",
+      "notes": "Amaing",
+      "position": {
+        "lat": "30.27807409459045",
+        "lng": "31.861569573037155"
+      },
+      "id": 98443204
+    },
+    {
+      "cityName": "Cairo",
+      "country": "Egypt",
+      "emoji": "🇪🇬",
+      "date": "2023-12-16T16:25:36.918Z",
+      "notes": "amazing place",
+      "position": {
+        "lat": "30.048895962704204",
+        "lng": "31.861569573037155"
+      },
+      "id": 98443205
+    },
+    {
+      "cityName": "Ma'an",
+      "country": "Jordan",
+      "emoji": "🇯🇴",
+      "date": "2023-12-16T16:25:57.868Z",
+      "notes": "wow",
+      "position": {
+        "lat": "30.93899584248968",
+        "lng": "37.11360081990376"
+      },
+      "id": 98443206
+    }
+  ]
+}

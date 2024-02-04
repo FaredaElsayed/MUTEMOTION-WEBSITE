@@ -1,0 +1,138 @@
+/* Taken from getting started guide at: https://leafletjs.com/examples/quick-start/ */
+/* @import "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
+@import "https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap"; */
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,300&display=swap");
+
+/* These CSS variables are global, so they are available in all CSS modules */
+:root {
+  --color-brand--1: #ffb545;
+  --color-brand--2: #00c46a;
+  --color-dark--0: #242a2e;
+  --color-dark--1: #2d3439;
+  --color-dark--2: #42484d;
+  --color-light--1: #aaa;
+  --color-light--2: #ececec;
+  --color-light--3: #d6dee0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Merriweather", serif;
+  color: var(--color-light--2);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+label {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+/* input,
+textarea {
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  font-family: inherit;
+  font-size: 1.6rem;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--color-light--3);
+  transition: all 0.2s;
+}
+
+input:focus {
+  outline: none;
+  background-color: #fff;
+} */
+
+.cta:link,
+.cta:visited {
+  display: inline-block;
+  background-color: var(--color-brand--2);
+  color: var(--color-dark--1);
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding: 1rem 3rem;
+  border-radius: 5px;
+}
+
+/*
+"importCSSModule": {
+    "prefix": "csm",
+    "scope": "javascript,typescript,javascriptreact",
+    "body": ["import styles from './${TM_FILENAME_BASE}.module.css'"],
+    "description": "Import CSS Module as `styles`"
+  },
+*/
+/* Adjusted CSS for Dropdown Menu */
+/* Adjusted CSS for Dropdown Menu */
+/* PageNav.module.css */
+.dropdown-menu {
+  width: 200px;
+  height: fit-content !important;
+  background: #fff;
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 6rem;
+  list-style: none;
+  text-align: left;
+  z-index: 100000000000000000;
+  padding-bottom: 1rem;
+  transition: opacity 0s ease-in-out;
+  gap: 1.2rem !important;
+}
+
+.dropdown-menu.visible {
+  display: flex;
+  color: blue;
+}
+
+.dropdown-menu li {
+  cursor: pointer;
+  line-height: 2rem;
+  padding: 8px;
+}
+
+.dropdown-menu li:hover {
+  text-decoration: underline;
+}
+
+.dropdown-link {
+  display: inline-block;
+  width: 100%;
+  text-decoration: none;
+  color: #000;
+}
+
+progress {
+  appearance: none;
+}
+
+progress::-webkit-progress-bar {
+  border-radius: 12px;
+  background-color: #eee;
+}
+
+progress::-webkit-progress-value {
+  border-radius: 12px;
+  background-color: #442c8f;
+}
+
+@media screen and (max-width: 960px) {
+  .fa-caret-down {
+    display: none;
+  }
+}

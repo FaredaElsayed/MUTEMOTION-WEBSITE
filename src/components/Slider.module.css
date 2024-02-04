@@ -1,0 +1,24 @@
+.cont {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.slide {
+  width: 150px;
+  height: 13px;
+  background: #d9d9d9;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+}
+.inside {
+  width: 30%;
+  height: 100%;
+  background: #442c8f;
+  border-radius: 12px;
+}

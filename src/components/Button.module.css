@@ -1,0 +1,72 @@
+.btn {
+  color: inherit;
+  text-transform: lowercase;
+  padding: 1rem 1.6rem;
+  font-family: inherit;
+  font-size: 1.8rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  height: fit-content;
+  font-weight: 700;
+  letter-spacing: -0.022em;
+  font-style: normal;
+  line-height: 150%;
+}
+
+.overview {
+  text-align: center;
+  color: #442c8f;
+  background: #ffffff;
+  transition: background-color 2s, color 2s;
+}
+.continue {
+  text-align: center;
+  color: #ffffff;
+  background: #442c8f;
+  transition: background-color 2s, color 2s;
+}
+
+.learnmore {
+  font-family: inherit;
+  font-size: 2.4rem;
+  background-color: #842c8f;
+  width: 287px;
+  transition: background-color 2s, color 2s;
+}
+
+.continue:hover,
+.learnmore:hover {
+  color: #442c8f;
+  background: #ffffff;
+}
+
+.overview:hover {
+  color: #ffffff;
+  background: #442c8f;
+}
+
+/* .primary {
+  font-weight: 700;
+  background-color: var(--color-brand--2);
+  color: var(--color-dark--1);
+}
+
+.back {
+  font-weight: 600;
+  background: none;
+  border: 1px solid currentColor;
+}
+
+.position {
+  font-weight: 700;
+  position: absolute;
+  z-index: 1000;
+  font-size: 1.4rem;
+  bottom: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-brand--2);
+  color: var(--color-dark--1);
+  box-shadow: 0 0.4rem 1.2rem rgba(36, 42, 46, 0.16);
+} */

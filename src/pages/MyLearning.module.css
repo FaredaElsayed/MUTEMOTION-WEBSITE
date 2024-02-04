@@ -1,0 +1,59 @@
+.mylearning {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  margin: 2.5rem;
+  background-size: cover;
+  background-position: center;
+  padding: 2.5rem 5rem;
+  color: #442c8f;
+  letter-spacing: -0.022em;
+  text-transform: capitalize;
+}
+.container {
+  margin: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  
+}
+.container h1 {
+  font-weight: 700;
+  font-size: 2.7rem;
+}
+.progress {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  gap: 4rem;
+  line-height: 1.7rem;
+  letter-spacing: -0.022em;
+  
+}
+
+.progress a:link,
+.progress a:visited {
+  text-decoration: none;
+  color: #442c8f;
+  text-transform: capitalize;
+  font-size: 1.7rem;
+}
+
+.progress a:active,
+.progress a:hover {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.active {
+  font-weight: bold !important;
+  text-decoration: underline;
+}
+
+.courses {
+  display: flex;
+  flex-direction: column;
+  
+}

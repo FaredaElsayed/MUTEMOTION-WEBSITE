@@ -1,0 +1,40 @@
+{
+  "name": "worldwise",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "server": "json-server --watch data/cities.json --port 8900 --delay 500"
+  },
+  "dependencies": {
+    "i18next": "^23.8.2",
+    "json-server": "^0.17.3",
+    "leaflet": "^1.9.4",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.10.0",
+    "react-card-slider-component": "^1.0.9",
+    "react-datepicker": "^4.24.0",
+    "react-dom": "^18.2.0",
+    "react-i18next": "^14.0.1",
+    "react-icons": "^5.0.1",
+    "react-intl": "^6.6.2",
+    "react-leaflet": "^4.2.1",
+    "react-phone-input-2": "^2.15.1",
+    "react-phone-number-input": "^3.3.9",
+    "react-router-dom": "^6.9.0",
+    "react-slick": "^0.30.1",
+    "slick-carousel": "^1.8.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react": "^3.1.0",
+    "eslint": "^8.55.0",
+    "eslint-config-react-app": "^7.0.1",
+    "vite": "^4.2.0",
+    "vite-plugin-eslint": "^1.8.1"
+  }
+}

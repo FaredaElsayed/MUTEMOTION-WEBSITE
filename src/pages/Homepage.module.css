@@ -1,0 +1,99 @@
+.homepage {
+  place-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  margin: 2.5rem;
+  background-size: cover;
+  background-position: center;
+  padding: 2.5rem 5rem;
+  color: #442c8f;
+  letter-spacing: -0.022em;
+  text-transform: capitalize;
+}
+
+.homepage section {
+  background: rgba(132, 44, 143, 0.5);
+  display: flex;
+  flex-direction: row;
+  height: 503px;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  text-align: center;
+  border-radius: 12px;
+  margin: 4rem;
+}
+.homepage .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 11%;
+  gap: 2rem;
+  width: 60%;
+  color: white;
+}
+.homepage .rect {
+  background: rgba(132, 44, 143, 0.5);
+  border-radius: 85px;
+  width: 48%;
+  height: 385px;
+  position: relative;
+  right: -6%;
+}
+.content h1 {
+  font-size: 4.2rem;
+  line-height: 1.4;
+  font-weight: bold;
+}
+
+.content p {
+  width: 90%;
+  font-size: 2.2rem;
+  margin-bottom: 2.5rem;
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  overflow-x: auto;
+}
+
+.imgVector {
+  display: flex;
+  gap: 2rem;
+}
+
+.imgVector .img1 {
+  align-self: flex-start;
+  max-width: 50%;
+  transform: rotate(-9.17deg);
+}
+.imgVector .img2 {
+  align-self: baseline;
+  position: absolute;
+  left: 15rem;
+  top: 8rem;
+  transform: rotate(16deg);
+  max-width: 50%;
+  border-radius: 30% 20% 10% 55%;
+}
+.imgVector .img3 {
+  max-width: 50%;
+  align-self: flex-end;
+  transform: rotate(23deg);
+}
+.slide {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.slide > h1 {
+  margin-bottom: 1.5rem;
+  font-size: 3.2rem;
+  line-height: 1.4;
+  font-weight: bold;
+}

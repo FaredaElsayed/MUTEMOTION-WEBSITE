@@ -1,0 +1,242 @@
+.aboutus {
+  place-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  margin: 2.5rem 0px;
+  background-size: cover;
+  background-position: center;
+  padding: 2.5rem 0rem;
+  color: #442c8f;
+  letter-spacing: -0.022em;
+  text-transform: capitalize;
+}
+
+
+.aboutus .image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 820px;
+  gap: 5rem;
+  width: 100%;
+  background: #fff;
+  text-align: center;
+}
+.aboutus main {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+.hands {
+  margin-top: -33rem;
+  margin-left: 4rem;
+}
+.aboutus .keyFeatures {
+  align-self: flex-end;
+  width: 70%;
+  margin: 0%;
+}
+.description {
+  gap: 2rem;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  text-align: center;
+  width: 60%;
+  margin: 14rem;
+}
+.keyFeatures p,
+.keyFeatures h1,
+.description p,
+.description h1 {
+  color: #442c8f !important;
+  font-weight: 600;
+}
+.keyFeatures h1,
+.description h1 {
+  align-self: center !important;
+}
+.dotsContainer {
+  display: flex;
+  gap: 1.7rem;
+  justify-content: center;
+  align-self: center;
+}
+.dots {
+  background: #442c8f;
+  content: "";
+  display: inline-block;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+}
+.keyFeatures .rectContainer1,
+.keyFeatures .rectContainer2 {
+  margin-right: 0px !important;
+  height: 670px !important;
+}
+.aboutus .rectangle {
+  align-self: flex-start;
+  background: #ba68c8;
+  display: flex;
+  flex-direction: row;
+  height: 435px;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2.5rem;
+  text-align: start;
+  border-radius: 149px 150px 150px 0px;
+  margin: 0rem;
+  width: 80%;
+}
+.rectContainer1 {
+  box-sizing: border-box;
+  align-self: flex-start;
+  height: 455px;
+  border: 1px solid #652d90;
+  border-radius: 149px 150px 150px 0px;
+  margin: 0rem;
+  margin-top: -2rem;
+  margin-right: -5rem;
+}
+.rectContainer2 {
+  box-sizing: border-box;
+  align-self: flex-start;
+  height: 435px;
+  border: 1px solid #652d90;
+  border-radius: 149px 150px 150px 0px;
+  margin: 0rem;
+  margin-left: 3rem;
+  margin-right: -5rem;
+  margin-top: 2.5rem;
+}
+
+.aboutus .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 10%;
+  margin-left: -8rem;
+  padding-right: 22%;
+  gap: 2rem;
+  color: white;
+  font-family: "Merriweather";
+  font-style: normal;
+  font-weight: 400;
+}
+.image h1 {
+  text-transform: capitalize !important;
+}
+.content h1,
+.image h1,
+.description h1 {
+  line-height: 134%;
+  letter-spacing: -0.022em;
+  text-transform: uppercase;
+  font-size: 4.2rem;
+}
+
+.content p,
+.description p {
+  font-size: 24px;
+  line-height: 134%;
+  letter-spacing: -0.00022em;
+  text-transform: capitalize;
+  font-size: 2.2rem;
+  margin-bottom: 2.5rem;
+}
+
+.photos {
+  display: flex;
+  flex-direction: row;
+  gap: 6rem;
+  background: #fff;
+  height: 950px;
+}
+
+.kid {
+  width: 246px;
+  height: 344px;
+}
+.rectKid {
+  align-self: center;
+  box-sizing: border-box;
+  width: 214px;
+  height: 353px;
+  border: 1px solid #442c8f;
+  padding-top: 4rem;
+  margin-left: 2rem;
+  padding-left: 2rem;
+}
+
+.sign {
+  align-self: flex-start;
+  width: 384px;
+  height: 256px;
+}
+
+.rectPhoto,
+.rectPhotoAdult {
+  box-sizing: border-box;
+  padding-top: 4rem;
+  padding-left: -4rem;
+  width: 410px;
+  height: 266px;
+  border: 1px solid #442c8f;
+}
+.rectPhoto2 {
+  box-sizing: border-box;
+  padding-bottom: -6rem;
+  padding-top: 4rem;
+  margin-left: -5rem;
+  width: 410px;
+  height: 266px;
+  border: 1px solid #442c8f;
+}
+
+.adult {
+  width: 433px;
+  height: 289px;
+  margin-top: 3rem;
+  margin-left: 3rem;
+}
+.rectPhotoAdult {
+  align-self: flex-end;
+}
+.rectPhotoAdult2 {
+  margin-right: -6rem;
+  margin-top: -12rem;
+  margin-left: 4rem;
+  height: 266px;
+  border: 1px solid #442c8f;
+}
+
+.gettingStarted {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  align-self: center !important;
+  background: #ba68c8;
+  border-radius: 149px 150px 150px 0px;
+  margin: 4rem;
+}
+
+.image p {
+  font-family: "Merriweather";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2.2rem;
+  line-height: 134%;
+  text-align: center;
+  letter-spacing: -0.022em;
+  text-transform: lowercase;
+  color: #442c8f;
+}
