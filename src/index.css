@@ -82,11 +82,12 @@ input:focus {
 .dropdown-menu {
   width: 200px;
   height: fit-content !important;
-  background: #fff;
+  background-color: #fff;
   display: none;
   flex-direction: column;
   position: absolute;
-  top: 6rem;
+  /* top: 6rem; */
+  margin-top: 1rem;
   list-style: none;
   text-align: left;
   z-index: 100000000000000000;
