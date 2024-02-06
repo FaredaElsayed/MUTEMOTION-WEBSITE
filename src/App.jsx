@@ -11,9 +11,9 @@ import Form from "./components/Form";
 import ProtectedRoute from "./pages/ProtectedRoute";
 import SpinnerFullPage from "./components/SpinnerFullPage";
 
-
 const Home = lazy(() => import("./pages/Homepage"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
+const Likes = lazy(() => import("./pages/Likes"));
 const PageNotFound = lazy(() => import("./pages/PageNotFound"));
 const MyLearning = lazy(() => import("./pages/MyLearning"));
 const InProgress = lazy(() => import("./pages/InProgress"));
@@ -26,37 +26,38 @@ function App() {
   return (
     <AuthProvider>
       <RatingsProvider>
-      <CitiesProvider>
-        <BrowserRouter>
-          <Suspense fallback={<SpinnerFullPage />}>
-            <Routes>
-              <Route index element={<Home />} />
-              <Route path="aboutus" element={<AboutUs />} />
-              <Route path="courses" element={<Courses />} />
-              <Route path="mylearning" element={<MyLearning />} />
-              <Route path="inprogress" element={<InProgress />} />
-              <Route path="profile" element={<Profile />} />
-              <Route path="login" element={<Login />} />
-              <Route
-                path="app"
-                element={
-                  <ProtectedRoute>
-                    <AppLayout />
-                  </ProtectedRoute>
-                }
-              >
-                <Route index element={<Navigate replace to="cities" />} />
-                <Route index element={<CityList />} />
-                <Route path="cities" element={<CityList />} />
-                <Route path="cities/:id" element={<City />} />
-                <Route path="countries" element={<CountryList />} />
-                <Route path="form" element={<Form />} />
-              </Route>
-              <Route path="*" element={<PageNotFound />} />
-            </Routes>
-          </Suspense>
-        </BrowserRouter>
-      </CitiesProvider>
+        <CitiesProvider>
+          <BrowserRouter>
+            <Suspense fallback={<SpinnerFullPage />}>
+              <Routes>
+                <Route index element={<Home />} />
+                <Route path="aboutus" element={<AboutUs />} />
+                <Route path="courses" element={<Courses />} />
+                <Route path="mylearning" element={<MyLearning />} />
+                <Route path="inprogress" element={<InProgress />} />
+                <Route path="likes" element={<Likes />} />
+                <Route path="profile" element={<Profile />} />
+                <Route path="login" element={<Login />} />
+                <Route
+                  path="app"
+                  element={
+                    <ProtectedRoute>
+                      <AppLayout />
+                    </ProtectedRoute>
+                  }
+                >
+                  <Route index element={<Navigate replace to="cities" />} />
+                  <Route index element={<CityList />} />
+                  <Route path="cities" element={<CityList />} />
+                  <Route path="cities/:id" element={<City />} />
+                  <Route path="countries" element={<CountryList />} />
+                  <Route path="form" element={<Form />} />
+                </Route>
+                <Route path="*" element={<PageNotFound />} />
+              </Routes>
+            </Suspense>
+          </BrowserRouter>
+        </CitiesProvider>
       </RatingsProvider>
     </AuthProvider>
   );
