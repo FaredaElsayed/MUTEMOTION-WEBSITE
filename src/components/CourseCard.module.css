@@ -5,10 +5,37 @@
   text-align: center;
   gap: 1rem;
   border-radius: 12px;
-  height: 501px;
+  height: fit-content;
+  padding-bottom: 3rem;
   width: 342px;
   border: #868585 solid 1px;
   color: #442c8f;
+}
+.card li {
+  font-family: "Merriweather";
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.7rem;
+  line-height: 150%;
+  letter-spacing: -0.022em;
+  color: #827a7a;
+  text-align: left;
+  padding: 1rem;
+}
+.card ul {
+  list-style-type: none;
+}
+.card li::marker {
+  content: "\2022";
+  font-size: 1.5rem;
+  color: #827a7a;
+}
+.card > svg {
+  align-self: flex-start;
+  margin: 2rem;
+}
+.card h1 {
+  cursor: pointer;
 }
 
 .card img {

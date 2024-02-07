@@ -21,7 +21,7 @@ function CustomSlider({ title }) {
   };
 
   return (
-    <div className={styles.courses}>
+    <div>
       <div className={styles.slide}>
         <h1>{title}</h1>
         <Slider handleNext={handleNext} handlePrev={handlePrev} />

@@ -2,7 +2,7 @@ import styles from "./Homepage.module.css";
 import PageNav from "../components/PageNav";
 import Footer from "../components/Footer";
 import Button from "../components/Button";
-import  CustomSlider  from "./CustomSlider";
+import CustomSlider from "./CustomSlider";
 
 export const courses = [
   {
@@ -25,6 +25,8 @@ export const courses = [
     instructor: "Mairina Michel, Level1",
     imgSrc: "./img-9.png",
     alt: "Mairina Michel, Level1",
+    courseBreif:
+      "Sign Language 101 is accredited by the International Accreditors for Continuing Education and Training",
   },
   {
     id: 4,
@@ -32,6 +34,8 @@ export const courses = [
     instructor: "Mairina Michel, Level1",
     imgSrc: "./img-1.png",
     alt: "Mairina Michel, Level1",
+    courseBreif:
+    "Sign Language 101 is accredited by the International Accreditors for Continuing Education and Training",
   },
   {
     id: 5,
@@ -39,6 +43,8 @@ export const courses = [
     instructor: "Mairina Michel, Level1",
     imgSrc: "./img-5.png",
     alt: "Mairina Michel, Level1",
+    courseBreif:
+    "Sign Language 101 is accredited by the International Accreditors for Continuing Education and Training",
   },
   {
     id: 6,
@@ -46,6 +52,8 @@ export const courses = [
     instructor: "Mairina Michel, Level1",
     imgSrc: "./img-4.png",
     alt: "Mairina Michel, Level1",
+    courseBreif:
+    "Sign Language 101 is accredited by the International Accreditors for Continuing Education and Training",
   },
 ];
 
