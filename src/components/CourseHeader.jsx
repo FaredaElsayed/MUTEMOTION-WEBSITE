@@ -36,7 +36,7 @@ export default function CourseHeader({
               exercitationem maxime illo facere odit.
             </p>
           </div>
-          <StarRating maxRating={5} size={45} onSetRating={setUserRating} />{" "}
+          <StarRating maxRating={5} size={45} hoverEnabled={false} defaultRating={5}/>
           <div className={styles.btns}>
             <Button type="continue" btnStyle={btnStyle1}>
               Buy Now

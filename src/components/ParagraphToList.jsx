@@ -8,7 +8,6 @@ export default function ParagraphToList({ paragraph, level, desc, text,styleP })
         .filter(Boolean)
     : [];
   const lines = text && text.split("\n").filter((line) => line.trim() !== "");
-  // const lines = text.split("\n").filter((line) => line.trim() !== "");
   return (
     <div className={styles.container}>
       <div className={styles.content} style={costumeStyle }>

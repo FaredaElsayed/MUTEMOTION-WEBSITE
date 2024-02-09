@@ -1,0 +1,54 @@
+.reviews {
+  width: 70%;
+  display: flex;
+  margin-top: 3rem;
+  flex-direction: column;
+  gap: 1rem;
+  font-family: "Merriweather";
+  font-style: normal;
+  letter-spacing: -0.022em;
+  text-transform: capitalize;
+  color: #442c8f;
+  background: #ffffff;
+  box-shadow: 0px 0px 100px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  padding: 2rem;
+}
+
+.rev {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  align-items: center;
+}
+.rev div {
+  width: 50%;
+  color: #442c8f;
+}
+.rev h2 {
+  font-family: "Lexend";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 2.6rem;
+  line-height: 125%;
+}
+.rev p {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 150%;
+  color: #827a7a;
+  width: 70%;
+}
+.rev img {
+  height: 333px;
+  border-radius: 20px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 2rem;
+}

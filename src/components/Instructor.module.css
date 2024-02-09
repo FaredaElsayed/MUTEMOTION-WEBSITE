@@ -1,0 +1,56 @@
+.instructor {
+  width: 70%;
+  display: flex;
+  margin-top: 3rem;
+  flex-direction: column;
+  gap: 1rem;
+  font-family: "Merriweather";
+  font-style: normal;
+  letter-spacing: -0.022em;
+  text-transform: capitalize;
+  color: #442c8f;
+}
+.instructor > p {
+  font-weight: 700;
+  font-size: 3.2rem;
+  line-height: 134%;
+}
+.mainInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 4rem 0px;
+  width: 100%;
+}
+
+.mainInfo img {
+  height: 140px;
+  border-radius: 50%;
+}
+.mainInfo div {
+  width: 50% !important;
+}
+.mainInfo ul {
+  color: #442c8f !important;
+  font-weight: 400;
+  line-height: 174%;
+  text-transform: capitalize !important;
+}
+.instInfo {
+  text-transform: lowercase;
+  color: #827a7a;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.instInfo h2 {
+  font-weight: 400;
+  font-size: 2.7rem;
+  line-height: 134%;
+}
+.instInfo p {
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 134%;
+  width: 86%;
+}

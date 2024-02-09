@@ -13,6 +13,18 @@
   letter-spacing: -0.022em;
   text-transform: capitalize;
 }
+.h2 {
+  font-weight: 700;
+  font-size: 3.2rem;
+  line-height: 134%;
+  font-family: "Merriweather";
+  font-style: normal;
+  letter-spacing: -0.022em;
+  text-transform: capitalize;
+  align-self: flex-start;
+  margin-left: 23rem;
+  margin-top: 3rem;
+}
 .coursesHeader {
   display: flex;
   flex-direction: row;

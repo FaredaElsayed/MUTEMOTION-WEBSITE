@@ -19,6 +19,7 @@ StarRating.propTypes = {
   messages: PropTypes.array,
   className: PropTypes.string,
   onSetRating: PropTypes.func,
+  hoverEnabled: PropTypes.bool,
 };
 
 export default function StarRating({
@@ -30,18 +31,21 @@ export default function StarRating({
   defaultRating = 0,
   onSetRating,
   courseId,
+  hoverEnabled = true,
 }) {
   const [rating, setRating] = useState(defaultRating);
   const [tempRating, setTempRating] = useState(0);
-
   function handleRating(rating) {
     setRating(rating);
-
-    onSetRating(courseId, rating);
+    if (typeof onSetRating === "function") {
+      onSetRating(courseId, rating);
+    }
   }
 
   useEffect(() => {
-    onSetRating(courseId, rating);
+    if (typeof onSetRating === "function") {
+      onSetRating(courseId, rating);
+    }
   }, [courseId, rating, onSetRating]);
   return (
     <div style={containerStyle} className={className}>
@@ -51,10 +55,11 @@ export default function StarRating({
             key={i}
             full={tempRating ? tempRating >= i + 1 : rating >= i + 1}
             onRate={() => handleRating(i + 1)}
-            onHoverIn={() => setTempRating(i + 1)}
-            onHoverOut={() => setTempRating(0)}
+            onHoverIn={hoverEnabled ? () => setTempRating(i + 1) : null}
+            onHoverOut={hoverEnabled ? () => setTempRating(0) : null}
             color={color}
             size={size}
+            hoverEnabled={hoverEnabled}
           />
         ))}
       </div>
@@ -62,7 +67,17 @@ export default function StarRating({
   );
 }
 
-function Star({ onRate, full, onHoverIn, onHoverOut, color, size,courseId, onSetRating }) {
+function Star({
+  onRate,
+  full,
+  onHoverIn,
+  onHoverOut,
+  color,
+  size,
+  courseId,
+  onSetRating,
+  hoverEnabled,
+}) {
   const starStyle = {
     width: `${size}px`,
     height: `${size}px`,
@@ -74,9 +89,21 @@ function Star({ onRate, full, onHoverIn, onHoverOut, color, size,courseId, onSet
     <span
       role="button"
       style={starStyle}
-      onClick={onRate}
-      onMouseEnter={onHoverIn}
-      onMouseLeave={onHoverOut}
+      onClick={() => {
+        if (typeof onRate === "function") {
+          onRate();
+        }
+      }}
+      onMouseEnter={() => {
+        if (typeof onHoverIn === "function") {
+          onHoverIn();
+        }
+      }}
+      onMouseLeave={() => {
+        if (typeof onHoverOut === "function") {
+          onHoverOut();
+        }
+      }}
     >
       {full ? (
         <svg
