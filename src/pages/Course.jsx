@@ -3,6 +3,8 @@ import styles from "../components/CourseHeader.module.css";
 import ParagraphToList from "../components/ParagraphToList";
 import LessonsSlider from "./LessonsSlider";
 import { courses } from "./Homepage";
+// import PageNav from "../components/PageNav";
+// import Footer from "../components/Footer";
 const p =
   " Over 500 vocabulary words you'll start using right away. Nearly 3 hours of on-demand video instruction. More than 50 activities to help extend your learning. 40 practice interactions that let you follow Dr Byron one sentence at a time. Self-paced lessons that save your progress. Quizes to test your learning. Earn a Certificate of Completion. Fun & unintimidating - Suitable for ages 15 to 100!";
 const desc = `Getting Started with ASL\nA perfect introduction to ASL, gain basic conversation skills and a foundational understanding of ASL vocabulary and grammar. With practice and expert guidance.`;
@@ -22,21 +24,25 @@ const courseDetails = `
    Certificate of completion`;
 function Course() {
   return (
-    <div className={styles.courses}>
-      <CourseHeader
-        courseTitle="Learn Figma - ASL Essential Training"
-        courseImg="./ASL-1 1.png"
-        courseAlt={courses.alt}
-        courseBreif={courses.courseBreif}
-      />
-      <ParagraphToList
-        paragraph={p}
-        level="LVEL 1A"
-        desc={desc}
-        text={courseDetails}
-      />
-      <LessonsSlider title="Lessons" />
-    </div>
+    <>
+      <div className={styles.courses}>
+        {/* <PageNav /> */}
+        <CourseHeader
+          courseTitle="Learn Figma - ASL Essential Training"
+          courseImg="./ASL-1 1.png"
+          courseAlt={courses.alt}
+          courseBreif={courses.courseBreif}
+        />
+        <ParagraphToList
+          paragraph={p}
+          level="LVEL 1A"
+          desc={desc}
+          text={courseDetails}
+        />
+        <LessonsSlider title="Lessons" />
+      </div>
+      {/* <Footer /> */}
+    </>
   );
 }
 
