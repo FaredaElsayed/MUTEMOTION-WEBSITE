@@ -9,12 +9,14 @@ export default function CourseHeader({
   courseImg,
   alt,
 }) {
-  const [userRating, setUserRating] = useState("");
   const btnStyle1 = {
     fontSize: "2.5rem",
     textTransform: "uppercase",
-    background: "#842C8F",
+    borderColor: "#442C8F",
+    borderStyle: "solid",
+    borderWidth: "2px",
   };
+
   const btnStyle2 = {
     fontSize: "2.5rem",
     textTransform: "uppercase",
@@ -22,7 +24,7 @@ export default function CourseHeader({
     borderStyle: "solid",
     borderWidth: "2px",
   };
-  
+
   return (
     <>
       <header className={styles.coursesHeader}>
@@ -36,7 +38,12 @@ export default function CourseHeader({
               exercitationem maxime illo facere odit.
             </p>
           </div>
-          <StarRating maxRating={5} size={45} hoverEnabled={false} defaultRating={5}/>
+          <StarRating
+            maxRating={5}
+            size={45}
+            hoverEnabled={false}
+            defaultRating={5}
+          />
           <div className={styles.btns}>
             <Button type="continue" btnStyle={btnStyle1}>
               Buy Now
