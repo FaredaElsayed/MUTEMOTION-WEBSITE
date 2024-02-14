@@ -19,6 +19,7 @@ const MyLearning = lazy(() => import("./pages/MyLearning"));
 const InProgress = lazy(() => import("./pages/InProgress"));
 const Profile = lazy(() => import("./pages/Profile"));
 const Login = lazy(() => import("./pages/Login"));
+const SignUp = lazy(() => import("./pages/SignUp"));
 const Courses = lazy(() => import("./pages/Courses"));
 const AppLayout = lazy(() => import("./pages/AppLayout"));
 
@@ -40,6 +41,7 @@ function App() {
                 <Route path="likes" element={<Likes />} />
                 <Route path="profile" element={<Profile />} />
                 <Route path="login" element={<Login />} />
+                <Route path="signup" element={<SignUp />} />
 
                 <Route
                   path="app"

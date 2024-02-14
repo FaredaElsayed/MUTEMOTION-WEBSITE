@@ -1,4 +1,3 @@
-import { useState } from "react";
 import StarRating from "./StarRating";
 import styles from "./CourseHeader.module.css";
 import Button from "./Button";

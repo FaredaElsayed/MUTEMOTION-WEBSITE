@@ -1,26 +1,183 @@
 .login {
-  margin: 2.5rem;
-  padding: 2.5rem 5rem;
-  background-color: var(--color-dark--1);
-  min-height: calc(100vh - 5rem);
+  place-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  color: #442c8f;
+  letter-spacing: -0.022em;
+  text-transform: capitalize;
+  background-color: #fff;
 }
-
-.form {
-  background-color: var(--color-dark--2);
-  border-radius: 7px;
-  padding: 2rem 3rem;
+.logo {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 10000;
+}
+.mainContainer {
+  display: flex;
   width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+form {
+  width: 50%;
+  align-items: center;
+  justify-content: center;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-
-  /* Different from other form */
-  width: 48rem;
-  margin: 8rem auto;
+  font-family: "Inter";
+  font-style: normal;
+  gap: 1.6rem;
+}
+form label {
+  font-weight: 600;
+  font-size: 2.3rem;
+  line-height: 2.5rem;
+  text-transform: capitalize;
+  color: #442c8f;
+}
+form p {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2.7rem;
+  line-height: 4rem;
+  color: #442c8f;
+}
+form div {
+  display: flex;
+  width: 60%;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+form input {
+  border: 1px solid #442c8f;
+  border-radius: 12px;
+  padding: 1rem;
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  text-transform: capitalize;
+  color: #939393;
+}
+input:focus {
+  outline: transparent;
 }
 
-.row {
+input:-webkit-autofill {
+  -webkit-text-fill-color: #939393;
+  -webkit-background-clip: text;
+}
+.buttons {
+  justify-content: center;
+}
+.buttons button {
+  margin: 0px 5rem;
+}
+.buttons p {
+  font-weight: 400;
+  font-size: 1.8rem;
+  text-decoration-line: underline;
+  text-transform: capitalize;
+  color: #5c5b5b;
+  cursor: pointer;
+}
+.iconsCont {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  justify-content: center;
+  align-self: center;
+  gap: 1rem;
+}
+.iconsCont p {
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  text-align: center;
+  text-transform: capitalize;
+  color: #5c5b5b;
+  
+}
+.content {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  gap: 2rem;
+  padding: 1rem 0px;
+  justify-content: center;
+  align-items: center;
+  border: 1.7px solid rgba(188, 186, 186, 0.76);
+  border-radius: 19px;
+  font-family: "K2D";
+  font-style: normal;
+  color: #442c8f;
+  width: 80%;
+}
+.noAcc {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+.noAcc p {
+  font-weight: 400;
+  font-size: 1.8rem;
+  text-transform: capitalize;
+  color: #442c8f;
+}
+.noAcc span {
+  color: #3f618b;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+.imgCont {
+  position: relative;
+  height: 1124px;
+  width: 50%;
+  align-self: flex-start;
+}
+
+.imgCont::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    302.22deg,
+    rgba(186, 104, 200, 0.35) 24.19%,
+    #f2b7fc 93.5%,
+    #f3afff 98.95%,
+    #ffffff 106.3%
+  );
+  z-index: 1;
+}
+.imgCont p {
+  position: absolute;
+  z-index: 1;
+  top: 20%;
+  left: 30%;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 7rem;
+  line-height: 134%;
+  text-align: center;
+  color: #ffffff;
+}
+.img {
+  background-image: url(./login.png);
+  background-size: cover;
+  max-width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 0;
+  background-position: center;
 }

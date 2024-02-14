@@ -1,9 +1,11 @@
 import { useState } from "react";
 import styles from "./Login.module.css";
 import Button from "../components/Button";
-function Login() {
+function SignUp() {
   const [password, setPass] = useState("");
   const [email, setEmail] = useState("");
+  const [fName, setFName] = useState("");
+  const [confPass, setconfPass] = useState("");
   const btnStyle = {
     fontWeight: "700",
     borderColor: "#442C8F",
@@ -18,16 +20,28 @@ function Login() {
         <img src="./logo.png" alt="MuteMotion Logo" className={styles.logo} />
         <main className={styles.mainContainer}>
           <div className={styles.imgCont}>
-            <p>
-              Welcome
-              <br />
-              Back!
-            </p>
-            <div className={styles.img}></div>
+            <p style={{ left: "14%" }}>Get started now!</p>
+            <div
+              className={styles.img}
+              style={{ backgroundImage: "url(./sign.png)" }}
+            ></div>
           </div>
           <form>
             <div>
-              <p>Login Now</p>
+              <p>Create account</p>
+              <span>Enter your credentials to access your account</span>
+              <label htmlFor="fullName">Full Name:</label>
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                value={fName}
+                onChange={(e) => setFName(e.target.value)}
+                placeholder="Farida Elsayed"
+                required
+              />
+            </div>
+            <div>
               <label htmlFor="email">Email:</label>
               <input
                 type="text"
@@ -35,7 +49,7 @@ function Login() {
                 name="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Ali20@gmail.com"
+                placeholder="faredaelsayed0@gmail.com"
                 pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
                 required
               />
@@ -53,10 +67,22 @@ function Login() {
                 required
               />
             </div>
+            <div>
+              <label htmlFor="confPass">Confirm Password:</label>
+              <input
+                type="password"
+                id="confPass"
+                name="confPass"
+                value={confPass}
+                onChange={(e) => setconfPass(e.target.value)}
+                placeholder="*******"
+                minLength={8}
+                required
+              />
+            </div>
             <div className={styles.buttons}>
-              <p>forget passward ?</p>
               <Button type="continue" btnStyle={btnStyle}>
-                Login
+                Register
               </Button>
             </div>
             <div className={styles.iconsCont}>
@@ -100,7 +126,7 @@ function Login() {
                     </clipPath>
                   </defs>
                 </svg>
-                <p>Login with Google</p>
+                <p>Sign Up with Google</p>
               </div>
               <div className={styles.content}>
                 <svg
@@ -116,10 +142,10 @@ function Login() {
                     fill="white"
                   />
                 </svg>
-                <p>Login with Facebook</p>
+                <p>Sign Up with Facebook</p>
               </div>
               <div className={styles.noAcc}>
-                <p>don’t have an account?</p> <span>register.</span>
+                <p>have an account?</p> <span>LOGIN.</span>
               </div>
             </div>
           </form>
@@ -129,4 +155,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default SignUp;
