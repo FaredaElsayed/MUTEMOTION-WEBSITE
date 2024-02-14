@@ -42,6 +42,8 @@ function App() {
                 <Route path="profile" element={<Profile />} />
                 <Route path="login" element={<Login />} />
                 <Route path="signup" element={<SignUp />} />
+                <Route exact path="/" component={<Course/>} />
+        <Route path="/login" component={<Login/>} />
 
                 <Route
                   path="app"

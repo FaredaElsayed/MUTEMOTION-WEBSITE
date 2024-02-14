@@ -20,7 +20,7 @@ function SignUp() {
         <img src="./logo.png" alt="MuteMotion Logo" className={styles.logo} />
         <main className={styles.mainContainer}>
           <div className={styles.imgCont}>
-            <p style={{ left: "14%" }}>Get started now!</p>
+            <p style={{ left: "15%" }}>Get started now!</p>
             <div
               className={styles.img}
               style={{ backgroundImage: "url(./sign.png)" }}

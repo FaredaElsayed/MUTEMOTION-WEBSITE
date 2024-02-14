@@ -1,3 +1,4 @@
+import { useState } from "react";
 import StarRating from "./StarRating";
 import styles from "./CourseHeader.module.css";
 import Button from "./Button";
@@ -8,15 +9,8 @@ export default function CourseHeader({
   courseImg,
   alt,
 }) {
+  const [userRating, setUserRating] = useState("");
   const btnStyle1 = {
-    fontSize: "2.5rem",
-    textTransform: "uppercase",
-    borderColor: "#442C8F",
-    borderStyle: "solid",
-    borderWidth: "2px",
-  };
-
-  const btnStyle2 = {
     fontSize: "2.5rem",
     textTransform: "uppercase",
     borderColor: "#442C8F",
@@ -47,7 +41,7 @@ export default function CourseHeader({
             <Button type="continue" btnStyle={btnStyle1}>
               Buy Now
             </Button>
-            <Button type="overview" btnStyle={btnStyle2}>
+            <Button type="overview" btnStyle={btnStyle1}>
               Add To Cart
             </Button>
           </div>
