@@ -3,7 +3,7 @@ import styles from "./Logo.module.css";
 
 
 function Logo() {
-  return <Link to="/"><img src="/logo.png" alt="MuteMotion logo" className={styles.logo} /></Link>;
+  return <Link to="/homepage"><img src="/logo.png" alt="MuteMotion logo" className={styles.logo} /></Link>;
 }
 
 export default Logo;

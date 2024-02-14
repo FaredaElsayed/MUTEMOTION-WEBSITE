@@ -22,6 +22,7 @@ const Login = lazy(() => import("./pages/Login"));
 const SignUp = lazy(() => import("./pages/SignUp"));
 const Courses = lazy(() => import("./pages/Courses"));
 const AppLayout = lazy(() => import("./pages/AppLayout"));
+const FirstPage = lazy(() => import("./pages/FirstPage"));
 
 function App() {
   return (
@@ -31,7 +32,8 @@ function App() {
           <BrowserRouter>
             <Suspense fallback={<SpinnerFullPage />}>
               <Routes>
-                <Route index element={<Home />} />
+                <Route path="homePage" element={<Home />} />
+                <Route index element={<FirstPage />} />
                 <Route path="aboutus" element={<AboutUs />} />
                 <Route path="courses" element={<Courses />}>
                   <Route path="/courses/:id" component={Course} />

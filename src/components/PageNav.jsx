@@ -112,7 +112,7 @@ function PageNav() {
           </div>
         </li>
         <li className={styles.navItem}>
-          <NavLink to="/">Home</NavLink>
+          <NavLink to="/homepage">Home</NavLink>
         </li>
         <li className={styles.navItem} onClick={toggleDropdown1}>
           <NavLink className="nav-links" to="/courses">
@@ -189,9 +189,6 @@ function PageNav() {
               />
             </svg>
           </NavLink>
-        </li>
-        <li className={styles.navItem}>
-          <NavLink to="/login">Login</NavLink>
         </li>
       </ul>
     </nav>

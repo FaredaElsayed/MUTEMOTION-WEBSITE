@@ -58,9 +58,11 @@ function Login() {
             </div>
             <div className={styles.buttons}>
               <p>forget passward ?</p>
-              <Button type="continue" btnStyle={btnStyle}>
-                Login
-              </Button>
+              <Link to="/homepage">
+                <Button type="continue" btnStyle={btnStyle}>
+                  Login
+                </Button>
+              </Link>
             </div>
             <div className={styles.iconsCont}>
               <hr />

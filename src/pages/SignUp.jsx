@@ -84,9 +84,11 @@ function SignUp() {
               />
             </div>
             <div className={styles.buttons}>
-              <Button type="continue" btnStyle={btnStyle}>
-                Register
-              </Button>
+              <Link to="/homepage">
+                <Button type="continue" btnStyle={btnStyle}>
+                  Register
+                </Button>
+              </Link>
             </div>
             <div className={styles.iconsCont}>
               <hr />
