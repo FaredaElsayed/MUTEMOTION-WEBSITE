@@ -190,6 +190,9 @@ function PageNav() {
             </svg>
           </NavLink>
         </li>
+        <li className={styles.navItem}>
+          <NavLink to="/login">Login</NavLink>
+        </li>
       </ul>
     </nav>
   );

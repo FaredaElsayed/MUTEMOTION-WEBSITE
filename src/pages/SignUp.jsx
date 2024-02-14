@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./Login.module.css";
 import Button from "../components/Button";
+import { Link } from "react-router-dom";
 function SignUp() {
   const [password, setPass] = useState("");
   const [email, setEmail] = useState("");
@@ -17,7 +18,9 @@ function SignUp() {
   return (
     <>
       <div className={styles.login}>
-        <img src="./logo.png" alt="MuteMotion Logo" className={styles.logo} />
+        <Link to="/">
+          <img src="./logo.png" alt="MuteMotion Logo" className={styles.logo} />
+        </Link>
         <main className={styles.mainContainer}>
           <div className={styles.imgCont}>
             <p style={{ left: "15%" }}>Get started now!</p>
@@ -144,8 +147,12 @@ function SignUp() {
                 </svg>
                 <p>Sign Up with Facebook</p>
               </div>
+
               <div className={styles.noAcc}>
-                <p>have an account?</p> <span>LOGIN.</span>
+                <p>have an account?</p>{" "}
+                <span>
+                  <Link to="/login">Login</Link>.
+                </span>
               </div>
             </div>
           </form>
