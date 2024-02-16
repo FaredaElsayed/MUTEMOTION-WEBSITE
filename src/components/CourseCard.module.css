@@ -43,6 +43,10 @@
   height: 298px;
   border-radius: 12px 12px 0px 12px;
 }
+.fav {
+  z-index: 2000;
+  cursor: pointer;
+}
 .card h3 {
   color: #868585;
 }

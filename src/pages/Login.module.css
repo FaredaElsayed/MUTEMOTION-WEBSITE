@@ -85,7 +85,7 @@ input:-webkit-autofill {
   color: #5c5b5b;
   cursor: pointer;
 }
-.buttons button{
+.buttons button {
   width: 82%;
 }
 .iconsCont {
@@ -102,7 +102,6 @@ input:-webkit-autofill {
   text-align: center;
   text-transform: capitalize;
   color: #5c5b5b;
-  
 }
 .content {
   display: flex;
@@ -133,6 +132,9 @@ input:-webkit-autofill {
   text-transform: capitalize;
   color: #442c8f;
 }
+div > span {
+  font-size: medium;
+}
 .noAcc span {
   color: #3f618b;
   text-decoration: underline;
@@ -141,7 +143,7 @@ input:-webkit-autofill {
 }
 .imgCont {
   position: relative;
-  height: 1124px;
+  height: 1000px;
   width: 50%;
   align-self: flex-start;
 }

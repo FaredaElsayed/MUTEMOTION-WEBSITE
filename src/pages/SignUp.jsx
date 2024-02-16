@@ -151,7 +151,7 @@ function SignUp() {
               </div>
 
               <div className={styles.noAcc}>
-                <p>have an account?</p>{" "}
+                <p>have an account?</p>
                 <span>
                   <Link to="/login">Login</Link>.
                 </span>

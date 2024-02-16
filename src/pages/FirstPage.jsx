@@ -10,24 +10,16 @@ export default function FirstPage() {
         <AppNav />
         <section>
           <div className={styles.content}>
-            <h1>MuteMotion</h1>
+            <h1>Welcome to MuteMotion</h1>
             <p>
-              MuteMotion is an innovative project that combines an Advanced
-              Driver Assistance System (ADAS) with real-time sign language
-              translation. It aims to empower the deaf and mute community,
-              enhance road safety, and promote inclusivity.
+              Discover the joy of sign language with our specialized courses,
+              suitable for kids and individuals aged 15 and older. Dive into a
+              world of communication and inclusivity with our engaging lessons.
             </p>
             <Link to="/login">
-              <Button type="primary">Start Your Learning journey Now!</Button>
+              <Button type="primary">Start Your Learning journey!</Button>
             </Link>
           </div>
-          {/* <div className={styles.rect}>
-            <div className={styles.imgVector}>
-              <img src="./img-8.png" alt="img" className={styles.img1}></img>
-              <img src="./img-3.png" alt="img" className={styles.img2}></img>
-              <img src="./img-5.png" alt="img" className={styles.img3}></img>
-            </div>
-          </div> */}
         </section>
       </main>
     </>

@@ -68,7 +68,7 @@ export default function Homepage() {
             </div>
           </section>
           <section className={`${styles.description}`}>
-            <h1>ASL for adults and for +16</h1>
+            <h1>ASL for adults and for +15</h1>
             <p>
               MuteMotion is an innovative project that combines an Advanced
               Driver Assistance System (ADAS) with real-time sign language
