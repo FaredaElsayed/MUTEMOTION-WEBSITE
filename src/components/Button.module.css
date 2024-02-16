@@ -46,13 +46,25 @@
   background: #442c8f;
 }
 
-/* .primary {
-  font-weight: 700;
-  background-color: var(--color-brand--2);
-  color: var(--color-dark--1);
+.primary {
+  font-weight: 600;
+  letter-spacing: -0.0022em;
+  font-size: 2.3rem;
+  background-color: #442c8f;
+  color: #ffffff;
+  margin-top: 2rem;
+  transition: background-color 2s, color 2s;
+  text-transform: uppercase;
+  border-radius: 12px;
+  padding: 1rem 2rem;
 }
 
-.back {
+.primary:hover {
+  color: #442c8f;
+  background: #ffffff;
+}
+
+/*.back {
   font-weight: 600;
   background: none;
   border: 1px solid currentColor;
