@@ -3,6 +3,7 @@ import PageNav from "../components/PageNav";
 import Footer from "../components/Footer";
 import Button from "../components/Button";
 import CustomSlider from "./CustomSlider";
+import { Link } from "react-router-dom";
 
 export const courses = [
   {
@@ -35,7 +36,7 @@ export const courses = [
     imgSrc: "./img-1.png",
     alt: "Mairina Michel, Level1",
     courseBreif:
-    "Sign Language 101 is accredited by the International Accreditors for Continuing Education and Training",
+      "Sign Language 101 is accredited by the International Accreditors for Continuing Education and Training",
   },
   {
     id: 5,
@@ -44,7 +45,7 @@ export const courses = [
     imgSrc: "./img-5.png",
     alt: "Mairina Michel, Level1",
     courseBreif:
-    "Sign Language 101 is accredited by the International Accreditors for Continuing Education and Training",
+      "Sign Language 101 is accredited by the International Accreditors for Continuing Education and Training",
   },
   {
     id: 6,
@@ -53,7 +54,7 @@ export const courses = [
     imgSrc: "./img-4.png",
     alt: "Mairina Michel, Level1",
     courseBreif:
-    "Sign Language 101 is accredited by the International Accreditors for Continuing Education and Training",
+      "Sign Language 101 is accredited by the International Accreditors for Continuing Education and Training",
   },
 ];
 
@@ -71,7 +72,10 @@ export default function Homepage() {
               translation. It aims to empower the deaf and mute community,
               enhance road safety, and promote inclusivity.
             </p>
-            <Button type="learnmore">Learn More</Button>
+
+            <Link to="aboutus">
+              <Button type="learnmore">Learn More</Button>
+            </Link>
           </div>
           <div className={styles.rect}>
             <div className={styles.imgVector}>

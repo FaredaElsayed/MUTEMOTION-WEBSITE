@@ -19,6 +19,16 @@ function AppNav() {
             About us
           </NavLink>
         </li>
+        <li>
+          <NavLink to="login" style={{ color: "#ffff" }}>
+            Login
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="signup" style={{ color: "#ffff" }}>
+            Sign Up
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );
