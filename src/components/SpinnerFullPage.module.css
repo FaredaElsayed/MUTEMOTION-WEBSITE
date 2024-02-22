@@ -2,4 +2,12 @@
   margin: 2.5rem;
   height: calc(100vh - 5rem);
   background-color: var(--color-dark--1);
+  /* background: linear-gradient(
+    302.22deg,
+    rgba(186, 104, 200, 0.35) 24.19%,
+    #f2b7fc 93.5%,
+    #f3afff 98.95%,
+    #ffffff 106.3%
+  );
+  border-radius: 12px; */
 }
