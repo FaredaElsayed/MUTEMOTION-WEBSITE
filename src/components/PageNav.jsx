@@ -135,7 +135,7 @@ function PageNav() {
           <NavLink to="/aboutus">About us</NavLink>
         </li>
         <li className={styles.navItem}>
-          <NavLink to="/profile">
+          <NavLink to="/cart">
             <svg
               width="31"
               height="30"

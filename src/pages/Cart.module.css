@@ -1,0 +1,56 @@
+.cart {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin: 2.5rem 0px;
+  background-size: cover;
+  background-position: center;
+  padding: 2.5rem 0rem;
+  color: #442c8f;
+  letter-spacing: -0.022em;
+  text-transform: capitalize;
+  font-family: "Merriweather";
+  font-style: normal;
+}
+.cart >span {
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 2.5rem;
+  text-align: center;
+  text-transform: capitalize;
+  color: #442c8f;
+  margin-top: 5rem;
+}
+.cart main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.cart main span {
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 2.2rem;
+  text-align: center;
+  text-transform: capitalize;
+  color: #827a7a;
+}
+.cart .emptyRect {
+  box-sizing: border-box;
+  width: 50vw;
+  height: 60vh;
+  border: 1px solid #652d90;
+  border-radius: 149px 150px 150px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.4rem;
+}
+.emptyRect img {
+  max-width: 100%;
+}
