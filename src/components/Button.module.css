@@ -64,6 +64,24 @@
   color: #442c8f;
   background: #ffffff;
 }
+.apply {
+  font-weight: 600;
+  letter-spacing: -0.0022em;
+  font-size: 2.3rem;
+  transition: background-color 2s, color 2s;
+  text-transform: uppercase;
+  border-radius: 12px;
+  padding: 0.8rem 1.6rem;
+  background: #acacac;
+  border: 1.5px solid #acacac;
+  border-radius: 4px;
+  color: #ffff;
+}
+
+.apply:hover{
+  background: #ffff;
+  color: #acacac;
+}
 
 /*.back {
   font-weight: 600;

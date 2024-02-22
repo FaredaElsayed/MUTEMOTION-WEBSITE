@@ -29,9 +29,10 @@
   align-items: center;
   justify-content: center;
   gap: 2rem;
+  width: 90vw;
 }
 
-.cart main span {
+.span {
   font-weight: 700;
   font-size: 1.8rem;
   line-height: 2.2rem;
