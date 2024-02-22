@@ -1,6 +1,7 @@
 import styles from "./AboutUs.module.css";
 import PageNav from "../components/PageNav";
 import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 
 export default function Homepage() {
   return (
@@ -8,11 +9,11 @@ export default function Homepage() {
       <div className={styles.aboutus}>
         <PageNav />
         <section className={styles.image}>
-          <h1>
+          <span>
             We are here to make sign
             <br />
             language learning more easy!
-          </h1>
+          </span>
           <img src="./Group 50.png" alt="sign language is easy!"></img>
         </section>
         <main>
@@ -20,7 +21,7 @@ export default function Homepage() {
             <div className={styles.rectContainer1}>
               <div className={styles.rectContainer2}>
                 <div className={styles.content}>
-                  <h1>MuteMotion</h1>
+                  <span>MuteMotion</span>
                   <p>
                     MuteMotion is designed to address two significant
                     challenges: improving the safety and convenience of drivers
@@ -57,7 +58,7 @@ export default function Homepage() {
                     recognition, traffic sign recognition, and gesture detection
                     to improve overall safety.
                   </p>
-                  <h1>KEY FEATURES</h1>
+                  <span>KEY FEATURES</span>
                   <p className={styles.dotsContainer}>
                     <span className={styles.dots}></span>
                     <span className={styles.dots}></span>
@@ -67,13 +68,23 @@ export default function Homepage() {
               </div>
             </div>
           </section>
-          <section className={`${styles.description}`}>
-            <h1>ASL for adults and for +15</h1>
+          <section className={styles.description}>
+            <span>MuteMotion!</span>
             <p>
-              MuteMotion is an innovative project that combines an Advanced
-              Driver Assistance System (ADAS) with real-time sign language
-              translation. It aims to empower the deaf and mute community,
-              enhance road safety, and promote inclusivity.
+              MuteMotion envisions a world where transportation is truly
+              inclusive, empowering every individual to navigate the roads
+              safely and seamlessly
+              <br />
+              <br />
+              At MuteMotion, we are committed to developing innovative solutions
+              that not only enhance road safety but also promote awareness of
+              sign language and deaf culture.
+              <br />
+              <br />
+              Join us as we embark on this transformative journey to create a
+              more inclusive and accessible transportation ecosystem for all.
+              Together, we can drive change and make a lasting
+              impact on society.
             </p>
           </section>
         </main>
@@ -108,19 +119,29 @@ export default function Homepage() {
           <div className={styles.rectContainer1}>
             <div className={styles.rectContainer2}>
               <div className={styles.content}>
-                <h1>Getting Started</h1>
+                <span>Getting Started</span>
                 <p>
                   To get started with MuteMotion, follow these steps:
                   <br />
                   <br />
-                  1_Clone the repository.
+                  1_visit our website{" "}
+                  <Link to="https://mutemotion.com" target="blank">
+                    MuteMotion
+                  </Link>
+                  .
                   <br />
-                  2_Review the documentation in the respective directories
-                  (smart taxi service, mobile app, web platform).
+                  2_make a new account or login if you already have an account .
                   <br />
-                  3_Install the necessary dependencies.
+                  3_ join our sign language courses.
                   <br />
-                  4_Run the project locally for testing and development.
+                  4_visit about us page to learn more about our vision and our
+                  services.
+                  <br />
+                  5_download now our taxi application from playstore{" "}
+                  <Link to="https://mutemotion.com" target="blank">
+                    MuteMotion
+                  </Link>
+                  .
                 </p>
               </div>
             </div>
@@ -128,11 +149,21 @@ export default function Homepage() {
         </section>
         <section className={styles.image}>
           <img src="./pana.png" alt="sign language is easy!"></img>
-          <h1>LICENSE</h1>
+          <span>LICENSE</span>
           <p>
-            This project is licensed under the MIT License.
+            This project is licensed by
+            <Link to="https://www.zu.edu.eg/" target="_blank">
+              {" "}
+              Zagazig university
+            </Link>
+            .
             <br />
-            Feel free to use, modify, and distribute it in your projects.
+            sponsored by
+            <Link to="https://www.valeo.com/" target="_blank">
+              {" "}
+              Valeo
+            </Link>
+            .
           </p>
         </section>
       </div>

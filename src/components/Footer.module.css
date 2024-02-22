@@ -74,6 +74,8 @@
 }
 .developers {
   display: flex;
+  margin-top: 3rem;
+  margin-left: -9rem;
   gap: 1rem;
   align-items: center;
   justify-content: center;

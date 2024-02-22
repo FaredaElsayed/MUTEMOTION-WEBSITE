@@ -13,7 +13,6 @@
   text-transform: capitalize;
 }
 
-
 .aboutus .image {
   display: flex;
   flex-direction: column;
@@ -36,7 +35,7 @@
 }
 .aboutus .keyFeatures {
   align-self: flex-end;
-  width: 70%;
+  width: 64%;
   margin: 0%;
 }
 .description {
@@ -52,14 +51,16 @@
   margin: 14rem;
 }
 .keyFeatures p,
-.keyFeatures h1,
+.content a,
+.aboutus a,
+.keyFeatures span,
 .description p,
-.description h1 {
+.description span {
   color: #442c8f !important;
   font-weight: 600;
 }
-.keyFeatures h1,
-.description h1 {
+.keyFeatures span,
+.description span {
   align-self: center !important;
 }
 .dotsContainer {
@@ -124,19 +125,19 @@
   align-items: flex-start;
   padding: 10%;
   margin-left: -8rem;
-  padding-right: 22%;
+ 
   gap: 2rem;
   color: white;
   font-family: "Merriweather";
   font-style: normal;
   font-weight: 400;
 }
-.image h1 {
+.image span {
   text-transform: capitalize !important;
 }
-.content h1,
-.image h1,
-.description h1 {
+.content span,
+.image span,
+.description span {
   line-height: 134%;
   letter-spacing: -0.022em;
   text-transform: uppercase;
@@ -144,7 +145,9 @@
 }
 
 .content p,
-.description p {
+.content a,
+.description p,
+.gettingStarted a {
   font-size: 24px;
   line-height: 134%;
   letter-spacing: -0.00022em;
@@ -227,11 +230,30 @@
   background: #ba68c8;
   border-radius: 149px 150px 150px 0px;
   margin: 4rem;
+  padding: 2rem;
+}
+.gettingStarted .content {
+  margin-right: 14rem;
+  margin-left: 2rem;
+  margin-top: 2rem;
+  padding: 1.4rem !important;
+  width: 100% !important;
+  
+  
 }
 
-.image p {
+.gettingStarted .rectContainer1,
+.gettingStarted .content,
+.gettingStarted .rectContainer2 {
+  height: 450px!important;
+
+}
+
+.image p,
+.image a {
   font-family: "Merriweather";
   font-style: normal;
+  text-decoration: none;
   font-weight: 400;
   font-size: 2.2rem;
   line-height: 134%;

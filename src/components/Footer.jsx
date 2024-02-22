@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styles from "./Footer.module.css";
 function Footer() {
   return (
@@ -6,41 +6,41 @@ function Footer() {
       <div className={styles.footerContent}>
         <ul className={styles.list}>
           <li>
-            <NavLink to="cities">Blog</NavLink>
+            <Link to="cities">Blog</Link>
           </li>
           <li>
-            <NavLink to="countries">Careers</NavLink>
+            <Link to="countries">Careers</Link>
           </li>
           <li>
-            <NavLink to="countries">Help and support</NavLink>
-          </li>
-        </ul>
-        <ul className={styles.list}>
-          <li>
-            <NavLink to="cities">TERMS</NavLink>
-          </li>
-          <li>
-            <NavLink to="countries">HELP</NavLink>
-          </li>
-          <li>
-            <NavLink to="countries">TERMS</NavLink>
-          </li>
-          <li>
-            <NavLink to="countries">ASK NOW</NavLink>
+            <Link to="countries">Help and support</Link>
           </li>
         </ul>
         <ul className={styles.list}>
           <li>
-            <NavLink to="cities">PRIVECY</NavLink>
+            <Link to="cities">TERMS</Link>
           </li>
           <li>
-            <NavLink to="countries">POLICY</NavLink>
+            <Link to="countries">HELP</Link>
           </li>
           <li>
-            <NavLink to="countries">TERMS</NavLink>
+            <Link to="countries">TERMS</Link>
           </li>
           <li>
-            <NavLink to="countries">ASK NOW</NavLink>
+            <Link to="countries">ASK NOW</Link>
+          </li>
+        </ul>
+        <ul className={styles.list}>
+          <li>
+            <Link to="cities">PRIVECY</Link>
+          </li>
+          <li>
+            <Link to="countries">POLICY</Link>
+          </li>
+          <li>
+            <Link to="countries">TERMS</Link>
+          </li>
+          <li>
+            <Link to="countries">ASK NOW</Link>
           </li>
         </ul>
         <ul className={styles.list}>
@@ -48,31 +48,31 @@ function Footer() {
             <button className={styles.contactUs}>Contact Us</button>
           </li>
           <li>
-            <NavLink to="mailto:mutemotion2024@gmail.com">
+            <Link to="mailto:mutemotion2024@gmail.com">
               mutemotion2024@gmail.com
-            </NavLink>
+            </Link>
           </li>
-        </ul>{" "}
+        </ul>
       </div>
       <ul className={styles.developers}>
         <h4>&copy; Devolbed by:</h4>
         <li>
-          <NavLink
+          <Link
             to="https://github.com/FaredaElsayed"
             target="_blank"
             rel="noopener noreferrer"
           >
             Farida Elsayed,
-          </NavLink>
+          </Link>
         </li>
         <li>
-          <NavLink
+          <Link
             to="https://github.com/AhmedFawzy2001"
             target="_blank"
             rel="noopener noreferrer"
           >
             Ahmed Fawzy.
-          </NavLink>
+          </Link>
         </li>
       </ul>
     </footer>
