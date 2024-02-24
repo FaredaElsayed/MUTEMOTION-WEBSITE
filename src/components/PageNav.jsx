@@ -102,7 +102,7 @@ function PageNav() {
   return (
     <nav className={styles.nav}>
       <div className={styles.logoContainer}>
-        <Logo />
+        <Logo path="/homepage" />
       </div>
       <ul>
         <li className={styles.navItem} onClick={toggleDropdown3}>

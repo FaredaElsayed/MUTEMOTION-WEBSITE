@@ -12,7 +12,7 @@ function AppNav() {
   return (
     <nav className={styles.nav}>
       <div className={styles.logoContainer}>
-        <Logo />
+        <Logo path="/" />
       </div>
       <ul>
         <li className={styles.navItem}>
