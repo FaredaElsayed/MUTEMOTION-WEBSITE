@@ -4,6 +4,7 @@ import styles from "./Cart.module.css";
 import Footer from "../components/Footer";
 import EmptyCart from "../components/EmptyCart";
 import OrderSummery from "../components/OrderSummery";
+import Payment from "../components/Payment";
 function Cart() {
   const [items, setItems] = useState(1);
 
@@ -15,7 +16,12 @@ function Cart() {
         <main>
           <span className={styles.span}>{items} items in your cart</span>
           {!items && <EmptyCart />}
-          <OrderSummery />
+          {items && (
+            <div>
+              <Payment />
+              <OrderSummery />
+            </div>
+          )}
         </main>
       </div>
       <Footer />

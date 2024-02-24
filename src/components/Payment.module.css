@@ -1,0 +1,93 @@
+.payment {
+  box-sizing: border-box;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  /* margin: 2rem; */
+  padding: 3rem;
+  width: 40%;
+  color: #442c8f;
+}
+
+.payment span {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 2.6rem;
+  line-height: 2.5rem;
+}
+.payment form {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.method {
+  display: flex;
+  width: 40%;
+  justify-content: space-between;
+}
+
+.payment input[type="radio"] {
+  margin-right: 0.5rem;
+}
+
+.payment input[type="text"] {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  color: #acacac;
+  border: 1px solid #eeeeee;
+  border-radius: 12px;
+  padding: 1rem;
+  width: 100%;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  text-transform: capitalize;
+  margin-top: 0.5rem;
+}
+.payment input:-webkit-autofill {
+  -webkit-text-fill-color: #939393;
+  -webkit-background-clip: text;
+}
+.exp {
+  display: flex;
+  gap: 4rem;
+}
+
+.payment label {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 2.2rem;
+  color: #442c8f;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox {
+  margin-right: 1rem;
+}
+
+.checkboxText {
+  font-size: 2rem !important;
+  color: #acacac;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 2rem;
+}
+.payment form p {
+  font-family: "Inter";
+  width: 73%;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  color: #acacac;
+}
