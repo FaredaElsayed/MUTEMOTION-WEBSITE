@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import EmptyCart from "../components/EmptyCart";
 import OrderSummery from "../components/OrderSummery";
 import Payment from "../components/Payment";
+import CartCard from "../components/CartCard";
 function Cart() {
   const [items, setItems] = useState(1);
 
@@ -18,7 +19,8 @@ function Cart() {
           {!items && <EmptyCart />}
           {items && (
             <div>
-              <Payment />
+              {/* <Payment /> */}
+              <CartCard />
               <OrderSummery />
             </div>
           )}

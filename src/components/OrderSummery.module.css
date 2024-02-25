@@ -6,7 +6,7 @@
   gap: 3rem;
   /* margin: 2rem; */
   border: 1px solid #442c8f;
-  padding: 3rem;
+  padding: 6rem;
   width: 40%;
   color: #442c8f;
 }
@@ -52,7 +52,8 @@
   justify-content: space-between;
 }
 .mainRect input {
-  padding: 14px 192px 14px 16px;
+  width: 70%;
+  padding: 1rem;
   background: #ffffff;
   border: 1.5px solid #acacac;
   border-radius: 4px;

@@ -1,0 +1,43 @@
+.cardContainer {
+  box-sizing: border-box;
+  align-self: flex-start;
+  display: flex;
+  gap: 2rem;
+  margin: 6rem 0px;
+  width: 707px;
+  height: 191px;
+  border: 1px solid #442c8f;
+  border-radius: 12px;
+  font-family: "Merriweather";
+  font-style: normal;
+  letter-spacing: -0.022em;
+}
+
+.cardContainer img {
+  margin-left: -3rem;
+  margin-bottom: -2rem;
+  margin-top: 2rem;
+  max-width: 100%;
+}
+
+.contentDesc {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.contentDesc p,
+.price {
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 150%;
+  color: #442c8f;
+}
+.contentDesc .span {
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  text-transform: capitalize;
+}
