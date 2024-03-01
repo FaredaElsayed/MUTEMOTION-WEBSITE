@@ -1,12 +1,15 @@
 import Button from "./Button";
 import styles from "./Payment.module.css";
 export default function Payment() {
-    const btnStyle = {
-        textTransform: "capitalize",
-        borderColor: "#652d90",
-        borderStyle: "solid",
-        borderWidth: "2px",
-      };
+  const btnStyle = {
+    textTransform: "capitalize",
+    borderColor: "#652d90",
+    borderStyle: "solid",
+    borderWidth: "2px",
+    // width: "100%",
+    // alignSelf: "center",
+  };
+
   return (
     <div className={styles.payment}>
       <span>Payment</span>
@@ -70,8 +73,14 @@ export default function Payment() {
           />
           <span className={styles.checkboxText}>Save card details</span>
         </label>
-        <Button type="learnmore" btnStyle={btnStyle}>Pay</Button>
-        <p>Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.</p>
+        <Button type="learnmore" btnStyle={btnStyle}>
+          Pay
+        </Button>
+        <p>
+          Your personal data will be used to process your order, support your
+          experience throughout this website, and for other purposes described
+          in our privacy policy.
+        </p>
       </form>
     </div>
   );

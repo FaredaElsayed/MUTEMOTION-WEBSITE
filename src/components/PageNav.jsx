@@ -70,11 +70,6 @@ const MenuItems3 = [
     path: "/reviews",
     cName: "dropdown-link",
   },
-  {
-    title: "Business",
-    path: "/business",
-    cName: "dropdown-link",
-  },
 ];
 
 function PageNav() {

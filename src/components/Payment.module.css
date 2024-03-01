@@ -50,6 +50,10 @@
   -webkit-text-fill-color: #939393;
   -webkit-background-clip: text;
 }
+.payment input:focus {
+  outline: transparent;
+}
+
 .exp {
   display: flex;
   gap: 4rem;
@@ -90,4 +94,23 @@
   font-size: 1.4rem;
   line-height: 2.2rem;
   color: #acacac;
+}
+.cardPin {
+  font-size: 2.2rem !important;
+}
+.pin {
+  display: flex;
+  flex-direction: row !important;
+  gap: 2rem;
+  height: fit-content;
+}
+.pin input {
+  padding: 2rem 0px !important;
+  text-align: center;
+  font-size: 4rem !important;
+}
+
+.pin input[name="pin"]:focus {
+  outline: 2px solid #2fbd6a !important;
+  caret-color: #2fbd6a;
 }

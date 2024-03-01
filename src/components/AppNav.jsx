@@ -15,18 +15,6 @@ function AppNav() {
         <Logo path="/" />
       </div>
       <ul>
-        <li className={styles.navItem}>
-          <NavLink to="/homepage" style={{ color: "#ffff" }}>
-            Home
-          </NavLink>
-        </li>
-
-        <li>
-          <NavLink to="aboutus" style={{ color: "#ffff" }}>
-            About us
-          </NavLink>
-        </li>
-        
         <li>
           <NavLink to="signup" style={{ color: "#ffff" }}>
             <Button type="learnmore" btnStyle={btnStyle}>

@@ -1,6 +1,7 @@
 import styles from "./OrderSummery.module.css";
 import Button from "./Button";
-export default function OrderSummery() {
+export default function OrderSummery({onClick}) {
+  
   return (
     <div className={styles.mainRect}>
       <span>Order Summery</span>
@@ -21,7 +22,7 @@ export default function OrderSummery() {
       <hr />
       <div className={styles.code}>
         <input type="text" placeholder="Gift or discount code" />
-        <Button type="apply">Apply</Button>
+        <Button type="apply" onClick={onClick}>Apply</Button>
       </div>
       <hr/>
       <span>Subtotal:</span>
