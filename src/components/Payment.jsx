@@ -6,8 +6,6 @@ export default function Payment() {
     borderColor: "#652d90",
     borderStyle: "solid",
     borderWidth: "2px",
-    // width: "100%",
-    // alignSelf: "center",
   };
 
   return (

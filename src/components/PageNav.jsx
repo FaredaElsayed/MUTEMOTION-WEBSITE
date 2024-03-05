@@ -52,7 +52,7 @@ const MenuItems2 = [
 const MenuItems3 = [
   {
     title: "Explore",
-    path: "/",
+    path: "#",
     cName: "dropdown-link",
   },
   {

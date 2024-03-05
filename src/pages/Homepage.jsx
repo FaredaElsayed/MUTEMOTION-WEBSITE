@@ -73,7 +73,7 @@ export default function Homepage() {
               enhance road safety, and promote inclusivity.
             </p>
 
-            <Link to="aboutus">
+            <Link to="/aboutus">
               <Button type="learnmore">Learn More</Button>
             </Link>
           </div>

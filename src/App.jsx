@@ -1,13 +1,6 @@
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import { CitiesProvider } from "./contexts/CitiesContext";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AuthProvider } from "./contexts/FakeAuthContxt";
 import React, { Suspense, lazy } from "react";
-import { RatingsProvider } from "./contexts/RatingContext";
-
-import CityList from "./components/CityList";
-import CountryList from "./components/CountryList";
-import Form from "./components/Form";
-import ProtectedRoute from "./pages/ProtectedRoute";
 import SpinnerFullPage from "./components/SpinnerFullPage";
 import Course from "./pages/Course";
 
@@ -21,7 +14,6 @@ const Profile = lazy(() => import("./pages/Profile"));
 const Login = lazy(() => import("./pages/Login"));
 const SignUp = lazy(() => import("./pages/SignUp"));
 const Courses = lazy(() => import("./pages/Courses"));
-const AppLayout = lazy(() => import("./pages/AppLayout"));
 const FirstPage = lazy(() => import("./pages/FirstPage"));
 const Cart = lazy(() => import("./pages/Cart"));
 
@@ -29,13 +21,12 @@ const Cart = lazy(() => import("./pages/Cart"));
 function App() {
   return (
     <AuthProvider>
-      <RatingsProvider>
-        <CitiesProvider>
+
           <BrowserRouter>
             <Suspense fallback={<SpinnerFullPage />}>
               <Routes>
-                <Route path="homePage" element={<Home />} />
                 <Route index element={<FirstPage />} />
+                <Route path="homePage" element={<Home />} /> 
                 <Route path="aboutus" element={<AboutUs />} />
                 <Route path="courses" element={<Courses />}>
                   <Route path="/courses/:id" component={Course} />
@@ -47,28 +38,10 @@ function App() {
                 <Route path="profile" element={<Profile />} />
                 <Route path="login" element={<Login />} />
                 <Route path="signup" element={<SignUp />} />
-
-                <Route
-                  path="app"
-                  element={
-                    <ProtectedRoute>
-                      <AppLayout />
-                    </ProtectedRoute>
-                  }
-                >
-                  <Route index element={<Navigate replace to="cities" />} />
-                  <Route index element={<CityList />} />
-                  <Route path="cities" element={<CityList />} />
-                  {/* <Route path="cities/:id" element={<City />} /> */}
-                  <Route path="countries" element={<CountryList />} />
-                  <Route path="form" element={<Form />} />
-                </Route>
                 <Route path="*" element={<PageNotFound />} />
               </Routes>
             </Suspense>
-          </BrowserRouter>
-        </CitiesProvider>
-      </RatingsProvider>
+          </BrowserRouter>   
     </AuthProvider>
   );
 }
