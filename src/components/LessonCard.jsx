@@ -5,6 +5,9 @@ function LessonCard({ num, name, lessonBreif }) {
   const costumeStyle = {
     width: "80%",
   };
+  function handleOpenLesson(){
+
+  }
   return (
     <div className={styles.card}>
       <svg
@@ -19,8 +22,8 @@ function LessonCard({ num, name, lessonBreif }) {
           fill="#442C8F"
         />
       </svg>
-      <h1>Lesson {num}</h1>
-      <h3>{name}</h3>
+      <h1 >Lesson {num}</h1>
+      <h3 onClick={handleOpenLesson}>{name}</h3>
       {lessonBreif && (
         <ParagraphToList paragraph={lessonBreif} styleP={costumeStyle} />
       )}

@@ -1,8 +1,9 @@
-function MyProgressBar({ interval }) {
-  const customProgressBarStyle = {
+function MyProgressBar({
+  interval,
+  customProgressBarStyle = {
     width: "100%",
-    
-  };
+  },
+}) {
   const max = interval;
 
   return (

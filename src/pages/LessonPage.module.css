@@ -1,0 +1,19 @@
+.lesson {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: left;
+    margin: 2.5rem 0px;
+    background-size: cover;
+    background-position: center;
+    padding: 2.5rem 0rem;
+    color: #442c8f;
+    letter-spacing: -0.022em;
+    text-transform: capitalize;
+    font-family: "Merriweather";
+    font-style: normal;
+  }
+  .lesson .videoPlayer{
+    width: 60vw;
+  }
