@@ -48,7 +48,7 @@ const reviews = [
     myRating: 5,
   },
 ];
-function Course() {
+function Course({setIsPaying,isPaying}) {
   return (
     <>
       <div className={styles.courses}>
@@ -58,6 +58,8 @@ function Course() {
           courseImg="./ASL-1 1.png"
           courseAlt={courses.alt}
           courseBreif={courses.courseBreif}
+          setIsPaying={setIsPaying}
+          isPaying={isPaying}
         />
         <ParagraphToList
           paragraph={p}

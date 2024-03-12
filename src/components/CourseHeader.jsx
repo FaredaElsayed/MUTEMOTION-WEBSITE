@@ -1,15 +1,15 @@
-import { useState } from "react";
 import StarRating from "./StarRating";
 import styles from "./CourseHeader.module.css";
 import Button from "./Button";
+import { useNavigate } from "react-router-dom";
 
 export default function CourseHeader({
   courseTitle,
-  courseBreif,
   courseImg,
   alt,
+  setIsPaying,
 }) {
-  const [userRating, setUserRating] = useState("");
+  const navigate = useNavigate();
   const btnStyle1 = {
     fontSize: "2.5rem",
     textTransform: "uppercase",
@@ -18,6 +18,10 @@ export default function CourseHeader({
     borderWidth: "2px",
   };
 
+  function handlePaying() {
+    setIsPaying(true);
+    navigate("/cart");
+  }
   return (
     <>
       <header className={styles.coursesHeader}>
@@ -38,7 +42,7 @@ export default function CourseHeader({
             defaultRating={5}
           />
           <div className={styles.btns}>
-            <Button type="continue" btnStyle={btnStyle1}>
+            <Button type="continue" btnStyle={btnStyle1} onClick={handlePaying}>
               Buy Now
             </Button>
             <Button type="overview" btnStyle={btnStyle1}>

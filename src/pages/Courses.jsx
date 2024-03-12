@@ -3,8 +3,10 @@ import PageNav from "../components/PageNav";
 import Footer from "../components/Footer";
 import CustomSlider from "./CustomSlider";
 import Course from "./Course";
+import { useState } from "react";
 
 export default function Courses() {
+  const [isPaying, setIsPaying] = useState (false);
   return (
     <>
       <main className={styles.courses}>
@@ -36,7 +38,7 @@ export default function Courses() {
         <CustomSlider title="For Age +15" />
         <CustomSlider title="For Kids" />
       </main>
-      <Course />
+      <Course isPaying={isPaying} setIsPaying={setIsPaying}/>
       <Footer />
     </>
   );

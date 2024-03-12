@@ -21,7 +21,6 @@ const Cart = lazy(() => import("./pages/Cart"));
 function App() {
   return (
     <AuthProvider>
-
           <BrowserRouter>
             <Suspense fallback={<SpinnerFullPage />}>
               <Routes>
