@@ -159,7 +159,7 @@
 .photos {
   display: flex;
   flex-direction: row;
-  gap: 6rem;
+  gap: 3rem;
   background: #fff;
   height: 950px;
 }

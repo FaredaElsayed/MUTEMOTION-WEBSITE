@@ -41,7 +41,7 @@
   width: 48%;
   height: 385px;
   position: relative;
-  right: -6%;
+  /* right: -6%; */
 }
 .content h1 {
   font-size: 4.2rem;
@@ -77,7 +77,7 @@
   align-self: baseline;
   position: absolute;
   left: 15rem;
-  top: 8rem;
+  top: 12rem;
   transform: rotate(16deg);
   max-width: 50%;
   border-radius: 30% 20% 10% 55%;
