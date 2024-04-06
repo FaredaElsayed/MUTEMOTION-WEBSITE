@@ -84,7 +84,7 @@ function SignUp() {
               />
             </div>
             <div className={styles.buttons}>
-              <Link to="/homepage">
+              <Link to="/confirm">
                 <Button type="continue" btnStyle={btnStyle}>
                   Register
                 </Button>

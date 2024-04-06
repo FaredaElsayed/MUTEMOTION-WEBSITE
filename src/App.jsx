@@ -3,6 +3,7 @@ import { AuthProvider } from "./contexts/FakeAuthContxt";
 import React, { Suspense, lazy } from "react";
 import SpinnerFullPage from "./components/SpinnerFullPage";
 import Course from "./pages/Course";
+import ConfirmMail from "./pages/ConfirmMail";
 
 const Home = lazy(() => import("./pages/Homepage"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
@@ -13,6 +14,7 @@ const InProgress = lazy(() => import("./pages/InProgress"));
 const Profile = lazy(() => import("./pages/Profile"));
 const Login = lazy(() => import("./pages/Login"));
 const SignUp = lazy(() => import("./pages/SignUp"));
+const Confirm = lazy(() => import("./pages/ConfirmMail"));
 const Courses = lazy(() => import("./pages/Courses"));
 const FirstPage = lazy(() => import("./pages/FirstPage"));
 const Cart = lazy(() => import("./pages/Cart"));
@@ -36,6 +38,7 @@ function App() {
                 <Route path="likes" element={<Likes />} />
                 <Route path="profile" element={<Profile />} />
                 <Route path="login" element={<Login />} />
+                <Route path="confirm" element={<ConfirmMail />} />
                 <Route path="signup" element={<SignUp />} />
                 <Route path="*" element={<PageNotFound />} />
               </Routes>
