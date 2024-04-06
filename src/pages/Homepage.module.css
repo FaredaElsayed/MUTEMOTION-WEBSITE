@@ -49,10 +49,10 @@
   font-weight: bold;
 }
 
-.content p {
-  width: 90%;
+.homepage .content p {
+  /* width: 90%; */
   font-size: 2.2rem;
-  margin-bottom: 2.5rem;
+  /* margin-bottom: 2.5rem; */
   color: white;
 }
 

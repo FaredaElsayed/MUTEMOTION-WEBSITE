@@ -30,6 +30,7 @@
   justify-content: center;
   gap: 2rem;
   width: 90vw;
+ 
 }
 .cart main > div {
   display: flex;
@@ -59,13 +60,14 @@
 .cart .emptyRect {
   box-sizing: border-box;
   width: 50vw;
-  height: 60vh;
+  /* height: 60vh; */
   border: 1px solid #652d90;
   border-radius: 149px 150px 150px 0px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 2rem;
   gap: 2.4rem;
 }
 .emptyRect img {

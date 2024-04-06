@@ -8,7 +8,7 @@ import Payment from "../components/Payment";
 import Pay from "../components/Pay";
 import CartCard from "../components/CartCard";
 function Cart() {
-  const [items, setItems] = useState(1);
+  const [items, setItems] = useState(2);
   const [isPaying, setIsPaying] = useState(false);
   function handlePaying() {
     setIsPaying(true);

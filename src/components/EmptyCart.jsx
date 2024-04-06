@@ -1,5 +1,5 @@
 import Button from "../components/Button";
-import styles from "../Pages/Cart.module.css";
+import styles from "../pages/Cart.module.css";
 export default function EmptyCart() {
   const btnStyle = {
     textTransform: "capitalize",
