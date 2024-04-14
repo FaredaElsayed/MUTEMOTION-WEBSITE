@@ -21,7 +21,7 @@ function ConfirmMail() {
         </Link>
         <main className={styles.mainContainer}>
           <div className={styles.imgCont}>
-            <p style={{ left: "15%" }}>Get started now!</p>
+            <p style={{ left: "11%" }}>You almost there!</p>
             <div
               className={styles.img}
               style={{ backgroundImage: "url(./sign.png)" }}
@@ -29,7 +29,7 @@ function ConfirmMail() {
           </div>
           <form>
             <div>
-              <p>Create account</p>
+              <p>Email verification</p>
               <span>
                 Enter the code sent to your email to access your account.
               </span>
