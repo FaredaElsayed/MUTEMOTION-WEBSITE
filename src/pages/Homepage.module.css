@@ -56,24 +56,24 @@
   color: white;
 }
 
-.cards {
+ .cards {
   display: flex;
   flex-direction: row;
   gap: 3rem;
   overflow-x: auto;
 }
 
-.imgVector {
+.homepage .imgVector {
   display: flex;
   gap: 2rem;
 }
 
-.imgVector .img1 {
+.homepage .imgVector .img1 {
   align-self: flex-start;
   max-width: 50%;
   transform: rotate(-9.17deg);
 }
-.imgVector .img2 {
+.homepage .imgVector .img2 {
   align-self: baseline;
   position: absolute;
   left: 15rem;
@@ -82,7 +82,7 @@
   max-width: 50%;
   border-radius: 30% 20% 10% 55%;
 }
-.imgVector .img3 {
+.homepage .imgVector .img3 {
   max-width: 50%;
   align-self: flex-end;
   transform: rotate(23deg);

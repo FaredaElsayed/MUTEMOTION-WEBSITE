@@ -19,26 +19,26 @@
   line-height: 2.5rem;
 }
 
-.card {
+.mainRect .card {
   display: flex;
   gap: 3rem;
 }
-.card img {
+.mainRect .card img {
   max-width: 100%;
 }
-.cardContent {
+.mainRect .cardContent {
   width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.header,
-.name {
+.mainRect .header,
+.mainRect .name {
   display: flex;
   width: 100%;
   justify-content: space-between;
 }
-.name span {
+.mainRect .name span {
   font-family: "Inter";
   font-style: normal;
   font-weight: 500;
@@ -46,7 +46,7 @@
   line-height: 12px;
   color: #acacac;
 }
-.code {
+.mainRect .code {
   display: flex;
   width: 100%;
   justify-content: space-between;

@@ -6,14 +6,14 @@
     justify-content: center;
   }
   
-  .searchIcon {
+  .searchContainer .searchIcon {
     font-size: 2rem;
     color: #888;
     position: relative;
     left: 4rem;
   }
   
-  .searchInput {
+  .searchContainer .searchInput {
     width: 100%;
     background: #eeeeee;
     border: 2px solid #eeeeee;
@@ -28,10 +28,10 @@
     flex: 1;
   }
   
-  .searchInput::placeholder {
+  .searchContainer .searchInput::placeholder {
     color: #959595;
   }
   
-  .searchInput:focus {
+  .searchContainer .searchInput:focus {
     outline: 2px solid #959595;
   }

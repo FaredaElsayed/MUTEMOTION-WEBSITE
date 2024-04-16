@@ -9,7 +9,7 @@ export default function ParagraphToList({ paragraph, level, desc, text,styleP })
     : [];
   const lines = text && text.split("\n").filter((line) => line.trim() !== "");
   return (
-    <div className={styles.container}>
+    <div className={styles.paragraphToList}>
       <div className={styles.content} style={costumeStyle }>
         {level && <h1>{level}</h1>}
         {desc && <p>{desc}</p>}

@@ -37,7 +37,7 @@
   align-self: center;
   margin-right: -7rem;
 }
-.rect1 {
+.coursesHeader .rect1 {
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -45,23 +45,22 @@
   padding: 2rem;
   box-sizing: border-box;
   width: 40%;
-  height: 515px;
+  /* height: 515px; */
   border: 1px solid #652d90;
 }
-.content h1 {
+.coursesHeader .content h1 {
   font-family: "Merriweather";
   font-style: normal;
   font-weight: 700;
   font-size: 3.5rem;
-  line-height: 4rem;
   color: #442c8f;
   position: absolute;
   z-index: 1;
 }
-.content {
+.coursesHeader .content {
   margin-top: 5rem;
 }
-.content p {
+.coursesHeader .content p {
   margin-top: 8rem !important;
   font-size: 2rem;
   font-weight: 400;
@@ -70,7 +69,7 @@
   width: 75%;
 }
 
-.rect {
+.coursesHeader .rect {
   box-sizing: border-box;
   width: 45%;
   height: 470px;
@@ -85,9 +84,10 @@
   left: -4rem;
 }
 
-.btns {
+.coursesHeader .btns {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   width: 50%;
+  
 }

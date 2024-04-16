@@ -29,7 +29,7 @@
   flex-direction: column;
   gap: 6rem;
 }
-.hands {
+.aboutus .hands {
   margin-top: -33rem;
   margin-left: 4rem;
 }
@@ -38,7 +38,7 @@
   width: 64%;
   margin: 0%;
 }
-.description {
+.aboutus .description {
   gap: 2rem;
   align-self: center;
   display: flex;
@@ -50,26 +50,26 @@
   width: 60%;
   margin: 14rem;
 }
-.keyFeatures p,
-.content a,
+.aboutus .keyFeatures p,
+.aboutus .content a,
 .aboutus a,
-.keyFeatures span,
-.description p,
-.description span {
+.aboutus .keyFeatures span,
+.aboutus .description p,
+.aboutus .description span {
   color: #442c8f !important;
   font-weight: 600;
 }
-.keyFeatures span,
-.description span {
+.aboutus .keyFeatures span,
+.aboutus .description span {
   align-self: center !important;
 }
-.dotsContainer {
+.aboutus .dotsContainer {
   display: flex;
   gap: 1.7rem;
   justify-content: center;
   align-self: center;
 }
-.dots {
+.aboutus .dots {
   background: #442c8f;
   content: "";
   display: inline-block;
@@ -77,8 +77,8 @@
   height: 1.2rem;
   border-radius: 50%;
 }
-.keyFeatures .rectContainer1,
-.keyFeatures .rectContainer2 {
+.aboutus .keyFeatures .rectContainer1,
+.aboutus .keyFeatures .rectContainer2 {
   margin-right: 0px !important;
   height: 670px !important;
 }
@@ -96,7 +96,7 @@
   margin: 0rem;
   width: 80%;
 }
-.rectContainer1 {
+.aboutus .rectContainer1 {
   box-sizing: border-box;
   align-self: flex-start;
   height: 455px;
@@ -106,7 +106,7 @@
   margin-top: -2rem;
   margin-right: -5rem;
 }
-.rectContainer2 {
+.aboutus .rectContainer2 {
   box-sizing: border-box;
   align-self: flex-start;
   height: 435px;
@@ -132,22 +132,22 @@
   font-style: normal;
   font-weight: 400;
 }
-.image span {
+.aboutus .image span {
   text-transform: capitalize !important;
 }
-.content span,
-.image span,
-.description span {
+.aboutus .content span,
+.aboutus .image span,
+.aboutus .description span {
   line-height: 134%;
   letter-spacing: -0.022em;
   text-transform: uppercase;
   font-size: 4.2rem;
 }
 
-.content p,
-.content a,
-.description p,
-.gettingStarted a {
+.aboutus .content p,
+.aboutus .content a,
+.aboutus .description p,
+.aboutus .gettingStarted a {
   font-size: 24px;
   line-height: 134%;
   letter-spacing: -0.00022em;
@@ -156,7 +156,7 @@
   margin-bottom: 2.5rem;
 }
 
-.photos {
+.aboutus .photos {
   display: flex;
   flex-direction: row;
   gap: 3rem;
@@ -164,11 +164,11 @@
   height: 950px;
 }
 
-.kid {
+.aboutus .kid {
   width: 246px;
   height: 344px;
 }
-.rectKid {
+.aboutus .rectKid {
   align-self: center;
   box-sizing: border-box;
   width: 214px;
@@ -179,14 +179,14 @@
   padding-left: 2rem;
 }
 
-.sign {
+.aboutus .sign {
   align-self: flex-start;
   width: 384px;
   height: 256px;
 }
 
-.rectPhoto,
-.rectPhotoAdult {
+.aboutus .rectPhoto,
+.aboutus .rectPhotoAdult {
   box-sizing: border-box;
   padding-top: 4rem;
   padding-left: -4rem;
@@ -194,7 +194,7 @@
   height: 266px;
   border: 1px solid #442c8f;
 }
-.rectPhoto2 {
+.aboutus .rectPhoto2 {
   box-sizing: border-box;
   padding-bottom: -6rem;
   padding-top: 4rem;
@@ -204,16 +204,16 @@
   border: 1px solid #442c8f;
 }
 
-.adult {
+.aboutus .adult {
   width: 433px;
   height: 289px;
   margin-top: 3rem;
   margin-left: 3rem;
 }
-.rectPhotoAdult {
+.aboutus .rectPhotoAdult {
   align-self: flex-end;
 }
-.rectPhotoAdult2 {
+.aboutus .rectPhotoAdult2 {
   margin-right: -6rem;
   margin-top: -12rem;
   margin-left: 4rem;
@@ -221,7 +221,7 @@
   border: 1px solid #442c8f;
 }
 
-.gettingStarted {
+.aboutus .gettingStarted {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -232,7 +232,7 @@
   margin: 4rem;
   padding: 2rem;
 }
-.gettingStarted .content {
+.aboutus .gettingStarted .content {
   margin-right: 14rem;
   margin-left: 2rem;
   margin-top: 2rem;

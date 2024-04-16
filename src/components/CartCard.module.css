@@ -20,7 +20,7 @@
   max-width: 100%;
 }
 
-.contentDesc {
+.cardContainer .contentDesc {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -29,21 +29,21 @@
   gap: 1rem;
 }
 
-.icon {
+.cardContainer .icon {
   cursor: pointer;
 }
-.contentDesc p,
-.price {
+.cardContainer .contentDesc p,
+.cardContainer .price {
   font-weight: 700;
   font-size: 1.8rem;
   line-height: 150%;
   color: #442c8f;
 }
-.nameIcon {
+.cardContainer .nameIcon {
   display: flex;
   justify-content: space-between;
 }
-.contentDesc .span {
+.cardContainer .contentDesc .span {
   font-weight: 400;
   font-size: 1.2rem;
   line-height: 1.5rem;

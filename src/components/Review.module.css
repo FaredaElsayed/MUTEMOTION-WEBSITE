@@ -15,24 +15,24 @@
   padding: 2rem;
 }
 
-.rev {
+.reviews .rev {
   display: flex;
   gap: 2rem;
   width: 100%;
   align-items: center;
 }
-.rev div {
+.reviews .rev div {
   width: 50%;
   color: #442c8f;
 }
-.rev h2 {
+.reviews .rev h2 {
   font-family: "Lexend";
   font-style: normal;
   font-weight: 600;
   font-size: 2.6rem;
   line-height: 125%;
 }
-.rev p {
+.reviews .rev p {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
@@ -41,12 +41,12 @@
   color: #827a7a;
   width: 70%;
 }
-.rev img {
+.reviews .rev img {
   height: 333px;
   border-radius: 20px;
 }
 
-.info {
+.reviews .info {
   display: flex;
   flex-direction: column;
   gap: 2rem;

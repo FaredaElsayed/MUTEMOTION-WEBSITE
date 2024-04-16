@@ -19,7 +19,7 @@
   flex-wrap: wrap;
 }
 
-.list {
+.footer .list {
   display: flex;
   justify-content: center;
   text-align: left;
@@ -33,8 +33,8 @@
   letter-spacing: -0.022em;
 }
 
-.list a:link,
-.list a:visited {
+.footer .list a:link,
+.footer .list a:visited {
   text-decoration: none;
   color: #ffff;
   text-transform: uppercase;
@@ -42,20 +42,20 @@
   font-weight: 600;
 }
 
-.list a:active,
-.list a:hover {
+.footer .list a:active,
+.footer .list a:hover {
   text-decoration: underline;
   font-weight: bold;
 }
-.list li {
+.footer .list li {
   opacity: 80%;
 }
 
-.list li:hover {
+.footer .list li:hover {
   opacity: 100%;
 }
 
-.contactUs {
+.footer .contactUs {
   color: #442c8f;
   padding: 0.8rem 1rem;
   font-family: inherit;
@@ -72,7 +72,7 @@
   transition: background-color 2s, color 2s;
   background-color: #ffff;
 }
-.developers {
+.footer .developers {
   display: flex;
   margin-top: 3rem;
   margin-left: -9rem;
@@ -82,13 +82,13 @@
   list-style: none;
   font-size: large;
 }
-.developers a {
+.footer .developers a {
   color: var(--color-light--1);
   text-decoration: none;
 }
 
-.developers a:active,
-.developers a:hover {
+.footer .developers a:active,
+.footer .developers a:hover {
   text-decoration: underline;
   color: #ffff;
 }

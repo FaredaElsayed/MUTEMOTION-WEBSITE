@@ -1,4 +1,4 @@
-.container {
+.paragraphToList {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -9,37 +9,37 @@
   align-self: center;
 }
 
-.content {
+.paragraphToList .content {
   display: flex;
   flex-direction: column;
   gap: 2rem;
   width: 40%;
 }
-.ul {
+.paragraphToList .ul {
   list-style-type: none;
 }
 
-.ul li {
+.paragraphToList .ul li {
   padding-left: 1.5rem;
 }
-.ul li::marker {
+.paragraphToList .ul li::marker {
   content: "\2022";
   font-size: 1.5rem;
   color: #827a7a;
 }
 
-.content h1 {
+.paragraphToList .content h1 {
   font-size: 2.3rem;
 }
-.content .ul,
-.content p {
+.paragraphToList .content .ul,
+.paragraphToList .content p {
   font-weight: 400;
   font-size: 1.7rem;
   text-transform: lowercase;
   color: #827a7a;
 }
 
-.rect {
+.paragraphToList .rect {
   width: 35%;
   height: 648px;
   background: #ba68c8;

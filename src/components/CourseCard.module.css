@@ -43,7 +43,7 @@
   height: 298px;
   border-radius: 12px 12px 0px 12px;
 }
-.fav {
+.card .fav {
   z-index: 2000;
   cursor: pointer;
 }
