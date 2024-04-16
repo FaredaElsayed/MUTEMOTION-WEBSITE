@@ -10,19 +10,19 @@
   text-transform: capitalize;
   background-color: #fff;
 }
-.logo {
+.login .logo {
   position: absolute;
   top: 1.5rem;
   left: 1.5rem;
   z-index: 10000;
 }
-.mainContainer {
+.login .mainContainer {
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: center;
 }
-form {
+.login form {
   width: 50%;
   align-items: center;
   justify-content: center;
@@ -32,14 +32,14 @@ form {
   font-style: normal;
   gap: 1.6rem;
 }
-form label {
+.login form label {
   font-weight: 600;
   font-size: 2.3rem;
   line-height: 2.5rem;
   text-transform: capitalize;
   color: #442c8f;
 }
-form p {
+.login form p {
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
@@ -47,13 +47,13 @@ form p {
   line-height: 4rem;
   color: #442c8f;
 }
-form div {
+.login form div {
   display: flex;
   width: 60%;
   flex-direction: column;
   gap: 0.7rem;
 }
-form input {
+.login form input {
   border: 1px solid #442c8f;
   border-radius: 12px;
   padding: 1rem;
@@ -71,13 +71,13 @@ input:-webkit-autofill {
   -webkit-text-fill-color: #939393;
   -webkit-background-clip: text;
 }
-.buttons {
+.login .buttons {
   justify-content: center;
 }
-.buttons button {
+.login .buttons button {
   margin: 0px 5rem;
 }
-.buttons p {
+.login .buttons p {
   font-weight: 400;
   font-size: 1.8rem;
   text-decoration-line: underline;
@@ -85,17 +85,17 @@ input:-webkit-autofill {
   color: #5c5b5b;
   cursor: pointer;
 }
-.buttons button {
+.login .buttons button {
   width: 82%;
 }
-.iconsCont {
+.login .iconsCont {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-self: center;
   gap: 1rem;
 }
-.iconsCont p {
+.login .iconsCont p {
   font-weight: 400;
   font-size: 1.8rem;
   line-height: 1.8rem;
@@ -103,7 +103,7 @@ input:-webkit-autofill {
   text-transform: capitalize;
   color: #5c5b5b;
 }
-.content {
+.login .content {
   display: flex;
   flex-direction: row;
   align-self: center;
@@ -118,7 +118,7 @@ input:-webkit-autofill {
   color: #442c8f;
   width: 80%;
 }
-.noAcc {
+.login .noAcc {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -126,7 +126,7 @@ input:-webkit-autofill {
   gap: 1rem;
   width: 100%;
 }
-.noAcc p {
+.login .noAcc p {
   font-weight: 400;
   font-size: 1.8rem;
   text-transform: capitalize;
@@ -135,20 +135,20 @@ input:-webkit-autofill {
 div > span {
   font-size: medium;
 }
-.noAcc span {
+.login .noAcc span {
   color: #3f618b;
   text-decoration: underline;
   cursor: pointer;
   font-size: 1.5rem;
 }
-.imgCont {
+.login .imgCont {
   position: relative;
   height: 100vh;
   width: 50%;
   align-self: flex-start;
 }
 
-.imgCont::before {
+.login .imgCont::before {
   content: "";
   position: absolute;
   top: 0;
@@ -164,7 +164,7 @@ div > span {
   );
   z-index: 1;
 }
-.imgCont p {
+.login .imgCont p {
   position: absolute;
   z-index: 1;
   top: 20%;
@@ -177,7 +177,7 @@ div > span {
   text-align: center;
   color: #ffffff;
 }
-.img {
+.login .img {
   background-image: url(./login.png);
   background-size: cover;
   max-width: 100%;

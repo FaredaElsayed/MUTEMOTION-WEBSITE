@@ -1,10 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { AuthProvider } from "./contexts/FakeAuthContxt";
+import { AuthProvider } from "./contexts/Auth";
 import React, { Suspense, lazy } from "react";
 import SpinnerFullPage from "./components/SpinnerFullPage";
 import Course from "./pages/Course";
 import ConfirmMail from "./pages/ConfirmMail";
 
+const Login = lazy(() => import("./pages/Login"));
+const SignUp = lazy(() => import("./pages/SignUp"));
+const FirstPage = lazy(() => import("./pages/FirstPage"));
 const Home = lazy(() => import("./pages/Homepage"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
 const Likes = lazy(() => import("./pages/Likes"));
@@ -12,11 +15,8 @@ const PageNotFound = lazy(() => import("./pages/PageNotFound"));
 const MyLearning = lazy(() => import("./pages/MyLearning"));
 const InProgress = lazy(() => import("./pages/InProgress"));
 const Profile = lazy(() => import("./pages/Profile"));
-const Login = lazy(() => import("./pages/Login"));
-const SignUp = lazy(() => import("./pages/SignUp"));
 const Confirm = lazy(() => import("./pages/ConfirmMail"));
 const Courses = lazy(() => import("./pages/Courses"));
-const FirstPage = lazy(() => import("./pages/FirstPage"));
 const Cart = lazy(() => import("./pages/Cart"));
 
 
@@ -27,7 +27,7 @@ function App() {
             <Suspense fallback={<SpinnerFullPage />}>
               <Routes>
                 <Route index element={<FirstPage />} />
-                <Route path="homePage" element={<Home />} /> 
+                <Route path="homepage" element={<Home />} /> 
                 <Route path="aboutus" element={<AboutUs />} />
                 <Route path="courses" element={<Courses />}>
                   <Route path="/courses/:id" component={Course} />

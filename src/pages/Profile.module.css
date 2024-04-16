@@ -92,7 +92,7 @@
   font-size: 2.2rem;
 }
 
-.rectangleComponent {
+.profile .rectangleComponent {
   box-sizing: border-box;
   width: 1110px;
   height: fit-content;
@@ -108,7 +108,7 @@
   width: 30%;
 }
 
-.form {
+.profile .form {
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -116,18 +116,18 @@
   font-family: "Merriweather";
   font-style: normal;
 }
-.form form {
+.profile .form form {
   display: flex;
   flex-direction: column;
   align-self: flex-start;
   gap: 1rem;
 }
-.form div {
+.profile .form div {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
-.form input {
+.profile .form input {
   border: 1px solid #eeeeee;
   border-radius: 12px;
   padding: 1rem;
@@ -139,8 +139,8 @@
   color: #939393;
 }
 
-.form select,
-.form option {
+.profile .form select,
+.profile .form option {
   border: 1px solid #eeeeee;
   border-radius: 12px;
   font-weight: 700;
@@ -150,8 +150,8 @@
   padding: 1rem;
   outline: transparent;
 }
-.form img,
-.form svg {
+.profile .form img,
+.profile .form svg {
   display: none;
 }
 select option:checked {
@@ -167,7 +167,7 @@ select:-webkit-autofill {
   -webkit-background-clip: text;
 }
 
-.buttons {
+.profile .buttons {
   flex-direction: row !important;
   gap: 4rem !important;
   justify-content: center;
