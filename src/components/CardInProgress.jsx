@@ -1,6 +1,6 @@
 import Button from "./Button";
 import MyProgressBar from "./ProgressBar";
-import styles from "./cardInProgress.module.css";
+import styles from "./CardInProgress.module.css";
 const icon = (
   <svg
     width="40"
