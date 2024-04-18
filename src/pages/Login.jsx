@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import styles from "./Login.module.css";
-import Button from "../components/Button";
 import { useAuth } from "../contexts/Auth";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import styles from "./Login.module.css";
+import Button from "../components/Button";
 
 function Login() {
-  const [password, setPass] = useState("");
-  const [email, setEmail] = useState("");
+  const [password, setPass] = useState("12345");
+  const [email, setEmail] = useState("faredaelsayed@gmail.com");
   const navigateTo = useNavigate();
   const { login, isAuthenticated } = useAuth();
   const btnStyle = {
@@ -18,22 +18,22 @@ function Login() {
     fontSize: "2.5rem",
     textTransform: "capitalize",
   };
-  // function handleLogin(e) {
-  //   e.preventDefault();
-
-  //   if (email && password) login(email, password);
-  // }
-
-  // useEffect(
-  //   function () {
-  //     if (isAuthenticated) navigateTo("/homepage", { replace: true });
-  //   },
-  //   [isAuthenticated, navigateTo]
-  // );
   function handleLogin(e) {
     e.preventDefault();
-    navigateTo("/homepage");
+
+    if (email && password) login(email, password);
   }
+
+  useEffect(
+    function () {
+      if (isAuthenticated) navigateTo("/homepage", { replace: true });
+    },
+    [isAuthenticated, navigateTo]
+  );
+  // function handleLogin(e) {
+  //   e.preventDefault();
+  //   navigateTo("/homepage");
+  // }
   return (
     <>
       <div className={styles.login}>

@@ -60,7 +60,7 @@
   font-weight: 700;
   font-size: 2rem;
   line-height: 2.5rem;
-  text-transform: capitalize;
+  text-transform: lowercase;
   color: #939393;
 }
 input:focus {

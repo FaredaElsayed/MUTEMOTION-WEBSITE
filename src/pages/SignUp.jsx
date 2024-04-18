@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import styles from "./Login.module.css";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
+import { useAuth } from "../contexts/Auth";
+import { useNavigate } from "react-router-dom";
+
 function SignUp() {
+  const navigateTo = useNavigate();
+  const { signup, isAuthenticated } = useAuth();
   const [password, setPass] = useState("");
-  const [email, setEmail] = useState("");
-  const [fName, setFName] = useState("");
   const [confPass, setconfPass] = useState("");
+  const [email, setEmail] = useState("");
+  const [fullName, setfullName] = useState("");
   const btnStyle = {
     fontWeight: "700",
     borderColor: "#442C8F",
@@ -15,6 +20,26 @@ function SignUp() {
     fontSize: "2.5rem",
     textTransform: "capitalize",
   };
+
+  const handleSignup = (e) => {
+    e.preventDefault();
+    if (password !== confPass) {
+      console.log("Passwords do not match");
+      return;
+    }
+    if (email && password && fullName) {
+       console.log(email, fullName, password);
+       signup(email, fullName, password);
+    }
+   
+  }
+   useEffect(
+    function () {
+      if (isAuthenticated) navigateTo("/confirm", { replace: true });
+    },
+    [isAuthenticated, navigateTo]
+  );
+
   return (
     <>
       <div className={styles.login}>
@@ -29,7 +54,7 @@ function SignUp() {
               style={{ backgroundImage: "url(./sign.png)" }}
             ></div>
           </div>
-          <form>
+          <form onSubmit={handleSignup}>
             <div>
               <p>Create account</p>
               <span>Enter your credentials to access your account</span>
@@ -38,8 +63,8 @@ function SignUp() {
                 type="text"
                 id="fullName"
                 name="fullName"
-                value={fName}
-                onChange={(e) => setFName(e.target.value)}
+                value={fullName}
+                onChange={(e) => setfullName(e.target.value)}
                 placeholder="Farida Elsayed"
                 required
               />
@@ -84,11 +109,9 @@ function SignUp() {
               />
             </div>
             <div className={styles.buttons}>
-              <Link to="/confirm">
-                <Button type="continue" btnStyle={btnStyle}>
-                  Register
-                </Button>
-              </Link>
+              <Button type="submit" btnStyle={btnStyle}>
+                Register
+              </Button>
             </div>
             <div className={styles.iconsCont}>
               <div className={styles.noAcc}>

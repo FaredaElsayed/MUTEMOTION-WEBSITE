@@ -11,6 +11,8 @@ function reducer(state, action) {
   switch (action.type) {
     case "login":
       return { ...state, user: action.payload, isAuthenticated: true };
+    case "verify_code":
+      return { ...state, isAuthenticated: true };
     case "logout":
       return { ...initial_state };
     default:
@@ -24,6 +26,31 @@ function AuthProvider({ children }) {
     initial_state
   );
 
+  async function signup(email, fullname, password) {
+    try {
+      const response = await fetch(
+        "https://mutemotion.onrender.com/api/v1/learner/signup",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({ email, fullname, password }),
+        }
+      );
+      const data = await response.json();
+      if (response.ok) {
+        console.log("Signup successful:", data);
+        dispatch({ type: "login", payload: data.user });
+      } else {
+        throw new Error(data.message);
+      }
+    } catch (error) {
+      console.error("Signup failed:", error.message);
+    }
+  }
+
   async function login(email, password) {
     try {
       const response = await fetch(
@@ -32,6 +59,7 @@ function AuthProvider({ children }) {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            Accept: "application/json",
           },
           body: JSON.stringify({ email, password }),
         }
@@ -52,7 +80,9 @@ function AuthProvider({ children }) {
   }
 
   return (
-    <RealAuthContext.Provider value={{ user, isAuthenticated, login, logout }}>
+    <RealAuthContext.Provider
+      value={{ user, isAuthenticated, signup, login, logout }}
+    >
       {children}
     </RealAuthContext.Provider>
   );
