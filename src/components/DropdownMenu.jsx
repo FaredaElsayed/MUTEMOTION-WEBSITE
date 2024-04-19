@@ -10,7 +10,7 @@ function Dropdown({ MenuItems }) {
           {item.title === "<hr/>" ? (
             <hr style={{ width: '150px', margin: '0',padding:'0' }} />
           ) : (
-            <Link className={item.cName} to={item.path}>
+            <Link className={item.cName} to={item.path} onClick={item.onClick}>
               {item.title}
             </Link>
           )}

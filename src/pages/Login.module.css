@@ -186,3 +186,8 @@ div > span {
   z-index: 0;
   background-position: center;
 }
+
+.login .error{
+  color: red;
+  margin-top: 10px;
+}

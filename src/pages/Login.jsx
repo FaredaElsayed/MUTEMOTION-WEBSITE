@@ -8,8 +8,8 @@ import Button from "../components/Button";
 function Login() {
   const [password, setPass] = useState("12345");
   const [email, setEmail] = useState("faredaelsayed@gmail.com");
+  const { login, isAuthenticated, error } = useAuth();
   const navigateTo = useNavigate();
-  const { login, isAuthenticated } = useAuth();
   const btnStyle = {
     fontWeight: "700",
     borderColor: "#442C8F",
@@ -77,13 +77,12 @@ function Login() {
                 required
               />
             </div>
+            {error && <div className={styles.error}>{error}</div>}
             <div className={styles.buttons}>
               <p>forget passward ?</p>
-              {/* <Link to="/homepage"> */}
               <Button type="continue" btnStyle={btnStyle} onClick={handleLogin}>
                 Login
               </Button>
-              {/* </Link> */}
             </div>
             <div className={styles.iconsCont}>
               <hr />

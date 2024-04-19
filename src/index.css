@@ -96,7 +96,9 @@ input:focus {
   transition: opacity 0s ease-in-out;
   gap: 1.2rem !important;
 }
-
+.profile-drop {
+  right: 0.1rem;
+}
 .dropdown-menu.visible {
   display: flex;
   color: blue;

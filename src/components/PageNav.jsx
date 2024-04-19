@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../contexts/Auth";
+import { useNavigate } from "react-router-dom";
 import styles from "./PageNav.module.css";
 import Logo from "./Logo";
 import Search from "./Search";
@@ -73,25 +75,59 @@ const MenuItems3 = [
 ];
 
 function PageNav() {
+  const { logout, isAuthenticated } = useAuth();
   const [dropdownVisible1, setDropdownVisible1] = useState(false);
   const [dropdownVisible2, setDropdownVisible2] = useState(false);
   const [dropdownVisible3, setDropdownVisible3] = useState(false);
+  const [dropdownVisible4, setDropdownVisible4] = useState(false);
+   const navigateTo = useNavigate();
+  function handleLogout(){
+    logout();
+   
+  }
+  useEffect(
+    function () {
+      if (!isAuthenticated) navigateTo("/", { replace: true });
+    },
+    [isAuthenticated, navigateTo]
+  );
+  const MenuItems4 = [
+    {
+      title: "Profile",
+      path: "/profile",
+      cName: "dropdown-link",
+    },
+    {
+      title: "logout",
+      cName: "dropdown-link",
+      onClick: handleLogout,
+    },
+  ];
 
   const toggleDropdown1 = () => {
     setDropdownVisible1((prevDropdownVisible) => !prevDropdownVisible);
     setDropdownVisible2(false); // Close the other dropdown
     setDropdownVisible3(false); // Close the other dropdown
+    setDropdownVisible4(false); // Close the other dropdown
   };
 
   const toggleDropdown2 = () => {
     setDropdownVisible2((prevDropdownVisible) => !prevDropdownVisible);
     setDropdownVisible1(false); // Close the other dropdown
     setDropdownVisible3(false); // Close the other dropdown
+    setDropdownVisible4(false); // Close the other dropdown
   };
   const toggleDropdown3 = () => {
     setDropdownVisible3((prevDropdownVisible) => !prevDropdownVisible);
     setDropdownVisible1(false); // Close the other dropdown
     setDropdownVisible2(false); // Close the other dropdown
+    setDropdownVisible4(false); // Close the other dropdown
+  };
+  const toggleDropdown4 = () => {
+    setDropdownVisible4((prevDropdownVisible) => !prevDropdownVisible);
+    setDropdownVisible1(false); // Close the other dropdown
+    setDropdownVisible2(false); // Close the other dropdown
+    setDropdownVisible3(false); // Close the other dropdown
   };
 
   return (
@@ -161,8 +197,8 @@ function PageNav() {
             </svg>
           </NavLink>
         </li>
-        <li className={styles.navItem}>
-          <NavLink to="/profile">
+        <li className={styles.navItem} onClick={toggleDropdown4}>
+          <NavLink to="#" className="nav-links">
             <svg
               width="31"
               height="30"
@@ -184,6 +220,13 @@ function PageNav() {
               />
             </svg>
           </NavLink>
+          <div
+            className={`dropdown-menu ${
+              dropdownVisible4 ? "visible profile-drop" : ""
+            }`}
+          >
+            <Dropdown MenuItems={MenuItems4} />
+          </div>
         </li>
       </ul>
     </nav>
