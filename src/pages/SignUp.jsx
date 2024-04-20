@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import styles from "./Login.module.css";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
@@ -7,11 +7,11 @@ import { useNavigate } from "react-router-dom";
 
 function SignUp() {
   const navigateTo = useNavigate();
-  const { signup, isAuthenticated } = useAuth();
+  const { signup, error, setError } = useAuth();
   const [password, setPass] = useState("");
   const [confPass, setconfPass] = useState("");
-  const [email, setEmail] = useState("");
-  const [fullName, setfullName] = useState("");
+  const [email, setEmail] = useState("faredaelsayed@gmail.com");
+  const [fullName, setfullName] = useState("fareda elsayed");
   const btnStyle = {
     fontWeight: "700",
     borderColor: "#442C8F",
@@ -21,24 +21,21 @@ function SignUp() {
     textTransform: "capitalize",
   };
 
-  const handleSignup = (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
     if (password !== confPass) {
-      console.log("Passwords do not match");
+      setError("Passwords do not match");
       return;
     }
     if (email && password && fullName) {
-       console.log(email, fullName, password);
-       signup(email, fullName, password);
+      await signup(email, fullName, password);
+      // No need to check isAuthenticated here
+      if (error === "") {
+        // Redirect to confirm page after successful signup
+        navigateTo("/confirm", { replace: true });
+      }
     }
-   
-  }
-   useEffect(
-    function () {
-      if (isAuthenticated) navigateTo("/confirm", { replace: true });
-    },
-    [isAuthenticated, navigateTo]
-  );
+  };
 
   return (
     <>
@@ -113,6 +110,7 @@ function SignUp() {
                 Register
               </Button>
             </div>
+            {error && <div className={styles.error}>{error}</div>}
             <div className={styles.iconsCont}>
               <div className={styles.noAcc}>
                 <p>have an account?</p>

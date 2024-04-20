@@ -20,8 +20,9 @@ function Login() {
   };
   function handleLogin(e) {
     e.preventDefault();
-
-    if (email && password) login(email, password);
+    if (email && password) {
+      login(email, password);
+    }
   }
 
   useEffect(
@@ -30,10 +31,7 @@ function Login() {
     },
     [isAuthenticated, navigateTo]
   );
-  // function handleLogin(e) {
-  //   e.preventDefault();
-  //   navigateTo("/homepage");
-  // }
+
   return (
     <>
       <div className={styles.login}>
@@ -59,7 +57,7 @@ function Login() {
                 name="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Ali20@gmail.com"
+                placeholder="Farida@gmail.com"
                 pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
                 required
               />

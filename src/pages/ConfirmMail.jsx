@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useAuth } from "../contexts/Auth";
+import { useNavigate } from "react-router-dom";
 import styles from "./Login.module.css";
 import Button from "../components/Button";
-import { Link } from "react-router-dom";
 function ConfirmMail() {
+  const { error, verifyCode, isAuthenticated, registeredEmail,setError } = useAuth();
   const [code, setCode] = useState("");
-
+  const navigateTo = useNavigate();
   const btnStyle = {
     fontWeight: "700",
     borderColor: "#442C8F",
@@ -13,6 +16,21 @@ function ConfirmMail() {
     fontSize: "2.5rem",
     textTransform: "capitalize",
   };
+  function handleVerification(e) {
+    e.preventDefault();
+    console.log(registeredEmail);
+    if (code && registeredEmail) {
+      setError(null)
+      verifyCode(registeredEmail, code);
+    }
+  }
+
+  useEffect(() => {
+    if (isAuthenticated && registeredEmail !== null) {
+      navigateTo("/homepage", { replace: true });
+    }
+  }, [isAuthenticated, registeredEmail, navigateTo]);
+
   return (
     <>
       <div className={styles.login}>
@@ -27,7 +45,7 @@ function ConfirmMail() {
               style={{ backgroundImage: "url(./sign.png)" }}
             ></div>
           </div>
-          <form>
+          <form onSubmit={handleVerification}>
             <div>
               <p>Email verification</p>
               <span>
@@ -48,10 +66,14 @@ function ConfirmMail() {
                 required
               />
             </div>
-
+            {error && <div className={styles.error}>{error}</div>}
             <div className={styles.buttons}>
-              <Link to="/homepage">
-                <Button type="continue" btnStyle={btnStyle}>
+              <Link>
+                <Button
+                  type="continue"
+                  btnStyle={btnStyle}
+                  onClick={handleVerification}
+                >
                   Confirm
                 </Button>
               </Link>
