@@ -79,7 +79,13 @@ function AuthProvider({ children }) {
           setError(
             "This Email is already registered, please register with another email"
           );
-        } else {
+        }
+        else if(response.status === 201 && data.message === "User registered successfully"){
+          dispatch({ type: "login", payload: data.user, token: null });
+          setRegisteredEmail(data.user.email);
+          setError("");
+        }
+        else {
           throw new Error(data.message);
         }
       }
