@@ -23,27 +23,27 @@ const Cart = lazy(() => import("./pages/Cart"));
 function App() {
   return (
     <AuthProvider>
-          <BrowserRouter>
-            <Suspense fallback={<SpinnerFullPage />}>
-              <Routes>
-                <Route index element={<FirstPage />} />
-                <Route path="homepage" element={<Home />} /> 
-                <Route path="aboutus" element={<AboutUs />} />
-                <Route path="courses" element={<Courses />}>
-                  <Route path="/courses/:id" component={Course} />
-                </Route>
-                <Route path="mylearning" element={<MyLearning />} />
-                <Route path="inprogress" element={<InProgress />} />
-                <Route path="cart" element={<Cart />} />
-                <Route path="likes" element={<Likes />} />
-                <Route path="profile" element={<Profile />} />
-                <Route path="signup" element={<SignUp />} />
-                <Route path="confirm" element={<Confirm />} />
-                <Route path="login" element={<Login />} />
-                <Route path="*" element={<PageNotFound />} />
-              </Routes>
-            </Suspense>
-          </BrowserRouter>   
+      <BrowserRouter>
+        <Suspense fallback={<SpinnerFullPage />}>
+          <Routes>
+            <Route index element={<FirstPage />} />
+            <Route path="homepage" element={<Home />} />
+            <Route path="aboutus" element={<AboutUs />} />
+            <Route path="courses" element={<Courses />}>
+              <Route path="/courses/:id" component={Course} />
+            </Route>
+            <Route path="mylearning" element={<MyLearning />} />
+            <Route path="inprogress" element={<InProgress />} />
+            <Route path="cart" element={<Cart />} />
+            <Route path="likes" element={<Likes />} />
+            <Route path="profile" element={<Profile />} />
+            <Route path="signup" element={<SignUp />} />
+            <Route path="confirm" element={<Confirm />} />
+            <Route path="login" element={<Login />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+        </Suspense>
+      </BrowserRouter>
     </AuthProvider>
   );
 }

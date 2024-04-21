@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/Auth";
 import styles from "./Login.module.css";
 import Button from "../components/Button";
-import { Link } from "react-router-dom";
-import { useAuth } from "../contexts/Auth";
-import { useNavigate } from "react-router-dom";
 
 function SignUp() {
   const navigateTo = useNavigate();
@@ -12,6 +11,7 @@ function SignUp() {
   const [confPass, setconfPass] = useState("");
   const [email, setEmail] = useState("faredaelsayed@gmail.com");
   const [fullName, setfullName] = useState("fareda elsayed");
+
   const btnStyle = {
     fontWeight: "700",
     borderColor: "#442C8F",
@@ -21,6 +21,12 @@ function SignUp() {
     textTransform: "capitalize",
   };
 
+  useEffect(() => {
+    if (error === "") {
+      navigateTo("/confirm", { replace: true });
+    }
+  }, [error, navigateTo]);
+
   const handleSignup = async (e) => {
     e.preventDefault();
     if (password !== confPass) {
@@ -29,11 +35,6 @@ function SignUp() {
     }
     if (email && password && fullName) {
       await signup(email, fullName, password);
-      // No need to check isAuthenticated here
-      if (error === "") {
-        // Redirect to confirm page after successful signup
-        navigateTo("/confirm", { replace: true });
-      }
     }
   };
 
@@ -64,6 +65,7 @@ function SignUp() {
                 onChange={(e) => setfullName(e.target.value)}
                 placeholder="Farida Elsayed"
                 required
+               
               />
             </div>
             <div>
@@ -77,6 +79,7 @@ function SignUp() {
                 placeholder="faredaelsayed0@gmail.com"
                 pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
                 required
+                autoComplete="email"
               />
             </div>
             <div>

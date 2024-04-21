@@ -47,7 +47,6 @@ function AuthProvider({ children }) {
     }
   }, [token]);
 
-
   async function signup(email, fullname, password) {
     try {
       const response = await fetch(
@@ -64,33 +63,35 @@ function AuthProvider({ children }) {
       const data = await response.json();
       //case 1 email not registered, success
       if (response.ok) {
-        // console.log("Signup successful:", data);
-        // dispatch({ type: "login", payload: data.user, token: null });
+        //update registered email
         setRegisteredEmail(data.user.email);
-        setError("")
-        
+        setError("");
       } else {
         //case 2 email is already registered
         if (
           response.status === 400 &&
           data.error === "Email already registered"
         ) {
-          // Display message "Email is already registered" 
+          // Display message "Email is already registered"
           setError(
             "This Email is already registered, please register with another email"
           );
         }
-        else if(response.status === 201 && data.message === "User registered successfully"){
+        //email not registered , redirect to confirm mail page
+        else if (
+          response.status === 201 &&
+          data.message === "User registered successfully"
+        ) {
           dispatch({ type: "login", payload: data.user, token: null });
           setRegisteredEmail(data.user.email);
           setError("");
-        }
-        else {
+        } else {
           throw new Error(data.message);
         }
       }
     } catch (error) {
       console.error("Signup failed:", error.message);
+      setError("Signup failed:", error.message);
     }
   }
 
@@ -114,7 +115,7 @@ function AuthProvider({ children }) {
           type: "verify_code",
           payload: { user: data.user, token: data.token },
         });
-       setError("");
+        setError("");
       } else {
         if (
           response.status === 401 &&
@@ -129,6 +130,32 @@ function AuthProvider({ children }) {
     } catch (error) {
       console.error("Verification failed:", error.message);
       setError(error.message);
+    }
+  }
+
+  async function askForAnotherCode(email) {
+    try {
+      const response = await fetch(
+        "https://mutemotion.onrender.com/api/v1/learner/sendagain",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({ email }),
+        }
+      );
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.message);
+      }
+      // Success: return data if needed
+      
+      return data;
+    } catch (error) {
+      console.error("Ask for another code failed:", error.message);
+      throw error;
     }
   }
 
@@ -187,6 +214,7 @@ function AuthProvider({ children }) {
         registeredEmail,
         signup,
         verifyCode,
+        askForAnotherCode,
         login,
         logout,
         error,

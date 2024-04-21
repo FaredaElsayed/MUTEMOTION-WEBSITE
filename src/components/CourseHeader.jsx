@@ -9,7 +9,7 @@ export default function CourseHeader({
   alt,
   setIsPaying,
 }) {
-  const navigate = useNavigate();
+  const navigateTo = useNavigate();
   const btnStyle1 = {
     fontSize: "2.5rem",
     textTransform: "uppercase",
@@ -20,7 +20,7 @@ export default function CourseHeader({
 
   function handlePaying() {
     setIsPaying(true);
-    navigate("/cart");
+    navigateTo("/cart");
   }
   return (
     <>
@@ -51,7 +51,7 @@ export default function CourseHeader({
           </div>
         </div>
         <div className={styles.rect}>
-          <img src={courseImg} alt={alt} className={styles.img1}></img>
+          <img src={courseImg} alt={alt} ></img>
         </div>
       </header>
     </>

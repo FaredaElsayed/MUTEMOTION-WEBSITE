@@ -9,6 +9,7 @@ export default function Search({onClick}) {
       <RiSearchLine className={styles.searchIcon} />
       <input
         type="text"
+        id="search"
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
         placeholder="Explore"

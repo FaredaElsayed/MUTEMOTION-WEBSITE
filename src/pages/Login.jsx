@@ -55,6 +55,7 @@ function Login() {
                 type="text"
                 id="email"
                 name="email"
+                autoComplete="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Farida@gmail.com"

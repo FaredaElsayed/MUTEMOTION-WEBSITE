@@ -5,7 +5,14 @@ import { useNavigate } from "react-router-dom";
 import styles from "./Login.module.css";
 import Button from "../components/Button";
 function ConfirmMail() {
-  const { error, verifyCode, isAuthenticated, registeredEmail,setError } = useAuth();
+  const {
+    error,
+    verifyCode,
+    isAuthenticated,
+    registeredEmail,
+    setError,
+    askForAnotherCode,
+  } = useAuth();
   const [code, setCode] = useState("");
   const navigateTo = useNavigate();
   const btnStyle = {
@@ -16,11 +23,22 @@ function ConfirmMail() {
     fontSize: "2.5rem",
     textTransform: "capitalize",
   };
+
+  async function handleResendCode(e) {
+    e.preventDefault();
+    try {
+      await askForAnotherCode(registeredEmail);
+      setError("New verification code sent successfully"); // Clear any previous error
+    } catch (error) {
+      setError(error.message); // Set the error message if the request fails
+    }
+  }
+
   function handleVerification(e) {
     e.preventDefault();
     console.log(registeredEmail);
     if (code && registeredEmail) {
-      setError(null)
+      setError(null);
       verifyCode(registeredEmail, code);
     }
   }
@@ -81,7 +99,10 @@ function ConfirmMail() {
             <div className={styles.iconsCont}>
               <div className={styles.noAcc}>
                 <span>
-                  <Link to="#">Resend Code?</Link>.
+                  <Link to="#" onClick={handleResendCode}>
+                    Resend Code?
+                  </Link>
+                  .
                 </span>
               </div>
             </div>
