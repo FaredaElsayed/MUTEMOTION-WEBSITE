@@ -80,10 +80,10 @@ function PageNav() {
   const [dropdownVisible2, setDropdownVisible2] = useState(false);
   const [dropdownVisible3, setDropdownVisible3] = useState(false);
   const [dropdownVisible4, setDropdownVisible4] = useState(false);
-   const navigateTo = useNavigate();
-  function handleLogout(){
+  const navigateTo = useNavigate();
+  function handleLogout() {
+  navigateTo("/")
     logout();
-   
   }
   useEffect(
     function () {

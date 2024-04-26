@@ -1,9 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AuthProvider } from "./contexts/Auth";
+import { useState, useEffect } from "react";
+
 import React, { Suspense, lazy } from "react";
 import SpinnerFullPage from "./components/SpinnerFullPage";
 import Course from "./pages/Course";
-
 
 const Login = lazy(() => import("./pages/Login"));
 const SignUp = lazy(() => import("./pages/SignUp"));
@@ -19,14 +20,15 @@ const Confirm = lazy(() => import("./pages/ConfirmMail"));
 const Courses = lazy(() => import("./pages/Courses"));
 const Cart = lazy(() => import("./pages/Cart"));
 
-
 function App() {
+  const loggedIn = localStorage.getItem("isLoggedIn");
+  console.log(loggedIn);
   return (
     <AuthProvider>
       <BrowserRouter>
         <Suspense fallback={<SpinnerFullPage />}>
           <Routes>
-            <Route index element={<FirstPage />} />
+            <Route exact path="/" element={loggedIn ? <Home /> : <FirstPage />} />
             <Route path="homepage" element={<Home />} />
             <Route path="aboutus" element={<AboutUs />} />
             <Route path="courses" element={<Courses />}>

@@ -8,6 +8,7 @@ function Login() {
   const [password, setPass] = useState("12345");
   const [email, setEmail] = useState("faredaelsayed@gmail.com");
   const { login, isAuthenticated, error } = useAuth();
+
   const navigateTo = useNavigate();
   const btnStyle = {
     fontWeight: "700",
@@ -21,6 +22,7 @@ function Login() {
     e.preventDefault();
     if (email && password) {
       login(email, password);
+      
     }
   }
 

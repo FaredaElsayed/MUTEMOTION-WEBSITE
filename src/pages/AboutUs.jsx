@@ -125,7 +125,7 @@ export default function Homepage() {
                   <br />
                   <br />
                   1_visit our website{" "}
-                  <Link to="https://mutemotion.com" target="blank">
+                  <Link to="https://sites.google.com/view/mutemotion" target="blank">
                     MuteMotion
                   </Link>
                   .

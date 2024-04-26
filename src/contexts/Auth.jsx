@@ -8,7 +8,7 @@ import {
 
 const initial_state = {
   user: null,
-  isAuthenticated: false,
+  isAuthenticated: localStorage.getItem("token") ? true : false,
   token: localStorage.getItem("token") || null,
 };
 
@@ -26,7 +26,7 @@ function reducer(state, action) {
     case "verify_code":
       return { ...state, isAuthenticated: true, token: action.payload.token };
     case "logout":
-      return { ...initial_state, token: null };
+      return { ...initial_state, token: null, isAuthenticated: false };
     default:
       throw new Error("Unknown action");
   }
@@ -37,16 +37,24 @@ function AuthProvider({ children }) {
   const { user, isAuthenticated, token } = state;
   const [registeredEmail, setRegisteredEmail] = useState(null);
   const [error, setError] = useState(null);
-
+  
   //Store token in local storage
   useEffect(() => {
-    if (token) {
+    if (token && isAuthenticated) {
       localStorage.setItem("token", token);
+      localStorage.setItem("isLoggedIn", true);
     } else {
       localStorage.removeItem("token");
+      localStorage.removeItem("isLoggedIn");
     }
-  }, [token]);
+  }, [token, isAuthenticated]);
 
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+    if (!isLoggedIn && isAuthenticated) {
+      dispatch({ type: "logout" });
+    }
+  }, []);
   async function signup(email, fullname, password) {
     try {
       const response = await fetch(
@@ -151,7 +159,7 @@ function AuthProvider({ children }) {
         throw new Error(data.message);
       }
       // Success: return data if needed
-      
+
       return data;
     } catch (error) {
       console.error("Ask for another code failed:", error.message);
@@ -179,6 +187,7 @@ function AuthProvider({ children }) {
           payload: { user: data.user, token: data.token },
         });
         setError("");
+        // localStorage.setItem("isLoggedIn",true)
       } else {
         if (response.status === 401 && data.error === "User is not activated") {
           // Display message "User is not activated"
@@ -203,6 +212,7 @@ function AuthProvider({ children }) {
   }
 
   function logout() {
+    
     dispatch({ type: "logout" });
   }
 
