@@ -78,9 +78,27 @@
   color: #ffff;
 }
 
-.apply:hover{
+.apply:hover {
   background: #ffff;
   color: #acacac;
+}
+
+@media (min-width: 2000px) {
+  .btn {
+    font-size: 3.8rem;
+    border-radius: 22px;
+  }
+}
+@media (min-width: 4000px) {
+  .btn {
+    font-size: 5.8rem;
+    border-radius: 42px;
+    width:500px
+  }
+  .overview:hover {
+  color: #442c8f;
+  background: #ffffff;
+}
 }
 
 /*.back {

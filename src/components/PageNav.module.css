@@ -31,8 +31,6 @@
   font-weight: bold;
 }
 
-
-
 /* CSS Modules feature */
 /* .nav a:global(.active) {
   color: var(--color-brand--2);
@@ -45,3 +43,14 @@ a.ctaLink:visited {
   padding: 0.8rem 2rem;
   border-radius: 7px;
 } */
+
+@media (min-width: 4000px) {
+  .nav ul {
+    line-height: 2rem;
+  }
+
+  .nav a:link,
+  .nav a:visited {
+    font-size: 5rem;
+  }
+}

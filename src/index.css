@@ -140,3 +140,19 @@ progress::-webkit-progress-value {
     display: none;
   }
 }
+
+@media (min-width: 4000px) {
+  .dropdown-menu {
+    width: 400px;
+     margin-top: 3rem;
+  }
+  .profile-drop {
+    right: 0.4rem;
+  }
+
+  .dropdown-menu li {
+    cursor: pointer;
+    line-height: 3rem;
+    padding: 10px;
+  }
+}

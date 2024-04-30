@@ -23,3 +23,13 @@
   background: #442c8f;
   border-radius: 12px;
 }
+
+@media (min-width: 4000px) {
+  .cont .slide {
+    width: 350px;
+    border-radius: 22px;
+  }
+  .cont .inside {
+    width: 40%;
+  }
+}

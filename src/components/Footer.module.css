@@ -92,3 +92,24 @@
   text-decoration: underline;
   color: #ffff;
 }
+
+@media (min-width: 4000px) {
+  .footer{
+    height: 500px;
+  }
+  .footer .list {
+    font-size: 4rem;
+  }
+
+  .footer .list a:link,
+  .footer .list a:visited {
+    font-size: 4rem;
+  }
+  .footer .contactUs {
+    font-size: 5rem;
+    width: 587px;
+  }
+  .footer .developers {
+    font-size: 3rem;
+  }
+}

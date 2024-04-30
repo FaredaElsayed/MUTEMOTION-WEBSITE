@@ -50,3 +50,27 @@
 .card h3 {
   color: #868585;
 }
+
+@media (min-width: 4000px) {
+  .card {
+    width: 500px;
+    gap: 2rem;
+  }
+  .card img {
+    width: 100%;
+    height: 320px;
+  }
+  .card .fav {
+    width: 100px;
+    height: 70px;
+  }
+  .card h1 {
+    font-size: 3.7rem;
+  }
+  .card h3 {
+    font-size: 1.8rem;
+  }
+  .card li::marker {
+    font-size: 2.5rem;
+  }
+}
