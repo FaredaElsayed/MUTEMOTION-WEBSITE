@@ -147,7 +147,7 @@ export default function Homepage() {
             </div>
           </div>
         </section>
-        <section className={styles.image}>
+        <section className={styles.image2}>
           <img src="./pana.png" alt="sign language is easy!"></img>
           <span>LICENSE</span>
           <p>

@@ -13,7 +13,8 @@
   text-transform: capitalize;
 }
 
-.aboutus .image {
+.aboutus .image,
+.aboutus .image2 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -125,14 +126,14 @@
   align-items: flex-start;
   padding: 10%;
   margin-left: -8rem;
- 
   gap: 2rem;
   color: white;
   font-family: "Merriweather";
   font-style: normal;
   font-weight: 400;
 }
-.aboutus .image span {
+.aboutus .image span,
+.image2 span {
   text-transform: capitalize !important;
 }
 .aboutus .content span,
@@ -148,7 +149,6 @@
 .aboutus .content a,
 .aboutus .description p,
 .aboutus .gettingStarted a {
-  font-size: 24px;
   line-height: 134%;
   letter-spacing: -0.00022em;
   text-transform: capitalize;
@@ -238,19 +238,18 @@
   margin-top: 2rem;
   padding: 1.4rem !important;
   width: 100% !important;
-  
-  
 }
 
 .gettingStarted .rectContainer1,
 .gettingStarted .content,
 .gettingStarted .rectContainer2 {
-  height: 450px!important;
-
+  height: 450px !important;
 }
 
 .image p,
-.image a {
+.image a,
+.image2 p,
+.image2 a {
   font-family: "Merriweather";
   font-style: normal;
   text-decoration: none;
@@ -261,4 +260,99 @@
   letter-spacing: -0.022em;
   text-transform: lowercase;
   color: #442c8f;
+}
+
+@media (min-width: 4000px) {
+  .aboutus .image {
+    height: 1500px;
+    width: 60%;
+  }
+  .aboutus .image2 {
+    height: 900px;
+    
+  }
+  .aboutus .image2 img{
+    width: 600px;
+  }
+  .aboutus .keyFeatures p,
+  .aboutus .content a,
+  .aboutus a,
+  .aboutus .keyFeatures span,
+  .aboutus .description p,
+  .aboutus .description span,
+  .aboutus .content span,
+  .aboutus .image span,
+  .aboutus .image2 span {
+    font-size: 8.8rem;
+  }
+  .aboutus .content p,
+  .aboutus .content a,
+  .aboutus .description p,
+  .aboutus .gettingStarted a {
+    font-size: 5.2rem;
+  }
+  .aboutus .image img {
+    width: 80%;
+  }
+  .aboutus .rectangle {
+    height: 800px;
+  }
+  .aboutus .rectContainer1 {
+    height: 830px;
+  }
+  .aboutus .rectContainer2 {
+    height: 820px;
+  }
+
+  .aboutus .keyFeatures .rectContainer1,
+  .aboutus .keyFeatures .rectContainer2 {
+    height: 1100px !important;
+  }
+  .aboutus .hands {
+    width: 50%;
+    margin-top: -53rem;
+  }
+  .aboutus .photos {
+    gap: 4rem;
+    height: 1050px;
+  }
+  .aboutus .kid {
+    width: 646px;
+    height: 600px;
+  }
+  .aboutus .rectKid {
+    width: 650px;
+    height: 600px;
+  }
+  .aboutus .rectPhoto,
+  .aboutus .rectPhotoAdult {
+    width: 610px;
+    height: 566px;
+  }
+  .aboutus .rectPhoto2 {
+    width: 610px;
+    height: 566px;
+  }
+  .aboutus .adult {
+    width: 633px;
+    height: 589px;
+  }
+  .aboutus .sign {
+    width: 584px;
+    height: 556px;
+  }
+  .aboutus .rectPhotoAdult2 {
+    height: 566px;
+  }
+  .gettingStarted .rectContainer1,
+  .gettingStarted .content,
+  .gettingStarted .rectContainer2 {
+    height: 750px !important;
+  }
+  image p,
+  .image a,
+  .image2 p,
+  .image2 a {
+    font-size: 4.2rem;
+  }
 }
