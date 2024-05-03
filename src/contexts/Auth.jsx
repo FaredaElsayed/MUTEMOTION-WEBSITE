@@ -35,11 +35,11 @@ function reducer(state, action) {
 function AuthProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initial_state);
   const { user, isAuthenticated, token } = state;
- const [registeredEmail, setRegisteredEmail] = useState(
-   localStorage.getItem("registeredEmail") || null
- );
+  const [registeredEmail, setRegisteredEmail] = useState(
+    localStorage.getItem("registeredEmail") || null
+  );
   const [error, setError] = useState(null);
-  
+
   //Store token in local storage
   useEffect(() => {
     if (token && isAuthenticated) {
@@ -95,7 +95,7 @@ function AuthProvider({ children }) {
         ) {
           dispatch({ type: "login", payload: data.user, token: null });
           setRegisteredEmail(data.user.email);
-           localStorage.setItem("registeredEmail", data.user.email);
+          localStorage.setItem("registeredEmail", data.user.email);
           setError("");
         } else {
           throw new Error(data.message);
@@ -216,7 +216,6 @@ function AuthProvider({ children }) {
   }
 
   function logout() {
-    
     dispatch({ type: "logout" });
   }
 

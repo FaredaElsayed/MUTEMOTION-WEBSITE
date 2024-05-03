@@ -63,6 +63,7 @@ function ConfirmMail() {
     if (code && registeredEmail) {
       setError(null);
       verifyCode(registeredEmail, code);
+      
     }
   }
 
