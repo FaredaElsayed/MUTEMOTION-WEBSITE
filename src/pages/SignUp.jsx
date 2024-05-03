@@ -50,6 +50,15 @@ function SignUp() {
 
   const handleSignup = async (e) => {
     e.preventDefault();
+    if (!email || !password || !confPass) {
+      setError("Please enter all required fields");
+      return;
+    }
+
+    if (password.length < 8 || confPass.length < 8) {
+      setError("Password must be at least 8 characters long");
+      return;
+    }
     if (password !== confPass) {
       setError("Passwords do not match");
       return;

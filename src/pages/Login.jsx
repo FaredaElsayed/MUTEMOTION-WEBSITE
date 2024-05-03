@@ -7,7 +7,7 @@ import Button from "../components/Button";
 function Login() {
   const [password, setPass] = useState("12345");
   const [email, setEmail] = useState("faredaelsayed@gmail.com");
-  const { login, isAuthenticated, error } = useAuth();
+  const { login, isAuthenticated, error, setError } = useAuth();
   const navigateTo = useNavigate();
   const [btnStyle, setBtnStyle] = useState({
     fontWeight: "700",
@@ -43,6 +43,10 @@ function Login() {
 
   function handleLogin(e) {
     e.preventDefault();
+    if (!email || !password) {
+      setError("Please enter all required fields");
+      return;
+    }
     if (email && password) {
       login(email, password);
     }
