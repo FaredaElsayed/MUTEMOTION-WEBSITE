@@ -1,3 +1,4 @@
+// Import necessary modules
 import {
   createContext,
   useContext,
@@ -6,6 +7,7 @@ import {
   useEffect,
 } from "react";
 
+// Define the initial state of the authentication context
 const initial_state = {
   user: null,
   isAuthenticated: localStorage.getItem("token") ? true : false,
@@ -14,6 +16,7 @@ const initial_state = {
 
 const RealAuthContext = createContext();
 
+// Define the reducer function that handles state changes based on actions
 function reducer(state, action) {
   switch (action.type) {
     case "login":
@@ -32,15 +35,19 @@ function reducer(state, action) {
   }
 }
 
+// Define the AuthProvider component
 function AuthProvider({ children }) {
+  // Use the useReducer hook to create a state and a dispatch function
   const [state, dispatch] = useReducer(reducer, initial_state);
+  // Define the user, isAuthenticated, and token state variables
   const { user, isAuthenticated, token } = state;
+  // Use the useState hook to create the registeredEmail and error state variables
   const [registeredEmail, setRegisteredEmail] = useState(
     localStorage.getItem("registeredEmail") || null
   );
   const [error, setError] = useState(null);
 
-  //Store token in local storage
+  // Use the useEffect hook to manage token storage and authentication
   useEffect(() => {
     if (token && isAuthenticated) {
       localStorage.setItem("token", token);
@@ -48,15 +55,18 @@ function AuthProvider({ children }) {
     } else {
       localStorage.removeItem("token");
       localStorage.removeItem("isLoggedIn");
+      dispatch({ type: "logout" });
     }
   }, [token, isAuthenticated]);
 
+  // Use the useEffect hook to check if the user is logged in
   useEffect(() => {
     const isLoggedIn = localStorage.getItem("isLoggedIn");
     if (!isLoggedIn && isAuthenticated) {
       dispatch({ type: "logout" });
     }
-  }, []);
+  }, [isAuthenticated]);
+  // Define the signup function
   async function signup(email, fullname, password) {
     try {
       const response = await fetch(
@@ -107,6 +117,7 @@ function AuthProvider({ children }) {
     }
   }
 
+  // Define the verifyCode function
   async function verifyCode(email, verificationCode) {
     try {
       const response = await fetch(
@@ -145,6 +156,7 @@ function AuthProvider({ children }) {
     }
   }
 
+  // Define the askForAnotherCode function
   async function askForAnotherCode(email) {
     try {
       const response = await fetch(
@@ -163,14 +175,13 @@ function AuthProvider({ children }) {
         throw new Error(data.message);
       }
       // Success: return data if needed
-
       return data;
     } catch (error) {
       console.error("Ask for another code failed:", error.message);
       throw error;
     }
   }
-
+  // Define the login function
   async function login(email, password) {
     try {
       const response = await fetch(
@@ -214,11 +225,11 @@ function AuthProvider({ children }) {
       setError(error.message);
     }
   }
-
+  // Define the logout function
   function logout() {
     dispatch({ type: "logout" });
   }
-
+  // Return the AuthProvider component with the necessary context and functions
   return (
     <RealAuthContext.Provider
       value={{
@@ -240,12 +251,14 @@ function AuthProvider({ children }) {
   );
 }
 
+// Define the useAuth hook
 function useAuth() {
+  // Define the AuthContext component
   const context = useContext(RealAuthContext);
   if (context === undefined) {
     throw new Error("useAuth must be used within an AuthProvider");
   }
   return context;
 }
-
+// Export the AuthProvider and useAuth functions
 export { AuthProvider, useAuth };

@@ -4,13 +4,18 @@ import { useAuth } from "../contexts/Auth";
 import styles from "./Login.module.css";
 import Button from "../components/Button";
 
+// Component for user sign-up
 function SignUp() {
+  // Initialize the navigation hook
   const navigateTo = useNavigate();
+  // Destructure the 'signup', 'error', and 'setError' functions from the 'useAuth' context
   const { signup, error, setError } = useAuth();
+  // Initialize state for password, confirm password, email, and full name
   const [password, setPass] = useState("");
   const [confPass, setconfPass] = useState("");
   const [email, setEmail] = useState("faredaelsayed@gmail.com");
   const [fullName, setfullName] = useState("fareda elsayed");
+  // Initialize state for button style
   const [btnStyle, setBtnStyle] = useState({
     fontWeight: "700",
     borderColor: "#442C8F",
@@ -19,7 +24,7 @@ function SignUp() {
     fontSize: "2.5rem",
     textTransform: "capitalize",
   });
-
+  // Effect to update button style based on window width
   useEffect(() => {
     function updateBtnStyle() {
       if (window.innerWidth >= 4000) {
@@ -44,25 +49,46 @@ function SignUp() {
   }, []);
   useEffect(() => {
     if (error === "") {
-      navigateTo("/confirm", { replace: true });
+      navigateTo("/confirm", { replace: false });
     }
   }, [error, navigateTo]);
-
+  // Function to handle sign-up form submission
   const handleSignup = async (e) => {
     e.preventDefault();
+    // Validate required fields
     if (!email || !password || !confPass) {
       setError("Please enter all required fields");
       return;
     }
-
-    if (password.length < 8 || confPass.length < 8) {
-      setError("Password must be at least 8 characters long");
+    // Check for whitespace-only strings
+    if (
+      email.trim() === "" ||
+      fullName.trim() === "" ||
+      password.trim() === ""
+    ) {
+      setError("Please enter a valid email address, full name, and password");
       return;
     }
+    // Validate email
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setError("Please enter a valid email address");
+      return;
+    }
+    if (!/^[a-zA-Z\s]+$/.test(fullName)) {
+      setError("Please enter a valid full name");
+      return;
+    }
+    // Validate password length
+   if (password.trim().length < 8 || confPass.trim().length < 8) {
+     setError("Password must be at least 8 characters long");
+     return;
+   }
+    // Validate password match
     if (password !== confPass) {
       setError("Passwords do not match");
       return;
     }
+    // Call the 'signup' function with email, full name, and password
     if (email && password && fullName) {
       await signup(email, fullName, password);
     }
