@@ -87,6 +87,7 @@ function Login() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Farida@gmail.com"
                 pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
+                autoFocus
                 required
               />
             </div>

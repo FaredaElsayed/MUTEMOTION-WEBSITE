@@ -120,6 +120,7 @@ function SignUp() {
                 value={fullName}
                 onChange={(e) => setfullName(e.target.value)}
                 placeholder="Farida Elsayed"
+                autoFocus
                 required
               />
             </div>

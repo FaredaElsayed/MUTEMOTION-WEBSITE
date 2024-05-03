@@ -215,7 +215,7 @@ function AuthProvider({ children }) {
           setError("Invalid credentials");
         } else if (response.status === 401 && data.error === "Wrong password") {
           // Display message "Wrong password"
-          setError("Wrong password");
+          setError("Email oR password is not correct.");
         } else {
           throw new Error(data.message);
         }
@@ -228,6 +228,8 @@ function AuthProvider({ children }) {
   // Define the logout function
   function logout() {
     dispatch({ type: "logout" });
+    localStorage.removeItem("registeredEmail");
+    
   }
   // Return the AuthProvider component with the necessary context and functions
   return (

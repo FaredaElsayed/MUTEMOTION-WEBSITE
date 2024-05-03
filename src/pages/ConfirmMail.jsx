@@ -59,12 +59,12 @@ function ConfirmMail() {
 
   function handleVerification(e) {
     e.preventDefault();
-    console.log(registeredEmail);
     if (code && registeredEmail) {
       setError(null);
       verifyCode(registeredEmail, code);
       
     }
+    
   }
 
   useEffect(() => {
@@ -97,14 +97,14 @@ function ConfirmMail() {
             <div>
               <label htmlFor="code">Code:</label>
               <input
-                type="password"
+                type="text"
                 id="code"
                 name="code"
                 value={code}
                 onChange={(e) => setCode(e.target.value)}
                 placeholder="****"
                 minLength={8}
-                pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
+                autoFocus
                 required
               />
             </div>
