@@ -35,7 +35,9 @@ function reducer(state, action) {
 function AuthProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initial_state);
   const { user, isAuthenticated, token } = state;
-  const [registeredEmail, setRegisteredEmail] = useState(null);
+ const [registeredEmail, setRegisteredEmail] = useState(
+   localStorage.getItem("registeredEmail") || null
+ );
   const [error, setError] = useState(null);
   
   //Store token in local storage
@@ -73,6 +75,7 @@ function AuthProvider({ children }) {
       if (response.ok) {
         //update registered email
         setRegisteredEmail(data.user.email);
+        localStorage.setItem("registeredEmail", data.user.email);
         setError("");
       } else {
         //case 2 email is already registered
@@ -92,6 +95,7 @@ function AuthProvider({ children }) {
         ) {
           dispatch({ type: "login", payload: data.user, token: null });
           setRegisteredEmail(data.user.email);
+           localStorage.setItem("registeredEmail", data.user.email);
           setError("");
         } else {
           throw new Error(data.message);

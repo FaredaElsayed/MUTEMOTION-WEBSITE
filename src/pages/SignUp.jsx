@@ -11,16 +11,37 @@ function SignUp() {
   const [confPass, setconfPass] = useState("");
   const [email, setEmail] = useState("faredaelsayed@gmail.com");
   const [fullName, setfullName] = useState("fareda elsayed");
-
-  const btnStyle = {
+  const [btnStyle, setBtnStyle] = useState({
     fontWeight: "700",
     borderColor: "#442C8F",
     borderStyle: "solid",
     borderWidth: "2px",
     fontSize: "2.5rem",
     textTransform: "capitalize",
-  };
+  });
 
+  useEffect(() => {
+    function updateBtnStyle() {
+      if (window.innerWidth >= 4000) {
+        setBtnStyle((prevStyle) => ({
+          ...prevStyle,
+          fontSize: "5.8rem",
+        }));
+      } else {
+        setBtnStyle((prevStyle) => ({
+          ...prevStyle,
+          fontSize: "2.5rem",
+        }));
+      }
+    }
+
+    updateBtnStyle(); // Initial call
+    window.addEventListener("resize", updateBtnStyle);
+
+    return () => {
+      window.removeEventListener("resize", updateBtnStyle);
+    };
+  }, []);
   useEffect(() => {
     if (error === "") {
       navigateTo("/confirm", { replace: true });
@@ -65,7 +86,6 @@ function SignUp() {
                 onChange={(e) => setfullName(e.target.value)}
                 placeholder="Farida Elsayed"
                 required
-               
               />
             </div>
             <div>

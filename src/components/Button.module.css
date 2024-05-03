@@ -93,13 +93,15 @@
   .btn {
     font-size: 5.8rem;
     border-radius: 42px;
-    width:500px
+    width: fit-content;
   }
   .overview:hover {
-  color: #442c8f;
-  background: #ffffff;
+    color: #442c8f;
+    background: #ffffff;
+  }
+  
 }
-}
+
 
 /*.back {
   font-weight: 600;

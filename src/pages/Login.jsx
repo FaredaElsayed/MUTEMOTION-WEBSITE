@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate,Link  } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../contexts/Auth";
 import styles from "./Login.module.css";
 import Button from "../components/Button";
@@ -8,21 +8,43 @@ function Login() {
   const [password, setPass] = useState("12345");
   const [email, setEmail] = useState("faredaelsayed@gmail.com");
   const { login, isAuthenticated, error } = useAuth();
-
   const navigateTo = useNavigate();
-  const btnStyle = {
+  const [btnStyle, setBtnStyle] = useState({
     fontWeight: "700",
     borderColor: "#442C8F",
     borderStyle: "solid",
     borderWidth: "2px",
     fontSize: "2.5rem",
     textTransform: "capitalize",
-  };
+  });
+
+  useEffect(() => {
+    function updateBtnStyle() {
+      if (window.innerWidth >= 4000) {
+        setBtnStyle((prevStyle) => ({
+          ...prevStyle,
+          fontSize: "5.8rem",
+        }));
+      } else {
+        setBtnStyle((prevStyle) => ({
+          ...prevStyle,
+          fontSize: "2.5rem",
+        }));
+      }
+    }
+
+    updateBtnStyle(); // Initial call
+    window.addEventListener("resize", updateBtnStyle);
+
+    return () => {
+      window.removeEventListener("resize", updateBtnStyle);
+    };
+  }, []);
+
   function handleLogin(e) {
     e.preventDefault();
     if (email && password) {
       login(email, password);
-      
     }
   }
 

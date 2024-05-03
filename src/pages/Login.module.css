@@ -187,7 +187,46 @@ div > span {
   background-position: center;
 }
 
-.login .error{
+.login .error {
   color: red;
   margin-top: 10px;
+}
+
+@media (min-width: 4000px) {
+  .login form label {
+    font-size: 5.3rem;
+    line-height: 5.5rem;
+  }
+  .login form p {
+    font-size: 5.7rem;
+    line-height: 6rem;
+  }
+  .login form input {
+    font-size: 5rem;
+    line-height: 5.5rem;
+  }
+  .login .buttons p {
+    font-size: 3.8rem;
+  }
+  .login .noAcc p {
+    font-size: 3.8rem;
+  }
+  div > span {
+    font-size: 3rem;
+  }
+  .login .noAcc span {
+    font-size: 2.5rem;
+  }
+  .login .imgCont p {
+    font-size: 13rem;
+  }
+  .login .error {
+    font-size: 3rem;
+  }
+  .login .buttons button {
+    width: 92%;
+  }
+  .login .logo {
+    width: 150px;
+  }
 }

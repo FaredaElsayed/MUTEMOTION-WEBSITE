@@ -35,3 +35,14 @@
   margin: 2.5rem 0px;
   box-shadow: 0 4px 8px 4px rgba(68, 44, 143, 0.1);
 }
+
+@media (min-width: 4000px) {
+  .homepage h1 {
+    font-size: 7.5rem;
+    line-height: 3.3;
+  }
+
+  .homepage p {
+    font-size: 5.6rem;
+  }
+}
