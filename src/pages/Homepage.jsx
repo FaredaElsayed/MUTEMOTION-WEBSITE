@@ -9,6 +9,7 @@ export const courses = [
   {
     id: 1,
     level: "ASL For Beginners",
+    courseTitle: "Learn Figma - ASL Essential Training",
     instructor: "Mairina Michel, Level1",
     imgSrc: "./img-4.png",
     alt: "Mairina Michel, Level1",
@@ -16,6 +17,8 @@ export const courses = [
   {
     id: 2,
     level: "ASL For Beginners",
+    courseTitle: "Learn Figma - ASL Essential Training",
+
     instructor: "Mairina Michel, Level1",
     imgSrc: "./img-3.png",
     alt: "Mairina Michel, Level1",
@@ -23,6 +26,8 @@ export const courses = [
   {
     id: 3,
     level: "ASL For Beginners",
+    courseTitle: "Learn Figma - ASL Essential Training",
+
     instructor: "Mairina Michel, Level1",
     imgSrc: "./img-9.png",
     alt: "Mairina Michel, Level1",
@@ -32,6 +37,8 @@ export const courses = [
   {
     id: 4,
     level: "ASL For Beginners",
+    courseTitle: "Learn Figma - ASL Essential Training",
+
     instructor: "Mairina Michel, Level1",
     imgSrc: "./img-1.png",
     alt: "Mairina Michel, Level1",
@@ -41,6 +48,7 @@ export const courses = [
   {
     id: 5,
     level: "ASL For Beginners",
+    courseTitle: "Learn Figma - ASL Essential Training",
     instructor: "Mairina Michel, Level1",
     imgSrc: "./img-5.png",
     alt: "Mairina Michel, Level1",
@@ -50,6 +58,7 @@ export const courses = [
   {
     id: 6,
     level: "ASL For Beginners",
+    courseTitle: "Learn Figma - ASL Essential Training",
     instructor: "Mairina Michel, Level1",
     imgSrc: "./img-4.png",
     alt: "Mairina Michel, Level1",

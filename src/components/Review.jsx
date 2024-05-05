@@ -1,9 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./Review.module.css";
 import StarRating from "./StarRating";
 
 function Review({ imgSrc, name, opinionHeadline, opinion, myRating }) {
   const [userRating, setUserRating] = useState("");
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
     <div className={styles.reviews}>
       <div className={styles.rev}>
@@ -11,7 +29,7 @@ function Review({ imgSrc, name, opinionHeadline, opinion, myRating }) {
         <div className={styles.info}>
           <StarRating
             maxRating={5}
-            size={25}
+            size={windowSize.width >= 4000 ? 50 : 25}
             hoverEnabled={false}
             defaultRating={myRating}
           />

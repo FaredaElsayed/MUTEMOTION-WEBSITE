@@ -26,11 +26,15 @@ function App() {
       <BrowserRouter>
         <Suspense fallback={<SpinnerFullPage />}>
           <Routes>
-            <Route exact path="/" element={loggedIn ? <Home /> : <FirstPage />} />
+            <Route
+              exact
+              path="/"
+              element={loggedIn ? <Home /> : <FirstPage />}
+            />
             <Route path="homepage" element={<Home />} />
             <Route path="aboutus" element={<AboutUs />} />
             <Route path="courses" element={<Courses />}>
-              <Route path="/courses/:id" component={Course} />
+              <Route path=":id" component={Course} />
             </Route>
             <Route path="mylearning" element={<MyLearning />} />
             <Route path="inprogress" element={<InProgress />} />

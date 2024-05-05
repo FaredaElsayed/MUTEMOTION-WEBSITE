@@ -61,4 +61,25 @@
   left: -4rem;
 }
 
-
+@media (min-width: 4000px) {
+  .coursesHeader {
+    height: 800px;
+  }
+  .rect1 {
+    height: 800px;
+    width: 30%;
+  }
+  .content p {
+    font-size: 11rem;
+    line-height: 16rem;
+  }
+  .rect {
+    height: 760px;
+    width: 35%;
+  }
+  .rect img {
+    width: 90%;
+    position: relative;
+    left: -6rem;
+  }
+}

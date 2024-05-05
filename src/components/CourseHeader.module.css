@@ -89,5 +89,37 @@
   flex-direction: column;
   gap: 1rem;
   width: 50%;
-  
+}
+
+@media (min-width: 4000px) {
+  .courses .h2 {
+    font-size: 5.2rem;
+
+    margin-left: 58rem;
+  }
+  .coursesHeader {
+    height: 1200px;
+  }
+  .coursesHeader .rect1 {
+    width: 30%;
+    height: 880px;
+    gap: 3rem;
+  }
+  .coursesHeader .content p {
+    margin-top: 10rem !important;
+    font-size: 5rem;
+    line-height: 5rem;
+    width: 85%;
+  }
+  .coursesHeader .content h1 {
+    font-size: 6.5rem;
+  }
+  .coursesHeader .rect {
+    width: 30%;
+    height: 750px;
+  }
+  .rect img {
+    width: 95%;
+    left: -10rem;
+  }
 }

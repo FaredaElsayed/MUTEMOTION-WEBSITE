@@ -52,3 +52,15 @@
   gap: 2rem;
   margin: 2rem;
 }
+
+@media (min-width: 4000px) {
+  .reviews .rev h2 {
+    font-size: 5.6rem;
+  }
+  .reviews .rev p {
+    font-size: 3.8rem;
+  }
+  .reviews .rev img {
+    height: 500px;
+  }
+}

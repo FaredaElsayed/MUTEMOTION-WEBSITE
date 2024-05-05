@@ -16,7 +16,7 @@
   font-style: italic;
   font-weight: 300;
   font-size: 1.7rem;
-  line-height: 150%;
+  line-height: 190%;
   letter-spacing: -0.022em;
   color: #827a7a;
   text-align: left;
@@ -53,12 +53,13 @@
 
 @media (min-width: 4000px) {
   .card {
-    width: 500px;
+    width: 550px;
     gap: 2rem;
+    padding-bottom: 5rem;
   }
   .card img {
     width: 100%;
-    height: 320px;
+    height: 380px;
   }
   .card .fav {
     width: 100px;
@@ -73,4 +74,10 @@
   .card li::marker {
     font-size: 2.5rem;
   }
+  .card h1 {
+  font-size: 6rem;
+}
+  .card h3 {
+  font-size: 3rem;
+}
 }

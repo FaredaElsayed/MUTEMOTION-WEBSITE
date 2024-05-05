@@ -1,6 +1,6 @@
 import styles from "./Homepage.module.css";
 import LessonCard from "../components/LessonCard";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Slider from "../components/Slider";
 
 const lessons = [
@@ -39,8 +39,27 @@ const lessonBreif = "Facial expressions & body language. The ABCs";
 
 function LessonsSlider({ title }) {
   const [startIndex, setStartIndex] = useState(0);
-  const cardsPerPage = 3;
+  const [cardsPerPage, setCardsPerPage] = useState(3);
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth > 3000) {
+        setCardsPerPage(5);
+      } else {
+        setCardsPerPage(3);
+      }
+    }
 
+    // Call handleResize initially to set the initial value
+    handleResize();
+
+    // Listen for window resize events
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   const handleNext = () => {
     setStartIndex((prevIndex) =>
       prevIndex + cardsPerPage < lessons.length ? prevIndex + 1 : 0

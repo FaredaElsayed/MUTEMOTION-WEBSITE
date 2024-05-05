@@ -1,7 +1,7 @@
 import styles from "./Homepage.module.css";
 import CourseCard from "../components/CourseCard";
-import { useState, useEffect } from "react";
 import Slider from "../components/Slider";
+import { useState, useEffect } from "react";
 import { courses } from "./Homepage";
 
 function CustomSlider({ title }) {
@@ -53,7 +53,7 @@ function CustomSlider({ title }) {
           .slice(startIndex, startIndex + cardsPerPage)
           .map((course, index) => (
             <div key={index} className={styles.card}>
-              <CourseCard {...course} key={course.id} />
+              <CourseCard {...course} key={course.id} id={course.id}/>
             </div>
           ))}
       </div>

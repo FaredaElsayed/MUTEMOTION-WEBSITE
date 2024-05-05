@@ -44,7 +44,6 @@ function CourseCard({ level, instructor, imgSrc, alt }) {
           />
         </svg>
       )}
-
       <h1>{level}</h1>
       <h3>{instructor}</h3>
       <StarRating maxRating={5} size={45} onSetRating={setUserRating} />

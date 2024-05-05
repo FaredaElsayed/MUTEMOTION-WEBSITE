@@ -54,3 +54,19 @@
   line-height: 134%;
   width: 86%;
 }
+
+@media (min-width: 4000px) {
+  .instructor > p {
+    font-size: 4.2rem;
+    line-height: 6rem;
+  }
+  .instructor .mainInfo img {
+    height: 300px;
+  }
+  .instructor .instInfo h2 {
+    font-size: 4.7rem;
+  }
+  .instructor .instInfo p {
+    font-size: 3.8rem;
+  }
+}

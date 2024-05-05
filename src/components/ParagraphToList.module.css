@@ -55,3 +55,28 @@
   justify-content: center;
   display: flex;
 }
+
+@media (min-width: 4000px) {
+  .paragraphToList .content {
+    width: 40%;
+  }
+  .paragraphToList .ul li::marker {
+    font-size: 2.5rem;
+  }
+  .paragraphToList .content h1 {
+    font-size: 5.3rem;
+  }
+  .paragraphToList .content .ul li,
+  .paragraphToList .content p {
+    font-size: 4rem;
+    line-height: 5rem;
+  }
+  .paragraphToList .rect {
+    width: 30%;
+    height: 990px;
+    gap: 5.5rem;
+    font-weight: 700;
+    font-size: 3.8rem;
+    line-height: 6.3rem;
+  }
+}
