@@ -11,12 +11,15 @@
   letter-spacing: -0.022em;
   text-transform: capitalize;
 }
+.mylearning .progressCont{
+  display: flex;
+  justify-content: center;
+}
 .mylearning .container {
   margin: 5rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  
 }
 .mylearning .container h1 {
   font-weight: 700;
@@ -30,7 +33,6 @@
   gap: 4rem;
   line-height: 1.7rem;
   letter-spacing: -0.022em;
-  
 }
 
 .progress a:link,
@@ -55,5 +57,22 @@
 .courses {
   display: flex;
   flex-direction: column;
-  
+  width: 90%;
+}
+
+@media (min-width: 4000px) {
+  .mylearning .container{
+     align-items: center;
+  }
+  .mylearning .container h1 {
+    font-size: 5.7rem;
+  }
+  .mylearning .progress {
+    line-height: 2.7rem;
+  }
+
+  .progress a:link,
+  .progress a:visited {
+    font-size: 3.7rem;
+  }
 }

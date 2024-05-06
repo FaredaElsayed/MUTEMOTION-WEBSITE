@@ -1,9 +1,50 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./CartCard.module.css";
 import StarRating from "./StarRating";
 
 export default function CartCard() {
+  const [iconSize, setIconSize] = useState(32);
   const [myRating, setMyRating] = useState(4);
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+  useEffect(() => {
+    const handleResize = () => {
+      // Update icon size based on window width
+      if (window.innerWidth >= 4000) {
+        setIconSize(70);
+      } else {
+        setIconSize(40);
+      }
+    };
+
+    // Add event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Call handleResize initially to set initial icon size
+    handleResize();
+
+    // Remove event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []); // Empty dependency array to run the effect only once
+
   return (
     <div className={styles.cardContainer}>
       <img src="/cartCard.png" alt="Michel sam"></img>
@@ -11,8 +52,8 @@ export default function CartCard() {
         <div className={styles.nameIcon}>
           <p>ASL For Kids</p>
           <svg
-            width="31"
-            height="32"
+            width={iconSize}
+            height={iconSize}
             viewBox="0 0 31 32"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -30,7 +71,7 @@ export default function CartCard() {
         </span>
         <StarRating
           maxRating={5}
-          size={25}
+          size={windowSize.width >= 4000 ? 50 : 25}
           hoverEnabled={false}
           defaultRating={myRating}
         />

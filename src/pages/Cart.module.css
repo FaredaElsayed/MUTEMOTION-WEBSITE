@@ -30,7 +30,6 @@
   justify-content: center;
   gap: 2rem;
   width: 90vw;
- 
 }
 .cart main > div {
   display: flex;
@@ -72,4 +71,24 @@
 }
 .emptyRect img {
   max-width: 100%;
+}
+
+@media (min-width: 4000px) {
+  .cart > span {
+    font-size: 6.4rem;
+    line-height: 6.5rem;
+  }
+  .cart .span {
+    font-size: 3.8rem !important;
+    line-height: 4.2rem;
+  }
+  .cart h1 {
+    padding-left: 18rem;
+    font-size: 5rem;
+    line-height: 5.5rem;
+  }
+
+  .emptyRect img {
+    max-width: 120%;
+  }
 }

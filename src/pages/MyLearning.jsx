@@ -1,8 +1,8 @@
+import { NavLink } from "react-router-dom";
 import styles from "./MyLearning.module.css";
 import PageNav from "../components/PageNav";
 import Footer from "../components/Footer";
 import CardInProgress from "../components/CardInProgress";
-import { NavLink } from "react-router-dom";
 const courses = [
   {
     id: 1,
@@ -60,7 +60,7 @@ export default function MyLearning() {
           </ul>
           <div className={styles.courses}>
             {courses.map((course, index) => (
-              <div key={index}>
+              <div key={index} className={styles.progressCont}>
                 <CardInProgress {...course} />
               </div>
             ))}

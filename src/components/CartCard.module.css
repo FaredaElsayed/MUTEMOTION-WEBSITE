@@ -49,3 +49,17 @@
   line-height: 1.5rem;
   text-transform: capitalize;
 }
+@media (min-width: 4000px) {
+  .cardContainer {
+    width: 1200px;
+    height: 420px;
+  }
+  .cardContainer .contentDesc p,
+  .cardContainer .price {
+    font-size: 3.8rem;
+  }
+  .cardContainer .contentDesc .span {
+    font-size: 3rem;
+    line-height: 3.5rem;
+  }
+}

@@ -1,9 +1,9 @@
 .container {
   display: flex;
   flex-direction: row;
+  align-self: center;
   gap: 1rem;
   padding: 2rem;
-  width: 90%;
   height: 224px;
   background: linear-gradient(
     85.66deg,
@@ -61,4 +61,37 @@
   display: flex;
   gap: 2rem;
   margin: 7rem;
+}
+
+@media (min-width: 4000px) {
+  .container {
+    height: 424px;
+    width: 95%;
+  }
+  .container .content {
+    margin: 8rem;
+    margin-left: 12rem;
+  }
+  .container .content p {
+    font-size: 3.3rem;
+  }
+  .container .content h1 {
+    font-size: 5rem;
+  }
+  .container .imgContainer {
+    width: 485px;
+    height: 435px;
+  }
+  .container .imgContainer img {
+    margin-top: -2rem;
+  }
+  .container img {
+    width: 554px;
+    height: 437px;
+    
+  }
+  .container .icon{
+    width: 100px;
+    height: 100px;
+  }
 }
