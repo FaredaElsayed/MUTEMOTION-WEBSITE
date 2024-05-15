@@ -87,8 +87,11 @@
     font-size: 5rem;
     line-height: 5.5rem;
   }
-
+  .cart .emptyRect {
+    padding: 4rem;
+    gap: 4rem;
+  }
   .emptyRect img {
-    max-width: 120%;
+    width: 40%;
   }
 }

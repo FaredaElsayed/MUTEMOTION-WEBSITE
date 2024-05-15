@@ -17,10 +17,12 @@
 }
 .profile main {
   display: flex;
+  height: fit-content;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin: 2rem;
+  border: 1px red solid;
 }
 .profile main p {
   font-style: italic;
@@ -175,4 +177,50 @@ select:-webkit-autofill {
 
 .notification {
   text-align: center;
+}
+
+@media (min-width: 4000px) {
+  .profile label {
+    font-size: 4.6rem;
+  }
+  .profile main {
+    height: 1000px;
+  }
+  .profile main p {
+    font-size: 5rem;
+    line-height: 5.5rem;
+  }
+  .rectangle {
+    width: 942px;
+    height: 757px;
+  }
+
+  .profile .img {
+    height: 232px;
+    width: 242px;
+  }
+  .mainInfo h2 {
+    font-size: 5.2rem;
+    line-height: 5rem;
+  }
+  .rectangle2 {
+    width: 638px;
+    height: 480px;
+  }
+
+  .container p {
+    font-size: 5.2rem;
+  }
+  .profile .form input {
+    font-size: 5rem;
+    line-height: 5.5rem;
+  }
+  .profile .rectangleComponent {
+    box-sizing: border-box;
+    width: 1500px;
+  }
+  .profile .form select,
+  .profile .form option {
+    font-size: 4.7rem;
+  }
 }

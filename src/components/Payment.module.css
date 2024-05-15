@@ -83,7 +83,7 @@
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
-  font-size: 1.4rem;
+
   line-height: 2rem;
 }
 .payment form p {
@@ -113,4 +113,42 @@
 .payment .pin input[name="pin"]:focus {
   outline: 2px solid #2fbd6a !important;
   caret-color: #2fbd6a;
+}
+
+@media (min-width: 4000px) {
+  .payment span {
+    font-size: 5.6rem;
+    line-height: 5.5rem;
+  }
+  .payment input[type="text"] {
+    border-radius: 22px;
+    font-size: 5rem;
+    line-height: 5.5rem;
+  }
+  .payment input[type="radio"] {
+    width: 40px;
+  }
+  .payment label {
+    font-size: 5rem;
+    line-height: 5.2rem;
+  }
+  .payment .checkboxText {
+    font-size: 5rem !important;
+    line-height: 5rem;
+  }
+  .payment form p {
+    font-size: 4.4rem;
+    line-height: 4.2rem;
+  }
+  .payment .cardPin {
+    font-size: 5.2rem !important;
+  }
+
+  .payment .pin input {
+    font-size: 6rem !important;
+  }
+
+  .payment .pin input[name="pin"]:focus {
+    outline: 5px solid #2fbd6a !important;
+  }
 }
