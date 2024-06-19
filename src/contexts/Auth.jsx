@@ -1,4 +1,3 @@
-// Import necessary modules
 import {
   createContext,
   useContext,
@@ -7,47 +6,43 @@ import {
   useEffect,
 } from "react";
 
-// Define the initial state of the authentication context
-const initial_state = {
+// Initial state of the authentication context
+const initialState = {
   user: null,
-  isAuthenticated: localStorage.getItem("token") ? true : false,
+  isAuthenticated: !!localStorage.getItem("token"),
   token: localStorage.getItem("token") || null,
 };
 
 const RealAuthContext = createContext();
 
-// Define the reducer function that handles state changes based on actions
+// Reducer function to handle state changes based on actions
 function reducer(state, action) {
   switch (action.type) {
     case "login":
       return {
         ...state,
-        user: action.payload,
+        user: action.payload.user,
         isAuthenticated: true,
         token: action.payload.token,
       };
     case "verify_code":
       return { ...state, isAuthenticated: true, token: action.payload.token };
     case "logout":
-      return { ...initial_state, token: null, isAuthenticated: false };
+      return { ...initialState, token: null, isAuthenticated: false };
     default:
       throw new Error("Unknown action");
   }
 }
 
-// Define the AuthProvider component
+// AuthProvider component
 function AuthProvider({ children }) {
-  // Use the useReducer hook to create a state and a dispatch function
-  const [state, dispatch] = useReducer(reducer, initial_state);
-  // Define the user, isAuthenticated, and token state variables
+  const [state, dispatch] = useReducer(reducer, initialState);
   const { user, isAuthenticated, token } = state;
-  // Use the useState hook to create the registeredEmail and error state variables
   const [registeredEmail, setRegisteredEmail] = useState(
     localStorage.getItem("registeredEmail") || null
   );
   const [error, setError] = useState(null);
 
-  // Use the useEffect hook to manage token storage and authentication
   useEffect(() => {
     if (token && isAuthenticated) {
       localStorage.setItem("token", token);
@@ -66,6 +61,7 @@ function AuthProvider({ children }) {
       dispatch({ type: "logout" });
     }
   }, [isAuthenticated]);
+  
   // Define the signup function
   async function signup(email, fullname, password) {
     try {
@@ -229,7 +225,6 @@ function AuthProvider({ children }) {
   function logout() {
     dispatch({ type: "logout" });
     localStorage.removeItem("registeredEmail");
-    
   }
   // Return the AuthProvider component with the necessary context and functions
   return (
