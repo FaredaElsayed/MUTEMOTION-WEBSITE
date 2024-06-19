@@ -22,7 +22,7 @@
   align-items: center;
   justify-content: center;
   margin: 2rem;
-  border: 1px red solid;
+  /* border: 1px red solid; */
 }
 .profile main p {
   font-style: italic;

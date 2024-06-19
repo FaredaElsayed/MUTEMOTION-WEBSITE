@@ -19,12 +19,12 @@ export default function Pay() {
         <div className={styles.method}>
           <label>
             <input type="radio" name="paymentMethod" value="creditCard" />
-            Credit Card
+            Card
           </label>
-          <label>
+          {/* <label>
             <input type="radio" name="paymentMethod" value="paypal" />
             PayPal
-          </label>
+          </label> */}
         </div>
         <span className={styles.cardPin}>
           Enter your 4-digit card pin to confirm this payment
