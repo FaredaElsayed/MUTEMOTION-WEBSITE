@@ -14,23 +14,23 @@ export default function Payment() {
       <hr />
       <form>
         <span>Pay with:</span>
-        <div className={styles.method}>
+        {/* <div className={styles.method}>
           <label>
-            <input type="radio" name="paymentMethod" value="creditCard" />
-            Credit Card
+            <input type="radio" name="paymentMethod" value="cart" />
+            Cart
           </label>
           <label>
             <input type="radio" name="paymentMethod" value="paypal" />
             PayPal
           </label>
-        </div>
+        </div> */}
 
         <div>
-          <label htmlFor="card">Card Number:</label>
+          <label htmlFor="cart">Cart Number:</label>
           <input
             type="text"
-            id="card"
-            name="card"
+            id="cart"
+            name="cart"
             placeholder="1234 5678 9101 1121"
             minLength="16"
             maxLength="16"
@@ -50,7 +50,7 @@ export default function Payment() {
               required
             />
           </div>
-          <div>
+          {/* <div>
             <label htmlFor="cvv">CVV:</label>
             <input
               type="text"
@@ -61,16 +61,16 @@ export default function Payment() {
               maxLength="3"
               required
             />
-          </div>
+          </div> */}
         </div>
-        <label className={styles.checkboxLabel}>
+        {/* <label className={styles.checkboxLabel}>
           <input
             type="checkbox"
             name="saveMethod"
             className={styles.checkbox}
           />
-          <span className={styles.checkboxText}>Save card details</span>
-        </label>
+          <span className={styles.checkboxText}>Save cart details</span>
+        </label> */}
         <Button type="learnmore" btnStyle={btnStyle}>
           Pay
         </Button>
