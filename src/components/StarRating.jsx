@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 const containerStyle = {
@@ -18,8 +17,6 @@ StarRating.propTypes = {
   size: PropTypes.number,
   messages: PropTypes.array,
   className: PropTypes.string,
-  onSetRating: PropTypes.func,
-  hoverEnabled: PropTypes.bool,
 };
 
 export default function StarRating({
@@ -29,37 +26,16 @@ export default function StarRating({
   className = "",
   messages = [],
   defaultRating = 0,
-  onSetRating,
-  courseId,
-  hoverEnabled = true,
 }) {
-  const [rating, setRating] = useState(defaultRating);
-  const [tempRating, setTempRating] = useState(0);
-  function handleRating(rating) {
-    setRating(rating);
-    if (typeof onSetRating === "function") {
-      onSetRating(courseId, rating);
-    }
-  }
-
-  useEffect(() => {
-    if (typeof onSetRating === "function") {
-      onSetRating(courseId, rating);
-    }
-  }, [courseId, rating, onSetRating]);
   return (
     <div style={containerStyle} className={className}>
       <div style={starContainerStyle}>
         {Array.from({ length: maxRating }, (_, i) => (
           <Star
             key={i}
-            full={tempRating ? tempRating >= i + 1 : rating >= i + 1}
-            onRate={() => handleRating(i + 1)}
-            onHoverIn={hoverEnabled ? () => setTempRating(i + 1) : null}
-            onHoverOut={hoverEnabled ? () => setTempRating(0) : null}
+            full={defaultRating >= i + 1}
             color={color}
             size={size}
-            hoverEnabled={hoverEnabled}
           />
         ))}
       </div>
@@ -67,44 +43,15 @@ export default function StarRating({
   );
 }
 
-function Star({
-  onRate,
-  full,
-  onHoverIn,
-  onHoverOut,
-  color,
-  size,
-  courseId,
-  onSetRating,
-  hoverEnabled,
-}) {
+function Star({ full, color, size }) {
   const starStyle = {
     width: `${size}px`,
     height: `${size}px`,
     display: "block",
-    cursor: "pointer",
   };
 
   return (
-    <span
-      role="button"
-      style={starStyle}
-      onClick={() => {
-        if (typeof onRate === "function") {
-          onRate();
-        }
-      }}
-      onMouseEnter={() => {
-        if (typeof onHoverIn === "function") {
-          onHoverIn();
-        }
-      }}
-      onMouseLeave={() => {
-        if (typeof onHoverOut === "function") {
-          onHoverOut();
-        }
-      }}
-    >
+    <span style={starStyle}>
       {full ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"

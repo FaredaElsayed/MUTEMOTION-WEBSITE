@@ -1,16 +1,96 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./CourseCard.module.css";
 import StarRating from "./StarRating";
+import { useAuth } from "../contexts/Auth";
 
-function CourseCard({ level, instructor, imgSrc, alt }) {
+function CourseCard({ _id, level, instructor, poster, alt, review }) {
   const [userRating, setUserRating] = useState("");
+  const [error, setError] = useState(null);
   const [isFav, setIsFav] = useState(false);
-  function handleToggleFav() {
-    setIsFav(!isFav);
+  const { token } = useAuth();
+
+  // Load favorite status from localStorage when the component mounts
+  useEffect(() => {
+    const storedIsFav = localStorage.getItem(`fav-status-${_id}`);
+    if (storedIsFav !== null) {
+      setIsFav(JSON.parse(storedIsFav));
+    }
+  }, [_id]);
+
+  async function addToWishlist() {
+    const url = "https://mutemotion.onrender.com/api/wishlist";
+    const body = JSON.stringify({ courseId: _id });
+
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: body,
+    };
+
+    try {
+      const response = await fetch(url, options);
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log("Added to wishlist:", data);
+        setIsFav(true);
+        localStorage.setItem(`fav-status-${_id}`, JSON.stringify(true));
+        setError(null);
+      } else {
+        const errorMessage = data.error || "Failed to add to wishlist";
+        throw new Error(errorMessage);
+      }
+    } catch (error) {
+      console.error("Error adding to wishlist:", error.message);
+      setError(error.message || "Failed to add to wishlist");
+    }
   }
+
+  async function removeFromWishlist() {
+    const url = `https://mutemotion.onrender.com/api/wishlist`;
+
+    const options = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({ courseId: _id }),
+    };
+
+    try {
+      const response = await fetch(url, options);
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log("Removed from wishlist:", data);
+        setIsFav(false);
+        localStorage.setItem(`fav-status-${_id}`, JSON.stringify(false));
+        setError(null);
+      } else {
+        const errorMessage = data.error || "Failed to remove from wishlist";
+        throw new Error(errorMessage);
+      }
+    } catch (error) {
+      console.error("Error removing from wishlist:", error.message);
+      setError(error.message || "Failed to remove from wishlist");
+    }
+  }
+
+  async function handleToggleFav() {
+    if (isFav) {
+      await removeFromWishlist();
+    } else {
+      await addToWishlist();
+    }
+  }
+
   return (
     <div className={styles.card} style={{ position: "relative" }}>
-      <img src={imgSrc} alt={alt}></img>
+      <img src={poster} alt={alt}></img>
       {!isFav ? (
         <svg
           width="32"
@@ -19,7 +99,12 @@ function CourseCard({ level, instructor, imgSrc, alt }) {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           className={styles.fav}
-          style={{ position: "absolute", top: "0", right: "0" }}
+          style={{
+            position: "absolute",
+            top: "0",
+            right: "0",
+            cursor: "pointer",
+          }}
           onClick={handleToggleFav}
         >
           <path
@@ -35,7 +120,12 @@ function CourseCard({ level, instructor, imgSrc, alt }) {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           className={styles.fav}
-          style={{ position: "absolute", top: "0", right: "0" }}
+          style={{
+            position: "absolute",
+            top: "0",
+            right: "0",
+            cursor: "pointer",
+          }}
           onClick={handleToggleFav}
         >
           <path
@@ -46,7 +136,13 @@ function CourseCard({ level, instructor, imgSrc, alt }) {
       )}
       <h1>{level}</h1>
       <h3>{instructor}</h3>
-      <StarRating maxRating={5} size={45} onSetRating={setUserRating} />
+      <StarRating
+        maxRating={5}
+        size={45}
+        hoverEnabled={false}
+        defaultRating={Number(review)}
+      />
+      {error && <p style={{ color: "red" }}>{error}</p>}
     </div>
   );
 }

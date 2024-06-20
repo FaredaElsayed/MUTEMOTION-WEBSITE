@@ -2,7 +2,7 @@ import CourseHeader from "../components/CourseHeader";
 import styles from "../components/CourseHeader.module.css";
 import ParagraphToList from "../components/ParagraphToList";
 import LessonsSlider from "./LessonsSlider";
-import { courses } from "./Homepage";
+// import { courses } from "./Homepage";
 import Instructor from "../components/Instructor";
 import Review from "../components/Review";
 // import PageNav from "../components/PageNav";
@@ -56,8 +56,8 @@ function Course({setIsPaying,isPaying}) {
         <CourseHeader
           courseTitle="Learn Figma - ASL Essential Training"
           courseImg="./ASL-1 1.png"
-          courseAlt={courses.alt}
-          courseBreif={courses.courseBreif}
+          courseAlt={"xxx"}
+          courseBreif={"xx"}
           setIsPaying={setIsPaying}
           isPaying={isPaying}
         />

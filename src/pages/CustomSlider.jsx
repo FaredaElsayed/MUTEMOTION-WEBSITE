@@ -2,9 +2,9 @@ import styles from "./Homepage.module.css";
 import CourseCard from "../components/CourseCard";
 import Slider from "../components/Slider";
 import { useState, useEffect } from "react";
-import { courses } from "./Homepage";
+// import { courses } from "./Homepage";
 
-function CustomSlider({ title }) {
+function CustomSlider({ title, courses }) {
   const [startIndex, setStartIndex] = useState(0);
   const [cardsPerPage, setCardsPerPage] = useState(3);
 
@@ -41,6 +41,10 @@ function CustomSlider({ title }) {
     );
   };
 
+  // Check if courses is defined and is an array
+  if (!Array.isArray(courses)) {
+    return <div>Loading...</div>; // or handle it as you see fit
+  }
   return (
     <div>
       <div className={styles.slide}>
@@ -53,7 +57,7 @@ function CustomSlider({ title }) {
           .slice(startIndex, startIndex + cardsPerPage)
           .map((course, index) => (
             <div key={index} className={styles.card}>
-              <CourseCard {...course} key={course.id} id={course.id}/>
+              <CourseCard {...course} />
             </div>
           ))}
       </div>

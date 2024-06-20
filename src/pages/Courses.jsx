@@ -4,9 +4,18 @@ import Footer from "../components/Footer";
 import CustomSlider from "./CustomSlider";
 import Course from "./Course";
 import { useState } from "react";
+import { useContext } from "react";
+import { CourseContext } from "../contexts/CoursesApis";
 
 export default function Courses() {
-  const [isPaying, setIsPaying] = useState (false);
+  const [isPaying, setIsPaying] = useState(false);
+  const { state } = useContext(CourseContext);
+  const {
+    aslAdults,
+    forKids,
+    loading,
+    error,
+  } = state;
   return (
     <>
       <main className={styles.courses}>
@@ -35,10 +44,10 @@ export default function Courses() {
             ></img>
           </div>
         </header>
-        <CustomSlider title="For Age +15" />
-        <CustomSlider title="For Kids" />
+        <CustomSlider title="For Age +15" courses={aslAdults} />
+        <CustomSlider title="For Kids" courses={forKids} />
       </main>
-      <Course isPaying={isPaying} setIsPaying={setIsPaying}/>
+      {/* <Course isPaying={isPaying} setIsPaying={setIsPaying}/> */}
       <Footer />
     </>
   );

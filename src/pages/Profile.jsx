@@ -2,7 +2,7 @@ import styles from "./Profile.module.css";
 import PageNav from "../components/PageNav";
 import Footer from "../components/Footer";
 import Button from "../components/Button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { SetProfilePic } from "../components/SetProfilePic";
 import { Pass } from "../components/Pass";
 import { NamesForm } from "../components/NamesForm";
@@ -12,12 +12,46 @@ import {
   Notification,
   Language,
 } from "./PersonalInfon";
+import { useAuth } from "../contexts/Auth";
 
 export default function Profile() {
-  const [FullName, setFullName] = useState("Ali Amin");
+  const [FullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [selectedImage, setSelectedImage] = useState("./person.png");
   const [mainImage, setMainImage] = useState("./person.png");
+  const { token } = useAuth();
 
+  useEffect(() => {
+    async function fetchProfileData() {
+      const url = "https://mutemotion.onrender.com/api/profile";
+      const options = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      };
+
+      try {
+        const response = await fetch(url, options);
+        if (response.ok) {
+          const data = await response.json();
+          setFullName(data.fullname);
+          setEmail(data.email);
+
+          setSelectedImage(data.profilePicture || "./person.png");
+          setMainImage(data.profilePicture || "./person.png");
+        } else {
+          throw new Error("Failed to fetch profile data");
+        }
+      } catch (error) {
+        console.error("Error fetching profile data:", error);
+      }
+    }
+
+    fetchProfileData();
+  }, [token]);
   return (
     <>
       <div className={styles.profile}>
@@ -50,12 +84,18 @@ export default function Profile() {
               setSelectedImage={setSelectedImage}
               setMainImage={setMainImage}
               setFullName={setFullName}
+              FullName={FullName}
             />
           </div>
         </section>
         <section className={styles.container}>
           <Password />
-          <Pass />
+          <Pass
+            email={email}
+            setEmail={setEmail}
+            oldPass={password}
+            setOldPass={setPassword}
+          />
         </section>
         <section className={styles.container}>
           <Notification />

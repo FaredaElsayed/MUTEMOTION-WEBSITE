@@ -2,13 +2,11 @@ import styles from "../pages/Profile.module.css";
 import Button from "./Button";
 import { useState } from "react";
 
-export function Pass() {
-  const [oldPass, setOldPass] = useState("");
+export function Pass({ email, setEmail, oldPass, setOldPass }) {
   const [newPass, setNewPass] = useState("");
-  const [confNewPass, setconfNewPass] = useState("");
-  const [email, setEmail] = useState("");
+  const [confNewPass, setConfNewPass] = useState("");
+  const [emailSaved, setEmailSaved] = useState(false);
 
-  const [EmailSaved, setEmailSaved] = useState(false);
   const handlePasswordSave = (e) => {
     if (oldPass.length < 8) {
       return;
@@ -31,6 +29,7 @@ export function Pass() {
     }
     console.log("Email saved successfully!");
   };
+
   const handleEmailPasswordSave = (e) => {
     e.preventDefault();
     if (!email || !oldPass || !newPass || newPass !== confNewPass) {
@@ -41,6 +40,7 @@ export function Pass() {
     handleEmailSave();
     handlePasswordSave();
   };
+
   return (
     <div className={styles.rectangleComponent}>
       <div className={styles.sideComp}></div>
@@ -92,7 +92,7 @@ export function Pass() {
               id="confNewPass"
               name="confNewPass"
               value={confNewPass}
-              onChange={(e) => setconfNewPass(e.target.value)}
+              onChange={(e) => setConfNewPass(e.target.value)}
               placeholder="*******"
               minLength={8}
               required
@@ -106,7 +106,7 @@ export function Pass() {
             </Button>
           </div>
         </form>
-        {EmailSaved && (
+        {emailSaved && (
           <div
             style={{
               color: "red",
@@ -117,7 +117,7 @@ export function Pass() {
             Please complete your Password info.
           </div>
         )}
-        {!EmailSaved && email && oldPass && newPass && confNewPass && (
+        {!emailSaved && email && oldPass && newPass && confNewPass && (
           <div
             style={{
               color: "green",
