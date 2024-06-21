@@ -27,28 +27,28 @@ import Footer from "../components/Footer";
 //    Certificate of completion`;
 // const info = `4,5 Instructor Rating 18.482 Reviews 76.649 Students.4 Courses`;
 // const instInfo = `Co-authored the book, Deaf Tend Yours.she has written video scripts and produced numerous sign language related videotapes/DVDs.she is a nationally-known teacher and lecturer in ASL and sign language interpretation.has been in the field of ASL linguistics, interpreting and post secondary teaching of ASL as a second language for over 30 years. she is a certified Deaf interpreter (CDI), earning the certification through the Registry of Interpreters for the Deaf.`;
-const reviews = [
-  {
-    id: 1,
-    imgSrc: "./rev2.png",
-    name: "Maurice Cain",
-    isStudet: "Student",
-    opinion:
-      "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45",
-    opinionHeadline: "Best learning platform",
-    myRating: 4.5,
-  },
-  {
-    id: 2,
-    imgSrc: "./rev1.png",
-    name: "Maurice Henderson",
-    isStudet: "Student",
-    opinion:
-      "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45",
-    opinionHeadline: "Amazing Course",
-    myRating: 5,
-  },
-];
+// const reviews = [
+//   {
+//     id: 1,
+//     imgSrc: "./rev2.png",
+//     name: "Maurice Cain",
+//     isStudet: "Student",
+//     opinion:
+//       "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45",
+//     opinionHeadline: "Best learning platform",
+//     myRating: 4.5,
+//   },
+//   {
+//     id: 2,
+//     imgSrc: "./rev1.png",
+//     name: "Maurice Henderson",
+//     isStudet: "Student",
+//     opinion:
+//       "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45",
+//     opinionHeadline: "Amazing Course",
+//     myRating: 5,
+//   },
+// ];
 function Course({ setIsPaying, isPaying }) {
   const location = useLocation();
   const { course } = location.state || {};
@@ -84,8 +84,8 @@ function Course({ setIsPaying, isPaying }) {
         <Instructor
           imgSrc={course.instructorDetails.img}
           name={course.instructorDetails.name}
-          info={course.instructorDetails.info}
-          instInfo={course.instructorDetails.instInfo}
+          // info={course.instructorDetails.info}
+          instInfo={course.instructorDetails.info}
           coursesGiven={course.instructorDetails.coursesGiven}
           certificate={course.instructorDetails.certificate}
           education={course.instructorDetails.education}

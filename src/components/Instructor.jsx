@@ -15,12 +15,6 @@ function Instructor({
 
       <div className={styles.mainInfo}>
         <img src={imgSrc} alt={name}></img>
-
-        <ul>
-          <li>{info}</li>
-          <li>{certificate}</li>
-          <li>{education}</li>
-        </ul>
         <ul>
           <h6 style={{ textDecoration: "underline" }}>Courses Given: </h6>
           {coursesGiven.map((course, index) => (
@@ -32,6 +26,8 @@ function Instructor({
       <div className={styles.instInfo}>
         <h2>{name}</h2>
         <p>{instInfo}</p>
+        <p>education background: {education}.</p>
+        <p>Certificate: {certificate}.</p>
       </div>
     </div>
   );

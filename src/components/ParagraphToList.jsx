@@ -23,7 +23,7 @@ export default function ParagraphToList({
   return (
     <div className={styles.paragraphToList}>
       <div className={styles.content} style={costumeStyle}>
-        {level && <h1>{level}</h1>}
+        {level && <h1>Level: {level}</h1>}
         {desc && <p>{desc}</p>}
 
         <ul className={styles.ul}>

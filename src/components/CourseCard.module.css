@@ -5,7 +5,8 @@
   text-align: center;
   gap: 1rem;
   border-radius: 12px;
-  height: 480px;
+  height: fit-content;
+  max-height: 480px;
   padding-bottom: 3rem;
   width: 342px;
   border: #868585 solid 1px;
