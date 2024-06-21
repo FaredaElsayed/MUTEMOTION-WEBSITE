@@ -29,9 +29,9 @@ export default function Likes() {
       <main className={styles.likes}>
         <PageNav />
         {wishlist.length > 0 ? (
-          <CustomSlider title="My Favorite Courses" courses={wishlist} />
+          <CustomSlider title="Courses To Watch" courses={wishlist} />
         ) : (
-          <p>No favorite courses found.</p>
+          <p style={{alignSelf:"center" , marginTop:"5%"}}>No favorite courses found.</p>
         )}
       </main>
       <Footer />

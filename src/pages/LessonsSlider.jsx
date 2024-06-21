@@ -37,7 +37,7 @@ const lessons = [
 ];
 const lessonBreif = "Facial expressions & body language. The ABCs";
 
-function LessonsSlider({ title }) {
+function LessonsSlider({ title, lessons}) {
   const [startIndex, setStartIndex] = useState(0);
   const [cardsPerPage, setCardsPerPage] = useState(3);
   useEffect(() => {
@@ -85,9 +85,9 @@ function LessonsSlider({ title }) {
           .map((lesson, index) => (
             <div key={index} className={styles.card}>
               <LessonCard
-                num={lesson.num}
+                num={lesson.lessonNum}
                 name={lesson.name}
-                lessonBreif={lessonBreif}
+                lessonBreif={lesson.description}
               />
             </div>
           ))}

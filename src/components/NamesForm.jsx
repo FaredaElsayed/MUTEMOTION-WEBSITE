@@ -31,7 +31,6 @@ export function NamesForm({
   const handleCancel = (e) => {
     e.preventDefault();
     setFullName("");
-    // setLName("");
     setSelectedImage(mainImage);
     setPhoneNumber(undefined);
     setNotSaved(false);
@@ -41,31 +40,18 @@ export function NamesForm({
     <div className={styles.form}>
       <form onSubmit={handlePersonalInfoSave}>
         <div>
-          
-            <label htmlFor="fullName">Full Name:</label>
-            <input
-              type="text"
-              id="fullName"
-              name="fullName"
-              value={FullName}
-              onChange={(e) => setFullName(e.target.value)}
-              placeholder="Ali"
-              required
-            />
-         
-        </div>
-        {/* <div>
-          <label htmlFor="secondName">Second Name:</label>
+          <label htmlFor="fullName">Full Name:</label>
           <input
             type="text"
-            id="secondName"
-            name="secondName"
-            value={lName}
-            onChange={(e) => setLName(e.target.value)}
-            placeholder="Amin"
+            id="fullName"
+            name="fullName"
+            value={FullName}
+            onChange={(e) => setFullName(e.target.value)}
+            placeholder="Ali"
             required
           />
-        </div> */}
+        </div>
+
         <div>
           <label>Phone Number:</label>
           <PhoneInput
@@ -75,14 +61,14 @@ export function NamesForm({
             onChange={setPhoneNumber}
           />
         </div>
-        <div className={styles.buttons}>
+        {/* <div className={styles.buttons}>
           <Button type="overview" onClick={handleCancel}>
             Cancel
           </Button>
           <Button type="continue" onClick={handlePersonalInfoSave}>
             Save
           </Button>
-        </div>
+        </div> */}
       </form>
       {notSaved && (
         <div

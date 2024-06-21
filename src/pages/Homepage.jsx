@@ -7,82 +7,12 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { CourseContext } from "../contexts/CoursesApis";
 
-// export const courses = [
-//   {
-//     id: 1,
-//     level: "ASL For Beginners",
-//     courseTitle: "Learn Figma - ASL Essential Training",
-//     instructor: "Mairina Michel, Level1",
-//     imgSrc: "./img-4.png",
-//     alt: "Mairina Michel, Level1",
-//     myRating: 5,
-//   },
-//   {
-//     id: 2,
-//     level: "ASL For Beginners",
-//     courseTitle: "Learn Figma - ASL Essential Training",
-
-//     instructor: "Mairina Michel, Level1",
-//     imgSrc: "./img-3.png",
-//     alt: "Mairina Michel, Level1",
-//     myRating: 5,
-//   },
-//   {
-//     id: 3,
-//     level: "ASL For Beginners",
-//     courseTitle: "Learn Figma - ASL Essential Training",
-
-//     instructor: "Mairina Michel, Level1",
-//     imgSrc: "./img-9.png",
-//     alt: "Mairina Michel, Level1",
-//     courseBreif:
-//       "Sign Language 101 is accredited by the International Accreditors for Continuing Education and Training",
-
-//     myRating: 5,
-//   },
-//   {
-//     id: 4,
-//     level: "ASL For Beginners",
-//     courseTitle: "Learn Figma - ASL Essential Training",
-
-//     instructor: "Mairina Michel, Level1",
-//     imgSrc: "./img-1.png",
-//     alt: "Mairina Michel, Level1",
-//     courseBreif:
-//       "Sign Language 101 is accredited by the International Accreditors for Continuing Education and Training",
-//     myRating: 5,
-//   },
-//   {
-//     id: 5,
-//     level: "ASL For Beginners",
-//     courseTitle: "Learn Figma - ASL Essential Training",
-//     instructor: "Mairina Michel, Level1",
-//     imgSrc: "./img-5.png",
-//     alt: "Mairina Michel, Level1",
-//     courseBreif:
-//       "Sign Language 101 is accredited by the International Accreditors for Continuing Education and Training",
-//     myRating: 4,
-//   },
-//   {
-//     id: 6,
-//     level: "ASL For Beginners",
-//     courseTitle: "Learn Figma - ASL Essential Training",
-//     instructor: "Mairina Michel, Level1",
-//     imgSrc: "./img-4.png",
-//     alt: "Mairina Michel, Level1",
-//     courseBreif:
-//       "Sign Language 101 is accredited by the International Accreditors for Continuing Education and Training",
-//     myRating: 5,
-//   },
-// ];
-
 export default function Homepage() {
   const { state } = useContext(CourseContext);
   const {
     recommendedCourses,
     beginnerCourses,
     popularCourses,
-    forKids,
     loading,
     error,
   } = state;

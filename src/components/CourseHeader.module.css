@@ -80,6 +80,8 @@
 }
 .rect img {
   margin-top: -3rem;
+  width: 90%;
+  max-height:470px ;
   position: relative;
   left: -4rem;
 }
@@ -120,6 +122,7 @@
   }
   .rect img {
     width: 95%;
+    max-height:750px ;
     left: -10rem;
   }
 }

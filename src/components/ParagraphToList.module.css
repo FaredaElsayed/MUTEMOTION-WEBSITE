@@ -1,7 +1,7 @@
 .paragraphToList {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 2rem;
   font-family: "Merriweather";
@@ -45,7 +45,7 @@
   background: #ba68c8;
   border: 1px solid #442c8f;
   border-radius: 150px 150px 0px 150px;
-  gap: 3.3rem;
+  gap: 1.3rem;
   font-weight: 700;
   font-size: 1.6rem;
   line-height: 3rem;
@@ -54,6 +54,7 @@
   align-items: center;
   justify-content: center;
   display: flex;
+  flex-direction: column;
 }
 
 @media (min-width: 4000px) {

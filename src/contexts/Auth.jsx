@@ -225,6 +225,7 @@ function AuthProvider({ children }) {
   function logout() {
     dispatch({ type: "logout" });
     localStorage.removeItem("registeredEmail");
+    window.location.reload();
   }
   // Return the AuthProvider component with the necessary context and functions
   return (

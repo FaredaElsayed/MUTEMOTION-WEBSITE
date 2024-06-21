@@ -3,7 +3,8 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  justify-content: center;
+  /* justify-content: center; */
+  min-height: 50vh;
   margin: 2.5rem;
   background-size: cover;
   background-position: center;

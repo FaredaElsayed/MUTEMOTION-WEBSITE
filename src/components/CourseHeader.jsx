@@ -9,6 +9,7 @@ export default function CourseHeader({
   courseImg,
   alt,
   setIsPaying,
+  courseBreif,
 }) {
   const navigateTo = useNavigate();
   const [btnStyle1, setBtnStyle1] = useState({
@@ -73,12 +74,7 @@ export default function CourseHeader({
         <div className={styles.rect1}>
           <div className={styles.content}>
             <h1>{courseTitle}</h1>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae
-              recusandae perferendis, perspiciatis harum repudiandae, dolor
-              mollitia nobis ea velit soluta at possimus dicta non nam
-              exercitationem maxime illo facere odit.
-            </p>
+            <p>{courseBreif}</p>
           </div>
           <StarRating
             maxRating={5}

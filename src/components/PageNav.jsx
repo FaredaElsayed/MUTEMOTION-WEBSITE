@@ -81,8 +81,9 @@ function PageNav() {
   const [dropdownVisible3, setDropdownVisible3] = useState(false);
   const [dropdownVisible4, setDropdownVisible4] = useState(false);
   const navigateTo = useNavigate();
+  const [svgSize, setSvgSize] = useState({ width: 31, height: 30 });
   function handleLogout() {
-  navigateTo("/")
+    navigateTo("/");
     logout();
   }
   useEffect(
@@ -91,6 +92,22 @@ function PageNav() {
     },
     [isAuthenticated, navigateTo]
   );
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 4000) {
+        setSvgSize({ width: 62, height: 60 }); // Double the size
+      } else {
+        setSvgSize({ width: 31, height: 30 }); // Original size
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Call initially to set the correct size
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   const MenuItems4 = [
     {
       title: "Profile",
@@ -168,8 +185,8 @@ function PageNav() {
         <li className={styles.navItem}>
           <NavLink to="/cart">
             <svg
-              width="31"
-              height="30"
+              width={svgSize.width}
+              height={svgSize.height}
               viewBox="0 0 31 30"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -184,8 +201,8 @@ function PageNav() {
         <li className={styles.navItem}>
           <NavLink to="/likes">
             <svg
-              width="31"
-              height="30"
+              width={svgSize.width}
+              height={svgSize.height}
               viewBox="0 0 31 30"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -200,8 +217,8 @@ function PageNav() {
         <li className={styles.navItem} onClick={toggleDropdown4}>
           <NavLink to="#" className="nav-links">
             <svg
-              width="31"
-              height="30"
+              width={svgSize.width}
+              height={svgSize.height}
               viewBox="0 0 31 30"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"

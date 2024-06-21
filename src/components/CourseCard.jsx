@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import styles from "./CourseCard.module.css";
 import StarRating from "./StarRating";
 import { useAuth } from "../contexts/Auth";
+import { useNavigate, Link } from "react-router-dom";
 
-function CourseCard({ _id, level, instructor, poster, alt, review }) {
-  const [userRating, setUserRating] = useState("");
+function CourseCard({ _id, title, instructor, poster, alt, review }) {
   const [error, setError] = useState(null);
   const [isFav, setIsFav] = useState(false);
   const { token } = useAuth();
+  const navigateTo = useNavigate();
 
   // Load favorite status from localStorage when the component mounts
   useEffect(() => {
@@ -15,7 +16,33 @@ function CourseCard({ _id, level, instructor, poster, alt, review }) {
     if (storedIsFav !== null) {
       setIsFav(JSON.parse(storedIsFav));
     }
-  }, [_id]);
+  }, [_id, setIsFav]);
+
+  //clicking on a course
+  const handleCourseClick = async () => {
+    try {
+      const response = await fetch(
+        `https://mutemotion.onrender.com/api/course-details`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ courseId: _id }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch course details");
+      }
+
+      const data = await response.json();
+      navigateTo(`/courses/${_id}`, { state: { course: data } });
+    } catch (error) {
+      console.error("Error fetching course details:", error);
+    }
+  };
 
   async function addToWishlist() {
     const url = "https://mutemotion.onrender.com/api/wishlist";
@@ -39,6 +66,7 @@ function CourseCard({ _id, level, instructor, poster, alt, review }) {
         setIsFav(true);
         localStorage.setItem(`fav-status-${_id}`, JSON.stringify(true));
         setError(null);
+        window.location.reload();
       } else {
         const errorMessage = data.error || "Failed to add to wishlist";
         throw new Error(errorMessage);
@@ -70,6 +98,7 @@ function CourseCard({ _id, level, instructor, poster, alt, review }) {
         setIsFav(false);
         localStorage.setItem(`fav-status-${_id}`, JSON.stringify(false));
         setError(null);
+        window.location.reload();
       } else {
         const errorMessage = data.error || "Failed to remove from wishlist";
         throw new Error(errorMessage);
@@ -134,7 +163,7 @@ function CourseCard({ _id, level, instructor, poster, alt, review }) {
           />
         </svg>
       )}
-      <h1>{level}</h1>
+      <h1 onClick={handleCourseClick}> {title}</h1>
       <h3>{instructor}</h3>
       <StarRating
         maxRating={5}

@@ -19,8 +19,24 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
   margin: 4rem 0px;
   width: 100%;
+}
+.instructor .mainInfo ul {
+  font-weight: 400;
+  font-size: 1.7rem;
+  text-transform: lowercase;
+  padding: 2rem;
+  width: 50%;
+  list-style: none;
+}
+.instructor .ul li::marker {
+  content: "\2022";
+  font-size: 2.5rem;
+  margin-right: 1.5rem;
+  color: #827a7a;
 }
 
 .instructor .mainInfo img {
@@ -68,5 +84,17 @@
   }
   .instructor .instInfo p {
     font-size: 3.8rem;
+  }
+  .instructor .mainInfo li::marker {
+    font-size: 2.5rem;
+  }
+  .instructor .mainInfo h6 {
+    font-size: 4rem;
+    padding: 1.3rem;
+  }
+  .instructor .mainInfo ul li {
+    padding: 1rem;
+    font-size: 4rem;
+    line-height: 5rem;
   }
 }

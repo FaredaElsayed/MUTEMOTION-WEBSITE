@@ -53,4 +53,7 @@ a.ctaLink:visited {
   .nav a:visited {
     font-size: 5rem;
   }
+  .nav svg{
+    height: 100px;
+  }
 }
