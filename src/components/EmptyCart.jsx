@@ -11,7 +11,7 @@ export default function EmptyCart() {
     <div className={styles.emptyRect}>
       <img src="./emp.png" alt="Empty Cart"></img>
       <span className={styles.span}>Your cart is empty. Keep scrolling to find a course!</span>
-      <Button type="learnmore" btnStyle={btnStyle}>
+      <Button type="learnmore" btnStyle={btnStyle} >
         Go to shopping
       </Button>
     </div>

@@ -2,7 +2,7 @@ import styles from "./Homepage.module.css";
 import CourseCard from "../components/CourseCard";
 import Slider from "../components/Slider";
 import { useState, useEffect } from "react";
-// import { courses } from "./Homepage";
+
 
 function CustomSlider({ title, courses }) {
   const [startIndex, setStartIndex] = useState(0);

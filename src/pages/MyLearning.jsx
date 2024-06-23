@@ -3,47 +3,50 @@ import styles from "./MyLearning.module.css";
 import PageNav from "../components/PageNav";
 import Footer from "../components/Footer";
 import CardInProgress from "../components/CardInProgress";
-const courses = [
-  {
-    id: 1,
-    level: 1,
-    category: "ASL For Beginners",
-    instructor: "Mairina Michel",
-    imgSrc: "./img-5.png",
-    alt: "Mairina Michel",
-    interval: 46,
-  },
-  {
-    id: 2,
-    level: 2,
-    category: "ASL For Beginners",
-    instructor: "Mairina Michel",
-    imgSrc: "./img-3.png",
-    alt: "Mairina Michel",
-    interval: 180,
-  },
-  {
-    id: 3,
-    level: 3,
-    category: "ASL For Beginners",
-    instructor: "Mairina Michel",
-    imgSrc: "./img-6.png",
-    alt: "Mairina Michel",
-    interval: 96,
-  },
-  {
-    id: 4,
-    level: 3,
-    category: "ASL For Beginners",
-    instructor: "Mairina Michel",
-    imgSrc: "./img-7.png",
-    alt: "Mairina Michel",
-    interval: 96,
-  },
-];
-
+import { useAuth } from "../contexts/Auth";
+import { useEffect, useState } from "react";
 
 export default function MyLearning() {
+  const [courses, setCourses] = useState([]);
+  const [error, setError] = useState(false);
+  const { token } = useAuth();
+  
+  useEffect(() => {
+    async function fetchMyLearningCourses() {
+      try {
+        const response = await fetch(
+          "https://mutemotion.onrender.com/api/mylearning",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch my learning courses");
+        }
+
+        const data = await response.json();
+
+        if (data.length === 0) {
+          setError(true);
+        } else {
+          setError(false);
+        }
+        setCourses(data);
+        console.log("My Learning Courses:", data);
+      } catch (error) {
+        console.error("Error fetching my learning courses:", error);
+        setError(true);
+      }
+    }
+
+    fetchMyLearningCourses();
+  }, [token]);
+
   return (
     <>
       <div className={styles.mylearning}>
@@ -59,8 +62,13 @@ export default function MyLearning() {
             </li>
           </ul>
           <div className={styles.courses}>
-            {courses.map((course, index) => (
-              <div key={index} className={styles.progressCont}>
+            {error && (
+              <p style={{ color: "red" ,textAlign:"center",fontSize:"1.5rem" }}>
+                You haven't purchased any course yet.
+              </p>
+            )}
+            {courses.map((course) => (
+              <div key={course.courseId} className={styles.progressCont}>
                 <CardInProgress {...course} />
               </div>
             ))}

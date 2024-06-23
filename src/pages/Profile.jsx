@@ -12,6 +12,8 @@ import {
   Language,
 } from "./PersonalInfon";
 import { useProfile } from "../contexts/ProfileContext";
+import { useEffect, useState } from "react";
+import { useAuth } from "../contexts/Auth";
 
 export default function Profile() {
   const {
@@ -22,7 +24,36 @@ export default function Profile() {
     setEmail,
     setProfilePicture,
   } = useProfile();
+  const [notificationMessage, setNotificationMessage] = useState([]);
+  const { token } = useAuth();
+  useEffect(() => {
+    async function fetchNotification() {
+      const url = "https://mutemotion.onrender.com/api/notifications";
+      const options = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      };
 
+      try {
+        const response = await fetch(url, options);
+        if (response.ok) {
+          const data = await response.json();
+          console.log("Notification Data:", data); // Debug log
+          setNotificationMessage(data); // Assuming the response has a 'message' field
+        } else {
+          throw new Error("Failed to fetch notification");
+        }
+      } catch (error) {
+        console.error("Error fetching notification:", error);
+        setNotificationMessage("Error fetching notifications");
+      }
+    }
+
+    fetchNotification();
+  }, [token]);
   return (
     <>
       <div className={styles.profile}>
@@ -76,7 +107,18 @@ export default function Profile() {
           <Notification />
           <div className={styles.rectangleComponent}>
             <div className={styles.notification}>
-              <p>There are no notifications to show</p>
+              {notificationMessage.length > 0 ? (
+                notificationMessage.map((notification, index) => (
+                  <div key={index}>
+                    <p>
+                      {index + 1}. {notification.message}
+                    </p>
+                    <hr />
+                  </div>
+                ))
+              ) : (
+                <p>No notifications to show</p>
+              )}
             </div>
           </div>
         </section>

@@ -2,16 +2,21 @@ import StarRating from "./StarRating";
 import styles from "./CourseHeader.module.css";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { useAuth } from "../contexts/Auth";
 
 export default function CourseHeader({
   courseTitle,
   courseImg,
   alt,
+  courseId,
   setIsPaying,
   courseBreif,
 }) {
   const navigateTo = useNavigate();
+  const [errorMessage, setErrorMessage] = useState("");
+  const { token } = useAuth();
+
   const [btnStyle1, setBtnStyle1] = useState({
     fontSize: "2.5rem",
     textTransform: "uppercase",
@@ -65,9 +70,49 @@ export default function CourseHeader({
   }, []);
 
   function handlePaying() {
-    setIsPaying(true);
+    // setIsPaying(true);
     navigateTo("/cart");
+    handleAddToCart();
   }
+
+  async function handleAddToCart() {
+    try {
+      const response = await fetch("https://mutemotion.onrender.com/api/cart", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`, // Ensure token is defined
+        },
+        body: JSON.stringify({ courseId: courseId }), // Correctly set the body
+      });
+
+      console.log("Response Status:", response.status);
+      console.log("Response Headers:", response.headers);
+
+      const data = await response.json();
+
+      console.log("Response Data:", data);
+
+      if (response.ok) {
+        console.log("Course added to cart successfully!");
+        setErrorMessage("");
+      } else {
+        if (data.message === "Course already exists in cart") {
+          setErrorMessage("Course already exists in cart");
+        } else if (data.message === "You have already purchased this course") {
+          setErrorMessage("You have already purchased this course");
+        } else {
+          console.error("Failed to add course to cart: ", data);
+          // Optionally set a general error message
+          setErrorMessage("Failed to add course to cart. Please try again.");
+        }
+      }
+    } catch (error) {
+      console.error("There was an error adding the course to the cart!", error);
+      setErrorMessage("Failed to add course to cart. Please try again.");
+    }
+  }
+
   return (
     <>
       <header className={styles.coursesHeader}>
@@ -86,9 +131,16 @@ export default function CourseHeader({
             <Button type="continue" btnStyle={btnStyle1} onClick={handlePaying}>
               Buy Now
             </Button>
-            <Button type="overview" btnStyle={btnStyle1}>
+            <Button
+              type="overview"
+              btnStyle={btnStyle1}
+              onClick={handleAddToCart}
+            >
               Add To Cart
             </Button>
+            {errorMessage && (
+              <p className={styles.errorMessage}>{errorMessage}</p>
+            )}
           </div>
         </div>
         <div className={styles.rect}>

@@ -34,9 +34,9 @@ function App() {
                 <Route path="/" element={loggedIn ? <Home /> : <FirstPage />} />
                 <Route path="homepage" element={<Home />} />
                 <Route path="aboutus" element={<AboutUs />} />
+                <Route path="mylearning" element={<MyLearning />} />
                 <Route path="courses" element={<Courses />} />
                 <Route path="/courses/:id" element={<Course />} />
-                <Route path="mylearning" element={<MyLearning />} />
                 <Route path="inprogress" element={<InProgress />} />
                 <Route path="cart" element={<Cart />} />
                 <Route path="likes" element={<Likes />} />

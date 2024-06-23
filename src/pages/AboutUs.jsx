@@ -71,20 +71,45 @@ export default function Homepage() {
           <section className={styles.description}>
             <span>MuteMotion!</span>
             <p>
-              MuteMotion envisions a world where transportation is truly
-              inclusive, empowering every individual to navigate the roads
-              safely and seamlessly
+              Mute Motion is a smart taxi system for hearing-impaired drivers
+              with innovative technology tailored to their needs. This
+              groundbreaking project encompasses various facets to enhance
+              accessibility, safety, and communication.
               <br />
               <br />
-              At MuteMotion, we are committed to developing innovative solutions
-              that not only enhance road safety but also promote awareness of
-              sign language and deaf culture.
+              At its core, Mute Motion integrates a smart steering wheel
+              designed to aid hearing-impaired drivers, ensuring seamless
+              control and navigation through intuitive interfaces and visual
+              cues. Additionally, the system incorporates advanced siren
+              detection and recognition capabilities, alerting drivers to
+              emergency vehicles for safer driving.
               <br />
               <br />
-              Join us as we embark on this transformative journey to create a
-              more inclusive and accessible transportation ecosystem for all.
-              Together, we can drive change and make a lasting
-              impact on society.
+              Communication is facilitated through real-time sign language
+              translation, enabling effortless interaction between drivers and
+              passengers. Utilizing cutting-edge software, the system accurately
+              interprets gestures, bridging communication gaps effectively.
+              <br />
+              <br />
+              Enhancing the safety of our drivers we also implemented ADAS
+              features for the driver like Collision Warnings, Adaptive Cruise
+              control, and Blind spot detection using Lidars
+              <br />
+              <br />
+              Moreover, Mute Motion extends its impact beyond the vehicle with
+              supplementary digital platforms. A comprehensive website offers
+              resources for learning sign language, empowering users with
+              valuable linguistic skills also it doubles as the interface for
+              our project and how to download our mobile apps. Simultaneously, a
+              user-friendly mobile application For passengers and drivers
+              simplifies the booking process, providing convenience and
+              accessibility for our features like sign language translation,
+              Gesture detection, Real-time chatting, and Car Information.
+              <br />
+              <br />
+              By amalgamating technology and empathy, Mutemotion sets a new
+              standard in inclusive transportation solutions, fostering
+              independence, safety, and communication for the hearing impaired.
             </p>
           </section>
         </main>
@@ -125,7 +150,10 @@ export default function Homepage() {
                   <br />
                   <br />
                   1_visit our website{" "}
-                  <Link to="https://sites.google.com/view/mutemotion" target="blank">
+                  <Link
+                    to="https://sites.google.com/view/mutemotion"
+                    target="blank"
+                  >
                     MuteMotion
                   </Link>
                   .

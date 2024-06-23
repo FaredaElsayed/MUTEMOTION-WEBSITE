@@ -1,28 +1,17 @@
 import { useState, useEffect } from "react";
 import styles from "./CartCard.module.css";
 import StarRating from "./StarRating";
+import { useAuth } from "../contexts/Auth";
 
-export default function CartCard() {
+export default function CartCard({ item ,onTitleClick}) {
   const [iconSize, setIconSize] = useState(32);
-  const [myRating, setMyRating] = useState(4);
+  const { token } = useAuth();
+
   const [windowSize, setWindowSize] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
   });
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    };
 
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
   useEffect(() => {
     const handleResize = () => {
       // Update icon size based on window width
@@ -31,12 +20,18 @@ export default function CartCard() {
       } else {
         setIconSize(40);
       }
+
+      // Update window size state
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
     };
 
     // Add event listener for window resize
     window.addEventListener("resize", handleResize);
 
-    // Call handleResize initially to set initial icon size
+    // Call handleResize initially to set initial icon size and window size
     handleResize();
 
     // Remove event listener on component unmount
@@ -45,13 +40,46 @@ export default function CartCard() {
     };
   }, []); // Empty dependency array to run the effect only once
 
+  const handleDelete = async () => {
+    try {
+      const response = await fetch(`https://mutemotion.onrender.com/api/cart`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+        body: JSON.stringify({ courseId: item._id }),
+      });
+
+      if (!response.ok) {
+        const errorMessage = await response.text();
+        throw new Error(`Failed to delete item from cart: ${errorMessage}`);
+      }
+
+      // Handle success: You may want to update the UI to reflect the deletion
+      console.log("Item deleted successfully");
+      window.location.reload();
+      // Example: You can trigger a callback to reload the cart items
+      // reloadCartItems();
+    } catch (error) {
+      console.error("Error deleting item from cart:", error.message);
+    }
+  };
+
+  const handleTitleClick = () => {
+    // Pass item details to parent component
+    onTitleClick(item);
+  };
+
+
   return (
     <div className={styles.cardContainer}>
-      <img src="/cartCard.png" alt="Michel sam"></img>
+      <img src={item.poster} alt={`Image for ${item.title}`} />
       <div className={styles.contentDesc}>
         <div className={styles.nameIcon}>
-          <p>ASL For Kids</p>
+          <p onClick={handleTitleClick}>{item.title}</p>
           <svg
+            onClick={handleDelete}
             width={iconSize}
             height={iconSize}
             viewBox="0 0 31 32"
@@ -65,17 +93,17 @@ export default function CartCard() {
             />
           </svg>
         </div>
-        <span className={styles.span}> Michel sam </span>
+        <span className={styles.span}> {item.instructor} </span>
         <span className={styles.span}>
-          3.5 hours on-demand video Discount69% off
+          {item.hours} hours on-demand video Discount {item.discount}% off
         </span>
         <StarRating
           maxRating={5}
           size={windowSize.width >= 4000 ? 50 : 25}
           hoverEnabled={false}
-          defaultRating={myRating}
+          defaultRating={Number(item.review)}
         />
-        <span className={styles.price}>E£399.99</span>
+        <span className={styles.price}>${item.price}</span>
       </div>
     </div>
   );

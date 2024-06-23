@@ -38,6 +38,7 @@
   justify-content: space-evenly;
   align-items: center;
 }
+.cartList {  flex-direction: column;}
 .cart .span {
   font-weight: 700;
   font-size: 1.8rem !important;

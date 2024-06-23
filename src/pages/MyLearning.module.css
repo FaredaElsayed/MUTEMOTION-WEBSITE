@@ -4,6 +4,7 @@
   gap: 2rem;
   justify-content: center;
   margin: 2.5rem;
+  min-height: 60vh;
   background-size: cover;
   background-position: center;
   padding: 2.5rem 5rem;

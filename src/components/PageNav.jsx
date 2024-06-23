@@ -7,37 +7,15 @@ import Logo from "./Logo";
 import Search from "./Search";
 import Dropdown from "./DropdownMenu";
 
-const MenuItems2 = [
-  {
-    title: "Programs",
-    path: "/inprogress",
-    cName: "dropdown-link",
-  },
-  {
-    title: "<hr/>",
-    path: "/categories",
-    cName: "dropdown-link",
-  },
-  {
-    title: "In proress",
-    path: "/inprogress",
-    cName: "dropdown-link",
-  },
-  {
-    title: "Completed",
-    path: "/completed",
-    cName: "dropdown-link",
-  },
-];
 const MenuItems3 = [
   {
     title: "Explore",
-    path: "#",
+    path: "/homepage",
     cName: "dropdown-link",
   },
   {
     title: "<hr/>",
-    path: "/categories",
+    path: "/homepage",
     cName: "dropdown-link",
   },
   {
@@ -46,16 +24,14 @@ const MenuItems3 = [
     cName: "dropdown-link",
   },
   {
-    title: "Reviews",
-    path: "/reviews",
+    title: "my courses",
+    path: "/inprogress",
     cName: "dropdown-link",
   },
 ];
 
 function PageNav() {
   const { logout, isAuthenticated } = useAuth();
-
-  const [dropdownVisible2, setDropdownVisible2] = useState(false);
   const [dropdownVisible3, setDropdownVisible3] = useState(false);
   const [dropdownVisible4, setDropdownVisible4] = useState(false);
   const navigateTo = useNavigate();
@@ -99,29 +75,12 @@ function PageNav() {
     },
   ];
 
-  // const toggleDropdown1 = () => {
-  //   setDropdownVisible1((prevDropdownVisible) => !prevDropdownVisible);
-  //   setDropdownVisible2(false); // Close the other dropdown
-  //   setDropdownVisible3(false); // Close the other dropdown
-  //   setDropdownVisible4(false); // Close the other dropdown
-  // };
-
-  const toggleDropdown2 = () => {
-    setDropdownVisible2((prevDropdownVisible) => !prevDropdownVisible);
-    // setDropdownVisible1(false); // Close the other dropdown
-    setDropdownVisible3(false); // Close the other dropdown
-    setDropdownVisible4(false); // Close the other dropdown
-  };
   const toggleDropdown3 = () => {
     setDropdownVisible3((prevDropdownVisible) => !prevDropdownVisible);
-    // setDropdownVisible1(false); // Close the other dropdown
-    setDropdownVisible2(false); // Close the other dropdown
     setDropdownVisible4(false); // Close the other dropdown
   };
   const toggleDropdown4 = () => {
     setDropdownVisible4((prevDropdownVisible) => !prevDropdownVisible);
-    // setDropdownVisible1(false); // Close the other dropdown
-    setDropdownVisible2(false); // Close the other dropdown
     setDropdownVisible3(false); // Close the other dropdown
   };
 
@@ -145,13 +104,10 @@ function PageNav() {
             Courses
           </NavLink>
         </li>
-        <li className={styles.navItem} onClick={toggleDropdown2}>
-          <NavLink className="nav-links" to="#">
+        <li className={styles.navItem}>
+          <NavLink className="nav-links" to="/inprogress">
             My learning
           </NavLink>
-          <div className={`dropdown-menu ${dropdownVisible2 ? "visible" : ""}`}>
-            <Dropdown MenuItems={MenuItems2} />
-          </div>
         </li>
 
         <li className={styles.navItem}>
@@ -190,7 +146,7 @@ function PageNav() {
           </NavLink>
         </li>
         <li className={styles.navItem} onClick={toggleDropdown4}>
-          <NavLink to="#" className="nav-links">
+          <NavLink to="/profile" className="nav-links">
             <svg
               width={svgSize.width}
               height={svgSize.height}

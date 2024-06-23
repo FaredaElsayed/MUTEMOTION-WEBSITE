@@ -1,17 +1,41 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "./Button";
 import MyProgressBar from "./ProgressBar";
 import styles from "./CardInProgress.module.css";
+import { useAuth } from "../contexts/Auth";
 
-function CardInProgress({
-  category,
-  instructor,
-  level,
-  imgSrc,
-  alt,
-  interval,
-}) {
+function CardInProgress({ courseId, instructor, poster, title, progress }) {
   const [iconSize, setIconSize] = useState(40);
+  const navigateTo = useNavigate();
+  const {token} = useAuth();
+  const handleOverviewClick = async () => {
+    console.log("Token:", token); // Log the token to ensure it is being retrieved
+
+    try {
+      const response = await fetch(
+        `https://mutemotion.onrender.com/api/course-details`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ courseId: courseId }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch course details");
+      }
+
+      const data = await response.json();
+      console.log("Course details:", data); // Log the course details
+      navigateTo(`/courses/${courseId}`, { state: { course: data } });
+    } catch (error) {
+      console.error("Error fetching course details:", error);
+    }
+  };
   const icon = (
     <svg
       width={iconSize}
@@ -51,20 +75,22 @@ function CardInProgress({
   return (
     <div className={styles.container}>
       <div className={styles.imgContainer}>
-        <img src={imgSrc} alt={alt}></img>
+        <img src={poster} alt={title}></img>
       </div>
       <div className={styles.content}>
         <div className={styles.withIcon}>
-          <h1>{category}</h1>
+          <h1>{title}</h1>
           <span className={styles.icon}>{icon}</span>
         </div>
         <p>
-          {instructor}, Level{level}
+          {instructor}, Progress: {progress}%
         </p>
-        <MyProgressBar interval={interval} />
+        <MyProgressBar interval={progress} />
       </div>
       <div className={styles.buttons}>
-        <Button type="overview">overview</Button>
+        <Button type="overview" onClick={handleOverviewClick}>
+          overview
+        </Button>
         <Button type="continue">continue</Button>
       </div>
     </div>

@@ -2,7 +2,6 @@ import styles from "./Courses.module.css";
 import PageNav from "../components/PageNav";
 import Footer from "../components/Footer";
 import CustomSlider from "./CustomSlider";
-import Course from "./Course";
 import { useState } from "react";
 import { useContext } from "react";
 import { CourseContext } from "../contexts/CoursesApis";

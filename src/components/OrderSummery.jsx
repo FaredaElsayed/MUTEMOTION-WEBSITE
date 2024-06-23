@@ -1,6 +1,6 @@
 import styles from "./OrderSummery.module.css";
 import Button from "./Button";
-export default function OrderSummery({ onClick }) {
+export default function OrderSummery({ item, onClick }) {
   const btnStyle = {
     textTransform: "capitalize",
     borderColor: "#652d90",
@@ -13,14 +13,14 @@ export default function OrderSummery({ onClick }) {
       <span>Order Summery</span>
       <hr />
       <div className={styles.card}>
-        <img src="./imgCart.png" alt="img cart"></img>
+        <img src={item.poster} alt={item.title}></img>
         <div className={styles.cardContent}>
           <header className={styles.header}>
-            <span>ASL For Kids </span>
-            <span className={styles.price}>E£399</span>
+            <span>{item.title} </span>
+            <span className={styles.price}> ${item.price}</span>
           </header>
           <div className={styles.name}>
-            <span>Michel sam</span>
+            <span>{item.instructor}</span>
             <span>Qty: 2</span>
           </div>
         </div>
@@ -31,10 +31,10 @@ export default function OrderSummery({ onClick }) {
         <Button type="apply">Apply</Button>
       </div>
       <hr />
-      <span>Subtotal:</span>
-      <span>Shipping:</span>
+      <span>Subtotal: ${item.price}</span>
+      <span>Shipping: $2</span>
       <hr />
-      <span>Total:</span>
+      <span>Total:{item.price + 2.24 + 2}</span>
       <p>Including $2.24 in taxes</p>
       <Button type="learnmore" onClick={onClick} btnStyle={btnStyle}>
         Checkout
