@@ -69,12 +69,6 @@ export default function CourseHeader({
     };
   }, []);
 
-  function handlePaying() {
-    // setIsPaying(true);
-    navigateTo("/cart");
-    handleAddToCart();
-  }
-
   async function handleAddToCart() {
     try {
       const response = await fetch("https://mutemotion.onrender.com/api/cart", {
@@ -96,6 +90,7 @@ export default function CourseHeader({
       if (response.ok) {
         console.log("Course added to cart successfully!");
         setErrorMessage("");
+        return true;
       } else {
         if (data.message === "Course already exists in cart") {
           setErrorMessage("Course already exists in cart");
@@ -106,10 +101,19 @@ export default function CourseHeader({
           // Optionally set a general error message
           setErrorMessage("Failed to add course to cart. Please try again.");
         }
+        return false; 
       }
     } catch (error) {
       console.error("There was an error adding the course to the cart!", error);
       setErrorMessage("Failed to add course to cart. Please try again.");
+       return false;
+    }
+  }
+  
+  async function handlePaying() {
+    const success = await handleAddToCart();
+    if (success) {
+      navigateTo("/cart");
     }
   }
 
