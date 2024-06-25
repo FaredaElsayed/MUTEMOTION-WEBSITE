@@ -37,6 +37,7 @@ function Cart() {
         console.log("Cart Items:", data);
       } catch (error) {
         console.error("There was an error fetching the cart items!", error);
+         logout();
       }
     }
 

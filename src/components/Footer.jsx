@@ -6,41 +6,41 @@ function Footer() {
       <div className={styles.footerContent}>
         <ul className={styles.list}>
           <li>
-            <Link to="cities">Blog</Link>
+            <Link to="/aboutus">Blog</Link>
           </li>
           <li>
-            <Link to="countries">Careers</Link>
+            <Link to="/aboutus">Careers</Link>
           </li>
           <li>
-            <Link to="countries">Help and support</Link>
-          </li>
-        </ul>
-        <ul className={styles.list}>
-          <li>
-            <Link to="cities">TERMS</Link>
-          </li>
-          <li>
-            <Link to="countries">HELP</Link>
-          </li>
-          <li>
-            <Link to="countries">TERMS</Link>
-          </li>
-          <li>
-            <Link to="countries">ASK NOW</Link>
+            <Link to="/aboutus">Help and support</Link>
           </li>
         </ul>
         <ul className={styles.list}>
           <li>
-            <Link to="cities">PRIVECY</Link>
+            <Link to="/aboutus">TERMS</Link>
           </li>
           <li>
-            <Link to="countries">POLICY</Link>
+            <Link to="/aboutus">HELP</Link>
           </li>
           <li>
-            <Link to="countries">TERMS</Link>
+            <Link to="/aboutus">TERMS</Link>
           </li>
           <li>
-            <Link to="countries">ASK NOW</Link>
+            <Link to="/aboutus">ASK NOW</Link>
+          </li>
+        </ul>
+        <ul className={styles.list}>
+          <li>
+            <Link to="/aboutus">PRIVECY</Link>
+          </li>
+          <li>
+            <Link to="/aboutus">POLICY</Link>
+          </li>
+          <li>
+            <Link to="/aboutus">TERMS</Link>
+          </li>
+          <li>
+            <Link to="/aboutus">ASK NOW</Link>
           </li>
         </ul>
         <ul className={styles.list}>

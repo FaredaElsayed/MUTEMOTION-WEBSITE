@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Button from "./Button";
+import ButtonBack from "./ButtonBack";
 import styles from "./Payment.module.css";
 import { useAuth } from "../contexts/Auth";
 export default function Payment({ item, onPaymentSuccess }) {
@@ -99,10 +100,12 @@ export default function Payment({ item, onPaymentSuccess }) {
             />
           </div>
         </div>
-
-        <Button type="learnmore" btnStyle={btnStyle} disabled={isPurchased}>
-          Pay
-        </Button>
+        <div className={styles.btns}>
+        <ButtonBack/>
+          <Button type="learnmore" btnStyle={btnStyle} disabled={isPurchased}>
+            Pay
+          </Button>
+        </div>
         {isPurchased && (
           <p style={{ color: "red" }}>You have already purchased this course</p>
         )}

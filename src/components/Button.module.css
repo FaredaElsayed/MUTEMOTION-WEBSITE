@@ -27,6 +27,15 @@
   transition: background-color 2s, color 2s;
 }
 
+.back {
+  font-weight: 700;
+  line-height: 150%;
+  padding: 1rem 1.6rem;
+  font-size: 2.4rem;
+  background: none;
+  width: 287px;
+  border: 1px solid currentColor;
+}
 .learnmore {
   font-family: inherit;
   color: #ffff;
@@ -94,14 +103,13 @@
     font-size: 5.8rem;
     border-radius: 42px;
     width: fit-content;
+    padding: 2rem 5rem;
   }
   .overview:hover {
     color: #442c8f;
     background: #ffffff;
   }
-  
 }
-
 
 /*.back {
   font-weight: 600;

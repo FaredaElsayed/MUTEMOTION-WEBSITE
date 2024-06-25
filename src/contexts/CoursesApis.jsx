@@ -1,20 +1,12 @@
 import { createContext, useReducer, useEffect } from "react";
 import { useAuth } from "./Auth";
 
-// const actionTypes = {
-//   FETCH_RECOMMENDED: "FETCH_RECOMMENDED",
-//   FETCH_BEGINNERS: "FETCH_BEGINNERS",
-//   FETCH_POPULAR: "FETCH_POPULAR",
-//   FETCH_SUCCESS: "FETCH_SUCCESS",
-//   FETCH_ERROR: "FETCH_ERROR",
-// };
 
 // Action Types (optional for better readability)
 const actionTypes = {
   FETCH_SUCCESS: "FETCH_SUCCESS",
   FETCH_ERROR: "FETCH_ERROR",
   SET_WISHLIST: "SET_WISHLIST",
-  TOGGLE_WISHLIST: "TOGGLE_WISHLIST",
 };
 
 const initialState = {

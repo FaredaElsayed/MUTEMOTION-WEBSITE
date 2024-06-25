@@ -62,6 +62,9 @@
 }
 
 @media (min-width: 4000px) {
+  .mylearning {
+    min-height: 70vh;
+  }
   .mylearning .container{
      align-items: center;
   }

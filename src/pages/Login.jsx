@@ -106,7 +106,6 @@ function Login() {
             </div>
             {error && <div className={styles.error}>{error}</div>}
             <div className={styles.buttons}>
-              <p>forget passward ?</p>
               <Button type="continue" btnStyle={btnStyle} onClick={handleLogin}>
                 Login
               </Button>

@@ -9,8 +9,9 @@ import { useEffect, useState } from "react";
 export default function MyLearning() {
   const [courses, setCourses] = useState([]);
   const [error, setError] = useState(false);
+  const { logout } = useAuth();
   const { token } = useAuth();
-  
+
   useEffect(() => {
     async function fetchMyLearningCourses() {
       try {
@@ -40,13 +41,12 @@ export default function MyLearning() {
         console.log("My Learning Courses:", data);
       } catch (error) {
         console.error("Error fetching my learning courses:", error);
+        logout();
         setError(true);
       }
-      
     }
 
     fetchMyLearningCourses();
-    
   }, [token]);
 
   return (
@@ -65,7 +65,13 @@ export default function MyLearning() {
           </ul>
           <div className={styles.courses}>
             {error && (
-              <p style={{ color: "red" ,textAlign:"center",fontSize:"1.5rem" }}>
+              <p
+                style={{
+                  color: "red",
+                  textAlign: "center",
+                  fontSize: "2.5rem",
+                }}
+              >
                 You haven't purchased any course yet.
               </p>
             )}

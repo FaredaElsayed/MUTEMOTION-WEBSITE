@@ -3,7 +3,6 @@ import styles from "./CourseCard.module.css";
 import StarRating from "./StarRating";
 import { useAuth } from "../contexts/Auth";
 import { useNavigate, Link } from "react-router-dom";
-import { CourseContext } from "../contexts/CoursesApis";
 
 function CourseCard({
   _id,
@@ -15,19 +14,34 @@ function CourseCard({
   wishlisted,
 }) {
   const [error, setError] = useState(null);
-  const { state } = useContext(CourseContext);
   const [isFav, setIsFav] = useState(wishlisted);
-
+  const [starSize, setStarSize] = useState(45);
   const { token } = useAuth();
   const navigateTo = useNavigate();
 
-  // Load favorite status from localStorage when the component mounts
   useEffect(() => {
-    const storedIsFav = localStorage.getItem(`fav-status-${_id}`);
-    if (storedIsFav !== null) {
-      setIsFav(JSON.parse(storedIsFav));
-    }
-  }, [_id, setIsFav]);
+    const updateStarSize = () => {
+      setStarSize(window.innerWidth >= 4000 ? 70 : 45);
+    };
+
+    // Set initial star size
+    updateStarSize();
+
+    // Update star size on window resize
+    window.addEventListener("resize", updateStarSize);
+
+    // Cleanup listener on component unmount
+    return () => {
+      window.removeEventListener("resize", updateStarSize);
+    };
+  }, []);
+  // Load favorite status from localStorage when the component mounts
+  // useEffect(() => {
+  //   const storedIsFav = localStorage.getItem(`fav-status-${_id}`);
+  //   if (storedIsFav !== null) {
+  //     setIsFav(JSON.parse(storedIsFav));
+  //   }
+  // }, [_id, setIsFav]);
 
   //clicking on a course
   const handleCourseClick = async () => {
@@ -75,8 +89,6 @@ function CourseCard({
       if (response.ok) {
         console.log("Added to wishlist:", data);
         setIsFav(true);
-        localStorage.setItem(`fav-status-${_id}`, JSON.stringify(true));
-
         setError(null);
         window.location.reload();
       } else {
@@ -108,7 +120,7 @@ function CourseCard({
       if (response.ok) {
         console.log("Removed from wishlist:", data);
         setIsFav(false);
-        localStorage.setItem(`fav-status-${_id}`, JSON.stringify(false));
+
         setError(null);
         window.location.reload();
       } else {
@@ -186,7 +198,7 @@ function CourseCard({
       <h3>{instructor}</h3>
       <StarRating
         maxRating={5}
-        size={45}
+        size={starSize}
         hoverEnabled={false}
         defaultRating={Number(review)}
       />

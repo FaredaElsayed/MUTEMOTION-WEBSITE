@@ -51,7 +51,6 @@ export function ProfileProvider({ children }) {
        if (response.ok) {
          const data = await response.json();
          setNotificationMessage(data);
-         
        } else {
          throw new Error("Failed to fetch notifications");
          
@@ -60,7 +59,6 @@ export function ProfileProvider({ children }) {
        console.error("Error fetching notifications:", error);
       setNotificationMessage([]);
      }
-
    }
 
    if (token) {
