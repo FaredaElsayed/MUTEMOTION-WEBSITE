@@ -1,15 +1,17 @@
-import { Navigate } from "react-router-dom";
+// ProtectedRoute.jsx
+import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "../contexts/Auth";
 
-function ProtectedRoute({ children }) {
-  const { isAuthenticated, logout } = useAuth();
+const ProtectedRoute = () => {
+  const isLoggedIn  = localStorage.getItem("isLoggedIn");
+ const { isAuthenticated } = useAuth();
+  console.log(isLoggedIn);
 
   if (!isAuthenticated) {
-    logout(); // Ensure the user is logged out and localStorage is cleared
-    return <Navigate to="/" replace />;
+    return <Navigate to="/login" />;
   }
 
-  return children;
-}
+  return <Outlet />;
+};
 
 export default ProtectedRoute;
