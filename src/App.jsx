@@ -82,6 +82,7 @@ const Cart = lazy(() => import("./pages/Cart"));
 
 function App() {
   const loggedIn = localStorage.getItem("isLoggedIn");
+  
   return (
     <AuthProvider>
       <CourseProvider>

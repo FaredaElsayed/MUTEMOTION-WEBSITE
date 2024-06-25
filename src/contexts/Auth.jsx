@@ -12,6 +12,11 @@ const initialState = {
   isAuthenticated: !!localStorage.getItem("token"),
   token: localStorage.getItem("token") || null,
 };
+// const initialState = {
+//   user: null,
+//   isAuthenticated: !!sessionStorage.getItem("token"),
+//   token: sessionStorage.getItem("token") || null,
+// };
 
 const RealAuthContext = createContext();
 

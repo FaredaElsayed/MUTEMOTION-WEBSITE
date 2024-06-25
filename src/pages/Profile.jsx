@@ -5,15 +5,9 @@ import Button from "../components/Button";
 import { SetProfilePic } from "../components/SetProfilePic";
 import { Pass } from "../components/Pass";
 import { NamesForm } from "../components/NamesForm";
-import {
-  PersonalInfon,
-  Password,
-  Notification,
-  Language,
-} from "./PersonalInfon";
+import { PersonalInfon, Password, Notification } from "./PersonalInfon";
 import { useProfile } from "../contexts/ProfileContext";
-import { useEffect, useState } from "react";
-import { useAuth } from "../contexts/Auth";
+import { useState } from "react";
 
 export default function Profile() {
   const {
@@ -26,7 +20,10 @@ export default function Profile() {
     notificationMessage,
   } = useProfile();
   // const [notificationMessage, setNotificationMessage] = useState([]);
-  const { token } = useAuth();
+  const btnStyle = {
+    backgroundColor: "transparent",
+    color: "#442c8f",
+  };
   // useEffect(() => {
   //   async function fetchNotification() {
   //     const url = "https://mutemotion.onrender.com/api/notifications";
@@ -55,6 +52,16 @@ export default function Profile() {
 
   //   fetchNotification();
   // }, [token]);
+
+  const [showShareMessage, setShowShareMessage] = useState(false);
+
+  // Function to handle sharing profile link
+  const handleShareProfile = () => {
+    navigator.clipboard
+      .writeText(window.location.href)
+      .then(() => setShowShareMessage(true))
+      .catch((error) => console.error("Failed to copy profile link: ", error));
+  };
   return (
     <>
       <div className={styles.profile}>
@@ -68,12 +75,29 @@ export default function Profile() {
                 className={styles.img}
               ></img>
               <h2>{fullName}</h2>
-              <Button type="continue">Share Profile</Button>
+              <Button type="continue" onClick={handleShareProfile}>
+                Share Profile
+              </Button>
               <div className={styles.rectangle2}>
                 <PersonalInfon />
                 <Password />
                 <Notification />
-                <Language />
+                {showShareMessage && (
+                  <div
+                    className={styles.shareMessage}
+                    style={{display:"flex",flexDirection:"column", alignItems: "center",textAlign:"center" }}
+                  >
+                    <p>Profile link copied to clipboard!</p>
+                    <Button
+                      type="continue"
+                      style={{ alignSelf: "center" }}
+                      onClick={() => setShowShareMessage(false)}
+                      btnStyle={btnStyle}
+                    >
+                      &times;
+                    </Button>
+                  </div>
+                )}
               </div>
             </div>
           </section>

@@ -192,7 +192,7 @@ select:-webkit-autofill {
   }
   .rectangle {
     width: 942px;
-    height: 757px;
+    height:1000px;
   }
 
   .profile .img {
@@ -205,7 +205,9 @@ select:-webkit-autofill {
   }
   .rectangle2 {
     width: 638px;
-    height: 480px;
+    height: 500px;
+    justify-content: center;
+    align-items: center;
   }
 
   .container p {
