@@ -42,9 +42,11 @@ export default function MyLearning() {
         console.error("Error fetching my learning courses:", error);
         setError(true);
       }
+      
     }
 
     fetchMyLearningCourses();
+    
   }, [token]);
 
   return (

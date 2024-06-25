@@ -23,37 +23,38 @@ export default function Profile() {
     setFullName,
     setEmail,
     setProfilePicture,
+    notificationMessage,
   } = useProfile();
-  const [notificationMessage, setNotificationMessage] = useState([]);
+  // const [notificationMessage, setNotificationMessage] = useState([]);
   const { token } = useAuth();
-  useEffect(() => {
-    async function fetchNotification() {
-      const url = "https://mutemotion.onrender.com/api/notifications";
-      const options = {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      };
+  // useEffect(() => {
+  //   async function fetchNotification() {
+  //     const url = "https://mutemotion.onrender.com/api/notifications";
+  //     const options = {
+  //       method: "GET",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //     };
 
-      try {
-        const response = await fetch(url, options);
-        if (response.ok) {
-          const data = await response.json();
-          console.log("Notification Data:", data); // Debug log
-          setNotificationMessage(data); // Assuming the response has a 'message' field
-        } else {
-          throw new Error("Failed to fetch notification");
-        }
-      } catch (error) {
-        console.error("Error fetching notification:", error);
-        setNotificationMessage("Error fetching notifications");
-      }
-    }
+  //     try {
+  //       const response = await fetch(url, options);
+  //       if (response.ok) {
+  //         const data = await response.json();
+  //         console.log("Notification Data:", data); // Debug log
+  //         setNotificationMessage(data); // Assuming the response has a 'message' field
+  //       } else {
+  //         throw new Error("Failed to fetch notification");
+  //       }
+  //     } catch (error) {
+  //       console.error("Error fetching notification:", error);
+  //       setNotificationMessage("Error fetching notifications");
+  //     }
+  //   }
 
-    fetchNotification();
-  }, [token]);
+  //   fetchNotification();
+  // }, [token]);
   return (
     <>
       <div className={styles.profile}>

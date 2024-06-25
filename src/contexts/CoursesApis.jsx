@@ -1,4 +1,5 @@
 import { createContext, useReducer, useEffect } from "react";
+import { useAuth } from "./Auth";
 
 // const actionTypes = {
 //   FETCH_RECOMMENDED: "FETCH_RECOMMENDED",
@@ -13,6 +14,7 @@ const actionTypes = {
   FETCH_SUCCESS: "FETCH_SUCCESS",
   FETCH_ERROR: "FETCH_ERROR",
   SET_WISHLIST: "SET_WISHLIST",
+  TOGGLE_WISHLIST: "TOGGLE_WISHLIST",
 };
 
 const initialState = {
@@ -22,6 +24,7 @@ const initialState = {
   forKids: [],
   aslAdults: [],
   wishlist: [], // Initialize wishlist in state
+  wishlisted: false,
   loading: false,
   error: null,
 };
@@ -55,9 +58,12 @@ export const CourseContext = createContext();
 
 export const CourseProvider = ({ children }) => {
   const [state, dispatch] = useReducer(courseReducer, initialState);
+  const { token } = useAuth();
 
   useEffect(() => {
     const fetchCourses = async () => {
+      if (!token) return; // Exit early if no token
+
       try {
         const [
           recommendedRes,
@@ -67,19 +73,44 @@ export const CourseProvider = ({ children }) => {
           aslAdultsRes,
         ] = await Promise.all([
           fetch(
-            "https://mutemotion.onrender.com/api/courses?category=Recommended For You"
+            "https://mutemotion.onrender.com/api/courses?category=Recommended For You",
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
           ),
           fetch(
-            "https://mutemotion.onrender.com/api/courses?category=ASL For Beginners"
+            "https://mutemotion.onrender.com/api/courses?category=ASL For Beginners",
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
           ),
           fetch(
-            "https://mutemotion.onrender.com/api/courses?category=Most Popular"
+            "https://mutemotion.onrender.com/api/courses?category=Most Popular",
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
           ),
           fetch(
-            "https://mutemotion.onrender.com/api/courses?category=For Kids"
+            "https://mutemotion.onrender.com/api/courses?category=For Kids",
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
           ),
           fetch(
-            "https://mutemotion.onrender.com/api/courses?category=For Adults"
+            "https://mutemotion.onrender.com/api/courses?category=For Adults",
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
           ),
         ]);
         const [
@@ -97,7 +128,7 @@ export const CourseProvider = ({ children }) => {
         ]);
 
         dispatch({
-          type: "FETCH_SUCCESS",
+          type: actionTypes.FETCH_SUCCESS,
           payload: {
             recommendedCourses,
             beginnerCourses,
@@ -108,16 +139,18 @@ export const CourseProvider = ({ children }) => {
         });
       } catch (error) {
         dispatch({
-          type: "FETCH_ERROR",
+          type: actionTypes.FETCH_ERROR,
           payload: error.message,
         });
       }
     };
 
-    fetchCourses();
-  }, []);
+    if (token) {
+      fetchCourses();
+    }
+  }, [token]);
+
   useEffect(() => {
-    const token = localStorage.getItem("token");
     if (token) {
       const fetchWishlistData = async () => {
         try {
@@ -145,7 +178,7 @@ export const CourseProvider = ({ children }) => {
 
       fetchWishlistData();
     }
-  }, []);
+  }, [token]);
   return (
     <CourseContext.Provider value={{ state }}>
       {children}

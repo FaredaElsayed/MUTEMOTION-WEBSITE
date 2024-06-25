@@ -61,7 +61,7 @@ function AuthProvider({ children }) {
       dispatch({ type: "logout" });
     }
   }, [isAuthenticated]);
-  
+
   // Define the signup function
   async function signup(email, fullname, password) {
     try {
@@ -79,6 +79,11 @@ function AuthProvider({ children }) {
       const data = await response.json();
       //case 1 email not registered, success
       if (response.ok) {
+        localStorage.clear();
+
+        // Store the new token and user data
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("isLoggedIn", true);
         //update registered email
         setRegisteredEmail(data.user.email);
         localStorage.setItem("registeredEmail", data.user.email);
@@ -129,6 +134,11 @@ function AuthProvider({ children }) {
       );
       const data = await response.json();
       if (response.ok) {
+        localStorage.clear();
+
+        // Store the new token and user data
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("isLoggedIn", true);
         console.log(data.message);
         dispatch({
           type: "verify_code",
@@ -193,6 +203,11 @@ function AuthProvider({ children }) {
       );
       const data = await response.json();
       if (response.ok) {
+        localStorage.clear();
+
+        // Store the new token and user data
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("isLoggedIn", true);
         dispatch({
           type: "login",
           payload: { user: data.user, token: data.token },

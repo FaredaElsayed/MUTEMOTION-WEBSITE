@@ -1,12 +1,23 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import styles from "./CourseCard.module.css";
 import StarRating from "./StarRating";
 import { useAuth } from "../contexts/Auth";
 import { useNavigate, Link } from "react-router-dom";
+import { CourseContext } from "../contexts/CoursesApis";
 
-function CourseCard({ _id, title, instructor, poster, alt, review }) {
+function CourseCard({
+  _id,
+  title,
+  instructor,
+  poster,
+  alt,
+  review,
+  wishlisted,
+}) {
   const [error, setError] = useState(null);
-  const [isFav, setIsFav] = useState(false);
+  const { state } = useContext(CourseContext);
+  const [isFav, setIsFav] = useState(wishlisted);
+
   const { token } = useAuth();
   const navigateTo = useNavigate();
 
@@ -65,6 +76,7 @@ function CourseCard({ _id, title, instructor, poster, alt, review }) {
         console.log("Added to wishlist:", data);
         setIsFav(true);
         localStorage.setItem(`fav-status-${_id}`, JSON.stringify(true));
+
         setError(null);
         window.location.reload();
       } else {
@@ -110,10 +122,17 @@ function CourseCard({ _id, title, instructor, poster, alt, review }) {
   }
 
   async function handleToggleFav() {
-    if (isFav) {
-      await removeFromWishlist();
-    } else {
-      await addToWishlist();
+    try {
+      if (isFav) {
+        await removeFromWishlist();
+        setIsFav(false);
+      } else {
+        await addToWishlist();
+        setIsFav(true);
+      }
+    } catch (error) {
+      console.error("Error toggling favorite:", error.message);
+      setError(error.message || "Failed to toggle favorite");
     }
   }
 

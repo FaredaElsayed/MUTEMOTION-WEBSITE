@@ -46,6 +46,7 @@ export default function Payment({ item, onPaymentSuccess }) {
 
       // Optional: You can clear form fields or perform other actions after payment
       setPaymentInfo({ cartNumber: "", expirationDate: "" });
+       window.location.reload();
       console.log("Course added to myLearning successfully");
     } catch (error) {
       console.error("Error adding course to myLearning:", error.message);
