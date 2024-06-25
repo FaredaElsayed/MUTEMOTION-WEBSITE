@@ -72,7 +72,10 @@ function Login() {
               <br />
               Back!
             </p>
-            <div className={styles.img}></div>
+            <div
+              className={styles.img}
+              style={{ backgroundImage: "url(./login.png)" }}
+            ></div>
           </div>
           <form>
             <div>
