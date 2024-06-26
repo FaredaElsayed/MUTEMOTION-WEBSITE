@@ -11,7 +11,7 @@
   color: #442c8f;
   letter-spacing: -0.022em;
   text-transform: capitalize;
-  font-family: "Merriweather";
+  font-family: "Playfair Display", serif;
   font-style: normal;
 }
 .cart > span {
@@ -50,7 +50,7 @@
 .cart h1 {
   align-self: flex-start;
   margin: 0px 4rem;
-  font-family: "Merriweather";
+ font-family: "Playfair Display", serif;
   font-style: normal;
   font-weight: 700;
   font-size: 3rem;

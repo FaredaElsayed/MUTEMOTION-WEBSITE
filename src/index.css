@@ -1,8 +1,9 @@
 /* Taken from getting started guide at: https://leafletjs.com/examples/quick-start/ */
-/* @import "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
-@import "https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap"; */
+
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,300&display=swap");
 
+/* @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 /* These CSS variables are global, so they are available in all CSS modules */
 :root {
   --color-brand--1: #ffb545;
@@ -28,7 +29,8 @@ html {
 }
 
 body {
-  font-family: "Merriweather", serif;
+  font-family: "Playfair Display", serif;
+
   color: var(--color-light--2);
   font-weight: 400;
   line-height: 1.6;
@@ -38,23 +40,6 @@ label {
   font-size: 1.6rem;
   font-weight: 600;
 }
-
-/* input,
-textarea {
-  width: 100%;
-  padding: 0.8rem 1.2rem;
-  font-family: inherit;
-  font-size: 1.6rem;
-  border: none;
-  border-radius: 5px;
-  background-color: var(--color-light--3);
-  transition: all 0.2s;
-}
-
-input:focus {
-  outline: none;
-  background-color: #fff;
-} */
 
 .cta:link,
 .cta:visited {
@@ -134,7 +119,9 @@ progress::-webkit-progress-value {
   border-radius: 12px;
   background-color: #442c8f;
 }
-
+.toast {
+  font-size: 2rem;
+}
 @media screen and (max-width: 960px) {
   .fa-caret-down {
     display: none;
@@ -144,12 +131,14 @@ progress::-webkit-progress-value {
 @media (min-width: 4000px) {
   .dropdown-menu {
     width: 400px;
-     margin-top: 3rem;
+    margin-top: 3rem;
   }
   .profile-drop {
     right: 0.4rem;
   }
-
+  .toast {
+    font-size: 5rem;
+  }
   .dropdown-menu li {
     cursor: pointer;
     line-height: 3rem;

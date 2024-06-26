@@ -67,8 +67,12 @@ function Cart() {
         <PageNav />
         <Toaster
           toastOptions={{
-            style: {
-              fontSize: "2rem",
+            className: "toast",
+            success: {
+              iconTheme: {
+                primary: "#442c8f",
+                secondary: "white",
+              },
             },
           }}
         />
