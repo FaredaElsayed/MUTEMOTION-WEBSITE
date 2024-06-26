@@ -8,6 +8,7 @@ import { NamesForm } from "../components/NamesForm";
 import { PersonalInfon, Password, Notification } from "./PersonalInfon";
 import { useProfile } from "../contexts/ProfileContext";
 import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function Profile() {
   const {
@@ -53,13 +54,11 @@ export default function Profile() {
   //   fetchNotification();
   // }, [token]);
 
-  const [showShareMessage, setShowShareMessage] = useState(false);
-
   // Function to handle sharing profile link
   const handleShareProfile = () => {
     navigator.clipboard
       .writeText(window.location.href)
-      .then(() => setShowShareMessage(true))
+      .then(() => toast.success("Profile link copied to clipboard"))
       .catch((error) => console.error("Failed to copy profile link: ", error));
   };
   return (
@@ -67,6 +66,15 @@ export default function Profile() {
       <div className={styles.profile}>
         <PageNav />
         <main>
+          <div>
+            <Toaster
+              toastOptions={{
+                style: {
+                  fontSize: "2rem",
+                },
+              }}
+            />
+          </div>
           <section className={styles.rectangle}>
             <div className={styles.mainInfo}>
               <img
@@ -82,22 +90,6 @@ export default function Profile() {
                 <PersonalInfon />
                 <Password />
                 <Notification />
-                {showShareMessage && (
-                  <div
-                    className={styles.shareMessage}
-                    style={{display:"flex",flexDirection:"column", alignItems: "center",textAlign:"center" }}
-                  >
-                    <p>Profile link copied to clipboard!</p>
-                    <Button
-                      type="continue"
-                      style={{ alignSelf: "center" }}
-                      onClick={() => setShowShareMessage(false)}
-                      btnStyle={btnStyle}
-                    >
-                      &times;
-                    </Button>
-                  </div>
-                )}
               </div>
             </div>
           </section>

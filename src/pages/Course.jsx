@@ -22,6 +22,7 @@ function Course({ setIsPaying, isPaying }) {
       <div className={styles.courses}>
         <PageNav />
         <CourseHeader
+        myRating={Number(course.review)}
           courseTitle={course.title}
           boughtFlag={course.boughtFlag}
           courseId={course._id}

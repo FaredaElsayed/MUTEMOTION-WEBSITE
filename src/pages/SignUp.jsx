@@ -79,10 +79,10 @@ function SignUp() {
       return;
     }
     // Validate password length
-   if (password.trim().length < 8 || confPass.trim().length < 8) {
-     setError("Password must be at least 8 characters long");
-     return;
-   }
+    if (password.trim().length < 8 || confPass.trim().length < 8) {
+      setError("Password must be at least 8 characters long");
+      return;
+    }
     // Validate password match
     if (password !== confPass) {
       setError("Passwords do not match");
@@ -119,7 +119,7 @@ function SignUp() {
                 name="fullName"
                 value={fullName}
                 onChange={(e) => setfullName(e.target.value)}
-                placeholder="Farida Elsayed"
+                placeholder="username"
                 autoFocus
                 required
               />
@@ -132,7 +132,7 @@ function SignUp() {
                 name="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="faredaelsayed0@gmail.com"
+                placeholder="example@gmail.com"
                 pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
                 required
                 autoComplete="email"
@@ -146,7 +146,6 @@ function SignUp() {
                 name="pass"
                 value={password}
                 onChange={(e) => setPass(e.target.value)}
-                placeholder="*******"
                 minLength={8}
                 required
               />
@@ -159,7 +158,6 @@ function SignUp() {
                 name="confPass"
                 value={confPass}
                 onChange={(e) => setconfPass(e.target.value)}
-                placeholder="*******"
                 minLength={8}
                 required
               />

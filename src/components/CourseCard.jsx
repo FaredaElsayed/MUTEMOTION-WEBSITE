@@ -3,6 +3,7 @@ import styles from "./CourseCard.module.css";
 import StarRating from "./StarRating";
 import { useAuth } from "../contexts/Auth";
 import { useNavigate, Link } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 function CourseCard({
   _id,
@@ -18,7 +19,7 @@ function CourseCard({
   const [starSize, setStarSize] = useState(45);
   const { token } = useAuth();
   const navigateTo = useNavigate();
-
+  const notify = () => toast("Here is your toast.");
   useEffect(() => {
     const updateStarSize = () => {
       setStarSize(window.innerWidth >= 4000 ? 70 : 45);
@@ -89,8 +90,11 @@ function CourseCard({
       if (response.ok) {
         console.log("Added to wishlist:", data);
         setIsFav(wishlisted);
-        setError(null);
-        window.location.reload();
+        toast.success("Course successfully added to your wishlist");
+        setError("null");
+        setTimeout(() => {
+          window.location.reload();
+        }, 500);
       } else {
         const errorMessage = data.error || "Failed to add to wishlist";
         throw new Error(errorMessage);
@@ -120,9 +124,11 @@ function CourseCard({
       if (response.ok) {
         console.log("Removed from wishlist:", data);
         setIsFav(false);
-
+        toast.error("Course successfully removed from your wishlist");
         setError(null);
-        window.location.reload();
+        setTimeout(() => {
+          window.location.reload();
+        }, 500);
       } else {
         const errorMessage = data.error || "Failed to remove from wishlist";
         throw new Error(errorMessage);
@@ -137,10 +143,8 @@ function CourseCard({
     try {
       if (isFav) {
         await removeFromWishlist();
-       
       } else {
         await addToWishlist();
-       
       }
     } catch (error) {
       console.error("Error toggling favorite:", error.message);
@@ -150,7 +154,16 @@ function CourseCard({
 
   return (
     <div className={styles.card} style={{ position: "relative" }}>
-      <img src={poster} alt={alt}></img>
+      <div>
+        <Toaster
+          toastOptions={{
+            style: {
+              fontSize: "2rem",
+            },
+          }}
+        />
+      </div>
+      <img src={poster} alt={alt} onClick={handleCourseClick}></img>
       {!isFav ? (
         <svg
           width="32"

@@ -6,12 +6,13 @@ import CardInProgress from "../components/CardInProgress";
 import { useAuth } from "../contexts/Auth";
 import { useEffect, useState } from "react";
 
+
 export default function MyLearning() {
   const [courses, setCourses] = useState([]);
   const [error, setError] = useState(false);
   const { logout } = useAuth();
   const { token } = useAuth();
-
+  
   useEffect(() => {
     async function fetchMyLearningCourses() {
       try {
@@ -47,6 +48,7 @@ export default function MyLearning() {
     }
 
     fetchMyLearningCourses();
+    
   }, [token]);
 
   return (
@@ -55,12 +57,13 @@ export default function MyLearning() {
         <PageNav />
         <div className={styles.container}>
           <h1>My Programs</h1>
+         
           <ul className={styles.progress}>
             <li className={`${styles.navItem} ${styles.active}`}>
               <NavLink to="/inprogress">In progress</NavLink>
             </li>
             <li className={styles.navItem}>
-              <NavLink to="/">Completed</NavLink>
+              <NavLink to="/inprogress">Completed</NavLink>
             </li>
           </ul>
           <div className={styles.courses}>

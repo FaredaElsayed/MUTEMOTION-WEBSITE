@@ -3,6 +3,7 @@ import Button from "./Button";
 import ButtonBack from "./ButtonBack";
 import styles from "./Payment.module.css";
 import { useAuth } from "../contexts/Auth";
+import toast, { Toaster } from "react-hot-toast";
 export default function Payment({ item, onPaymentSuccess }) {
   const btnStyle = {
     textTransform: "capitalize",
@@ -35,6 +36,7 @@ export default function Payment({ item, onPaymentSuccess }) {
         data.message === "You have already purchased this course"
       ) {
         setIsPurchased((isPurchased) => true);
+        toast.success("You have already purchased this course");
         console.log(isPurchased);
       }
 
@@ -44,10 +46,12 @@ export default function Payment({ item, onPaymentSuccess }) {
 
       // Call onPaymentSuccess callback to update UI
       onPaymentSuccess();
-
+      
       // Optional: You can clear form fields or perform other actions after payment
       setPaymentInfo({ cartNumber: "", expirationDate: "" });
-       window.location.reload();
+      setTimeout(() => {
+        window.location.reload();
+      }, 500);
       console.log("Course added to myLearning successfully");
     } catch (error) {
       console.error("Error adding course to myLearning:", error.message);
@@ -55,7 +59,6 @@ export default function Payment({ item, onPaymentSuccess }) {
   };
   useEffect(() => {
     setIsPurchased(false); // Reset isPurchased when item._id changes
-    
   }, [item._id]);
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -64,6 +67,9 @@ export default function Payment({ item, onPaymentSuccess }) {
   console.log("Current isPurchased state:", isPurchased);
   return (
     <div className={styles.payment}>
+      <div>
+        
+      </div>
       <span>Payment</span>
       <hr />
       <form onSubmit={handlePayment}>
@@ -101,7 +107,7 @@ export default function Payment({ item, onPaymentSuccess }) {
           </div>
         </div>
         <div className={styles.btns}>
-        <ButtonBack/>
+          <ButtonBack />
           <Button type="learnmore" btnStyle={btnStyle} disabled={isPurchased}>
             Pay
           </Button>

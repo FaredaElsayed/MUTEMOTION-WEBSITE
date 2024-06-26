@@ -4,13 +4,14 @@ import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import { useAuth } from "../contexts/Auth";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function CourseHeader({
   courseTitle,
   courseImg,
   alt,
   courseId,
-  setIsPaying,
+  myRating,
   courseBreif,
 }) {
   const navigateTo = useNavigate();
@@ -90,26 +91,29 @@ export default function CourseHeader({
       if (response.ok) {
         console.log("Course added to cart successfully!");
         setErrorMessage("");
+        toast.success("Successfully added to your cart!");
         return true;
       } else {
         if (data.message === "Course already exists in cart") {
           setErrorMessage("Course already exists in cart");
+          toast.error("Course already exists in cart!");
         } else if (data.message === "You have already purchased this course") {
           setErrorMessage("You have already purchased this course");
+          toast.error("You have already purchased this course!");
         } else {
           console.error("Failed to add course to cart: ", data);
           // Optionally set a general error message
           setErrorMessage("Failed to add course to cart. Please try again.");
         }
-        return false; 
+        return false;
       }
     } catch (error) {
       console.error("There was an error adding the course to the cart!", error);
       setErrorMessage("Failed to add course to cart. Please try again.");
-       return false;
+      return false;
     }
   }
-  
+
   async function handlePaying() {
     const success = await handleAddToCart();
     if (success) {
@@ -120,13 +124,22 @@ export default function CourseHeader({
   return (
     <>
       <header className={styles.coursesHeader}>
+        <div>
+          <Toaster
+            toastOptions={{
+              style: {
+                fontSize: "2rem",
+              },
+            }}
+          />
+        </div>
         <div className={styles.rect1}>
           <div className={styles.content}>
             <h1>{courseTitle}</h1>
             <p>{courseBreif}</p>
           </div>
           <StarRating
-            maxRating={5}
+            maxRating={myRating}
             size={windowSize.width >= 4000 ? 90 : 45}
             hoverEnabled={false}
             defaultRating={5}

@@ -88,7 +88,7 @@ function Login() {
                 autoComplete="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Farida@gmail.com"
+                placeholder="example@gmail.com"
                 pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
                 autoFocus
                 required
@@ -102,7 +102,7 @@ function Login() {
                 name="pass"
                 value={password}
                 onChange={(e) => setPass(e.target.value)}
-                placeholder="*******"
+               
                 minLength={8}
                 required
               />

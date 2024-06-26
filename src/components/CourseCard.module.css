@@ -41,6 +41,7 @@
 
 .card img {
   max-width: 100%;
+  cursor: pointer;
   height: 298px;
   border-radius: 12px 12px 0px 12px;
 }

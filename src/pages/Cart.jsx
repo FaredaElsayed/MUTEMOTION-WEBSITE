@@ -7,6 +7,7 @@ import OrderSummery from "../components/OrderSummery";
 import Payment from "../components/Payment";
 import CartCard from "../components/CartCard";
 import { useAuth } from "../contexts/Auth";
+import toast, { Toaster } from "react-hot-toast";
 
 function Cart() {
   const [items, setItems] = useState([]);
@@ -46,7 +47,7 @@ function Cart() {
     // Remove the purchased item from cart items
     const updatedItems = items.filter((item) => item._id !== selectedItem._id);
     setItems(updatedItems);
-
+    toast.success("course added to mylearning ");
     // Reset selected item
     setSelectedItem(null);
     setIsPaying(false);
@@ -64,7 +65,13 @@ function Cart() {
     <>
       <div className={styles.cart}>
         <PageNav />
-
+        <Toaster
+          toastOptions={{
+            style: {
+              fontSize: "2rem",
+            },
+          }}
+        />
         {!isPaying && (
           <>
             <span>Your Cart</span>
