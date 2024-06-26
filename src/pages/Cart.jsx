@@ -13,7 +13,7 @@ function Cart() {
   const [items, setItems] = useState([]);
   const [isPaying, setIsPaying] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
-  const { token } = useAuth();
+  const { token,logout } = useAuth();
 
   useEffect(() => {
     async function fetchCartItems() {
@@ -38,6 +38,7 @@ function Cart() {
         console.log("Cart Items:", data);
       } catch (error) {
         console.error("There was an error fetching the cart items!", error);
+        logout()
       }
     }
 

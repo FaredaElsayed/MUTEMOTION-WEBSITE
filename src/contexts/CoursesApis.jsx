@@ -50,7 +50,7 @@ export const CourseContext = createContext();
 
 export const CourseProvider = ({ children }) => {
   const [state, dispatch] = useReducer(courseReducer, initialState);
-  const { token } = useAuth();
+  const { token,logout } = useAuth();
 
   useEffect(() => {
     const fetchCourses = async () => {
@@ -159,12 +159,14 @@ export const CourseProvider = ({ children }) => {
 
           if (!response.ok) {
             throw new Error("Failed to fetch wishlist");
+            
           }
 
           const wishlistData = await response.json();
           dispatch({ type: actionTypes.SET_WISHLIST, payload: wishlistData });
         } catch (error) {
           console.error("Failed to fetch wishlist:", error);
+          logout()
         }
       };
 

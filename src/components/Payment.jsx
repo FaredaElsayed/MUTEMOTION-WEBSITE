@@ -15,7 +15,7 @@ export default function Payment({ item, onPaymentSuccess }) {
     cartNumber: "",
     expirationDate: "",
   });
-  const { token } = useAuth();
+  const { token,logout } = useAuth();
   const [isPurchased, setIsPurchased] = useState(false);
   const handlePayment = async (event) => {
     event.preventDefault();
@@ -55,6 +55,7 @@ export default function Payment({ item, onPaymentSuccess }) {
       console.log("Course added to myLearning successfully");
     } catch (error) {
       console.error("Error adding course to myLearning:", error.message);
+       logout();
     }
   };
   useEffect(() => {

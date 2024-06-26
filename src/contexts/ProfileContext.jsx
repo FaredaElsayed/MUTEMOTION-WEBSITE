@@ -58,6 +58,7 @@ export function ProfileProvider({ children }) {
      } catch (error) {
        console.error("Error fetching notifications:", error);
       setNotificationMessage([]);
+      
      }
    }
 
