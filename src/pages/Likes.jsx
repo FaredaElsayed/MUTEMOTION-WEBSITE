@@ -31,7 +31,7 @@ export default function Likes() {
         {wishlist.length > 0 ? (
           <CustomSlider title="Courses To Watch" courses={wishlist} />
         ) : (
-          <p style={{alignSelf:"center" , marginTop:"5%"}}>No favorite courses found.</p>
+          <p style={{alignSelf:"center" , marginTop:"5%" ,fontSize:"3rem"}}>No courses in your wishlist yet.</p>
         )}
       </main>
       <Footer />

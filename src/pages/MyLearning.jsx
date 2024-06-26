@@ -6,13 +6,13 @@ import CardInProgress from "../components/CardInProgress";
 import { useAuth } from "../contexts/Auth";
 import { useEffect, useState } from "react";
 
-
 export default function MyLearning() {
   const [courses, setCourses] = useState([]);
   const [error, setError] = useState(false);
+  const [activeTab, setActiveTab] = useState("inprogress");
   const { logout } = useAuth();
   const { token } = useAuth();
-  
+
   useEffect(() => {
     async function fetchMyLearningCourses() {
       try {
@@ -48,21 +48,32 @@ export default function MyLearning() {
     }
 
     fetchMyLearningCourses();
-    
   }, [token]);
-
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+  };
   return (
     <>
       <div className={styles.mylearning}>
         <PageNav />
         <div className={styles.container}>
           <h1>My Programs</h1>
-         
+
           <ul className={styles.progress}>
-            <li className={`${styles.navItem} ${styles.active}`}>
+            <li
+              className={`${styles.navItem} ${
+                activeTab === "inprogress" ? styles.active : ""
+              }`}
+              onClick={() => handleTabClick("inprogress")}
+            >
               <NavLink to="/inprogress">In progress</NavLink>
             </li>
-            <li className={styles.navItem}>
+            <li
+              className={`${styles.navItem} ${
+                activeTab === "completed" ? styles.active : ""
+              }`}
+              onClick={() => handleTabClick("completed")}
+            >
               <NavLink to="/inprogress">Completed</NavLink>
             </li>
           </ul>
