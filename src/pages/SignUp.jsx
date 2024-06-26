@@ -13,8 +13,8 @@ function SignUp() {
   // Initialize state for password, confirm password, email, and full name
   const [password, setPass] = useState("");
   const [confPass, setconfPass] = useState("");
-  const [email, setEmail] = useState("faredaelsayed@gmail.com");
-  const [fullName, setfullName] = useState("fareda elsayed");
+  const [email, setEmail] = useState("");
+  const [fullName, setfullName] = useState("");
   // Initialize state for button style
   const [btnStyle, setBtnStyle] = useState({
     fontWeight: "700",

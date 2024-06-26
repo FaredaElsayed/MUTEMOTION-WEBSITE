@@ -88,7 +88,7 @@ function CourseCard({
 
       if (response.ok) {
         console.log("Added to wishlist:", data);
-        setIsFav(true);
+        setIsFav(wishlisted);
         setError(null);
         window.location.reload();
       } else {
@@ -137,10 +137,10 @@ function CourseCard({
     try {
       if (isFav) {
         await removeFromWishlist();
-        setIsFav(false);
+       
       } else {
         await addToWishlist();
-        setIsFav(true);
+       
       }
     } catch (error) {
       console.error("Error toggling favorite:", error.message);

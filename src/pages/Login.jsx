@@ -5,8 +5,8 @@ import styles from "./Login.module.css";
 import Button from "../components/Button";
 
 function Login() {
-  const [password, setPass] = useState("12345");
-  const [email, setEmail] = useState("faredaelsayed@gmail.com");
+  const [password, setPass] = useState("");
+  const [email, setEmail] = useState("");
   const { login, isAuthenticated, error, setError } = useAuth();
   const navigateTo = useNavigate();
   const [btnStyle, setBtnStyle] = useState({

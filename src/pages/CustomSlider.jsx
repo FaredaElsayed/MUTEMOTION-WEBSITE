@@ -55,8 +55,8 @@ function CustomSlider({ title, courses }) {
       <div className={styles.cards}>
         {courses
           .slice(startIndex, startIndex + cardsPerPage)
-          .map((course, index) => (
-            <div key={index} className={styles.card}>
+          .map((course) => (
+            <div key={course._id} className={styles.card}>
               <CourseCard {...course} />
             </div>
           ))}
