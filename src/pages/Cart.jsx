@@ -105,6 +105,7 @@ function Cart() {
                   {isPaying && (
                     <Payment
                       item={selectedItem}
+                      setIsPaying={setIsPaying}
                       onPaymentSuccess={handlePaymentSuccess}
                     />
                   )}

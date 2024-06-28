@@ -21,7 +21,7 @@ export default function OrderSummery({ item, onClick }) {
           </header>
           <div className={styles.name}>
             <span>{item.instructor}</span>
-            <span>Qty: 2</span>
+            <span>Qty: 1</span>
           </div>
         </div>
       </div>

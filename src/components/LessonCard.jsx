@@ -9,7 +9,7 @@ function LessonCard({ num, name, lessonBreif }) {
 
   }
   return (
-    <div className={styles.card}>
+    <div className={styles.card} style={{height:"fit-content"}}>
       <svg
         width="44"
         height="45"
@@ -22,7 +22,7 @@ function LessonCard({ num, name, lessonBreif }) {
           fill="#442C8F"
         />
       </svg>
-      <h1 >Lesson {num}</h1>
+      <h1 style={{cursor:"auto"}}>Lesson {num}</h1>
       <h3 onClick={handleOpenLesson}>{name}</h3>
       {lessonBreif && (
         <ParagraphToList paragraph={lessonBreif} styleP={costumeStyle} />

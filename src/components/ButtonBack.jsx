@@ -1,14 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import Button from "./Button";
 
-function ButtonBack() {
+function ButtonBack({setIsPaying}) {
   const navigate = useNavigate();
   return (
     <Button
       type="back"
       onClick={(e) => {
         e.preventDefault();
-        navigate(-1);
+        setIsPaying(false);
+        navigate("/cart");
       }}
     >
       &larr; Back

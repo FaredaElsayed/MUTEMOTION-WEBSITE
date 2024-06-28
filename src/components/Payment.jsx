@@ -4,7 +4,7 @@ import ButtonBack from "./ButtonBack";
 import styles from "./Payment.module.css";
 import { useAuth } from "../contexts/Auth";
 import toast, { Toaster } from "react-hot-toast";
-export default function Payment({ item, onPaymentSuccess }) {
+export default function Payment({ item, onPaymentSuccess, setIsPaying }) {
   const btnStyle = {
     textTransform: "capitalize",
     borderColor: "#652d90",
@@ -15,11 +15,11 @@ export default function Payment({ item, onPaymentSuccess }) {
     cartNumber: "",
     expirationDate: "",
   });
-  const { token,logout } = useAuth();
+  const { token, logout } = useAuth();
   const [isPurchased, setIsPurchased] = useState(false);
   const handlePayment = async (event) => {
     event.preventDefault();
-
+    if (!item) return;
     try {
       // Call API to add course to myLearning
       const response = await fetch("https://mutemotion.onrender.com/api/buy", {
@@ -46,7 +46,7 @@ export default function Payment({ item, onPaymentSuccess }) {
 
       // Call onPaymentSuccess callback to update UI
       onPaymentSuccess();
-      
+
       // Optional: You can clear form fields or perform other actions after payment
       setPaymentInfo({ cartNumber: "", expirationDate: "" });
       setTimeout(() => {
@@ -55,12 +55,12 @@ export default function Payment({ item, onPaymentSuccess }) {
       console.log("Course added to myLearning successfully");
     } catch (error) {
       console.error("Error adding course to myLearning:", error.message);
-       logout();
+      logout();
     }
   };
   useEffect(() => {
     setIsPurchased(false); // Reset isPurchased when item._id changes
-  }, [item._id]);
+  }, [item?._id]);
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setPaymentInfo({ ...paymentInfo, [name]: value });
@@ -68,9 +68,7 @@ export default function Payment({ item, onPaymentSuccess }) {
   console.log("Current isPurchased state:", isPurchased);
   return (
     <div className={styles.payment}>
-      <div>
-        
-      </div>
+      <div></div>
       <span>Payment</span>
       <hr />
       <form onSubmit={handlePayment}>
@@ -108,7 +106,7 @@ export default function Payment({ item, onPaymentSuccess }) {
           </div>
         </div>
         <div className={styles.btns}>
-          <ButtonBack />
+          <ButtonBack setIsPaying={setIsPaying} />
           <Button type="learnmore" btnStyle={btnStyle} disabled={isPurchased}>
             Pay
           </Button>

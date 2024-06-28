@@ -26,7 +26,6 @@ export function ProfileProvider({ children }) {
       const response = await fetch(url, options);
       if (response.ok) {
         const data = await response.json();
-        console.log("Fetched profile data:", data);
         setFullName(data.fullname);
         setEmail(data.email);
         setProfilePicture(data.profileImg || "./person.png");
@@ -65,63 +64,7 @@ export function ProfileProvider({ children }) {
       throw error; // Rethrow error to handle in components
     }
   };
-  // Function to update profile data
-  //  const updateProfileInfo = async (updatedData) => {
-  //    const url = "https://mutemotion.onrender.com/api/profile";
-  //    const options = {
-  //      method: "PUT",
-  //      headers: {
-  //        "Content-Type": "application/json",
-  //        Authorization: `Bearer ${token}`,
-  //      },
-  //      body: JSON.stringify(updatedData),
-  //    };
 
-  //    try {
-  //      const response = await fetch(url, options);
-  //      if (response.ok) {
-  //        const result = await response.json();
-  //        console.log(result.message); // Log success message
-
-  //        // Fetch the updated profile data after the successful update
-  //        await fetchProfileData();
-  //        return result;
-  //      } else {
-  //        throw new Error("Failed to update profile");
-  //      }
-  //    } catch (error) {
-  //      console.error("Error updating profile:", error);
-  //      throw error; // Rethrow error to handle in components
-  //    }
-  //  };
-  //   async function fetchProfileData() {
-  //     const url = "https://mutemotion.onrender.com/api/profile";
-  //     const options = {
-  //       method: "GET",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //     };
-
-  //     try {
-  //       const response = await fetch(url, options);
-  //       if (response.ok) {
-  //         const data = await response.json();
-  //         console.log(data)
-  //         setFullName(data.fullname);
-  //         setEmail(data.email);
-  //         setPhone(data.phoneNumber || "");
-  //         setProfilePicture(data.profileImg || "./person.png");
-
-  //         return data;
-  //       } else {
-  //         throw new Error("Failed to fetch profile data");
-  //       }
-  //     } catch (error) {
-  //       console.error("Error fetching profile data:", error);
-  //     }
-  //   }
   async function fetchNotification() {
     const url = "https://mutemotion.onrender.com/api/notifications";
     const options = {

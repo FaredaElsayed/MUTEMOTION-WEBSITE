@@ -42,7 +42,7 @@ export default function ParagraphToList({
             <li>Cours instructor: {instructor} </li>
             <li>Cours hours: {hours} </li>
             <li>number of lessons: {lessonsnum} </li>
-            <li>number of lessons: {studentsBought} </li>
+            <li>students bought this course: {studentsBought} </li>
           </ul>
           {/* <ul>
             {lines && lines.map((line, index) => <li key={index}>{line}</li>)}

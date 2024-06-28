@@ -29,7 +29,7 @@ export default function Likes() {
       <main className={styles.likes}>
         <PageNav />
         {wishlist.length > 0 ? (
-          <CustomSlider title="Courses To Watch" courses={wishlist} />
+          <CustomSlider title="Your Wishlist" courses={wishlist} />
         ) : (
           <p style={{alignSelf:"center" , marginTop:"5%" ,fontSize:"3rem"}}>No courses in your wishlist yet.</p>
         )}

@@ -31,7 +31,7 @@ function Footer() {
         </ul>
         <ul className={styles.list}>
           <li>
-            <Link to="/aboutus">PRIVECY</Link>
+            <Link to="/aboutus">Privacy</Link>
           </li>
           <li>
             <Link to="/aboutus">POLICY</Link>
@@ -44,9 +44,9 @@ function Footer() {
           </li>
         </ul>
         <ul className={styles.list}>
-          <li>
+          
             <button className={styles.contactUs}>Contact Us</button>
-          </li>
+          
           <li>
             <Link to="mailto:mutemotion2024@gmail.com">
               mutemotion2024@gmail.com
@@ -55,7 +55,7 @@ function Footer() {
         </ul>
       </div>
       <ul className={styles.developers}>
-        <h4>&copy; Devolbed by:</h4>
+        <h4>&copy; Developed by:</h4>
         <li>
           <Link
             to="https://github.com/FaredaElsayed"

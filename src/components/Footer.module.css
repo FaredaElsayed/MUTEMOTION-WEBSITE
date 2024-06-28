@@ -62,14 +62,12 @@
   font-size: 2.4rem;
   border: none;
   border-radius: 12px;
-  cursor: pointer;
   width: 287px;
   font-style: normal;
   margin: 0px 1rem;
   font-weight: 700;
   line-height: 150%;
   letter-spacing: -0.022em;
-  transition: background-color 2s, color 2s;
   background-color: #ffff;
 }
 .footer .developers {

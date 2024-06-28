@@ -57,7 +57,7 @@ export default function MyLearning() {
       <div className={styles.mylearning}>
         <PageNav />
         <div className={styles.container}>
-          <h1>My Programs</h1>
+          <h1>My learning</h1>
 
           <ul className={styles.progress}>
             <li

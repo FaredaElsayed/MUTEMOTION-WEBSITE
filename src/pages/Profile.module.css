@@ -12,7 +12,7 @@
   color: #442c8f;
   letter-spacing: -0.022em;
   text-transform: capitalize;
- font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", serif;
   font-style: normal;
 }
 .profile main {
@@ -115,7 +115,7 @@
   flex-direction: column;
   gap: 2rem;
   width: 50%;
- font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", serif;
   font-style: normal;
 }
 .profile .form form {
@@ -129,7 +129,8 @@
   flex-direction: column;
   gap: 0.5rem;
 }
-.profile .form input,.form span {
+.profile .form input,
+.profile .form span {
   border: 1px solid #eeeeee;
   border-radius: 12px;
   padding: 1rem;
@@ -139,8 +140,16 @@
   line-height: 2.5rem;
   text-transform: capitalize;
   color: #939393;
+  transition: border-color 0.3s ease;
+  
 }
-
+.profile .form input:focus {
+  border-color: #652d90; 
+  outline: none; 
+}
+.profile .form span {
+  border: transparent !important;
+}
 .profile .form select,
 .profile .form option {
   border: 1px solid #eeeeee;
@@ -192,7 +201,7 @@ select:-webkit-autofill {
   }
   .rectangle {
     width: 942px;
-    height:1000px;
+    height: 1000px;
   }
 
   .profile .img {
@@ -213,7 +222,8 @@ select:-webkit-autofill {
   .container p {
     font-size: 5.2rem;
   }
-  .profile .form input,.profile .form span {
+  .profile .form input,
+  .profile .form span {
     font-size: 5rem;
     line-height: 5.5rem;
   }

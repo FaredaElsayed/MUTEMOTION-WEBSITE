@@ -11,12 +11,8 @@ import toast, { Toaster } from "react-hot-toast";
 export default function Profile() {
   const {
     fullName,
-    email,
     profilePicture,
     notificationMessage,
-    password,
-    setPassword,
-    setFullName,
   } = useProfile();
 
   // Function to handle sharing profile link
@@ -66,14 +62,7 @@ export default function Profile() {
           <PersonalInfon />
           <div className={styles.rectangleComponent}>
             <SetProfilePic selectedImage={profilePicture} />
-            <NamesForm
-              fullName={fullName}
-              email={email}
-              password={password}
-              setPassword={setPassword}
-              setFullName={setFullName}
-              profileImg={profilePicture}
-            />
+            <NamesForm />
           </div>
         </section>
         <section className={styles.container}>

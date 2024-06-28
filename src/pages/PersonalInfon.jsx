@@ -2,7 +2,7 @@ import styles from "../pages/Profile.module.css"
 export function PersonalInfon() {
   return (
     <p className={styles.p}>
-      Personal destails
+      Personal Details
       <span>
         <svg
           width="24"

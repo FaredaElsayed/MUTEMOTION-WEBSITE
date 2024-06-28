@@ -4,7 +4,7 @@ import styles from "./LessonPage.module.css";
 function LessonPage({videoSrc,lessonTitle}) {
     return (
         <div className={styles.lesson}>
-            <h1>{lessonTitle}</h1>
+            <h1 style={{cursor:"none"}}>{lessonTitle}</h1>
             <div >
                 <video controls className={styles.videoPlayer}>
                     <source src={videoSrc} type="video/mp4" />
