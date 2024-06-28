@@ -213,7 +213,7 @@ select:-webkit-autofill {
   .container p {
     font-size: 5.2rem;
   }
-  .profile .form input {
+  .profile .form input,.profile .form span {
     font-size: 5rem;
     line-height: 5.5rem;
   }

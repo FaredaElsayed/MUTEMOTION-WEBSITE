@@ -12,7 +12,6 @@
   letter-spacing: -0.022em;
   font-style: normal;
   line-height: 150%;
- 
 }
 
 .overview {
@@ -103,7 +102,7 @@
   .btn {
     font-size: 5.8rem;
     border-radius: 42px;
-    width: fit-content;
+    width: 70%;
     padding: 2rem 5rem;
   }
   .overview:hover {

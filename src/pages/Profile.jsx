@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import Button from "../components/Button";
 import { SetProfilePic } from "../components/SetProfilePic";
 import { NamesForm } from "../components/NamesForm";
-import { PersonalInfon,  Notification } from "./PersonalInfon";
+import { PersonalInfon, Notification } from "./PersonalInfon";
 import { useProfile } from "../contexts/ProfileContext";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -14,6 +14,9 @@ export default function Profile() {
     email,
     profilePicture,
     notificationMessage,
+    password,
+    setPassword,
+    setFullName,
   } = useProfile();
 
   // Function to handle sharing profile link
@@ -64,9 +67,12 @@ export default function Profile() {
           <div className={styles.rectangleComponent}>
             <SetProfilePic selectedImage={profilePicture} />
             <NamesForm
-              profilePicture={profilePicture}
-              FullName={fullName}
+              fullName={fullName}
               email={email}
+              password={password}
+              setPassword={setPassword}
+              setFullName={setFullName}
+              profileImg={profilePicture}
             />
           </div>
         </section>

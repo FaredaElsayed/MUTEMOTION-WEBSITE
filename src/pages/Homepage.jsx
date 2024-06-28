@@ -3,7 +3,7 @@ import PageNav from "../components/PageNav";
 import Footer from "../components/Footer";
 import Button from "../components/Button";
 import CustomSlider from "./CustomSlider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { CourseContext } from "../contexts/CoursesApis";
 
@@ -16,7 +16,7 @@ export default function Homepage() {
     loading,
     error,
   } = state;
-
+  const navigateTo = useNavigate();
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
   return (
@@ -33,9 +33,9 @@ export default function Homepage() {
               enhance road safety, and promote inclusivity.
             </p>
 
-            <Link to="/aboutus">
-              <Button type="learnmore">Learn More</Button>
-            </Link>
+            <Button type="learnmore" onClick={() => navigateTo("/aboutus")}>
+              Learn More
+            </Button>
           </div>
           <div className={styles.rect}>
             <div className={styles.imgVector}>

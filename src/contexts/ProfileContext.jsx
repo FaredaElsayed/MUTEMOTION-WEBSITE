@@ -11,6 +11,34 @@ export function ProfileProvider({ children }) {
   const [notificationMessage, setNotificationMessage] = useState([]);
   const [profilePicture, setProfilePicture] = useState("./person.png");
   const { token } = useAuth();
+  // Function to fetch profile data
+  const fetchProfileData = async () => {
+    const url = "https://mutemotion.onrender.com/api/profile";
+    const options = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    try {
+      const response = await fetch(url, options);
+      if (response.ok) {
+        const data = await response.json();
+        console.log("Fetched profile data:", data);
+        setFullName(data.fullname);
+        setEmail(data.email);
+        setProfilePicture(data.profileImg || "./person.png");
+        return data;
+      } else {
+        throw new Error("Failed to fetch profile data");
+      }
+    } catch (error) {
+      console.error("Error fetching profile data:", error);
+    }
+  };
+
   // Function to update profile data
   const updateProfileInfo = async (updatedData) => {
     const url = "https://mutemotion.onrender.com/api/profile";
@@ -26,13 +54,9 @@ export function ProfileProvider({ children }) {
     try {
       const response = await fetch(url, options);
       if (response.ok) {
-        const data = await response.json();
-        // Update state with new data if needed
-        setFullName(data.fullname);
-        setEmail(data.email);
-        setPhone(data.phoneNumber);
-        setProfilePicture(data.profileImg || "./person.png");
-        console.log("Profile updated successfully:", data);
+        // Fetch updated profile data immediately after successful update
+        await fetchProfileData();
+        return { success: true };
       } else {
         throw new Error("Failed to update profile");
       }
@@ -41,60 +65,88 @@ export function ProfileProvider({ children }) {
       throw error; // Rethrow error to handle in components
     }
   };
+  // Function to update profile data
+  //  const updateProfileInfo = async (updatedData) => {
+  //    const url = "https://mutemotion.onrender.com/api/profile";
+  //    const options = {
+  //      method: "PUT",
+  //      headers: {
+  //        "Content-Type": "application/json",
+  //        Authorization: `Bearer ${token}`,
+  //      },
+  //      body: JSON.stringify(updatedData),
+  //    };
 
+  //    try {
+  //      const response = await fetch(url, options);
+  //      if (response.ok) {
+  //        const result = await response.json();
+  //        console.log(result.message); // Log success message
+
+  //        // Fetch the updated profile data after the successful update
+  //        await fetchProfileData();
+  //        return result;
+  //      } else {
+  //        throw new Error("Failed to update profile");
+  //      }
+  //    } catch (error) {
+  //      console.error("Error updating profile:", error);
+  //      throw error; // Rethrow error to handle in components
+  //    }
+  //  };
+  //   async function fetchProfileData() {
+  //     const url = "https://mutemotion.onrender.com/api/profile";
+  //     const options = {
+  //       method: "GET",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //     };
+
+  //     try {
+  //       const response = await fetch(url, options);
+  //       if (response.ok) {
+  //         const data = await response.json();
+  //         console.log(data)
+  //         setFullName(data.fullname);
+  //         setEmail(data.email);
+  //         setPhone(data.phoneNumber || "");
+  //         setProfilePicture(data.profileImg || "./person.png");
+
+  //         return data;
+  //       } else {
+  //         throw new Error("Failed to fetch profile data");
+  //       }
+  //     } catch (error) {
+  //       console.error("Error fetching profile data:", error);
+  //     }
+  //   }
+  async function fetchNotification() {
+    const url = "https://mutemotion.onrender.com/api/notifications";
+    const options = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    try {
+      const response = await fetch(url, options);
+      if (response.ok) {
+        const data = await response.json();
+        setNotificationMessage(data);
+      } else {
+        throw new Error("Failed to fetch notifications");
+      }
+    } catch (error) {
+      console.error("Error fetching notifications:", error);
+      setNotificationMessage([]);
+    }
+  }
 
   useEffect(() => {
-    async function fetchProfileData() {
-      const url = "https://mutemotion.onrender.com/api/profile";
-      const options = {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      };
-
-      try {
-        const response = await fetch(url, options);
-        if (response.ok) {
-          const data = await response.json();
-          setFullName(data.fullname);
-          setEmail(data.email);
-          setPhone(data.phoneNumber || "");
-          setProfilePicture(data.profileImg || "./person.png");
-          console.log(data);
-        } else {
-          throw new Error("Failed to fetch profile data");
-        }
-      } catch (error) {
-        console.error("Error fetching profile data:", error);
-      }
-    }
-
-    async function fetchNotification() {
-      const url = "https://mutemotion.onrender.com/api/notifications";
-      const options = {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      };
-
-      try {
-        const response = await fetch(url, options);
-        if (response.ok) {
-          const data = await response.json();
-          setNotificationMessage(data);
-        } else {
-          throw new Error("Failed to fetch notifications");
-        }
-      } catch (error) {
-        console.error("Error fetching notifications:", error);
-        setNotificationMessage([]);
-      }
-    }
-
     if (token) {
       fetchProfileData();
       fetchNotification();
@@ -105,18 +157,18 @@ export function ProfileProvider({ children }) {
     <ProfileContext.Provider
       value={{
         fullName,
+        setFullName,
         email,
+        setEmail,
         phone,
         setPhone,
-        profilePicture,
-        setFullName,
-        setEmail,
-        setProfilePicture,
-        notificationMessage,
-        
         password,
         setPassword,
+        profilePicture,
+        setProfilePicture,
+        notificationMessage,
         updateProfileInfo,
+        fetchProfileData,
       }}
     >
       {children}
