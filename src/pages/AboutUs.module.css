@@ -136,6 +136,9 @@
 .image2 span {
   text-transform: capitalize !important;
 }
+.image2 span{
+  font-size: 3rem;
+}
 .aboutus .content span,
 .aboutus .image span,
 .aboutus .description span {
@@ -269,9 +272,8 @@
   }
   .aboutus .image2 {
     height: 900px;
-    
   }
-  .aboutus .image2 img{
+  .aboutus .image2 img {
     width: 600px;
   }
   .aboutus .keyFeatures p,

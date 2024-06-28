@@ -3,7 +3,7 @@ import PageNav from "../components/PageNav";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 
-export default function Homepage() {
+export default function AboutUs() {
   return (
     <>
       <div className={styles.aboutus}>
