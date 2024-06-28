@@ -3,11 +3,9 @@ import PageNav from "../components/PageNav";
 import Footer from "../components/Footer";
 import Button from "../components/Button";
 import { SetProfilePic } from "../components/SetProfilePic";
-import { Pass } from "../components/Pass";
 import { NamesForm } from "../components/NamesForm";
-import { PersonalInfon, Password, Notification } from "./PersonalInfon";
+import { PersonalInfon,  Notification } from "./PersonalInfon";
 import { useProfile } from "../contexts/ProfileContext";
-import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 export default function Profile() {
@@ -15,16 +13,8 @@ export default function Profile() {
     fullName,
     email,
     profilePicture,
-    setFullName,
-    setEmail,
-    setProfilePicture,
     notificationMessage,
   } = useProfile();
-
-  const btnStyle = {
-    backgroundColor: "transparent",
-    color: "#442c8f",
-  };
 
   // Function to handle sharing profile link
   const handleShareProfile = () => {
@@ -64,7 +54,6 @@ export default function Profile() {
               </Button>
               <div className={styles.rectangle2}>
                 <PersonalInfon />
-                <Password />
                 <Notification />
               </div>
             </div>
@@ -73,28 +62,13 @@ export default function Profile() {
         <section className={styles.container}>
           <PersonalInfon />
           <div className={styles.rectangleComponent}>
-            <SetProfilePic
-              selectedImage={profilePicture}
-              setSelectedImage={setProfilePicture}
-            />
+            <SetProfilePic selectedImage={profilePicture} />
             <NamesForm
-              selectedImage={profilePicture}
-              mainImage={profilePicture}
-              setSelectedImage={setProfilePicture}
-              setMainImage={setProfilePicture}
-              setFullName={setFullName}
+              profilePicture={profilePicture}
               FullName={fullName}
+              email={email}
             />
           </div>
-        </section>
-        <section className={styles.container}>
-          <Password />
-          <Pass
-            email={email}
-            setEmail={setEmail}
-            oldPass={""}
-            setOldPass={() => {}}
-          />
         </section>
         <section className={styles.container}>
           <Notification />

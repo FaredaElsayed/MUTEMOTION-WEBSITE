@@ -1,11 +1,23 @@
+import { useProfile } from "../contexts/ProfileContext";
 import styles from "../pages/Profile.module.css";
 import Button from "./Button";
 import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
-export function Pass({ email, setEmail, oldPass, setOldPass }) {
+export function Pass({
+  email,
+  setEmail,
+  oldPass,
+  setOldPass,
+  fullName,
+  phone,
+  profilePicture,
+  
+}) {
   const [newPass, setNewPass] = useState("");
   const [confNewPass, setConfNewPass] = useState("");
   const [emailSaved, setEmailSaved] = useState(false);
+  const {updateProfileInfo}=useProfile()
 
   const handlePasswordSave = (e) => {
     if (oldPass.length < 8) {
@@ -30,15 +42,33 @@ export function Pass({ email, setEmail, oldPass, setOldPass }) {
     console.log("Email saved successfully!");
   };
 
-  const handleEmailPasswordSave = (e) => {
+  const handleEmailPasswordSave = async (e) => {
     e.preventDefault();
-    if (!email || !oldPass || !newPass || newPass !== confNewPass) {
-      setEmailSaved(true);
+    // Validate inputs
+    if (!email || !phone || !fullName) {
+      toast.error("Please fill in all required fields.");
       return;
     }
-    setEmailSaved(false);
-    handleEmailSave();
-    handlePasswordSave();
+
+    // Prepare updated data
+    const updatedData = {
+      email: email,
+      phoneNumber: phone,
+      fullname: fullName,
+      profileImgBase64: profilePicture, // Assuming profilePicture is base64 encoded
+    };
+
+    try {
+      const success = await updateProfileInfo(updatedData);
+      if (success) {
+        toast.success("Profile updated successfully.");
+      } else {
+        toast.error("Failed to update profile.");
+      }
+    } catch (error) {
+      console.error("Error updating profile:", error);
+      toast.error("Failed to update profile.");
+    }
   };
 
   return (

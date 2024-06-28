@@ -129,11 +129,11 @@
   flex-direction: column;
   gap: 0.5rem;
 }
-.profile .form input {
+.profile .form input,.form span {
   border: 1px solid #eeeeee;
   border-radius: 12px;
   padding: 1rem;
-  width: 100%;
+  width: 110%;
   font-weight: 700;
   font-size: 2rem;
   line-height: 2.5rem;
