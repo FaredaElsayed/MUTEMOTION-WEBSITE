@@ -49,9 +49,11 @@ export default function MyLearning() {
 
     fetchMyLearningCourses();
   }, [token]);
+
   const handleTabClick = (tab) => {
     setActiveTab(tab);
   };
+
   return (
     <>
       <div className={styles.mylearning}>
@@ -78,22 +80,36 @@ export default function MyLearning() {
             </li>
           </ul>
           <div className={styles.courses}>
-            {error && (
+            {activeTab === "completed" ? (
               <p
                 style={{
-                  color: "red",
+                 
                   textAlign: "center",
                   fontSize: "2.5rem",
                 }}
               >
-                You haven't purchased any course yet.
+                You haven't completed any course yet.
               </p>
+            ) : (
+              <>
+                {error && (
+                  <p
+                    style={{
+                      color: "red",
+                      textAlign: "center",
+                      fontSize: "2.5rem",
+                    }}
+                  >
+                    You haven't purchased any course yet.
+                  </p>
+                )}
+                {courses.map((course) => (
+                  <div key={course.courseId} className={styles.progressCont}>
+                    <CardInProgress {...course} />
+                  </div>
+                ))}
+              </>
             )}
-            {courses.map((course) => (
-              <div key={course.courseId} className={styles.progressCont}>
-                <CardInProgress {...course} />
-              </div>
-            ))}
           </div>
         </div>
       </div>
