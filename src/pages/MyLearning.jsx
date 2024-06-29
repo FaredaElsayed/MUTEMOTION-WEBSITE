@@ -5,17 +5,20 @@ import Footer from "../components/Footer";
 import CardInProgress from "../components/CardInProgress";
 import { useAuth } from "../contexts/Auth";
 import { useEffect, useState } from "react";
+import Spinner from "../components/Spinner"; // Assuming Spinner is a component
 
 export default function MyLearning() {
   const [courses, setCourses] = useState([]);
   const [error, setError] = useState(false);
   const [activeTab, setActiveTab] = useState("inprogress");
+  const [isLoading, setIsLoading] = useState(true);
   const { logout } = useAuth();
   const { token } = useAuth();
 
   useEffect(() => {
     async function fetchMyLearningCourses() {
       try {
+        setIsLoading(true);
         const response = await fetch(
           "https://mutemotion.onrender.com/api/mylearning",
           {
@@ -44,6 +47,8 @@ export default function MyLearning() {
         console.error("Error fetching my learning courses:", error);
         logout();
         setError(true);
+      } finally {
+        setIsLoading(false);
       }
     }
 
@@ -80,34 +85,42 @@ export default function MyLearning() {
             </li>
           </ul>
           <div className={styles.courses}>
-            {activeTab === "completed" ? (
-              <p
-                style={{
-                 
-                  textAlign: "center",
-                  fontSize: "2.5rem",
-                }}
-              >
-                You haven't completed any course yet.
-              </p>
+            {isLoading ? (
+              <Spinner /> // Display the spinner while loading
             ) : (
               <>
-                {error && (
+                {activeTab === "completed" ? (
                   <p
                     style={{
-                      color: "red",
                       textAlign: "center",
                       fontSize: "2.5rem",
                     }}
                   >
-                    You haven't purchased any course yet.
+                    You haven't completed any course yet.
                   </p>
+                ) : (
+                  <>
+                    {error && (
+                      <p
+                        style={{
+                          color: "red",
+                          textAlign: "center",
+                          fontSize: "2.5rem",
+                        }}
+                      >
+                        You haven't purchased any course yet.
+                      </p>
+                    )}
+                    {courses.map((course) => (
+                      <div
+                        key={course.courseId}
+                        className={styles.progressCont}
+                      >
+                        <CardInProgress {...course} />
+                      </div>
+                    ))}
+                  </>
                 )}
-                {courses.map((course) => (
-                  <div key={course.courseId} className={styles.progressCont}>
-                    <CardInProgress {...course} />
-                  </div>
-                ))}
               </>
             )}
           </div>

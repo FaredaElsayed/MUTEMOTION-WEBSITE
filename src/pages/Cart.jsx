@@ -8,11 +8,13 @@ import Payment from "../components/Payment";
 import CartCard from "../components/CartCard";
 import { useAuth } from "../contexts/Auth";
 import toast, { Toaster } from "react-hot-toast";
+import Spinner from "../components/Spinner"; //
 
 function Cart() {
   const [items, setItems] = useState([]);
   const [isPaying, setIsPaying] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const { token,logout } = useAuth();
 
   useEffect(() => {
@@ -38,7 +40,9 @@ function Cart() {
         console.log("Cart Items:", data);
       } catch (error) {
         console.error("There was an error fetching the cart items!", error);
-        logout()
+        logout();
+      } finally {
+        setIsLoading(false);
       }
     }
 
@@ -88,32 +92,41 @@ function Cart() {
         )}
 
         <main>
-          {items.length === 0 && <EmptyCart />}
-          {items.length > 0 && (
+          {isLoading ? (
+            <Spinner /> // Display the spinner while loading
+          ) : (
             <>
-              <h1>Checkout</h1>
-              <div>
-                <div className={styles.cartList}>
-                  {!isPaying &&
-                    items.map((item) => (
-                      <CartCard
-                        key={item._id}
-                        item={item}
-                        onTitleClick={handleTitleClick}
+              {items.length === 0 && <EmptyCart />}
+              {items.length > 0 && (
+                <>
+                  <h1>Checkout</h1>
+                  <div>
+                    <div className={styles.cartList}>
+                      {!isPaying &&
+                        items.map((item) => (
+                          <CartCard
+                            key={item._id}
+                            item={item}
+                            onTitleClick={handleTitleClick}
+                          />
+                        ))}
+                      {isPaying && (
+                        <Payment
+                          item={selectedItem}
+                          setIsPaying={setIsPaying}
+                          onPaymentSuccess={handlePaymentSuccess}
+                        />
+                      )}
+                    </div>
+                    {selectedItem && (
+                      <OrderSummery
+                        item={selectedItem}
+                        onClick={handlePaying}
                       />
-                    ))}
-                  {isPaying && (
-                    <Payment
-                      item={selectedItem}
-                      setIsPaying={setIsPaying}
-                      onPaymentSuccess={handlePaymentSuccess}
-                    />
-                  )}
-                </div>
-                {selectedItem && (
-                  <OrderSummery item={selectedItem} onClick={handlePaying} />
-                )}
-              </div>
+                    )}
+                  </div>
+                </>
+              )}
             </>
           )}
         </main>
