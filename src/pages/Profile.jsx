@@ -7,13 +7,13 @@ import { NamesForm } from "../components/NamesForm";
 import { PersonalInfon, Notification } from "./PersonalInfon";
 import { useProfile } from "../contexts/ProfileContext";
 import toast, { Toaster } from "react-hot-toast";
+import { useState } from "react";
+import { useAuth } from "../contexts/Auth";
 
 export default function Profile() {
-  const {
-    fullName,
-    profilePicture,
-    notificationMessage,
-  } = useProfile();
+  const { fullName, profilePicture, notificationMessage } = useProfile();
+  const { token, logout } = useAuth();
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
 
   // Function to handle sharing profile link
   const handleShareProfile = () => {
@@ -21,6 +21,59 @@ export default function Profile() {
       .writeText(window.location.href)
       .then(() => toast.success("Profile link copied to clipboard"))
       .catch((error) => console.error("Failed to copy profile link: ", error));
+  };
+  // Function to handle account deletion
+  const handleDeleteAccount = async () => {
+    try {
+      const response = await fetch(
+        "https://mutemotion.onrender.com/api/profile",
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to delete account");
+      }
+      toast.success("Account deleted successfully");
+      logout(); // Log the user out after deleting the account
+    } catch (error) {
+      console.error("Error deleting account:", error);
+      toast.error("Failed to delete account");
+    }
+  };
+  // Function to show the delete confirmation toast
+  const showDeleteConfirmation = () => {
+    toast(
+      (t) => (
+        <div style={{ textAlign: "center" }}>
+          <p>Are you sure you want to delete your account?</p>
+          <div
+            style={{ display: "flex", justifyContent: "center", gap: "1rem" }}
+          >
+            <Button
+              type="continue"
+              onClick={() => {
+                toast.dismiss(t.id);
+                handleDeleteAccount();
+              }}
+            >
+              OK
+            </Button>
+            <Button type="continue" onClick={() => toast.dismiss(t.id)}>
+              Cancel
+            </Button>
+          </div>
+        </div>
+      ),
+      {
+        duration: Infinity,
+      }
+    );
   };
   return (
     <>
@@ -84,7 +137,32 @@ export default function Profile() {
             </div>
           </div>
         </section>
+        <Button type="continue" onClick={showDeleteConfirmation}>
+          Delete account
+        </Button>
       </div>
+      {/* {showDeleteConfirm && (
+        <div
+          className={styles.confirmDialog}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            flexDirection: "column",
+            gap: "1rem",
+          }}
+        >
+          <p style={{ color: "red", textAlign: "center", fontSize: "2rem" }}>
+            Are you sure you want to delete your account?
+          </p>
+
+          <Button type="continue" onClick={handleDeleteAccount}>
+            OK
+          </Button>
+          <Button type="continue" onClick={() => setShowDeleteConfirm(false)}>
+            Cancel
+          </Button>
+        </div>
+      )} */}
       <Footer />
     </>
   );

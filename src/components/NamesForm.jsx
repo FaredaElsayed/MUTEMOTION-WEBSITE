@@ -33,9 +33,6 @@ export function NamesForm() {
     }
 
     const updatedData = {
-      fullName,
-      email,
-      profileImg,
       password: passwordEntered ? newPassword : password,
     };
 

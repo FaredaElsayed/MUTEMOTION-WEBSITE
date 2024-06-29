@@ -40,7 +40,7 @@ export function ProfileProvider({ children }) {
 
   // Function to update profile data
   const updateProfileInfo = async (updatedData) => {
-    const url = "https://mutemotion.onrender.com/api/profile";
+    const url = "https://mutemotion.onrender.com/api/profile/password";
     const options = {
       method: "PUT",
       headers: {
