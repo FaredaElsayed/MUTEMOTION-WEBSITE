@@ -46,7 +46,6 @@ export default function Courses() {
         <CustomSlider title="For Age +15" courses={aslAdults} />
         <CustomSlider title="For Kids" courses={forKids} />
       </main>
-      {/* <Course isPaying={isPaying} setIsPaying={setIsPaying}/> */}
       <Footer />
     </>
   );
