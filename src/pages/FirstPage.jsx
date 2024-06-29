@@ -16,7 +16,7 @@ export default function FirstPage() {
               suitable for kids and individuals aged 15 and older. Dive into a
               world of communication and inclusivity with our engaging lessons.
             </p>
-            <Link to="/login">
+            <Link to="/signup">
               <Button type="primary">Start Your Learning journey!</Button>
             </Link>
           </div>

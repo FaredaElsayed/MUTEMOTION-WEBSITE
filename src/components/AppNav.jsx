@@ -16,9 +16,9 @@ function AppNav() {
       </div>
       <ul>
         <li>
-          <NavLink to="signup" style={{ color: "#ffff" }}>
+          <NavLink to="login" style={{ color: "#ffff" }}>
             <Button type="learnmore" btnStyle={btnStyle}>
-              Sign Up
+              Login
             </Button>
           </NavLink>
         </li>
