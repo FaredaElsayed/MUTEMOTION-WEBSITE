@@ -6,6 +6,7 @@ import CustomSlider from "./CustomSlider";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { CourseContext } from "../contexts/CoursesApis";
+import Spinner from "../components/Spinner"
 
 export default function Homepage() {
   const { state } = useContext(CourseContext);
@@ -17,7 +18,8 @@ export default function Homepage() {
     error,
   } = state;
   const navigateTo = useNavigate();
-  if (loading) return <div>Loading...</div>;
+  if (loading) return  <Spinner />;
+;
   if (error) return <div>Error: {error}</div>;
   return (
     <>
