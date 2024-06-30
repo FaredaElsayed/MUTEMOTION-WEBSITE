@@ -39,19 +39,14 @@ export default function CourseHeader({
         }
 
         const data = await response.json();
-
-        console.log("Fetched My Learning Courses:", data);
-
-        // Check if the courseId is in the fetched courses
         const courseInLearning = data.find(
           (course) => course.courseId === courseId
         );
 
         if (courseInLearning) {
           setErrorMessage("You have already purchased this course");
-        } else {
-          setErrorMessage("");
         }
+        // No need to set an empty string here to preserve the error message
       } catch (error) {
         console.error("Error fetching my learning courses:", error);
         logout();
@@ -63,14 +58,13 @@ export default function CourseHeader({
   }, [token, courseId, logout]);
 
   useEffect(() => {
-    // Check if course exists in cart or has been purchased already
     const courseInCart = items.find((item) => item._id === courseId);
     if (courseInCart) {
       setErrorMessage("Course already exists in cart");
-    } else {
-      setErrorMessage("");
+    } else if (!errorMessage) {
+      setErrorMessage(""); // Reset to empty string if no specific error is set
     }
-  }, [items, courseId]);
+  }, [items, courseId, errorMessage]);
 
   const [btnStyle1, setBtnStyle1] = useState({
     fontSize: "2.5rem",
@@ -82,22 +76,16 @@ export default function CourseHeader({
 
   useEffect(() => {
     function updateBtnStyle() {
-      if (window.innerWidth >= 4000) {
-        setBtnStyle1((prevStyle) => ({
-          ...prevStyle,
-          fontSize: "5.8rem",
-          width: "500px",
-        }));
-      } else {
-        setBtnStyle1((prevStyle) => ({
-          ...prevStyle,
-          fontSize: "2.5rem",
-          width: "250px",
-        }));
-      }
+      const newSize = window.innerWidth >= 4000 ? "5.8rem" : "2.5rem";
+      const newWidth = window.innerWidth >= 4000 ? "500px" : "250px";
+      setBtnStyle1({
+        fontSize: newSize,
+        width: newWidth,
+        ...btnStyle1,
+      });
     }
 
-    updateBtnStyle(); // Initial call
+    updateBtnStyle();
     window.addEventListener("resize", updateBtnStyle);
 
     return () => {
@@ -118,6 +106,7 @@ export default function CourseHeader({
       });
     };
 
+    handleResize();
     window.addEventListener("resize", handleResize);
 
     return () => {
@@ -131,16 +120,14 @@ export default function CourseHeader({
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`, // Ensure token is defined
+          Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ courseId: courseId }), // Correctly set the body
+        body: JSON.stringify({ courseId: courseId }),
       });
+
       const data = await response.json();
 
-      console.log("Response Data:", data);
-
       if (response.ok) {
-        console.log("Course added to cart successfully!");
         toast.success("Successfully added to your cart!");
         setItems([...items, data]);
         return true;
@@ -153,7 +140,6 @@ export default function CourseHeader({
           toast.error("You have already purchased this course!");
         } else {
           console.error("Failed to add course to cart: ", data);
-          // Optionally set a general error message
           setErrorMessage("Failed to add course to cart. Please try again.");
         }
         return false;
@@ -166,11 +152,42 @@ export default function CourseHeader({
   }
 
   async function handlePaying() {
-    const success = await handleAddToCart();
-    if (success || errorMessage === "Course already exists in cart") {
+    const courseInCart = items.find((item) => item._id === courseId);
+    const courseInLearning =
+      errorMessage === "You have already purchased this course";
+
+    if (courseInCart) {
+      setErrorMessage("Course already exists in cart");
       navigateTo("/cart");
+    } else if (courseInLearning) {
+      setErrorMessage("You have already purchased this course");
+    } else {
+      const success = await handleAddToCart();
+      if (success) {
+        navigateTo("/cart");
+      }
     }
   }
+
+  const getButtonLabel = () => {
+    if (errorMessage === "You have already purchased this course") {
+      return "Bought";
+    } else if (errorMessage === "Course already exists in cart") {
+      return "Buy Now";
+    } else {
+      return "Buy Now";
+    }
+  };
+
+  const getOverviewButtonLabel = () => {
+    if (errorMessage === "You have already purchased this course") {
+      return "In My Learning";
+    } else if (errorMessage === "Course already exists in cart") {
+      return "In Cart";
+    } else {
+      return "Add To Cart";
+    }
+  };
 
   return (
     <>
@@ -201,22 +218,14 @@ export default function CourseHeader({
           />
           <div className={styles.btns}>
             <Button type="continue" btnStyle={btnStyle1} onClick={handlePaying}>
-              {errorMessage === "You have already purchased this course"
-                ? "Bought"
-                : errorMessage === "Course already exists in cart"
-                ? "Buy Now"
-                : "Buy Now"}
+              {getButtonLabel()}
             </Button>
             <Button
               type="overview"
               btnStyle={btnStyle1}
               onClick={handleAddToCart}
             >
-              {errorMessage === "You have already purchased this course"
-                ? "In My Learning"
-                : errorMessage === "Course already exists in cart"
-                ? "In Cart"
-                : "Add To Cart"}
+              {getOverviewButtonLabel()}
             </Button>
           </div>
         </div>
