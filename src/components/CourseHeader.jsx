@@ -130,6 +130,7 @@ export default function CourseHeader({
       if (response.ok) {
         toast.success("Successfully added to your cart!");
         setItems([...items, data]);
+        setErrorMessage("Course already exists in cart");
         return true;
       } else {
         if (data.message === "Course already exists in cart") {
