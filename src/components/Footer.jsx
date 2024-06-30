@@ -22,9 +22,7 @@ function Footer() {
           <li>
             <Link to="/aboutus">HELP</Link>
           </li>
-          <li>
-            <Link to="/aboutus">TERMS</Link>
-          </li>
+        
           <li>
             <Link to="/aboutus">ASK NOW</Link>
           </li>
@@ -36,12 +34,7 @@ function Footer() {
           <li>
             <Link to="/aboutus">POLICY</Link>
           </li>
-          <li>
-            <Link to="/aboutus">TERMS</Link>
-          </li>
-          <li>
-            <Link to="/aboutus">ASK NOW</Link>
-          </li>
+  
         </ul>
         <ul className={styles.list}>
           
