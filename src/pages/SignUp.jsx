@@ -6,15 +6,13 @@ import Button from "../components/Button";
 
 // Component for user sign-up
 function SignUp() {
-  // Initialize the navigation hook
   const navigateTo = useNavigate();
-  // Destructure the 'signup', 'error', and 'setError' functions from the 'useAuth' context
   const { signup, error, setError } = useAuth();
-  // Initialize state for password, confirm password, email, and full name
   const [password, setPass] = useState("");
   const [confPass, setconfPass] = useState("");
   const [email, setEmail] = useState("");
   const [fullName, setfullName] = useState("");
+  const [loading, setLoading] = useState(false);
   // Initialize state for button style
   const [btnStyle, setBtnStyle] = useState({
     fontWeight: "700",
@@ -90,7 +88,8 @@ function SignUp() {
     }
     // Call the 'signup' function with email, full name, and password
     if (email && password && fullName) {
-      await signup(email, fullName, password);
+      setLoading(true);
+      await signup(email, fullName, password).finally(() => setLoading(false));
     }
   };
 
@@ -164,7 +163,7 @@ function SignUp() {
             </div>
             <div className={styles.buttons}>
               <Button type="submit" btnStyle={btnStyle}>
-                Register
+                {loading ? "Loading..." : "Register"}
               </Button>
             </div>
             {error && <div className={styles.error}>{error}</div>}

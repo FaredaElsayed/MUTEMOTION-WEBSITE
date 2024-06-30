@@ -7,13 +7,11 @@ import { NamesForm } from "../components/NamesForm";
 import { PersonalInfon, Notification } from "./PersonalInfon";
 import { useProfile } from "../contexts/ProfileContext";
 import toast, { Toaster } from "react-hot-toast";
-import { useState } from "react";
 import { useAuth } from "../contexts/Auth";
 
 export default function Profile() {
   const { fullName, profilePicture, notificationMessage } = useProfile();
   const { token, logout } = useAuth();
-  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
 
   // Function to handle sharing profile link
   const handleShareProfile = () => {
@@ -50,7 +48,7 @@ export default function Profile() {
   const showDeleteConfirmation = () => {
     toast(
       (t) => (
-        <div style={{ textAlign: "center" }}>
+        <div style={{ textAlign: "center" ,background:"white"}}>
           <p>Are you sure you want to delete your account?</p>
           <div
             style={{ display: "flex", justifyContent: "center", gap: "1rem" }}
@@ -137,9 +135,11 @@ export default function Profile() {
             </div>
           </div>
         </section>
-        <Button type="continue" onClick={showDeleteConfirmation}>
-          Delete account
-        </Button>
+        <div style={{width:"30%",display:"flex",justifyContent:"center"}}>
+          <Button type="continue" onClick={showDeleteConfirmation}>
+            Delete account
+          </Button>
+        </div>
       </div>
 
       <Footer />

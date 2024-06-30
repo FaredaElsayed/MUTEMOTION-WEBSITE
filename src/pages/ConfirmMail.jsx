@@ -15,6 +15,7 @@ function ConfirmMail() {
   } = useAuth();
   const [code, setCode] = useState("");
   const navigateTo = useNavigate();
+  const [loading, setLoading] = useState(false);
   const [btnStyle, setBtnStyle] = useState({
     fontWeight: "700",
     borderColor: "#442C8F",
@@ -61,10 +62,9 @@ function ConfirmMail() {
     e.preventDefault();
     if (code && registeredEmail) {
       setError(null);
-      verifyCode(registeredEmail, code);
-      
+      setLoading(true);
+      verifyCode(registeredEmail, code).finally(() => setLoading(false));
     }
-    
   }
 
   useEffect(() => {
@@ -116,7 +116,7 @@ function ConfirmMail() {
                   btnStyle={btnStyle}
                   onClick={handleVerification}
                 >
-                  Confirm
+                  {loading ? "Loading..." : "Confirm"}
                 </Button>
               </Link>
             </div>

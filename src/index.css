@@ -138,6 +138,9 @@ progress::-webkit-progress-value {
   }
   .toast {
     font-size: 5rem;
+    width: auto;
+   
+    background-color: white;
   }
   .dropdown-menu li {
     cursor: pointer;

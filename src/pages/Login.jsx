@@ -7,6 +7,7 @@ import Button from "../components/Button";
 function Login() {
   const [password, setPass] = useState("");
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
   const { login, isAuthenticated, error, setError } = useAuth();
   const navigateTo = useNavigate();
   const [btnStyle, setBtnStyle] = useState({
@@ -48,7 +49,8 @@ function Login() {
       return;
     }
     if (email && password) {
-      login(email, password);
+      setLoading(true); // Set loading to true when login starts
+      login(email, password).finally(() => setLoading(false)); // Set loading to false when login ends
     }
   }
 
@@ -102,7 +104,6 @@ function Login() {
                 name="pass"
                 value={password}
                 onChange={(e) => setPass(e.target.value)}
-               
                 minLength={8}
                 required
               />
@@ -110,7 +111,7 @@ function Login() {
             {error && <div className={styles.error}>{error}</div>}
             <div className={styles.buttons}>
               <Button type="continue" btnStyle={btnStyle} onClick={handleLogin}>
-                Login
+                {loading ? "Loading..." : "Login"}
               </Button>
             </div>
             <div className={styles.iconsCont}>

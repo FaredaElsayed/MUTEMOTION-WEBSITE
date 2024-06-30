@@ -228,7 +228,7 @@ select:-webkit-autofill {
   }
   .profile .rectangleComponent {
     box-sizing: border-box;
-    width: 1500px;
+    width: 2000px;
   }
   .profile .form select,
   .profile .form option {
