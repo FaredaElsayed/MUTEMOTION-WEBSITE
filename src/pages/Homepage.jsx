@@ -3,13 +3,18 @@ import PageNav from "../components/PageNav";
 import Footer from "../components/Footer";
 import Button from "../components/Button";
 import CustomSlider from "./CustomSlider";
-import { Link, useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { useContext, useEffect } from "react";
 import { CourseContext } from "../contexts/CoursesApis";
-import Spinner from "../components/Spinner"
+import Spinner from "../components/Spinner";
+import { useAuth } from "../contexts/Auth";
+import { useCart } from "../contexts/CartContext";
 
 export default function Homepage() {
   const { state } = useContext(CourseContext);
+  const { token } = useAuth();
+  const { fetchCartItems } = useCart();
+
   const {
     recommendedCourses,
     beginnerCourses,
@@ -17,9 +22,13 @@ export default function Homepage() {
     loading,
     error,
   } = state;
+
+  useEffect(() => {
+    fetchCartItems();
+  }, []);
+
   const navigateTo = useNavigate();
-  if (loading) return  <Spinner />;
-;
+  if (loading) return <Spinner />;
   if (error) return <div>Error: {error}</div>;
   return (
     <>

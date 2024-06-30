@@ -9,45 +9,49 @@ import CartCard from "../components/CartCard";
 import { useAuth } from "../contexts/Auth";
 import toast, { Toaster } from "react-hot-toast";
 import Spinner from "../components/Spinner"; //
+import { useCart } from "../contexts/CartContext";
 
 function Cart() {
-  const [items, setItems] = useState([]);
+  const { items, isLoading, setItems, fetchCartItems } = useCart();
   const [isPaying, setIsPaying] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const { token,logout } = useAuth();
+  const { token } = useAuth();
 
   useEffect(() => {
-    async function fetchCartItems() {
-      try {
-        const response = await fetch(
-          "https://mutemotion.onrender.com/api/cart",
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-
-        const data = await response.json();
-        setItems(data);
-        console.log("Cart Items:", data);
-      } catch (error) {
-        console.error("There was an error fetching the cart items!", error);
-        logout();
-      } finally {
-        setIsLoading(false);
-      }
-    }
-
     fetchCartItems();
-  }, [token]); // Added token to dependency array
+  }, [token]);
+  // useEffect(() => {
+  //   async function fetchCartItems() {
+  //     try {
+  //       const response = await fetch(
+  //         "https://mutemotion.onrender.com/api/cart",
+  //         {
+  //           method: "GET",
+  //           headers: {
+  //             "Content-Type": "application/json",
+  //             Authorization: `Bearer ${token}`,
+  //           },
+  //         }
+  //       );
+
+  //       if (!response.ok) {
+  //         throw new Error("Network response was not ok");
+  //       }
+
+  //       const data = await response.json();
+  //       setItems(data);
+  //       console.log("Cart Items:", data);
+  //     } catch (error) {
+  //       console.error("There was an error fetching the cart items!", error);
+  //       logout();
+  //     } finally {
+  //       setIsLoading(false);
+  //     }
+  //   }
+
+  //   fetchCartItems();
+  // }, [token]); // Added token to dependency array
+
   const handlePaymentSuccess = () => {
     // Remove the purchased item from cart items
     const updatedItems = items.filter((item) => item._id !== selectedItem._id);
@@ -103,9 +107,9 @@ function Cart() {
                   <div>
                     <div className={styles.cartList}>
                       {!isPaying &&
-                        items.map((item) => (
+                        items.map((item,index) => (
                           <CartCard
-                            key={item._id}
+                            key={item?._id || index}
                             item={item}
                             onTitleClick={handleTitleClick}
                           />

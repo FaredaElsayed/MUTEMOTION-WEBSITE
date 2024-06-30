@@ -1,10 +1,11 @@
-import StarRating from "./StarRating";
-import styles from "./CourseHeader.module.css";
-import Button from "./Button";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect, useContext } from "react";
 import { useAuth } from "../contexts/Auth";
+import { useCart } from "../contexts/CartContext";
 import toast, { Toaster } from "react-hot-toast";
+import StarRating from "./StarRating";
+import Button from "./Button";
+import styles from "./CourseHeader.module.css";
 
 export default function CourseHeader({
   courseTitle,
@@ -16,7 +17,60 @@ export default function CourseHeader({
 }) {
   const navigateTo = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
-  const { token } = useAuth();
+  const { token, logout } = useAuth();
+  const { items, setItems } = useCart();
+
+  useEffect(() => {
+    async function fetchMyLearningCourses() {
+      try {
+        const response = await fetch(
+          "https://mutemotion.onrender.com/api/mylearning",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch my learning courses");
+        }
+
+        const data = await response.json();
+
+        console.log("Fetched My Learning Courses:", data);
+
+        // Check if the courseId is in the fetched courses
+        const courseInLearning = data.find(
+          (course) => course.courseId === courseId
+        );
+
+        if (courseInLearning) {
+          setErrorMessage("You have already purchased this course");
+        } else {
+          setErrorMessage("");
+        }
+      } catch (error) {
+        console.error("Error fetching my learning courses:", error);
+        logout();
+        setErrorMessage("Failed to fetch my learning courses");
+      }
+    }
+
+    fetchMyLearningCourses();
+  }, [token, courseId, logout]);
+
+  useEffect(() => {
+    // Check if course exists in cart or has been purchased already
+    const courseInCart = items.find((item) => item._id === courseId);
+    if (courseInCart) {
+      setErrorMessage("Course already exists in cart");
+    } else {
+      setErrorMessage("");
+    }
+  }, [items, courseId]);
 
   const [btnStyle1, setBtnStyle1] = useState({
     fontSize: "2.5rem",
@@ -50,6 +104,7 @@ export default function CourseHeader({
       window.removeEventListener("resize", updateBtnStyle);
     };
   }, []);
+
   const [windowSize, setWindowSize] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
@@ -80,18 +135,15 @@ export default function CourseHeader({
         },
         body: JSON.stringify({ courseId: courseId }), // Correctly set the body
       });
-
-      console.log("Response Status:", response.status);
-      console.log("Response Headers:", response.headers);
-
       const data = await response.json();
 
       console.log("Response Data:", data);
 
       if (response.ok) {
         console.log("Course added to cart successfully!");
-        setErrorMessage("");
+        setErrorMessage("Course already exists in cart");
         toast.success("Successfully added to your cart!");
+        setItems([...items, data]);
         return true;
       } else {
         if (data.message === "Course already exists in cart") {
@@ -116,7 +168,7 @@ export default function CourseHeader({
 
   async function handlePaying() {
     const success = await handleAddToCart();
-    if (success) {
+    if (success || errorMessage === "Course already exists in cart") {
       navigateTo("/cart");
     }
   }
@@ -150,18 +202,23 @@ export default function CourseHeader({
           />
           <div className={styles.btns}>
             <Button type="continue" btnStyle={btnStyle1} onClick={handlePaying}>
-              Buy Now
+              {errorMessage === "You have already purchased this course"
+                ? "Bought"
+                : errorMessage === "Course already exists in cart"
+                ? "Buy Now"
+                : "Buy Now"}
             </Button>
             <Button
               type="overview"
               btnStyle={btnStyle1}
               onClick={handleAddToCart}
             >
-              Add To Cart
+              {errorMessage === "You have already purchased this course"
+                ? "In My Learning"
+                : errorMessage === "Course already exists in cart"
+                ? "In Cart"
+                : "Add To Cart"}
             </Button>
-            {errorMessage && (
-              <p className={styles.errorMessage}>{errorMessage}</p>
-            )}
           </div>
         </div>
         <div className={styles.rect}>

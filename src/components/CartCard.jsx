@@ -74,7 +74,12 @@ export default function CartCard({ item ,onTitleClick}) {
 
   return (
     <div className={styles.cardContainer}>
-      <img src={item.poster} alt={`Image for ${item.title}`} />
+      <img
+        src={item.poster}
+        alt={`Image for ${item.title}`}
+        onClick={handleTitleClick}
+        style={{cursor:"pointer"}}
+      />
       <div className={styles.contentDesc}>
         <div className={styles.nameIcon}>
           <p onClick={handleTitleClick}>{item.title}</p>

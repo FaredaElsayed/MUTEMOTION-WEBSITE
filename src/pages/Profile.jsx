@@ -141,28 +141,7 @@ export default function Profile() {
           Delete account
         </Button>
       </div>
-      {/* {showDeleteConfirm && (
-        <div
-          className={styles.confirmDialog}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            flexDirection: "column",
-            gap: "1rem",
-          }}
-        >
-          <p style={{ color: "red", textAlign: "center", fontSize: "2rem" }}>
-            Are you sure you want to delete your account?
-          </p>
 
-          <Button type="continue" onClick={handleDeleteAccount}>
-            OK
-          </Button>
-          <Button type="continue" onClick={() => setShowDeleteConfirm(false)}>
-            Cancel
-          </Button>
-        </div>
-      )} */}
       <Footer />
     </>
   );

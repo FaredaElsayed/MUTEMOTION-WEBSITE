@@ -6,6 +6,7 @@ import styles from "./PageNav.module.css";
 import Logo from "./Logo";
 import Search from "./Search";
 import Dropdown from "./DropdownMenu";
+import { useCart } from "../contexts/CartContext";
 
 const MenuItems3 = [
   {
@@ -36,6 +37,8 @@ function PageNav() {
   const [dropdownVisible4, setDropdownVisible4] = useState(false);
   const navigateTo = useNavigate();
   const [svgSize, setSvgSize] = useState({ width: 31, height: 30 });
+  const { itemsNumber } = useCart();
+
   function handleLogout() {
     navigateTo("/");
     logout();
@@ -127,6 +130,7 @@ function PageNav() {
                 fill="#442C8F"
               />
             </svg>
+            <span>{itemsNumber}</span>
           </NavLink>
         </li>
         <li className={styles.navItem}>

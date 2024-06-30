@@ -93,7 +93,7 @@ export default function MyLearning() {
                   <p
                     style={{
                       textAlign: "center",
-                      fontSize: "2.5rem",
+                     
                     }}
                   >
                     You haven't completed any course yet.
@@ -103,9 +103,9 @@ export default function MyLearning() {
                     {error && (
                       <p
                         style={{
-                          color: "red",
+                          
                           textAlign: "center",
-                          fontSize: "2.5rem",
+                         
                         }}
                       >
                         You haven't purchased any course yet.
