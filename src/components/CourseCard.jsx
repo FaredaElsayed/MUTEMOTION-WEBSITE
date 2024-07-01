@@ -17,7 +17,7 @@ function CourseCard({
   const [error, setError] = useState(null);
   const [isFav, setIsFav] = useState(wishlisted);
   const [starSize, setStarSize] = useState(45);
-  const { token , logout} = useAuth();
+  const { token, logout } = useAuth();
   const navigateTo = useNavigate();
   const notify = () => toast("Here is your toast.");
   useEffect(() => {
@@ -67,7 +67,7 @@ function CourseCard({
       navigateTo(`/courses/${_id}`, { state: { course: data } });
     } catch (error) {
       console.error("Error fetching course details:", error);
-       logout();
+      logout();
     }
   };
 
@@ -103,7 +103,7 @@ function CourseCard({
     } catch (error) {
       console.error("Error adding to wishlist:", error.message);
       setError(error.message || "Failed to add to wishlist");
-       logout();
+      logout();
     }
   }
 

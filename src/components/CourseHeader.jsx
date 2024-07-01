@@ -148,6 +148,7 @@ export default function CourseHeader({
     } catch (error) {
       console.error("There was an error adding the course to the cart!", error);
       setErrorMessage("Failed to add course to cart. Please try again.");
+      logout()
       return false;
     }
   }
