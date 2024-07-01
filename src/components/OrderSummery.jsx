@@ -17,7 +17,7 @@ export default function OrderSummery({ item, onClick }) {
         <div className={styles.cardContent}>
           <header className={styles.header}>
             <span>{item.title} </span>
-            <span className={styles.price}> ${item.price}</span>
+            <span className={styles.price}> ${Math.round(item.price)}</span>
           </header>
           <div className={styles.name}>
             <span>{item.instructor}</span>
@@ -30,12 +30,11 @@ export default function OrderSummery({ item, onClick }) {
         <input type="text" placeholder="Gift or discount code" />
         <Button type="apply">Apply</Button>
       </div>
+      
+
       <hr />
-      <span>Subtotal: ${item.price}</span>
-      <span>Shipping: $2</span>
-      <hr />
-      <span>Total:{item.price + 2.24 + 2}</span>
-      <p>Including $2.24 in taxes</p>
+      <span>Total: {Math.round(item.price)}</span>
+
       <Button type="learnmore" onClick={onClick} btnStyle={btnStyle}>
         Checkout
       </Button>

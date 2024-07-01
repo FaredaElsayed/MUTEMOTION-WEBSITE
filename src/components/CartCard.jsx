@@ -108,7 +108,7 @@ export default function CartCard({ item ,onTitleClick}) {
           hoverEnabled={false}
           defaultRating={Number(item.review)}
         />
-        <span className={styles.price}>${item.price}</span>
+        <span className={styles.price}>${Math.round(item.price)}</span>
       </div>
     </div>
   );
