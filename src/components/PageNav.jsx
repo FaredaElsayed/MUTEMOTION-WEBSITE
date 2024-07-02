@@ -39,10 +39,10 @@ function PageNav() {
   const [svgSize, setSvgSize] = useState({ width: 31, height: 30 });
   const { itemsNumber } = useCart();
 
-  function handleLogout() {
-    navigateTo("/");
-    logout();
-  }
+  // function handleLogout() {
+  //   navigateTo("/");
+  //   logout();
+  // }
   useEffect(
     function () {
       if (!isAuthenticated) navigateTo("/", { replace: true });
@@ -65,18 +65,18 @@ function PageNav() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-  const MenuItems4 = [
-    {
-      title: "Profile",
-      path: "/profile",
-      cName: "dropdown-link",
-    },
-    {
-      title: "logout",
-      cName: "dropdown-link",
-      onClick: handleLogout,
-    },
-  ];
+  // const MenuItems4 = [
+  //   {
+  //     title: "Profile",
+  //     path: "/profile",
+  //     cName: "dropdown-link",
+  //   },
+  //   {
+  //     title: "logout",
+  //     cName: "dropdown-link",
+  //     onClick: handleLogout,
+  //   },
+  // ];
 
   const toggleDropdown3 = () => {
     setDropdownVisible3((prevDropdownVisible) => !prevDropdownVisible);
@@ -101,6 +101,9 @@ function PageNav() {
         </li>
         <li className={styles.navItem}>
           <NavLink to="/homepage">Home</NavLink>
+        </li>
+        <li className={styles.navItem}>
+          <NavLink to="/carsystem">Car System</NavLink>
         </li>
         <li className={styles.navItem}>
           <NavLink className="nav-links" to="/courses">
@@ -177,7 +180,7 @@ function PageNav() {
               dropdownVisible4 ? "visible profile-drop" : ""
             }`}
           >
-            <Dropdown MenuItems={MenuItems4} />
+            {/* <Dropdown MenuItems={MenuItems4} /> */}
           </div>
         </li>
       </ul>

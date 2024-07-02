@@ -8,10 +8,12 @@ import { PersonalInfon, Notification } from "./PersonalInfon";
 import { useProfile } from "../contexts/ProfileContext";
 import toast, { Toaster } from "react-hot-toast";
 import { useAuth } from "../contexts/Auth";
+import { useNavigate } from "react-router-dom";
 
 export default function Profile() {
   const { fullName, profilePicture, notificationMessage } = useProfile();
   const { token, logout } = useAuth();
+  const navigateTo = useNavigate();
 
   // Function to handle sharing profile link
   const handleShareProfile = () => {
@@ -44,11 +46,16 @@ export default function Profile() {
       toast.error("Failed to delete account");
     }
   };
+
+  function handleLogout() {
+    navigateTo("/");
+    logout();
+  }
   // Function to show the delete confirmation toast
   const showDeleteConfirmation = () => {
     toast(
       (t) => (
-        <div style={{ textAlign: "center" ,background:"white"}}>
+        <div style={{ textAlign: "center", background: "white" }}>
           <p>Are you sure you want to delete your account?</p>
           <div
             style={{ display: "flex", justifyContent: "center", gap: "1rem" }}
@@ -135,9 +142,14 @@ export default function Profile() {
             </div>
           </div>
         </section>
-        <div style={{width:"30%",display:"flex",justifyContent:"center"}}>
+        <div
+          style={{ width: "30%", display: "flex", justifyContent: "center",gap:"2rem" }}
+        >
           <Button type="continue" onClick={showDeleteConfirmation}>
             Delete account
+          </Button>
+          <Button type="continue" onClick={handleLogout}>
+            Logout
           </Button>
         </div>
       </div>

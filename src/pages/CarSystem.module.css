@@ -1,0 +1,66 @@
+.carInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  /* justify-content: center; */
+  align-items: center;
+  margin: 2.5rem 0px;
+  background-size: cover;
+  background-position: center;
+  padding: 2.5rem 0rem;
+  color: #442c8f;
+  letter-spacing: -0.022em;
+  text-transform: capitalize;
+  font-family: "Merriweather";
+  font-style: normal;
+}
+
+.carInfo .videoContainer {
+  position: relative;
+  margin-top: 7rem;
+  width: 100%;
+  max-width: 800px; 
+  overflow: hidden;
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+.carInfo .content {
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+}
+
+.carInfo .title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.carInfo .description {
+  text-align: left;
+  margin-top: 4rem;
+  font-weight: 600;
+  /* font-size: 1.5rem; */
+}
+
+.carInfo .description h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.carInfo .videoPlayer {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.carInfo .controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.controls button{
+text-transform: capitalize;
+}
+.controls button:hover {
+    background-color: #442c8f;
+    color:#ffff
+}

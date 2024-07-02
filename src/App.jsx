@@ -10,6 +10,7 @@ import ProtectedRoute from "./pages/ProtectedRoute";
 const Login = lazy(() => import("./pages/Login"));
 const SignUp = lazy(() => import("./pages/SignUp"));
 const FirstPage = lazy(() => import("./pages/FirstPage"));
+const CarSystem = lazy(() => import("./pages/CarSystem"));
 const Home = lazy(() => import("./pages/Homepage"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
 const Likes = lazy(() => import("./pages/Likes"));
@@ -37,6 +38,7 @@ function App() {
                     path="/"
                     element={loggedIn ? <Home /> : <FirstPage />}
                   />
+                  <Route path="carsystem" element={<CarSystem />} />
                   <Route path="login" element={<Login />} />
                   <Route path="signup" element={<SignUp />} />
                   <Route path="confirm" element={<Confirm />} />
