@@ -29,7 +29,7 @@ function ConfirmMail() {
   });
 
   // State for the timer
-  const [timer, setTimer] = useState(10); // 180 seconds = 3 minutes
+  const [timer, setTimer] = useState(180); // 180 seconds = 3 minutes
   const [isTimerRunning, setIsTimerRunning] = useState(true);
 
   useEffect(() => {
@@ -74,7 +74,7 @@ function ConfirmMail() {
       await askForAnotherCode(registeredEmail);
       toast.success("New verification code sent successfully"); // Clear any previous error
       setIsTimerRunning(true); // Start the timer
-      setTimer(180); // Reset timer to 180 seconds (3 minutes)
+      setTimer(300); // Reset timer to 180 seconds (3 minutes)
     } catch (error) {
       setError(error.message); // Set the error message if the request fails
     }
