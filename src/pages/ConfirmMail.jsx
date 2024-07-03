@@ -86,8 +86,9 @@ function ConfirmMail() {
       setError(null);
       setLoading(true);
       verifyCode(registeredEmail, code).finally(() => setLoading(false));
+    } else if (!code) {
+      toast.error("please enter the code!");
     }
-    toast.error("please enter the code!")
   }
 
   useEffect(() => {
