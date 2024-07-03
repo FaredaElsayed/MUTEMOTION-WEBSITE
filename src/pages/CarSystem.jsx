@@ -38,6 +38,10 @@ export default function CarSystem() {
           {/* <h1 className={styles.title}>
             Learn more about MuteMotion Car System
           </h1> */}
+          <hr/>
+          <hr/>
+          <br/>
+          <br/>
           <div className={styles.videoContainer}>
             <video ref={videoRef} className={styles.videoPlayer}>
               <source src="./Steering wheel demo.mp4" type="video/mp4" />

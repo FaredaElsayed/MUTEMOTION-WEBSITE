@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/Auth";
 import styles from "./Login.module.css";
 import Button from "../components/Button";
+import toast, { Toaster } from "react-hot-toast";
+
 
 // Component for user sign-up
 function SignUp() {
@@ -55,7 +57,7 @@ function SignUp() {
     e.preventDefault();
     // Validate required fields
     if (!email || !password || !confPass) {
-      setError("Please enter all required fields");
+      toast.error("Please enter all required fields");
       return;
     }
     // Check for whitespace-only strings
@@ -64,26 +66,26 @@ function SignUp() {
       fullName.trim() === "" ||
       password.trim() === ""
     ) {
-      setError("Please enter a valid email address, full name, and password");
+      toast.error("Please enter a valid email address, full name, and password");
       return;
     }
     // Validate email
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setError("Please enter a valid email address");
+      toast.error("Please enter a valid email address");
       return;
     }
     if (!/^[a-zA-Z\s]+$/.test(fullName)) {
-      setError("Please enter a valid full name");
+      toast.error("Please enter a valid full name");
       return;
     }
     // Validate password length
     if (password.trim().length < 8 || confPass.trim().length < 8) {
-      setError("Password must be at least 8 characters long");
+      toast.error("Password must be at least 8 characters long");
       return;
     }
     // Validate password match
     if (password !== confPass) {
-      setError("Passwords do not match");
+      toast.error("Passwords do not match");
       return;
     }
     // Call the 'signup' function with email, full name, and password
@@ -96,6 +98,19 @@ function SignUp() {
   return (
     <>
       <div className={styles.login}>
+        <div>
+          <Toaster
+            toastOptions={{
+              className: "toast",
+              success: {
+                iconTheme: {
+                  primary: "#442c8f",
+                  secondary: "white",
+                },
+              },
+            }}
+          />
+        </div>
         <Link to="/">
           <img src="./logo.png" alt="MuteMotion Logo" className={styles.logo} />
         </Link>

@@ -3,6 +3,8 @@ import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../contexts/Auth";
 import styles from "./Login.module.css";
 import Button from "../components/Button";
+import toast, { Toaster } from "react-hot-toast";
+
 
 function Login() {
   const [password, setPass] = useState("");
@@ -45,7 +47,7 @@ function Login() {
   function handleLogin(e) {
     e.preventDefault();
     if (!email || !password) {
-      setError("Please enter all required fields");
+      toast.error("Please enter all required fields");
       return;
     }
     if (email && password) {
@@ -64,6 +66,19 @@ function Login() {
   return (
     <>
       <div className={styles.login}>
+        <div>
+          <Toaster
+            toastOptions={{
+              className: "toast",
+              success: {
+                iconTheme: {
+                  primary: "#442c8f",
+                  secondary: "white",
+                },
+              },
+            }}
+          />
+        </div>
         <Link to="/">
           <img src="./logo.png" alt="MuteMotion Logo" className={styles.logo} />
         </Link>
@@ -108,7 +123,7 @@ function Login() {
                 required
               />
             </div>
-            {error && <div className={styles.error}>{error}</div>}
+            {/* {error && <div className={styles.error}>{error}</div>} */}
             <div className={styles.buttons}>
               <Button type="continue" btnStyle={btnStyle} onClick={handleLogin}>
                 {loading ? "Loading..." : "Login"}

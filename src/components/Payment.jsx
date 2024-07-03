@@ -55,7 +55,7 @@ export default function Payment({ item, onPaymentSuccess, setIsPaying }) {
       console.log("Course added to myLearning successfully");
     } catch (error) {
       console.error("Error adding course to myLearning:", error.message);
-      logout();
+     
     }
   };
   useEffect(() => {
@@ -106,8 +106,8 @@ export default function Payment({ item, onPaymentSuccess, setIsPaying }) {
           </div>
         </div>
         <div className={styles.btns}>
-          <ButtonBack setIsPaying={setIsPaying} />
-          <Button type="learnmore" btnStyle={btnStyle} disabled={isPurchased}>
+          <ButtonBack setIsPaying={setIsPaying} dest="/cart"/>
+          <Button type="learnmore" btnStyle={btnStyle} >
             Pay
           </Button>
         </div>

@@ -18,7 +18,7 @@ export default function CourseHeader({
   const navigateTo = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
   const { token, logout } = useAuth();
-  const { items, setItems } = useCart();
+  const { items, setItems, fetchCartItems } = useCart();
 
   useEffect(() => {
     async function fetchMyLearningCourses() {
@@ -113,7 +113,9 @@ export default function CourseHeader({
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
+  useEffect(() => {
+    console.log(items);
+  }, [items]);
   async function handleAddToCart() {
     try {
       const response = await fetch("https://mutemotion.onrender.com/api/cart", {
@@ -126,11 +128,15 @@ export default function CourseHeader({
       });
 
       const data = await response.json();
-
+      console.log(data);
       if (response.ok) {
         toast.success("Successfully added to your cart!");
         setItems([...items, data]);
+        console.log(items);
         setErrorMessage("Course already exists in cart");
+        setTimeout(() => {
+          window.location.reload();
+        }, 500);
         return true;
       } else {
         if (data.message === "Course already exists in cart") {
@@ -148,16 +154,18 @@ export default function CourseHeader({
     } catch (error) {
       console.error("There was an error adding the course to the cart!", error);
       setErrorMessage("Failed to add course to cart. Please try again.");
-      logout()
+      logout();
       return false;
     }
   }
 
   async function handlePaying() {
+    console.log(items);
     const courseInCart = items.find((item) => item._id === courseId);
     const courseInLearning =
       errorMessage === "You have already purchased this course";
-
+    console.log(errorMessage);
+    console.log(courseInCart);
     if (courseInCart) {
       setErrorMessage("Course already exists in cart");
       navigateTo("/cart");
@@ -166,7 +174,7 @@ export default function CourseHeader({
     } else {
       const success = await handleAddToCart();
       if (success) {
-        navigateTo("/cart");
+        setTimeout(() => navigateTo("/cart"), 0);
       }
     }
   }

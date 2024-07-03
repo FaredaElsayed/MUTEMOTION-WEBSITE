@@ -5,6 +5,8 @@ import {
   useState,
   useEffect,
 } from "react";
+import toast, { Toaster } from "react-hot-toast";
+
 
 // Initial state of the authentication context
 const initialState = {
@@ -95,8 +97,8 @@ function AuthProvider({ children }) {
           data.error === "Email already registered"
         ) {
           // Display message "Email is already registered"
-          setError(
-            "This Email is already registered, please register with another email"
+          toast.error(
+            "This Email is already registered."
           );
         }
         //email not registered , redirect to confirm mail page
@@ -146,7 +148,7 @@ function AuthProvider({ children }) {
           data.error === "Invalid verification code"
         ) {
           // Display message "User is not activated" for three seconds
-          setError("Verification code is not correct");
+          toast.error("Verification code is not correct");
         } else {
           throw new Error(data.message);
         }
@@ -207,16 +209,16 @@ function AuthProvider({ children }) {
       } else {
         if (response.status === 401 && data.error === "User is not activated") {
           // Display message "User is not activated"
-          setError("User is not activated");
+          toast.error("User is not activated");
         } else if (
           response.status === 401 &&
           data.error === "Invalid credentials"
         ) {
           // Display message "Invalid credentials"
-          setError("Invalid credentials");
+          toast.error("Invalid credentials");
         } else if (response.status === 401 && data.error === "Wrong password") {
           // Display message "Wrong password"
-          setError("Email oR password is not correct.");
+          toast.error("Email oR password is not correct.");
         } else {
           throw new Error(data.message);
         }

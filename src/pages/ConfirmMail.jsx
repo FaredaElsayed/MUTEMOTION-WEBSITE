@@ -1,9 +1,12 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/Auth";
 import { useNavigate } from "react-router-dom";
 import styles from "./Login.module.css";
 import Button from "../components/Button";
+import toast, { Toaster } from "react-hot-toast";
+import ButtonBack from "../components/ButtonBack";
+
 function ConfirmMail() {
   const {
     error,
@@ -24,6 +27,10 @@ function ConfirmMail() {
     fontSize: "2.5rem",
     textTransform: "capitalize",
   });
+
+  // State for the timer
+  const [timer, setTimer] = useState(10); // 180 seconds = 3 minutes
+  const [isTimerRunning, setIsTimerRunning] = useState(true);
 
   useEffect(() => {
     function updateBtnStyle() {
@@ -48,11 +55,26 @@ function ConfirmMail() {
     };
   }, []);
 
+  // Timer effect to start the countdown
+  useEffect(() => {
+    if (isTimerRunning && timer > 0) {
+      const countdown = setInterval(() => {
+        setTimer((prevTimer) => prevTimer - 1);
+      }, 1000);
+
+      return () => clearInterval(countdown);
+    } else if (timer === 0) {
+      setIsTimerRunning(false);
+    }
+  }, [isTimerRunning, timer]);
+
   async function handleResendCode(e) {
     e.preventDefault();
     try {
       await askForAnotherCode(registeredEmail);
-      setError("New verification code sent successfully"); // Clear any previous error
+      toast.success("New verification code sent successfully"); // Clear any previous error
+      setIsTimerRunning(true); // Start the timer
+      setTimer(180); // Reset timer to 180 seconds (3 minutes)
     } catch (error) {
       setError(error.message); // Set the error message if the request fails
     }
@@ -65,6 +87,7 @@ function ConfirmMail() {
       setLoading(true);
       verifyCode(registeredEmail, code).finally(() => setLoading(false));
     }
+    toast.error("please enter the code!")
   }
 
   useEffect(() => {
@@ -73,15 +96,35 @@ function ConfirmMail() {
     }
   }, [isAuthenticated, registeredEmail, navigateTo]);
 
+  // Format the timer display
+  const formatTime = (timeInSeconds) => {
+    const minutes = Math.floor(timeInSeconds / 60);
+    const seconds = timeInSeconds % 60;
+    return `${minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+  };
+
   return (
     <>
       <div className={styles.login}>
+        <div>
+          <Toaster
+            toastOptions={{
+              className: "toast",
+              success: {
+                iconTheme: {
+                  primary: "#442c8f",
+                  secondary: "white",
+                },
+              },
+            }}
+          />
+        </div>
         <Link to="/">
           <img src="./logo.png" alt="MuteMotion Logo" className={styles.logo} />
         </Link>
         <main className={styles.mainContainer}>
           <div className={styles.imgCont}>
-            <p style={{ left: "11%" }}>You almost there!</p>
+            <p style={{ left: "11%" }}>You're almost there!</p>
             <div
               className={styles.img}
               style={{ backgroundImage: "url(./sign.png)" }}
@@ -89,7 +132,7 @@ function ConfirmMail() {
           </div>
           <form onSubmit={handleVerification}>
             <div>
-              <p>Email verification</p>
+              <p>Email Verification</p>
               <span>
                 Enter the code sent to your email to access your account.
               </span>
@@ -108,25 +151,28 @@ function ConfirmMail() {
                 required
               />
             </div>
-            {error && <div className={styles.error}>{error}</div>}
             <div className={styles.buttons}>
-              <Link>
-                <Button
-                  type="continue"
-                  btnStyle={btnStyle}
-                  onClick={handleVerification}
-                >
-                  {loading ? "Loading..." : "Confirm"}
-                </Button>
-              </Link>
+              <Button
+                type="continue"
+                btnStyle={btnStyle}
+                onClick={handleVerification}
+              >
+                {loading ? "Loading..." : "Confirm"}
+              </Button>
+              <ButtonBack dest="/signup" />
             </div>
             <div className={styles.iconsCont}>
               <div className={styles.noAcc}>
                 <span>
-                  <Link to="#" onClick={handleResendCode}>
-                    Resend Code?
-                  </Link>
-                  .
+                  {isTimerRunning ? (
+                    <span style={{ cursor: "not-allowed", color: "#999" }}>
+                      Resend Code? (Next code in {formatTime(timer)})
+                    </span>
+                  ) : (
+                    <Link to="#" onClick={handleResendCode}>
+                      Resend Code?
+                    </Link>
+                  )}
                 </span>
               </div>
             </div>
