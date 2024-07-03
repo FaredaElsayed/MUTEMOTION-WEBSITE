@@ -160,7 +160,7 @@ function ConfirmMail() {
               >
                 {loading ? "Loading..." : "Confirm"}
               </Button>
-              <ButtonBack dest="/signup" />
+              {/* <ButtonBack dest="/signup" /> */}
             </div>
             <div className={styles.iconsCont}>
               <div className={styles.noAcc}>
