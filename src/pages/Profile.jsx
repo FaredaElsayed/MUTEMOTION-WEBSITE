@@ -9,10 +9,14 @@ import { useProfile } from "../contexts/ProfileContext";
 import toast, { Toaster } from "react-hot-toast";
 import { useAuth } from "../contexts/Auth";
 import { useNavigate } from "react-router-dom";
+import { FaBars, FaTimes } from "react-icons/fa";
+import { useState } from "react";
 
 export default function Profile() {
   const { fullName, profilePicture, notificationMessage } = useProfile();
   const { token, logout } = useAuth();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const navigateTo = useNavigate();
 
   // Function to handle sharing profile link
@@ -83,7 +87,10 @@ export default function Profile() {
   return (
     <>
       <div className={styles.profile}>
-        <PageNav />
+        <div className="menuIcon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          {isMenuOpen ? <FaTimes /> : <FaBars />}
+        </div>
+        <PageNav isMenuOpen={isMenuOpen} />
         <main>
           <div>
             <Toaster
@@ -143,7 +150,13 @@ export default function Profile() {
           </div>
         </section>
         <div
-          style={{ width: "30%", display: "flex", justifyContent: "center",gap:"2rem" }}
+          style={{
+            width: "30%",
+            display: "flex",
+            justifyContent: "center",
+            gap: "2rem",
+          }}
+          className={styles.buttons}
         >
           <Button type="continue" onClick={showDeleteConfirmation}>
             Delete account

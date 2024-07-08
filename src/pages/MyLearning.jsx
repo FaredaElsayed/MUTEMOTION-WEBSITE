@@ -15,8 +15,7 @@ export default function MyLearning() {
   const [isLoading, setIsLoading] = useState(true);
   const { logout } = useAuth();
   const { token } = useAuth();
-      const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     async function fetchMyLearningCourses() {
@@ -65,14 +64,11 @@ export default function MyLearning() {
   return (
     <>
       <div className={styles.mylearning}>
-        <div
-          className="menuIcon"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
+        <div className="menuIcon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
           {isMenuOpen ? <FaTimes /> : <FaBars />}
         </div>
         <PageNav isMenuOpen={isMenuOpen} />
-       
+
         <div className={styles.container}>
           <h1>My learning</h1>
 
