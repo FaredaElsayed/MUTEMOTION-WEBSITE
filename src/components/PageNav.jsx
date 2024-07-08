@@ -31,7 +31,7 @@ const MenuItems3 = [
   },
 ];
 
-function PageNav() {
+function PageNav({ isMenuOpen }) {
   const { logout, isAuthenticated } = useAuth();
   const [dropdownVisible3, setDropdownVisible3] = useState(false);
   const [dropdownVisible4, setDropdownVisible4] = useState(false);
@@ -88,11 +88,11 @@ function PageNav() {
   };
 
   return (
-    <nav className={styles.nav}>
+    <nav className={`${styles.nav} ${!isMenuOpen ? styles.hide : ""}`}>
       <div className={styles.logoContainer}>
         <Logo path="/homepage" />
       </div>
-      <ul>
+      <ul > 
         <li className={styles.navItem} onClick={toggleDropdown3}>
           <Search />
           <div className={`dropdown-menu ${dropdownVisible3 ? "visible" : ""}`}>

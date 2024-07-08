@@ -83,3 +83,59 @@
     left: -6rem;
   }
 }
+.menuIcon {
+  display: none; /* Hide menu icon by default */
+}
+
+@media (max-width: 600px) {
+  .menuIcon {
+    display: block; /* Show menu icon on smaller screens */
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+    cursor: pointer;
+    font-size: 2rem;
+    color: #442c8f;
+  }
+  .coursesHeader {
+    flex-direction: column;
+    gap: 0rem;
+    width: 100%;
+    margin-bottom: 3rem;
+    height: fit-content;
+  }
+
+  .rect1 {
+    width: 100%;
+    height: auto; /* Adjusted to auto to allow content to dictate height */
+    margin-right: 0; /* Reset margin for smaller screens */
+    right: 0; /* Reset positioning for smaller screens */
+  }
+  .courses {
+    padding: 2.5rem 2.5rem;
+  }
+  .content p {
+    padding: 2rem;
+    font-size: 3rem; /* Adjust font size for smaller screens */
+    line-height: 5rem; /* Adjust line height for smaller screens */
+    text-align: center; /* Center align text on smaller screens */
+  }
+
+  .rect {
+    width: 120%;
+    height: fit-content; /* Adjusted to auto to allow content to dictate height */
+    margin-bottom: 5rem;
+    left: 0; /* Reset positioning for smaller screens */
+  }
+
+  .rect img {
+    width: 100%; /* Ensure image fills its container */
+    height: auto; /* Adjusted to auto to maintain aspect ratio */
+
+    margin-top: -3rem; /* Reset margin for smaller screens */
+    position: relative;
+    left: 0;
+    right: 2rem;
+  }
+}

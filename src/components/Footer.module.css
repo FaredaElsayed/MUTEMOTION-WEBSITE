@@ -9,6 +9,7 @@
   font-style: normal;
   position:static;
   bottom: 0px;
+  /* border: 1px red solid; */
 }
 .footerContent {
   display: flex;
@@ -90,6 +91,48 @@
   text-decoration: underline;
   color: #ffff;
 }
+@media (max-width: 768px) {
+  .footer{
+    height: fit-content;
+    width: 100%;
+  }
+  .footerContent {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+    justify-content: center;
+  }
+
+  .footer .list {
+    gap: 1.2rem;
+    font-size: 1.6rem;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .footer .list a:link,
+  .footer .list a:visited {
+    font-size: 1.6rem;
+  }
+
+  .footer .contactUs {
+    font-size: 1.8rem;
+    width: auto;
+  }
+
+  .footer .developers {
+    font-size: 1.4rem;
+    text-align: center;
+    margin-top: 0rem;
+    margin-bottom: 1rem;
+    margin-left: 0px;
+  }
+  .footer .developers{
+    align-items: center;
+    width: 100%;
+  }
+}
+
 
 @media (min-width: 4000px) {
   .footer{

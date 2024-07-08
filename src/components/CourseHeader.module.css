@@ -126,3 +126,59 @@
     left: -10rem;
   }
 }
+@media (max-width: 600px) {
+  .courses {
+    padding: 1.5rem 1.5rem;
+    margin: 1.5rem;
+  }
+
+  .h2 {
+    font-size: 2rem;
+    margin-left: 1rem;
+    text-align: center;
+  }
+
+  .coursesHeader {
+    flex-direction: column;
+    height: auto;
+    margin-right: 0;
+    margin-bottom: 2rem;
+    gap:4rem
+  }
+
+  .coursesHeader .rect1,
+  .coursesHeader .rect {
+    width: 100%;
+    height: auto;
+    margin: 1rem 0;
+    left: 0;
+    top: 0;
+  }
+
+  .coursesHeader .content {
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .coursesHeader .content h1 {
+    font-size: 2.5rem;
+  }
+
+  .coursesHeader .content p {
+    margin-top: 5rem !important;
+    font-size: 1.5rem;
+    width: 100%;
+    line-height: 1.8rem;
+  }
+
+  .rect img {
+    width: 100%;
+    max-height: none;
+    left: 0;
+  }
+
+  .coursesHeader .btns {
+    width: 100%;
+    gap: 0.5rem;
+  }
+}

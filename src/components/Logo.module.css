@@ -7,3 +7,8 @@
     height: 12rem;
   }
 }
+@media (max-width: 600px) {
+  .logo {
+    height: 4rem; /* Adjust height for mobile screens */
+  }
+}

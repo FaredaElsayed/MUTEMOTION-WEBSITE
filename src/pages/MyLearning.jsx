@@ -6,6 +6,7 @@ import CardInProgress from "../components/CardInProgress";
 import { useAuth } from "../contexts/Auth";
 import { useEffect, useState } from "react";
 import Spinner from "../components/Spinner"; // Assuming Spinner is a component
+import { FaBars, FaTimes } from "react-icons/fa";
 
 export default function MyLearning() {
   const [courses, setCourses] = useState([]);
@@ -14,6 +15,8 @@ export default function MyLearning() {
   const [isLoading, setIsLoading] = useState(true);
   const { logout } = useAuth();
   const { token } = useAuth();
+      const [isMenuOpen, setIsMenuOpen] = useState(false);
+
 
   useEffect(() => {
     async function fetchMyLearningCourses() {
@@ -62,7 +65,14 @@ export default function MyLearning() {
   return (
     <>
       <div className={styles.mylearning}>
-        <PageNav />
+        <div
+          className="menuIcon"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {isMenuOpen ? <FaTimes /> : <FaBars />}
+        </div>
+        <PageNav isMenuOpen={isMenuOpen} />
+       
         <div className={styles.container}>
           <h1>My learning</h1>
 
@@ -93,7 +103,6 @@ export default function MyLearning() {
                   <p
                     style={{
                       textAlign: "center",
-                     
                     }}
                   >
                     You haven't completed any course yet.
@@ -103,9 +112,7 @@ export default function MyLearning() {
                     {error && (
                       <p
                         style={{
-                          
                           textAlign: "center",
-                         
                         }}
                       >
                         You haven't purchased any course yet.

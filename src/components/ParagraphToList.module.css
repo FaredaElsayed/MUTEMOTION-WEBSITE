@@ -81,3 +81,34 @@
     line-height: 6.3rem;
   }
 }
+@media (max-width: 600px) {
+  .paragraphToList {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .paragraphToList .content {
+    width: 100%;
+  }
+
+  .paragraphToList .rect {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    padding: 1rem;
+  }
+
+  .paragraphToList .content h1 {
+    font-size: 1.8rem;
+  }
+
+  .paragraphToList .content .ul,
+  .paragraphToList .content p {
+    font-size: 1.5rem;
+  }
+
+  .paragraphToList .rect ul li {
+    font-size: 1.4rem;
+  }
+}

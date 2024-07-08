@@ -48,7 +48,7 @@
   margin-top: -2rem;
 }
 .container img {
-  width: 354px;
+  max-width: 354px;
   height: 237px;
   border-radius: 12px;
 }
@@ -88,10 +88,52 @@
   .container img {
     width: 554px;
     height: 437px;
-    
   }
-  .container .icon{
+  .container .icon {
     width: 100px;
     height: 100px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+    margin: 1rem 0;
+  }
+
+  .container .withIcon {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    text-align: left;
+  }
+
+  .container .content {
+    align-items: flex-start;
+    text-align: left;
+    width: 90%;
+    margin: 1rem 0;
+  }
+
+  .container .imgContainer {
+    width: 100%;
+    height: auto;
+    margin-top: 0;
+    margin-left: 0;
+    padding-left: 1rem;
+  }
+  .imgContainer img {
+    margin: 0px;
+  }
+  .container .buttons {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 1rem 0;
+    gap: 1rem;
   }
 }

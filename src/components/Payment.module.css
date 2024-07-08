@@ -158,3 +158,49 @@
     outline: 5px solid #2fbd6a !important;
   }
 }
+@media (max-width: 600px) {
+  .payment {
+    padding: 2rem;
+    width: 90%;
+  }
+
+  .payment span {
+    font-size: 1.6rem;
+    line-height: 1.5rem;
+  }
+
+  .payment form {
+    gap: 2rem;
+  }
+
+  .payment input[type="text"] {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    padding: 0.8rem;
+  }
+
+  .payment label {
+    font-size: 1.4rem;
+    line-height: 1.5rem;
+  }
+
+  .payment .checkboxText {
+    font-size: 1.4rem !important;
+    line-height: 1.5rem;
+  }
+
+  .payment form p {
+    font-size: 1.2rem;
+    line-height: 1.3rem;
+  }
+
+  .payment .exp {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .payment .btns {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

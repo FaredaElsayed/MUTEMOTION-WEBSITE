@@ -136,7 +136,7 @@
 .image2 span {
   text-transform: capitalize !important;
 }
-.image2 span{
+.image2 span {
   font-size: 3rem;
 }
 .aboutus .content span,
@@ -264,6 +264,9 @@
   text-transform: lowercase;
   color: #442c8f;
 }
+.menuIcon {
+  display: none; /* Hide menu icon by default */
+}
 
 @media (min-width: 4000px) {
   .aboutus .image {
@@ -356,5 +359,172 @@
   .image2 p,
   .image2 a {
     font-size: 4.2rem;
+  }
+}
+@media (max-width: 600px) {
+
+  .menuIcon {
+    display: block; /* Show menu icon on smaller screens */
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+    cursor: pointer;
+    font-size: 2rem;
+    color: #442c8f;
+  }
+  .aboutus .image img {
+    width: 70%;
+  }
+  .aboutus .image,
+  .aboutus .image2 {
+    height: auto; /* Adjust height for images on smaller screens */
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .aboutus .content {
+    width: 100%; /* Adjust width of content for smaller screens */
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .aboutus .keyFeatures {
+    width: 100%; /* Adjust width of key features section for smaller screens */
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    height: auto !important;
+  }
+  .aboutus .hands {
+    width: 70%;
+    margin-top: -5rem;
+  }
+  .aboutus .keyFeatures .rectContainer1,
+  .aboutus .keyFeatures .rectContainer2 {
+    margin-right: 0px !important;
+    height: auto !important;
+  }
+  .aboutus .aboutus .keyFeatures .content {
+    margin-left: 0px;
+    align-items: center;
+  }
+  .aboutus .description {
+    width: 70%; /* Adjust width of description section for smaller screens */
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  .rectangle .rectContainer1 {
+    width: 90%;
+    text-align: center;
+  }
+  .aboutus .rectContainer1 {
+    width: 100%;
+    height: auto !important;
+  }
+  .aboutus .rectContainer2 {
+    width: 90%;
+    margin-left: 2rem;
+    height: auto !important;
+  }
+  .aboutus .gettingStarted {
+    width: 90%; /* Adjust width of getting started section for smaller screens */
+    margin: 0;
+    padding: 0;
+    height: auto !important;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  .aboutus .gettingStarted .content {
+    margin-left: 0px;
+    align-items: center;
+  }
+  .aboutus .photos {
+    flex-direction: column; /* Adjust photo section layout for smaller screens */
+    gap: 2rem;
+  }
+
+  .aboutus .rectKid,
+  .aboutus .rectPhoto,
+  .aboutus .rectPhotoAdult,
+  .aboutus .rectPhotoAdult2,
+  .aboutus .rectPhoto2 {
+    width: 100%; /* Adjust width of photo containers for smaller screens */
+    margin: 0;
+    padding: 0;
+    border: 0px;
+  }
+
+  .aboutus .rectangle {
+    height: auto;
+    width: 100%;
+  }
+  .aboutus .kid {
+    height: 350px !important;
+  }
+  .aboutus .kid,
+  .aboutus .sign,
+  .aboutus .adult {
+    width: 100%; /* Adjust width of images for smaller screens */
+    height: auto; /* Ensure images maintain aspect ratio */
+    margin: 0;
+    padding: 0;
+  }
+
+  .rectangle .content {
+    text-align: center !important;
+  }
+  .aboutus .content span,
+  .aboutus .image span,
+  .aboutus .description span {
+    line-height: 134%;
+    letter-spacing: -0.022em;
+    text-transform: uppercase;
+    font-size: 2.2rem;
+  }
+
+  .aboutus .content p,
+  .aboutus .content a,
+  .aboutus .description p,
+  .aboutus .gettingStarted a {
+    line-height: 134%;
+    letter-spacing: -0.00022em;
+    text-transform: capitalize;
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+  }
+  .image p,
+  .image a,
+  .image2 p,
+  .image2 a {
+    font-family: "Playfair Display", serif;
+    font-style: normal;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 134%;
+    text-align: center;
+    letter-spacing: -0.022em;
+    text-transform: lowercase;
+    color: #442c8f;
+  }
+  image p,
+  .image a,
+  .image2 p,
+  .image2 a {
+    font-size: 2.2rem;
+  }
+  .aboutus .content span,
+  .aboutus .image span,
+  .aboutus .description span {
+    line-height: 134%;
+    letter-spacing: -0.022em;
+    text-transform: uppercase;
+    font-size: 2.2rem;
   }
 }

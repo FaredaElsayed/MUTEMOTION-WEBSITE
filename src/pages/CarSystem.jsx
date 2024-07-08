@@ -1,12 +1,15 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import styles from "./CarSystem.module.css";
 import PageNav from "../components/PageNav";
 import Footer from "../components/Footer";
 import Button from "../components/Button";
 import AppNav from "../components/AppNav";
 import { useAuth } from "../contexts/Auth";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 export default function CarSystem() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const videoRef = useRef(null);
   const { isAuthenticated } = useAuth();
 
@@ -33,14 +36,21 @@ export default function CarSystem() {
   return (
     <>
       <div className={styles.carInfo}>
-        {isAuthenticated ? <PageNav /> : <AppNav />}
+        <div
+          className={styles.menuIcon}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {isMenuOpen ? <FaTimes /> : <FaBars />}
+        </div>
+      
+        {isAuthenticated ? <PageNav isMenuOpen={isMenuOpen} /> : <AppNav />}
         <div className={styles.content}>
           {/* <h1 className={styles.title}>
             Learn more about MuteMotion Car System
           </h1> */}
-          
-          <br/>
-          <br/>
+
+          <br />
+          <br />
           <div className={styles.videoContainer}>
             <video ref={videoRef} className={styles.videoPlayer}>
               <source src="./Steering wheel demo.mp4" type="video/mp4" />

@@ -109,3 +109,57 @@
     line-height: 4.5rem;
   }
 }
+@media (max-width: 600px) {
+  .mainRect {
+    padding: 2rem;
+    width: 90%;
+  }
+
+  .mainRect span {
+    font-size: 1.6rem;
+    line-height: 1.5rem;
+  }
+
+  .mainRect .card {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .mainRect .card img {
+    width: 100%;
+  }
+
+  .mainRect .cardContent {
+    width: 100%;
+  }
+
+  .mainRect .header,
+  .mainRect .name {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .mainRect .name span {
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+  }
+
+  .mainRect .code {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .mainRect input {
+    width: 100%;
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+  }
+
+  .mainRect p {
+    font-size: 1.2rem;
+    line-height: 1.3rem;
+  }
+}

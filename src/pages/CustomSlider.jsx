@@ -6,14 +6,18 @@ import { useState, useEffect } from "react";
 
 function CustomSlider({ title, courses }) {
   const [startIndex, setStartIndex] = useState(0);
-  const [cardsPerPage, setCardsPerPage] = useState(3);
+  const [cardsPerPage, setCardsPerPage] = useState(1);
 
   useEffect(() => {
     function handleResize() {
       if (window.innerWidth > 3000) {
         setCardsPerPage(5);
-      } else {
+      } else if (window.innerWidth > 1200) {
         setCardsPerPage(3);
+      } else if (window.innerWidth > 600) {
+        setCardsPerPage(2);
+      } else {
+        setCardsPerPage(1);
       }
     }
 

@@ -8,7 +8,9 @@ import Payment from "../components/Payment";
 import CartCard from "../components/CartCard";
 import { useAuth } from "../contexts/Auth";
 import toast, { Toaster } from "react-hot-toast";
-import Spinner from "../components/Spinner"; //
+import Spinner from "../components/Spinner";
+import { FaBars, FaTimes } from "react-icons/fa";
+
 import { useCart } from "../contexts/CartContext";
 
 function Cart() {
@@ -16,6 +18,7 @@ function Cart() {
   const [isPaying, setIsPaying] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const { token } = useAuth();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     fetchCartItems();
@@ -73,7 +76,10 @@ function Cart() {
   return (
     <>
       <div className={styles.cart}>
-        <PageNav />
+        <div className="menuIcon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          {isMenuOpen ? <FaTimes /> : <FaBars />}
+        </div>
+        <PageNav isMenuOpen={isMenuOpen} />
         <Toaster
           toastOptions={{
             className: "toast",
@@ -107,7 +113,7 @@ function Cart() {
                   <div>
                     <div className={styles.cartList}>
                       {!isPaying &&
-                        items.map((item,index) => (
+                        items.map((item, index) => (
                           <CartCard
                             key={item?._id || index}
                             item={item}

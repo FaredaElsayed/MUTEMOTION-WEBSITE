@@ -11,7 +11,7 @@
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 4rem;
+  gap: 3rem;
   line-height: 1rem;
   letter-spacing: -0.022em;
 }
@@ -43,7 +43,30 @@ a.ctaLink:visited {
   padding: 0.8rem 2rem;
   border-radius: 7px;
 } */
-
+@media (max-width: 600px) {
+  .nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0rem 5rem;
+    align-items: center;
+    width: 100%;
+  }
+  .nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  .hide {
+    display: none;
+  }
+  .nav a:link,
+  .nav a:visited {
+    font-size: 1.7rem;
+  }
+}
 @media (min-width: 4000px) {
   .nav ul {
     line-height: 2rem;
@@ -53,7 +76,7 @@ a.ctaLink:visited {
   .nav a:visited {
     font-size: 5rem;
   }
-  .nav svg{
+  .nav svg {
     height: 100px;
   }
 }

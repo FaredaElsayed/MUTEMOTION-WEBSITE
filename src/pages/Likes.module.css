@@ -3,7 +3,6 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  /* justify-content: center; */
   min-height: 60vh;
   margin: 2.5rem;
   background-size: cover;
@@ -12,4 +11,17 @@
   color: #442c8f;
   letter-spacing: -0.022em;
   text-transform: capitalize;
+}
+.menuIvon{
+  display: none;
+}
+@media (max-width: 600px) {
+  .likes {
+    justify-content: center;
+    padding: 2.5rem;
+    margin: 1rem;
+  }
+  .likes p {
+    font-size: 1.7rem;
+  }
 }

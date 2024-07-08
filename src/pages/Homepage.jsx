@@ -4,16 +4,18 @@ import Footer from "../components/Footer";
 import Button from "../components/Button";
 import CustomSlider from "./CustomSlider";
 import { useNavigate } from "react-router-dom";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CourseContext } from "../contexts/CoursesApis";
 import Spinner from "../components/Spinner";
 import { useAuth } from "../contexts/Auth";
 import { useCart } from "../contexts/CartContext";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 export default function Homepage() {
   const { state } = useContext(CourseContext);
   const { token } = useAuth();
   const { fetchCartItems } = useCart();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const {
     recommendedCourses,
@@ -33,7 +35,13 @@ export default function Homepage() {
   return (
     <>
       <main className={styles.homepage}>
-        <PageNav />
+        <div
+          className={styles.menuIcon}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {isMenuOpen ? <FaTimes /> : <FaBars />}
+        </div>
+        <PageNav isMenuOpen={isMenuOpen} />
         <section>
           <div className={styles.content}>
             <h1>MuteMotion</h1>

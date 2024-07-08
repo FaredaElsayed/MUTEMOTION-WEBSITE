@@ -3,16 +3,19 @@ import CourseHeader from "../components/CourseHeader";
 import styles from "../components/CourseHeader.module.css";
 import ParagraphToList from "../components/ParagraphToList";
 import LessonsSlider from "./LessonsSlider";
-// import { courses } from "./Homepage";
+import { FaBars, FaTimes } from "react-icons/fa";
+
 import Instructor from "../components/Instructor";
 import Review from "../components/Review";
 import PageNav from "../components/PageNav";
 import Footer from "../components/Footer";
+import { useState } from "react";
 
 function Course({ setIsPaying, isPaying }) {
   const location = useLocation();
   const { course } = location.state || {};
   const { reviews } = course;
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   if (!course) {
     return <div>Loading...</div>;
@@ -20,9 +23,12 @@ function Course({ setIsPaying, isPaying }) {
   return (
     <>
       <div className={styles.courses}>
-        <PageNav />
+        <div className="menuIcon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          {isMenuOpen ? <FaTimes /> : <FaBars />}
+        </div>
+        <PageNav isMenuOpen={isMenuOpen} />
         <CourseHeader
-        myRating={Number(course.review)}
+          myRating={Number(course.review)}
           courseTitle={course.title}
           boughtFlag={course.boughtFlag}
           courseId={course._id}

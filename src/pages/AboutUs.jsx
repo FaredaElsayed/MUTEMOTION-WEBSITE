@@ -2,12 +2,23 @@ import styles from "./AboutUs.module.css";
 import PageNav from "../components/PageNav";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 export default function AboutUs() {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <>
       <div className={styles.aboutus}>
-        <PageNav />
+        <div
+          className={styles.menuIcon}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {isMenuOpen ? <FaTimes /> : <FaBars />}
+        </div>
+        <PageNav isMenuOpen={isMenuOpen} />
+
         <section className={styles.image}>
           <span>
             We are here to make sign

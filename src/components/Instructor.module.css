@@ -98,3 +98,45 @@
     line-height: 5rem;
   }
 }
+
+@media (max-width: 600px) {
+  .instructor {
+    width: 100%;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .instructor > p {
+    font-size: 2rem;
+    line-height: 1.5rem;
+  }
+
+  .instructor .mainInfo {
+    flex-direction: column;
+    gap: 1rem;
+    margin: 2rem 0px;
+  }
+
+  .instructor .mainInfo img {
+    height: 100px;
+  }
+
+  .instructor .mainInfo ul {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .instructor .instInfo {
+    gap: 0.5rem;
+  }
+
+  .instructor .instInfo h2 {
+    font-size: 1.8rem;
+  }
+
+  .instructor .instInfo p {
+    font-size: 1.2rem;
+    width: 100%;
+  }
+}

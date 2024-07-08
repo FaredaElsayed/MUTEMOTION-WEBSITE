@@ -229,3 +229,42 @@ div > span {
     width: 150px;
   }
 }
+
+@media (max-width: 768px) {
+  .login {
+    padding: 20px;
+  }
+  .login .mainContainer {
+    flex-direction: column;
+  }
+  .login form {
+    width: 90%;
+  }
+  .login form label {
+    font-size: 1.8rem;
+  }
+  .login form p {
+    font-size: 2.2rem;
+  }
+  .login form div {
+    width: 100%;
+  }
+  .login form input {
+    font-size: 1.8rem;
+  }
+  .login .imgCont {
+    width: 100%;
+  }
+  .login .imgCont p {
+    font-size: 4rem;
+    top: 20%;
+    left: 50% !important; 
+    transform: translateX(-50%);
+  }
+  .login .logo {
+    margin: 2rem;
+  }
+  .buttons {
+    align-items: center;
+  }
+}
