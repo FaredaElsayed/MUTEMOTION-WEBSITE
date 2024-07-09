@@ -61,6 +61,11 @@
     padding: 1rem;
     margin-bottom: 2rem;
   }
+  .content a button {
+    padding: 0.2rem !important;
+    font-size: 2rem;
+    width: 80%;
+  }
 }
 
 @media (min-width: 4000px) {

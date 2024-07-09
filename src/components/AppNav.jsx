@@ -1,6 +1,6 @@
 import Button from "./Button";
 import Logo from "./Logo";
-import styles from "./PageNav.module.css";
+import styles from "./AppNav.module.css";
 import { NavLink } from "react-router-dom";
 function AppNav() {
   const btnStyle = {

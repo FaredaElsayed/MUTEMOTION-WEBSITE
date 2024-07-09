@@ -1,28 +1,98 @@
 .nav {
-  margin-top: 3rem;
-  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0rem 5rem;
+  align-items: center;
+  width: 100%;
 }
 
 .nav ul {
   list-style: none;
   display: flex;
-  background-color: var(--color-dark--2);
-  border-radius: 7px;
+  align-items: center;
+  gap: 3rem;
+  line-height: 1rem;
+  letter-spacing: -0.022em;
 }
 
 .nav a:link,
 .nav a:visited {
-  display: block;
-  color: inherit;
   text-decoration: none;
+  color: #442c8f;
   text-transform: uppercase;
-  font-size: 1.2rem;
-  font-weight: 700;
-  padding: 0.5rem 2rem;
-  border-radius: 5px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.nav a:active,
+.nav a:hover {
+  text-decoration: underline;
+  font-weight: bold;
 }
 
 /* CSS Modules feature */
-.nav a:global(.active) {
-  background-color: var(--color-dark--0);
+/* .nav a:global(.active) {
+  color: var(--color-brand--2);
+}
+
+a.ctaLink:link,
+a.ctaLink:visited {
+  background-color: var(--color-brand--2);
+  color: var(--color-dark--0);
+  padding: 0.8rem 2rem;
+  border-radius: 7px;
+} */
+@media (max-width: 600px) {
+  .nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    align-items: center;
+  }
+  @keyframes slideIn {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  .nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  .nav ul button {
+    padding: 0.5rem !important;
+    background: transparent;
+    border: #442c8f 1px solid;
+    cursor: pointer;
+  }
+  .hide {
+    display: none;
+  }
+  .nav a:link,
+  .nav a:visited {
+    font-size: 1.7rem;
+  }
+}
+@media (min-width: 4000px) {
+  .nav ul {
+    line-height: 2rem;
+  }
+
+  .nav a:link,
+  .nav a:visited {
+    font-size: 5rem;
+  }
+  .nav svg {
+    height: 100px;
+  }
 }
