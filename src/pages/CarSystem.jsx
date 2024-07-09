@@ -6,6 +6,7 @@ import Button from "../components/Button";
 import AppNav from "../components/AppNav";
 import { useAuth } from "../contexts/Auth";
 import { FaBars, FaTimes } from "react-icons/fa";
+import Logo from "../components/Logo";
 
 export default function CarSystem() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -36,13 +37,18 @@ export default function CarSystem() {
   return (
     <>
       <div className={styles.carInfo}>
-        <div
-          className={styles.menuIcon}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          {isMenuOpen ? <FaTimes /> : <FaBars />}
+        <div className="menuIcon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              width: "100%",
+            }}
+          >
+            <Logo /> {isMenuOpen ? <FaTimes /> : <FaBars />}
+          </div>
         </div>
-      
+
         {isAuthenticated ? <PageNav isMenuOpen={isMenuOpen} /> : <AppNav />}
         <div className={styles.content}>
           {/* <h1 className={styles.title}>

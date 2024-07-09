@@ -1,9 +1,9 @@
 /* Taken from getting started guide at: https://leafletjs.com/examples/quick-start/ */
 
-@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,300&display=swap");
-
+/* @import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,300&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Onest:wght@100..900&family=Wittgenstein:ital,wght@0,400..900;1,400..900&display=swap");
 /* @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"); */
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"); */
 /* These CSS variables are global, so they are available in all CSS modules */
 :root {
   --color-brand--1: #ffb545;
@@ -24,13 +24,14 @@
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 62%;
   box-sizing: border-box;
 }
 
 body {
-  font-family: "Playfair Display", serif;
-
+  /* font-family: "Playfair Display", serif; */
+  font-family: "Wittgenstein", serif;
+  font-optical-sizing: auto;
   color: var(--color-light--2);
   font-weight: 400;
   line-height: 1.6;
@@ -123,9 +124,10 @@ progress::-webkit-progress-value {
   font-size: 2rem;
 }
 
-.menuIcon{
+.menuIcon {
   display: none;
 }
+
 @media (max-width: 600px) {
   .menuIcon {
     display: block; /* Show menu icon on smaller screens */
@@ -136,6 +138,11 @@ progress::-webkit-progress-value {
     cursor: pointer;
     font-size: 2rem;
     color: #442c8f;
+    width: 100%;
+  }
+  .menuIcon a {
+    margin-left: 2rem;
+    position: unset;
   }
 }
 @media (min-width: 4000px) {

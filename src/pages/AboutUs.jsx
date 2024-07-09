@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import Logo from "../components/Logo";
 
 export default function AboutUs() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,11 +12,16 @@ export default function AboutUs() {
   return (
     <>
       <div className={styles.aboutus}>
-        <div
-          className={styles.menuIcon}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          {isMenuOpen ? <FaTimes /> : <FaBars />}
+        <div className="menuIcon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              width: "100%",
+            }}
+          >
+            <Logo /> {isMenuOpen ? <FaTimes /> : <FaBars />}
+          </div>
         </div>
         <PageNav isMenuOpen={isMenuOpen} />
 

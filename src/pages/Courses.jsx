@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useContext } from "react";
 import { CourseContext } from "../contexts/CoursesApis";
 import { FaBars, FaTimes } from "react-icons/fa";
+import Logo from "../components/Logo";
 
 export default function Courses() {
   const [isPaying, setIsPaying] = useState(false);
@@ -16,11 +17,16 @@ export default function Courses() {
   return (
     <>
       <main className={styles.courses}>
-        <div
-          className={styles.menuIcon}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          {isMenuOpen ? <FaTimes /> : <FaBars />}
+        <div className="menuIcon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              width: "100%",
+            }}
+          >
+            <Logo/> {isMenuOpen ? <FaTimes /> : <FaBars />}
+          </div>
         </div>
         <PageNav isMenuOpen={isMenuOpen} />
 

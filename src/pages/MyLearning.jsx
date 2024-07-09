@@ -7,6 +7,7 @@ import { useAuth } from "../contexts/Auth";
 import { useEffect, useState } from "react";
 import Spinner from "../components/Spinner"; // Assuming Spinner is a component
 import { FaBars, FaTimes } from "react-icons/fa";
+import Logo from "../components/Logo";
 
 export default function MyLearning() {
   const [courses, setCourses] = useState([]);
@@ -65,7 +66,15 @@ export default function MyLearning() {
     <>
       <div className={styles.mylearning}>
         <div className="menuIcon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          {isMenuOpen ? <FaTimes /> : <FaBars />}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              width: "100%",
+            }}
+          >
+            <Logo /> {isMenuOpen ? <FaTimes /> : <FaBars />}
+          </div>
         </div>
         <PageNav isMenuOpen={isMenuOpen} />
 

@@ -48,9 +48,28 @@ a.ctaLink:visited {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 0rem 5rem;
+    padding: 1rem 2rem;
     align-items: center;
-    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #fff;
+    width: fit-content;
+    height: fit-content;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.5s ease-out;
+    z-index: 100000;
+    border-radius: 12px 0px;
+  }
+  @keyframes slideIn {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
   .nav ul {
     list-style: none;

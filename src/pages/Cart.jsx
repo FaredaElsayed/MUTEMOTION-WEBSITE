@@ -12,6 +12,7 @@ import Spinner from "../components/Spinner";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 import { useCart } from "../contexts/CartContext";
+import Logo from "../components/Logo";
 
 function Cart() {
   const { items, isLoading, setItems, fetchCartItems } = useCart();
@@ -77,7 +78,15 @@ function Cart() {
     <>
       <div className={styles.cart}>
         <div className="menuIcon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          {isMenuOpen ? <FaTimes /> : <FaBars />}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              width: "100%",
+            }}
+          >
+            <Logo /> {isMenuOpen ? <FaTimes /> : <FaBars />}
+          </div>
         </div>
         <PageNav isMenuOpen={isMenuOpen} />
         <Toaster

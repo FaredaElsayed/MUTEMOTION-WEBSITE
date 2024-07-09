@@ -5,6 +5,7 @@ import CustomSlider from "./CustomSlider";
 import { useEffect, useContext, useState } from "react";
 import { CourseContext } from "../contexts/CoursesApis";
 import { FaBars, FaTimes } from "react-icons/fa";
+import Logo from "../components/Logo";
 
 export default function Likes() {
   const { state } = useContext(CourseContext);
@@ -30,7 +31,15 @@ export default function Likes() {
     <>
       <main className={styles.likes}>
         <div className="menuIcon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          {isMenuOpen ? <FaTimes /> : <FaBars />}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              width: "100%",
+            }}
+          >
+            <Logo /> {isMenuOpen ? <FaTimes /> : <FaBars />}
+          </div>
         </div>
         <PageNav isMenuOpen={isMenuOpen} />
         {wishlist.length > 0 ? (

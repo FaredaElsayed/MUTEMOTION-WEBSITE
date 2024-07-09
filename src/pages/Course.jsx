@@ -10,6 +10,7 @@ import Review from "../components/Review";
 import PageNav from "../components/PageNav";
 import Footer from "../components/Footer";
 import { useState } from "react";
+import Logo from "../components/Logo";
 
 function Course({ setIsPaying, isPaying }) {
   const location = useLocation();
@@ -24,7 +25,15 @@ function Course({ setIsPaying, isPaying }) {
     <>
       <div className={styles.courses}>
         <div className="menuIcon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          {isMenuOpen ? <FaTimes /> : <FaBars />}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              width: "100%",
+            }}
+          >
+            <Logo /> {isMenuOpen ? <FaTimes /> : <FaBars />}
+          </div>
         </div>
         <PageNav isMenuOpen={isMenuOpen} />
         <CourseHeader

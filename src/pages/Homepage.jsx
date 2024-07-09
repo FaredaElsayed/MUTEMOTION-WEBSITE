@@ -10,6 +10,7 @@ import Spinner from "../components/Spinner";
 import { useAuth } from "../contexts/Auth";
 import { useCart } from "../contexts/CartContext";
 import { FaBars, FaTimes } from "react-icons/fa";
+import Logo from "../components/Logo";
 
 export default function Homepage() {
   const { state } = useContext(CourseContext);
@@ -36,10 +37,13 @@ export default function Homepage() {
     <>
       <main className={styles.homepage}>
         <div
-          className={styles.menuIcon}
+          className="menuIcon"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          {isMenuOpen ? <FaTimes /> : <FaBars />}
+          <div style={{display:"flex",justifyContent:"space-between",width:"100%"}}>
+            <Logo  />{" "}
+            {isMenuOpen ? <FaTimes /> : <FaBars />}
+          </div>
         </div>
         <PageNav isMenuOpen={isMenuOpen} />
         <section>

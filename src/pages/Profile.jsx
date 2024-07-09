@@ -11,6 +11,7 @@ import { useAuth } from "../contexts/Auth";
 import { useNavigate } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useState } from "react";
+import Logo from "../components/Logo";
 
 export default function Profile() {
   const { fullName, profilePicture, notificationMessage } = useProfile();
@@ -88,7 +89,15 @@ export default function Profile() {
     <>
       <div className={styles.profile}>
         <div className="menuIcon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          {isMenuOpen ? <FaTimes /> : <FaBars />}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              width: "100%",
+            }}
+          >
+            <Logo /> {isMenuOpen ? <FaTimes /> : <FaBars />}
+          </div>
         </div>
         <PageNav isMenuOpen={isMenuOpen} />
         <main>

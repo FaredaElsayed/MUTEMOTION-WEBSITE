@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import styles from "./Login.module.css";
 import Button from "../components/Button";
 import toast, { Toaster } from "react-hot-toast";
-import ButtonBack from "../components/ButtonBack";
 
 function ConfirmMail() {
   const {
