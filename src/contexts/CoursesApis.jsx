@@ -134,6 +134,7 @@ export const CourseProvider = ({ children }) => {
           type: actionTypes.FETCH_ERROR,
           payload: error.message,
         });
+        logout()
       }
     };
 

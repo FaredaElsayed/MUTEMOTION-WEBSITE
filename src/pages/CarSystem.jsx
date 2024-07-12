@@ -45,11 +45,10 @@ export default function CarSystem() {
               width: "100%",
             }}
           >
-            <Logo /> {isMenuOpen ? <FaTimes /> : <FaBars />}
+            <Logo path="/" />
           </div>
         </div>
-
-        {isAuthenticated ? <PageNav isMenuOpen={isMenuOpen} /> : <AppNav />}
+        {isAuthenticated ? <PageNav isMenuOpen={isMenuOpen} /> : ""}
         <div className={styles.content}>
           {/* <h1 className={styles.title}>
             Learn more about MuteMotion Car System

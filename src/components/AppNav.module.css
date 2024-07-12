@@ -71,8 +71,6 @@ a.ctaLink:visited {
   }
   .nav ul button {
     padding: 0.5rem !important;
-    background: transparent;
-    border: #442c8f 1px solid;
     cursor: pointer;
   }
   .hide {
