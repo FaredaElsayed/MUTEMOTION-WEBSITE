@@ -45,15 +45,18 @@ export default function CarSystem() {
               width: "100%",
             }}
           >
-            <Logo path="/" />
+            {isAuthenticated ? <Logo path="/homepage" /> : ""}
           </div>
         </div>
-        {isAuthenticated ? <PageNav isMenuOpen={isMenuOpen} /> : ""}
+        {isAuthenticated ? (
+          <PageNav isMenuOpen={isMenuOpen} />
+        ) : (
+          <Logo
+            path="/"
+            style={{ position: "absolute", top: "2rem", left: "2rem" }}
+          />
+        )}
         <div className={styles.content}>
-          {/* <h1 className={styles.title}>
-            Learn more about MuteMotion Car System
-          </h1> */}
-
           <br />
           <br />
           <div className={styles.videoContainer}>
