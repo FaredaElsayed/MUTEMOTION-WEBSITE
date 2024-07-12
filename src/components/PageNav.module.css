@@ -5,6 +5,7 @@
   padding: 0rem 5rem;
   align-items: center;
   width: 100%;
+  
 }
 
 .nav ul {
@@ -60,6 +61,7 @@ a.ctaLink:visited {
     animation: slideIn 0.5s ease-out;
     z-index: 100000;
     border-radius: 12px 0px;
+     
   }
   @keyframes slideIn {
     from {

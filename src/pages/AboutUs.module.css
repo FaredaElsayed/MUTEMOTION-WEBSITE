@@ -11,6 +11,7 @@
   color: #442c8f;
   letter-spacing: -0.022em;
   text-transform: capitalize;
+  /* border: red 1px solid; */
 }
 
 .aboutus .image,
@@ -277,7 +278,7 @@
     height: 900px;
   }
   .aboutus .image2 img {
-    width: 600px;
+   width: 600px;
   }
   .aboutus .keyFeatures p,
   .aboutus .content a,
@@ -362,7 +363,6 @@
   }
 }
 @media (max-width: 600px) {
-
   .menuIcon {
     display: block; /* Show menu icon on smaller screens */
     position: fixed;
@@ -374,6 +374,9 @@
     color: #442c8f;
   }
   .aboutus .image img {
+    width: 70%;
+  }
+  .aboutus .image2 img {
     width: 70%;
   }
   .aboutus .image,
@@ -462,7 +465,7 @@
 
   .aboutus .rectangle {
     height: auto;
-    width: 100%;
+    width: 99%;
   }
   .aboutus .kid {
     height: 350px !important;
@@ -470,7 +473,7 @@
   .aboutus .kid,
   .aboutus .sign,
   .aboutus .adult {
-    width: 100%; /* Adjust width of images for smaller screens */
+    width: 98%; /* Adjust width of images for smaller screens */
     height: auto; /* Ensure images maintain aspect ratio */
     margin: 0;
     padding: 0;

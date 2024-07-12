@@ -133,15 +133,16 @@ progress::-webkit-progress-value {
     display: block; /* Show menu icon on smaller screens */
     position: fixed;
     top: 1rem;
-    right: 1rem;
+    /* right: 1rem; */
     z-index: 1000;
     cursor: pointer;
     font-size: 2rem;
     color: #442c8f;
-    width: 100%;
+    width: 90%;
+    /* border: red 1px solid; */
   }
   .menuIcon a {
-    margin-left: 2rem;
+    /* margin-left: 2rem; */
     position: unset;
   }
 }
