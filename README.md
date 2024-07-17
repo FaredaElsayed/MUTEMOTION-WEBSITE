@@ -21,12 +21,13 @@ MuteMotion envisions a world where transportation is truly
 
 Wide Range of Courses: Choose from a variety of courses designed to teach sign language effectively, including courses for kids and those aged 15 and older.
 
-Interactive Learning: Engage in interactive lessons, quizzes, and exercises to practice and improve your sign language skills.
-
 Progress Tracking: Track your progress as you learn, and easily pick up where you left off in each course.
 
 User-Friendly Interface: Our platform is designed with a user-friendly interface, making it easy to navigate and find the right courses for you.
 
+Responsiveness: Mutemotion designed to be suitable for all devices.
+
+security : user information is secure.
 
 
 ## HOW IT WORKS
