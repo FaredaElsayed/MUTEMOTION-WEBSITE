@@ -11,7 +11,6 @@ import PageNav from "../components/PageNav";
 import Footer from "../components/Footer";
 import { useState } from "react";
 import Logo from "../components/Logo";
-import React from  "react";
 function Course({ setIsPaying, isPaying }) {
   const location = useLocation();
   const { course } = location.state || {};
