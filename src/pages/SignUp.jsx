@@ -4,7 +4,7 @@ import { useAuth } from "../contexts/Auth";
 import styles from "./Login.module.css";
 import Button from "../components/Button";
 import toast, { Toaster } from "react-hot-toast";
-
+import React from  "react";
 
 // Component for user sign-up
 function SignUp() {

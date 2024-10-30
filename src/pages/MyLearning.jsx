@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import Spinner from "../components/Spinner"; // Assuming Spinner is a component
 import { FaBars, FaTimes } from "react-icons/fa";
 import Logo from "../components/Logo";
-
+import React from  "react";
 export default function MyLearning() {
   const [courses, setCourses] = useState([]);
   const [error, setError] = useState(false);

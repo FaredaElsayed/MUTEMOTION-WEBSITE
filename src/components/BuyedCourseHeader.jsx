@@ -1,7 +1,7 @@
 import styles from "./CourseHeader.module.css";
 import Button from "./Button";
 import ProgressBar from "./ProgressBar";
-
+import React from  "react";
 export default function BuyedCourseHeader({ courseTitle, courseImg, alt }) {
   const customProgressBarStyle = {
     width: "130%",

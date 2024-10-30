@@ -10,10 +10,10 @@ import { useAuth } from "../contexts/Auth";
 import toast, { Toaster } from "react-hot-toast";
 import Spinner from "../components/Spinner";
 import { FaBars, FaTimes } from "react-icons/fa";
-
+import React from  "react";
 import { useCart } from "../contexts/CartContext";
 import Logo from "../components/Logo";
-
+import React from  "react";
 function Cart() {
   const { items, isLoading, setItems, fetchCartItems } = useCart();
   const [isPaying, setIsPaying] = useState(false);

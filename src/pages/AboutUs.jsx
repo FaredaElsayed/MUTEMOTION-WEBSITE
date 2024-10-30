@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Logo from "../components/Logo";
-
+import React from  "react";
 export default function AboutUs() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 

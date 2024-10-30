@@ -1,5 +1,6 @@
 import styles from "./Instructor.module.css";
 import ParagraphToList from "./ParagraphToList";
+import React from  "react";
 function Instructor({
   imgSrc,
   name,

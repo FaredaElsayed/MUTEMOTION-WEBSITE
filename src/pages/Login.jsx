@@ -4,7 +4,7 @@ import { useAuth } from "../contexts/Auth";
 import styles from "./Login.module.css";
 import Button from "../components/Button";
 import toast, { Toaster } from "react-hot-toast";
-
+import React from  "react";
 
 function Login() {
   const [password, setPass] = useState("");

@@ -3,7 +3,7 @@ import styles from "../pages/Profile.module.css";
 import Button from "./Button";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-
+import React from  "react";
 export function Pass({
   email,
   setEmail,

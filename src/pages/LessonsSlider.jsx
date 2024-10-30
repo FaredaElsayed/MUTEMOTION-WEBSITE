@@ -2,7 +2,7 @@ import styles from "./Homepage.module.css";
 import LessonCard from "../components/LessonCard";
 import { useState, useEffect } from "react";
 import Slider from "../components/Slider";
-
+import React from  "react";
 const lessons = [
   {
     id: 1,

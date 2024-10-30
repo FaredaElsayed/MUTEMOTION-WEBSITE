@@ -4,14 +4,14 @@ import styles from "../components/CourseHeader.module.css";
 import ParagraphToList from "../components/ParagraphToList";
 import LessonsSlider from "./LessonsSlider";
 import { FaBars, FaTimes } from "react-icons/fa";
-
+import React from  "react";
 import Instructor from "../components/Instructor";
 import Review from "../components/Review";
 import PageNav from "../components/PageNav";
 import Footer from "../components/Footer";
 import { useState } from "react";
 import Logo from "../components/Logo";
-
+import React from  "react";
 function Course({ setIsPaying, isPaying }) {
   const location = useLocation();
   const { course } = location.state || {};

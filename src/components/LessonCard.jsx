@@ -1,6 +1,6 @@
 import styles from "./CourseCard.module.css";
 import ParagraphToList from "./ParagraphToList";
-
+import React from  "react";
 function LessonCard({ num, name, lessonBreif }) {
   const costumeStyle = {
     width: "80%",

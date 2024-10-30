@@ -1,6 +1,6 @@
 import Slider from "../components/Slider";
 import styles from "./LessonPage.module.css";
-
+import React from  "react";
 function LessonPage({videoSrc,lessonTitle}) {
     return (
         <div className={styles.lesson}>

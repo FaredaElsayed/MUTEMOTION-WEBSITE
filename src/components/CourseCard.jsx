@@ -4,7 +4,7 @@ import StarRating from "./StarRating";
 import { useAuth } from "../contexts/Auth";
 import { useNavigate, Link } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
-
+import React from  "react";
 function CourseCard({
   _id,
   title,

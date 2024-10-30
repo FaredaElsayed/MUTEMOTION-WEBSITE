@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { CourseContext } from "../contexts/CoursesApis";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Logo from "../components/Logo";
-
+import React from  "react";
 export default function Courses() {
   const [isPaying, setIsPaying] = useState(false);
   const { state } = useContext(CourseContext);

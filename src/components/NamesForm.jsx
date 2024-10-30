@@ -3,7 +3,7 @@ import { useProfile } from "../contexts/ProfileContext";
 import { useEffect, useState } from "react";
 import styles from "../pages/Profile.module.css";
 import Button from "./Button";
-
+import React from  "react";
 export function NamesForm() {
   const {
     updateProfileInfo,

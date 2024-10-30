@@ -1,5 +1,6 @@
 import Button from "./Button";
 import styles from "./Slider.module.css";
+import React from  "react";
 function Slider({ handleNext, handlePrev }) {
   return (
     <div className={styles.cont}>

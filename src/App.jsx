@@ -3,7 +3,7 @@ import { AuthProvider } from "./contexts/Auth";
 import { CourseProvider } from "./contexts/CoursesApis";
 import { ProfileProvider } from "./contexts/ProfileContext";
 import { CartProvider } from "./contexts/CartContext";
-import { Suspense, lazy } from "react";
+import React, { Suspense, lazy } from "react";
 import SpinnerFullPage from "./components/SpinnerFullPage";
 import ProtectedRoute from "./pages/ProtectedRoute";
 

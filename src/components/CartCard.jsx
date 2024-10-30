@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import styles from "./CartCard.module.css";
 import StarRating from "./StarRating";
 import { useAuth } from "../contexts/Auth";
-
+import React from  "react";
 export default function CartCard({ item ,onTitleClick}) {
   const [iconSize, setIconSize] = useState(32);
   const { token } = useAuth();

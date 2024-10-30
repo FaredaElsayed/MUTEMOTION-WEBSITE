@@ -6,7 +6,7 @@ import { useEffect, useContext, useState } from "react";
 import { CourseContext } from "../contexts/CoursesApis";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Logo from "../components/Logo";
-
+import React from  "react";
 export default function Likes() {
   const { state } = useContext(CourseContext);
   const { wishlist, loading, error } = state;

@@ -1,6 +1,6 @@
 import { createContext, useReducer, useEffect } from "react";
 import { useAuth } from "./Auth";
-
+import React from  "react";
 
 // Action Types (optional for better readability)
 const actionTypes = {

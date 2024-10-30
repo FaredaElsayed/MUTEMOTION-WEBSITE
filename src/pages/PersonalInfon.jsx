@@ -1,4 +1,5 @@
 import styles from "../pages/Profile.module.css"
+import React from  "react";
 export function PersonalInfon() {
   return (
     <p className={styles.p}>

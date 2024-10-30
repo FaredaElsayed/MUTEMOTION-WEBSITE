@@ -4,6 +4,7 @@ import ButtonBack from "./ButtonBack";
 import styles from "./Payment.module.css";
 import { useAuth } from "../contexts/Auth";
 import toast, { Toaster } from "react-hot-toast";
+import React from  "react";
 export default function Payment({ item, onPaymentSuccess, setIsPaying }) {
   const btnStyle = {
     textTransform: "capitalize",

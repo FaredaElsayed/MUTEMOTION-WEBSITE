@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useState } from "react";
 import Logo from "../components/Logo";
-
+import React from  "react";
 export default function Profile() {
   const { fullName, profilePicture, notificationMessage } = useProfile();
   const { token, logout } = useAuth();

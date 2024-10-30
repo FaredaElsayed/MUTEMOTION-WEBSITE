@@ -4,7 +4,7 @@ import LessonsSlider from "./LessonsSlider";
 import { courses } from "./Homepage";
 import PageNav from "../components/PageNav";
 import Footer from "../components/Footer";
-
+import React from  "react";
 
 function CourseAfterBuying() {
   return (

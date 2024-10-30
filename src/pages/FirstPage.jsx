@@ -2,7 +2,7 @@ import styles from "./Firstpage.module.css";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
 import AppNav from "../components/AppNav";
-
+import React from  "react";
 export default function FirstPage() {
   return (
     <>

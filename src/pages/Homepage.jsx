@@ -11,7 +11,7 @@ import { useAuth } from "../contexts/Auth";
 import { useCart } from "../contexts/CartContext";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Logo from "../components/Logo";
-
+import React from  "react";
 export default function Homepage() {
   const { state } = useContext(CourseContext);
   const { token } = useAuth();

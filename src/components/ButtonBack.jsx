@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Button from "./Button";
-
+import React from  "react";
 function ButtonBack({setIsPaying,dest}) {
   const navigate = useNavigate();
   return (

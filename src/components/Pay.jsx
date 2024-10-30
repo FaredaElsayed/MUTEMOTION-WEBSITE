@@ -1,5 +1,6 @@
 import Button from "./Button";
 import styles from "./Payment.module.css";
+import React from  "react";
 export default function Pay() {
   const btnStyle = {
     textTransform: "capitalize",

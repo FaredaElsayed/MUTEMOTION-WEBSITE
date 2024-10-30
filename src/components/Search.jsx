@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { RiSearchLine } from "react-icons/ri";
 import styles from "./Search.module.css";
-
+import React from  "react";
 export default function Search({onClick}) {
   const { searchQuery, setSearchQuery } = useState("Explore");
   return (

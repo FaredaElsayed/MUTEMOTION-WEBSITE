@@ -2,6 +2,7 @@ import Button from "./Button";
 import Logo from "./Logo";
 import styles from "./AppNav.module.css";
 import { NavLink } from "react-router-dom";
+import React from  "react";
 function AppNav() {
   const btnStyle = {
     width: "fit-content",

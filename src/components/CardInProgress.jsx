@@ -4,7 +4,7 @@ import Button from "./Button";
 import MyProgressBar from "./ProgressBar";
 import styles from "./CardInProgress.module.css";
 import { useAuth } from "../contexts/Auth";
-
+import React from  "react";
 function CardInProgress({ courseId, instructor, poster, title, progress }) {
   const [iconSize, setIconSize] = useState(40);
   const navigateTo = useNavigate();

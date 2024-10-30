@@ -1,6 +1,6 @@
 import styles from "../pages/Profile.module.css";
 import { useRef } from "react";
-
+import React from  "react";
 export const SetProfilePic = ({ selectedImage }) => {
 
   return (

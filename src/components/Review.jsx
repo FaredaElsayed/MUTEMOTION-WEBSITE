@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./Review.module.css";
 import StarRating from "./StarRating";
-
+import React from  "react";
 function Review({ imgSrc, name, opinionHeadline, opinion, myRating }) {
   const [userRating, setUserRating] = useState("");
   const [windowSize, setWindowSize] = useState({

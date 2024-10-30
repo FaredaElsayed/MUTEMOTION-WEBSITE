@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import styles from "../pages/Cart.module.css";
+import React from  "react";
 export default function EmptyCart() {
   const navigateTo = useNavigate();
   const btnStyle = {

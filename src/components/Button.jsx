@@ -1,4 +1,5 @@
 import styles from "./Button.module.css";
+import React from  "react";
 function Button({ children, onClick, type, btnStyle }) {
   return (
     <button

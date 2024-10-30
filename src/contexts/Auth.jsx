@@ -6,6 +6,7 @@ import {
   useEffect,
 } from "react";
 import toast, { Toaster } from "react-hot-toast";
+import React from  "react";
 
 
 // Initial state of the authentication context

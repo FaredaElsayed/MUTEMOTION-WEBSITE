@@ -1,6 +1,6 @@
 import CourseCard from "../components/CourseCard";
 import styles from "./CourseCard.module.css";
-
+import React from  "react";
 function Courses({children}){
     const courseData = {
         level: "ASL For Beginners",

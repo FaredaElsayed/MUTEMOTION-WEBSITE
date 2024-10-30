@@ -1,4 +1,5 @@
 import styles from "../components/ParagraphToList.module.css";
+import React from  "react";
 export default function ParagraphToList({
   paragraph,
   lessonsnum,
