@@ -6,7 +6,6 @@ import toast, { Toaster } from "react-hot-toast";
 import StarRating from "./StarRating";
 import Button from "./Button";
 import styles from "./CourseHeader.module.css";
-import React from  "react";
 export default function CourseHeader({
   courseTitle,
   courseImg,
