@@ -44,6 +44,12 @@ security : user information is secure.
 - [@AhmedFawzy](https://github.com/AhmedFawzy2001)
 
 
+## Screens
+![home](https://github.com/user-attachments/assets/ef83f588-9669-4159-9788-4da6a331f020)
+
+![Screenshot_15-2-2024_16244_localhost](https://github.com/user-attachments/assets/92f28c61-c073-4763-a4db-3f0dc4c5485d)
+
+
 ## Demo
 
 https://sites.google.com/view/mutemotion-faredaelsayed/demo
